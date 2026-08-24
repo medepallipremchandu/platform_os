@@ -1,0 +1,18 @@
+# --- Python services (assessment-service, intake-matching-service) ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+*/logs/*.log
+.pytest_cache/
+.mypy_cache/
+*.db
+
+# --- frontend (Node/React) ---
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/npm-debug.log*
