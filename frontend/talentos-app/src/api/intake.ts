@@ -14,7 +14,12 @@ import type {
   QuestionGenerateResponse,
   ResumeAnalysis,
   ResumeAnalysisSummary,
+  ResumeAnalysisUpdateRequest,
+  Rubric,
+  RubricUpdateRequest,
   RunCodeScope,
+  Skill,
+  SkillUpdateRequest,
   Submission,
   SubmissionSummary,
   TestCaseResult,
@@ -52,6 +57,16 @@ export async function getJDAuditLog(id: string): Promise<AuditLogEntry[]> {
   return data;
 }
 
+export async function updateSkill(jdId: string, skillId: string, payload: SkillUpdateRequest): Promise<Skill> {
+  const { data } = await intakeClient.patch<Skill>(`/jd-analysis/${jdId}/skills/${skillId}`, payload);
+  return data;
+}
+
+export async function updateRubric(jdId: string, rubricId: string, payload: RubricUpdateRequest): Promise<Rubric> {
+  const { data } = await intakeClient.patch<Rubric>(`/jd-analysis/${jdId}/rubrics/${rubricId}`, payload);
+  return data;
+}
+
 // --- Resume analysis ---
 
 export async function listResumeAnalyses(): Promise<ResumeAnalysisSummary[]> {
@@ -70,6 +85,11 @@ export async function analyzeResume(file: File): Promise<ResumeAnalysis> {
 
 export async function getResumeAnalysis(id: string): Promise<ResumeAnalysis> {
   const { data } = await intakeClient.get<ResumeAnalysis>(`/resume-analysis/${id}`);
+  return data;
+}
+
+export async function updateResumeAnalysis(id: string, payload: ResumeAnalysisUpdateRequest): Promise<ResumeAnalysis> {
+  const { data } = await intakeClient.patch<ResumeAnalysis>(`/resume-analysis/${id}`, payload);
   return data;
 }
 

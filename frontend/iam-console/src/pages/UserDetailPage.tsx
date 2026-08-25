@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { extractErrorMessage } from "../api/client";
-import { deleteRoleAssignment, listOrgUsers, listRoleAssignments } from "../api/iam";
+import { listOrgUsers, listRoleAssignments, revokeRoleAssignment } from "../api/iam";
 import { useAuth } from "../components/auth/AuthContext";
 import Badge from "../components/ui/Badge";
 import Button from "../components/ui/Button";
@@ -47,7 +47,7 @@ export default function UserDetailPage() {
     setRevokeLoading(true);
     setRevokeError(null);
     try {
-      await deleteRoleAssignment(revoking.id);
+      await revokeRoleAssignment(revoking.id);
       setRevoking(null);
       load();
     } catch (err) {
@@ -58,7 +58,7 @@ export default function UserDetailPage() {
   }
 
   const columns: Column<RoleAssignment>[] = [
-    { key: "role", header: "Role", render: (a) => a.role_name },
+    { key: "role", header: "Role", render: (a) => a.role_definition_name },
     {
       key: "scope",
       header: "Scope",
@@ -141,7 +141,7 @@ export default function UserDetailPage() {
       {revoking && (
         <ConfirmDialog
           title="Revoke role assignment"
-          message={`Remove the "${revoking.role_name}" role from this user?`}
+          message={`Remove the "${revoking.role_definition_name}" role from this user?`}
           confirmLabel="Revoke"
           loading={revokeLoading}
           onConfirm={confirmRevoke}

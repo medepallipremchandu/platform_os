@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
+  archiveAgent,
   getAgent,
   getAgentUsage,
   listAgentCredentials,
@@ -11,14 +12,20 @@ import { extractErrorMessage } from "../api/client";
 import Badge from "../components/ui/Badge";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
+import ConfirmDialog from "../components/ui/ConfirmDialog";
 import EmptyState from "../components/ui/EmptyState";
 import { SkeletonCard } from "../components/ui/Skeleton";
-import { CheckCircleIcon, ClockIcon } from "../components/ui/icons";
+import { ArchiveIcon, CheckCircleIcon, ClockIcon } from "../components/ui/icons";
 import { formatDateTime } from "../lib/format";
+import { hasPermission, PERMISSIONS } from "../lib/permissions";
+import { toneForAgentStatus, toneForInvocationSuccess, toneForRevocation } from "../lib/tone";
 import type { Agent, AgentCredential, AgentUsageEntry } from "../types";
 
 export default function AgentDetailPage() {
   const { id } = useParams<{ id: string }>();
+  const canPublish = hasPermission(PERMISSIONS.AGENTS_PUBLISH);
+  const canManageKeys = hasPermission(PERMISSIONS.AGENTS_MANAGE_KEYS);
+
   const [agent, setAgent] = useState<Agent | null>(null);
   const [usage, setUsage] = useState<AgentUsageEntry[]>([]);
   const [credentials, setCredentials] = useState<AgentCredential[]>([]);
@@ -27,6 +34,8 @@ export default function AgentDetailPage() {
   const [publishing, setPublishing] = useState(false);
   const [regenerating, setRegenerating] = useState(false);
   const [revealedSecret, setRevealedSecret] = useState<string | null>(null);
+  const [archiving, setArchiving] = useState(false);
+  const [archiveConfirmOpen, setArchiveConfirmOpen] = useState(false);
 
   function refresh() {
     if (!id) return;
@@ -36,7 +45,7 @@ export default function AgentDetailPage() {
         setUsage(u);
         // Credential listing requires manage_keys permission - a read-only viewer can still see
         // the agent itself, so don't let this fail the whole page.
-        if (a.status === "published") {
+        if (a.status === "published" && canManageKeys) {
           listAgentCredentials(id)
             .then(setCredentials)
             .catch(() => setCredentials([]));
@@ -56,9 +65,11 @@ export default function AgentDetailPage() {
       const result = await publishAgent(id);
       setAgent(result.agent);
       if (result.client_secret) setRevealedSecret(result.client_secret);
-      listAgentCredentials(id)
-        .then(setCredentials)
-        .catch(() => setCredentials([]));
+      if (canManageKeys) {
+        listAgentCredentials(id)
+          .then(setCredentials)
+          .catch(() => setCredentials([]));
+      }
     } catch (err) {
       setError(extractErrorMessage(err));
     } finally {
@@ -84,6 +95,21 @@ export default function AgentDetailPage() {
     }
   }
 
+  async function handleArchive() {
+    if (!id) return;
+    setArchiving(true);
+    setError(null);
+    try {
+      const archived = await archiveAgent(id);
+      setAgent(archived);
+      setArchiveConfirmOpen(false);
+    } catch (err) {
+      setError(extractErrorMessage(err));
+    } finally {
+      setArchiving(false);
+    }
+  }
+
   if (loading) return <SkeletonCard />;
   if (error && !agent) return <p className="error-text">{error}</p>;
   if (!agent) return null;
@@ -99,21 +125,40 @@ export default function AgentDetailPage() {
             <h2>{agent.name}</h2>
           </div>
           <div className="jd-detail-header__actions">
-            {agent.status === "draft" ? (
+            {agent.status === "draft" && canPublish && (
               <Button icon={<CheckCircleIcon width={16} height={16} />} onClick={handlePublish} loading={publishing}>
                 Publish
               </Button>
-            ) : (
+            )}
+            {agent.status === "published" && canManageKeys && (
               <Button variant="secondary" onClick={handleRegenerate} loading={regenerating}>
                 Regenerate credential
+              </Button>
+            )}
+            {agent.status !== "archived" && canPublish && (
+              <Button
+                variant="danger"
+                icon={<ArchiveIcon width={16} height={16} />}
+                onClick={() => setArchiveConfirmOpen(true)}
+              >
+                Archive
               </Button>
             )}
           </div>
         </div>
         <div className="audit-summary">
-          <Badge tone={agent.status === "published" ? "success" : "neutral"}>{agent.status}</Badge>{" "}
-          Created by <strong>{agent.created_by || "unknown"}</strong> on {formatDateTime(agent.created_at)}
+          <Badge tone={toneForAgentStatus(agent.status)}>{agent.status}</Badge> Created by{" "}
+          <strong>{agent.created_by || "unknown"}</strong> on {formatDateTime(agent.created_at)}
+          {agent.status === "archived" && agent.archived_at && (
+            <> - archived on {formatDateTime(agent.archived_at)}</>
+          )}
         </div>
+        {agent.status === "archived" && (
+          <p className="hint-text">
+            This agent is archived: it can no longer be invoked, republished, or edited. Its invoke credential has
+            been revoked.
+          </p>
+        )}
         {agent.description && <p>{agent.description}</p>}
 
         {revealedSecret && (
@@ -155,7 +200,7 @@ export default function AgentDetailPage() {
         <pre className="code-editor">{agent.user_prompt_template}</pre>
       </Card>
 
-      {agent.status === "published" && (
+      {agent.status === "published" && canManageKeys && (
         <Card title="Credentials">
           {credentials.length === 0 ? (
             <EmptyState icon={<ClockIcon width={26} height={26} />} title="No credential on record" />
@@ -176,7 +221,7 @@ export default function AgentDetailPage() {
                     </td>
                     <td>{formatDateTime(c.created_at)}</td>
                     <td>
-                      <Badge tone={c.revoked_at ? "danger" : "success"}>{c.revoked_at ? "revoked" : "active"}</Badge>
+                      <Badge tone={toneForRevocation(c.revoked_at)}>{c.revoked_at ? "revoked" : "active"}</Badge>
                     </td>
                   </tr>
                 ))}
@@ -204,7 +249,7 @@ export default function AgentDetailPage() {
                 <tr key={u.id}>
                   <td>{formatDateTime(u.created_at)}</td>
                   <td>
-                    <Badge tone={u.success ? "success" : "danger"}>{u.success ? "success" : "failed"}</Badge>
+                    <Badge tone={toneForInvocationSuccess(u.success)}>{u.success ? "success" : "failed"}</Badge>
                   </td>
                   <td>{u.provider_used || "-"}</td>
                   <td>{Math.round(u.latency_ms)}ms</td>
@@ -214,6 +259,17 @@ export default function AgentDetailPage() {
           </table>
         )}
       </Card>
+
+      {archiveConfirmOpen && (
+        <ConfirmDialog
+          title="Archive agent"
+          message={`Archive "${agent.name}"? Archived agents can no longer be invoked or edited - their invoke credential is revoked immediately. This can't be undone; create a new agent if you need to bring it back.`}
+          confirmLabel="Archive"
+          loading={archiving}
+          onConfirm={handleArchive}
+          onCancel={() => setArchiveConfirmOpen(false)}
+        />
+      )}
     </div>
   );
 }

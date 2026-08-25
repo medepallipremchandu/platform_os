@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from "react";
-import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { extractErrorMessage } from "../api/client";
 import { login } from "../api/iam";
 import Button from "../components/ui/Button";
@@ -155,6 +155,9 @@ export default function LoginPage() {
             <Button type="submit" loading={loading} className="btn--full">
               Sign in
             </Button>
+            <Link to="/forgot-password" className="hint-text">
+              Forgot your password?
+            </Link>
           </form>
         )}
       </div>

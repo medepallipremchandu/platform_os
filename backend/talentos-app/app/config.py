@@ -61,6 +61,31 @@ class Settings(BaseSettings):
     CODE_EXECUTION_TIMEOUT_SECONDS: float = 5.0
     CODE_EXECUTION_MAX_OUTPUT_CHARS: int = 4000
 
+    # --- voice-agent-service: AI outbound phone screens (app/services/voice_agent_client.py) ---
+    # Same pattern as agent-builder-service above: this service's own IAM-issued, resource-bound
+    # Service Principal credential (client_id/client_secret), exchanged for a short-lived access
+    # token via iam-service's POST /auth/token (reuses app.core.iam_client.agent_token_cache),
+    # instead of a per-user token - the recruiter's own token never leaves the browser for this.
+    VOICE_AGENT_SERVICE_URL: str = "http://localhost:8004"
+    VOICE_AGENT_CLIENT_ID: str = ""
+    VOICE_AGENT_CLIENT_SECRET: str = ""
+
+    # Shared secret embedded as a query param in the webhook_url handed to voice-agent-service at
+    # call-creation time (see app/api/webhooks.py) - the only way that inbound POST authenticates
+    # itself back to us, since it isn't a normal IAM-bearer-token caller.
+    VOICE_AGENT_WEBHOOK_SECRET: str = ""
+
+    # This service's own publicly-reachable base URL, used to build the webhook_url above. Local
+    # dev without a tunnel (e.g. ngrok) means voice-agent-service can never actually reach this
+    # path - see .env.example for the same caveat voice-agent-service documents for its own
+    # Twilio tunnel requirement. Everything else (triggering a call, polling call status) still
+    # works without a tunnel.
+    PUBLIC_BASE_URL: str = "http://localhost:8000"
+
+    # --- one-time use: scripts/bootstrap_voice_agent_identity.py only ---
+    IAM_BOOTSTRAP_ADMIN_EMAIL: str = "admin@talentos-platform.com"
+    IAM_BOOTSTRAP_ADMIN_PASSWORD: str = "change-me-local-dev-password"
+
 
 @lru_cache
 def get_settings() -> Settings:

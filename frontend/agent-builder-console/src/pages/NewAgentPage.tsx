@@ -4,12 +4,15 @@ import { createAgent, listModels } from "../api/agentBuilder";
 import { extractErrorMessage } from "../api/client";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
+import EmptyState from "../components/ui/EmptyState";
 import PageHeader from "../components/ui/PageHeader";
-import { SparkleIcon } from "../components/ui/icons";
+import { LockIcon, SparkleIcon } from "../components/ui/icons";
+import { hasPermission, PERMISSIONS } from "../lib/permissions";
 import type { Model } from "../types";
 
 export default function NewAgentPage() {
   const navigate = useNavigate();
+  const canWrite = hasPermission(PERMISSIONS.AGENTS_WRITE);
   const [models, setModels] = useState<Model[]>([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -24,10 +27,11 @@ export default function NewAgentPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!canWrite) return;
     listModels()
       .then(setModels)
       .catch((err) => setError(extractErrorMessage(err)));
-  }, []);
+  }, [canWrite]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -51,6 +55,21 @@ export default function NewAgentPage() {
       setError(extractErrorMessage(err));
       setLoading(false);
     }
+  }
+
+  if (!canWrite) {
+    return (
+      <div className="page">
+        <PageHeader title="Create agent" />
+        <Card>
+          <EmptyState
+            icon={<LockIcon width={26} height={26} />}
+            title="Access denied"
+            description="Your account doesn't have permission to create agents (talentos.agentbuilder.agents.write)."
+          />
+        </Card>
+      </div>
+    );
   }
 
   return (

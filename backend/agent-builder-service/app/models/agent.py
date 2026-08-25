@@ -7,7 +7,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
 
-AGENT_STATUSES = ("draft", "published")
+AGENT_STATUSES = ("draft", "published", "archived")
 
 
 class Agent(Base):
@@ -43,6 +43,7 @@ class Agent(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     published_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    archived_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     primary_model: Mapped["Model"] = relationship(foreign_keys=[primary_model_id])  # noqa: F821
     fallback_model: Mapped["Model | None"] = relationship(foreign_keys=[fallback_model_id])  # noqa: F821
@@ -53,3 +54,7 @@ class Agent(Base):
     @property
     def is_published(self) -> bool:
         return self.status == "published"
+
+    @property
+    def is_archived(self) -> bool:
+        return self.status == "archived"

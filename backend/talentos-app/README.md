@@ -45,6 +45,39 @@ x3 (one per type), and descriptive-answer grading. Any list-to-text formatting a
 (e.g. turning a JD's skills into a readable block for the matching prompt) happens here in
 Python, not in the agent's template - the template only does `{{name}}` substitution.
 
+## Calling voice-agent-service (AI phone screens)
+
+A recruiter can assign a voice-agent-service "call agent config" (script + retry policy,
+managed in `voice-agent-console` - this service never rebuilds that UI) to a JD
+(`JDCallAgentConfig`, one row per JD), then trigger AI phone screens against a submission's
+candidate (`SubmissionCall`, one row per attempt). Both `call_agent_config_id` and
+`voice_agent_call_id` are plain UUID strings, not local foreign keys - those resources live in
+voice-agent-service's own database.
+
+`app/services/voice_agent_client.py` mirrors `agent_client.py`'s pattern exactly: exchanges this
+service's own IAM-issued Service Principal credential (`VOICE_AGENT_CLIENT_ID`/`_SECRET`,
+minted by `scripts/bootstrap_voice_agent_identity.py` against the built-in "Voice Agent
+Contributor" role) for a bearer token via `iam-service`, then calls voice-agent-service's
+`/call-agents`, `/calls`, `/calls/{id}`, `/calls/{id}/conversation`, `/calls/{id}/summary`.
+`GET /calls/{id}` is always treated as the source of truth for a call's status - see below.
+
+**Status enum**: confirmed live against voice-agent-service to be upper-snake-case (`"FAILED"`,
+`"NO_ANSWER"`, etc.), not the lowercase this was first guessed as before that service was
+reachable - see `app.services.voice_call_service.TERMINAL_STATUSES`
+(`is_terminal()` compares case-insensitively as extra insurance).
+
+**Webhook receiver security model** (`POST /webhooks/voice-agent/{submission_call_id}`,
+`app/api/webhooks.py`): this route is deliberately NOT registered under `/api/v1` and carries
+**no IAM bearer-token auth** - it's voice-agent-service calling in, not an interactive user, so
+there's no user token to check. The `?secret=` query param (compared against
+`VOICE_AGENT_WEBHOOK_SECRET`) is the *only* gate. It never trusts the webhook payload's own
+`status` field either - on receipt it re-fetches `GET /calls/{id}` (and, if now terminal,
+`GET /calls/{id}/summary`) from voice-agent-service and caches that. The same "never trust a
+stale/absent webhook" posture also drives `GET /submissions/{id}/calls`: any cached row still in
+a non-terminal state is lazily re-fetched from voice-agent-service on every read, which is what
+lets local dev (no public tunnel, so the webhook can never actually reach back) still show real
+status via the frontend's ~10s poll.
+
 ## Setup
 
 ```bash
@@ -63,6 +96,10 @@ pip install -r requirements.txt
 alembic upgrade 0003
 python scripts/backfill_organization_id.py   # one-time: stamps pre-IAM-migration rows
 alembic upgrade head
+
+# One-time: mints this service's own "Voice Agent Contributor" Service Principal in iam-service
+# and prints VOICE_AGENT_CLIENT_ID/_SECRET to put in .env (idempotent - no-op if already set).
+python scripts/bootstrap_voice_agent_identity.py
 
 python main.py          # serves http://localhost:8000
 ```
@@ -96,6 +133,12 @@ python main.py          # serves http://localhost:8000
 | POST   | `/api/v1/evaluations`                       | Evaluate one answer                                                |
 | POST   | `/api/v1/evaluations/submit-batch`          | Evaluate many answers at once -> score card                        |
 | GET    | `/api/v1/evaluations/{id}`                  | Fetch a stored evaluation                                          |
+| GET    | `/api/v1/jd-analysis/{id}/call-config`      | This JD's assigned call-agent config, or `null`                     |
+| PUT    | `/api/v1/jd-analysis/{id}/call-config`      | `{call_agent_config_id, enabled}` -> upsert                          |
+| POST   | `/api/v1/submissions/{id}/calls`            | Trigger an AI phone screen for this submission's candidate         |
+| GET    | `/api/v1/submissions/{id}/calls`            | List this submission's call attempts (cached status, lazily refreshed) |
+| GET    | `/api/v1/submissions/{id}/calls/{call_id}/conversation` | Live-proxied transcript, never cached                    |
+| POST   | `/webhooks/voice-agent/{submission_call_id}` | voice-agent-service lifecycle callback - `?secret=` gated, no bearer token, see below |
 
 Every request (except `/health`) requires `Authorization: Bearer <access token>` issued by
 `iam-service` (validated locally against its published JWKS - see `app/core/iam_client.py`),
@@ -118,7 +161,12 @@ plus a specific permission per route:
 | `GET /questions/{skill_id}` | `talentos.intake.interviews.read` |
 | `POST /evaluations`, `POST /evaluations/submit-batch` | `talentos.intake.interviews.write` |
 | `GET /evaluations/{id}` | `talentos.intake.interviews.read` |
+| `PUT /jd-analysis/{id}/call-config` | `talentos.intake.requirements.write` |
+| `GET /jd-analysis/{id}/call-config` | `talentos.intake.requirements.read` |
+| `POST /submissions/{id}/calls` | `talentos.intake.submissions.write` |
+| `GET /submissions/{id}/calls`, `GET .../calls/{call_id}/conversation` | `talentos.intake.submissions.read` |
 | `GET /health` | none |
+| `POST /webhooks/voice-agent/{submission_call_id}` | none - `?secret=` query param only, see above |
 
 `created_by`/`modified_by`/`deleted_by` are stamped from the verified token
 (`claims.email or claims.name or claims.sub`) instead of the old free-text `X-Actor-Email`

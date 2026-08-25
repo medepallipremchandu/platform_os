@@ -37,3 +37,20 @@ def rotate_service_principal_secret(*, service_principal_id: str) -> str:
     )
     resp.raise_for_status()
     return resp.json()["client_secret"]
+
+
+def revoke_service_principal(*, service_principal_id: str) -> None:
+    """Revokes the ServicePrincipal in iam-service so any future client-credentials grant for
+    it is rejected immediately (`sp.is_revoked` is checked at token-issuance time - see
+    iam-service's `auth_service.client_credentials_grant`). Used when an agent is archived: its
+    invoke credential must stop being able to mint new tokens right away. Does not invalidate
+    an access token already issued and still within its short expiry - this is a relying-party
+    JWT design (local JWKS verification, no per-request revocation check), not a bug."""
+    settings = get_settings()
+    resp = httpx.delete(
+        f"{settings.IAM_SERVICE_URL}/service-principals/{service_principal_id}",
+        headers={"Authorization": f"Bearer {get_service_token()}"},
+        timeout=10.0,
+    )
+    if resp.status_code not in (204, 404):
+        resp.raise_for_status()

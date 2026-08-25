@@ -2,7 +2,7 @@ import axios, { type InternalAxiosRequestConfig } from "axios";
 import type { ApiErrorBody } from "../types";
 import { getAccessToken } from "../lib/auth";
 
-const IAM_SERVICE_URL = import.meta.env.VITE_IAM_SERVICE_URL || "http://localhost:8003";
+const IAM_SERVICE_URL = import.meta.env.VITE_IAM_SERVICE_URL || "http://localhost:8113";
 
 /** Calls iam-service. Unlike iam-console, `portal` never makes an authenticated call that
  * outlives the login moment (it decodes the freshly-minted access token locally to drive the
@@ -13,9 +13,10 @@ export const iamClient = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
-// /auth/login must never carry a (possibly stale) Authorization header - it's called before any
-// token exists.
-const PUBLIC_PATHS = ["/auth/login"];
+// These must never carry a (possibly stale) Authorization header - all three are called before
+// any token exists. The password-reset pair especially: an invited user has no session at all,
+// and a forgot-password user's stale token would only make the request fail for the wrong reason.
+const PUBLIC_PATHS = ["/auth/login", "/auth/password-reset/request", "/auth/password-reset/confirm"];
 
 function isPublicPath(url?: string): boolean {
   return !!url && PUBLIC_PATHS.some((path) => url.startsWith(path));

@@ -7,6 +7,7 @@ import type {
   AgentUsageEntry,
   Model,
   ModelCreateRequest,
+  ModelUpdateRequest,
 } from "../types";
 
 // --- Models ---
@@ -21,10 +22,26 @@ export async function createModel(payload: ModelCreateRequest): Promise<Model> {
   return data;
 }
 
+/** Renames the model and/or re-encrypts a freshly re-entered credential in place - `provider`
+ * and `model_id` can't be changed this way (see `ModelUpdateRequest`). */
+export async function updateModel(id: string, payload: ModelUpdateRequest): Promise<Model> {
+  const { data } = await agentBuilderClient.patch<Model>(`/models/${id}`, payload);
+  return data;
+}
+
+/** Deactivates the model (soft-delete): it stops being offered when creating/editing agents,
+ * but agents already pointing at it keep working. */
+export async function deactivateModel(id: string): Promise<Model> {
+  const { data } = await agentBuilderClient.delete<Model>(`/models/${id}`);
+  return data;
+}
+
 // --- Agents ---
 
-export async function listAgents(): Promise<AgentSummary[]> {
-  const { data } = await agentBuilderClient.get<AgentSummary[]>("/agents");
+export async function listAgents(options?: { includeArchived?: boolean }): Promise<AgentSummary[]> {
+  const { data } = await agentBuilderClient.get<AgentSummary[]>("/agents", {
+    params: options?.includeArchived ? { include_archived: true } : undefined,
+  });
   return data;
 }
 
@@ -72,5 +89,13 @@ export async function listAgentCredentials(id: string): Promise<AgentCredential[
 
 export async function getAgentUsage(id: string): Promise<AgentUsageEntry[]> {
   const { data } = await agentBuilderClient.get<AgentUsageEntry[]>(`/agents/${id}/usage`);
+  return data;
+}
+
+/** Archives the agent (soft-delete: the row is never removed, only `status` flips to
+ * "archived"). Revokes its active invoke credential in iam-service immediately, and it can
+ * never be republished or edited again - create a new agent instead. */
+export async function archiveAgent(id: string): Promise<Agent> {
+  const { data } = await agentBuilderClient.delete<Agent>(`/agents/${id}`);
   return data;
 }

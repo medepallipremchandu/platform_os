@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime, timezone
 
 from sqlalchemy import or_, select
 from sqlalchemy.orm import Session, selectinload
@@ -9,13 +10,17 @@ from app.models.role_definition import RoleDefinition
 from app.models.role_definition_permission import RoleDefinitionPermission
 
 
-def list_role_definitions(db: Session, organization_id: uuid.UUID) -> list[RoleDefinition]:
+def list_role_definitions(
+    db: Session, organization_id: uuid.UUID, *, include_archived: bool = False
+) -> list[RoleDefinition]:
     stmt = (
         select(RoleDefinition)
         .options(selectinload(RoleDefinition.permissions))
         .where(or_(RoleDefinition.organization_id.is_(None), RoleDefinition.organization_id == organization_id))
         .order_by(RoleDefinition.is_builtin.desc(), RoleDefinition.name)
     )
+    if not include_archived:
+        stmt = stmt.where(RoleDefinition.archived_at.is_(None))
     return list(db.execute(stmt).scalars().all())
 
 
@@ -63,6 +68,8 @@ def update_role_definition(
     role = _get_or_404(db, role_definition_id)
     if role.is_builtin:
         raise ForbiddenError("Built-in role definitions cannot be edited")
+    if role.archived_at is not None:
+        raise ForbiddenError("Archived role definitions cannot be edited")
     if name is not None:
         role.name = name
     if description is not None:
@@ -74,9 +81,16 @@ def update_role_definition(
     return role
 
 
-def delete_role_definition(db: Session, role_definition_id: uuid.UUID) -> None:
+def archive_role_definition(db: Session, role_definition_id: uuid.UUID) -> RoleDefinition:
+    """Soft delete: a custom role is archived (never row-removed), so historical role
+    assignments and audit events referencing it keep resolving. Archived roles are excluded
+    from the default role list and are rejected as the target of any *new* RoleAssignment
+    (see role_assignment_service.create_role_assignment)."""
     role = _get_or_404(db, role_definition_id)
     if role.is_builtin:
         raise ForbiddenError("Built-in role definitions cannot be deleted")
-    db.delete(role)
-    db.commit()
+    if role.archived_at is None:
+        role.archived_at = datetime.now(timezone.utc)
+        db.commit()
+        db.refresh(role)
+    return role

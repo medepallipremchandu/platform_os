@@ -15,6 +15,8 @@ export function toneForAuditAction(action: string): BadgeTone {
     case "created":
       return "success";
     case "updated":
+    case "skill_updated":
+    case "rubric_updated":
       return "warning";
     case "deleted":
       return "danger";
@@ -51,4 +53,45 @@ export function toneForScore(percentage: number): BadgeTone {
   if (percentage >= 75) return "success";
   if (percentage >= 45) return "warning";
   return "danger";
+}
+
+// --- Candidate calls (voice-agent-service) ---
+// The exact status enum wasn't confirmed until voice-agent-service was reachable mid-build - it
+// turned out to be upper-snake-case (e.g. "FAILED", "NO_ANSWER"), not the lowercase this was
+// first guessed as. Compared case-insensitively here as extra insurance.
+
+const TERMINAL_CALL_STATUSES = new Set([
+  "COMPLETED",
+  "FAILED",
+  "CANCELLED",
+  "NO_ANSWER",
+  "VOICEMAIL",
+  "BUSY",
+  "ERROR",
+]);
+
+/** Mirrors the backend's app.services.voice_call_service.is_terminal - used to decide when to
+ * stop polling GET /submissions/{id}/calls. */
+export function isTerminalCallStatus(status: string): boolean {
+  return TERMINAL_CALL_STATUSES.has(status.toUpperCase());
+}
+
+export function toneForCallStatus(status: string): BadgeTone {
+  switch (status.toUpperCase()) {
+    case "COMPLETED":
+      return "success";
+    case "FAILED":
+    case "ERROR":
+    case "NO_ANSWER":
+    case "BUSY":
+      return "danger";
+    case "CANCELLED":
+    case "VOICEMAIL":
+      return "neutral";
+    case "QUEUED":
+      return "neutral";
+    default:
+      // DIALING / RINGING / CONNECTED / IN_PROGRESS / anything unrecognized-but-in-flight
+      return "warning";
+  }
 }

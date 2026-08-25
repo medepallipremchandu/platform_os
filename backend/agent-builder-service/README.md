@@ -21,7 +21,11 @@ for the full design.
   encrypted at rest. Admins register these once; everyone else just picks from the list.
 - **Agent**: a prompt template (`{{variable}}` placeholders) bound to a primary model (and an
   optional fallback model for resilience), with limits (max output tokens, timeout, rate
-  limit). Starts as a **draft**; **publish** it to mint an invoke credential.
+  limit). Starts as a **draft**; **publish** it to mint an invoke credential; **archive** it
+  (soft-delete - the row is never removed) to retire it. An archived agent can never be
+  re-published or invoked, and its invoke credential is revoked in iam-service the moment it's
+  archived so it can't mint a new access token either. `GET /agents` excludes archived agents
+  by default - pass `include_archived=true` to see them.
 - **Agent invoke credential**: on first publish, this service calls iam-service's
   `POST /service-principals` (using its own machine identity - see "IAM bootstrap" below) to
   mint a *resource-bound* `ServicePrincipal` (`resource_type=agent`, `resource_id=<agent id>`).
@@ -97,20 +101,29 @@ service-principal token instead of a permission check (see below).
 | POST   | `/api/v1/models`                        | `talentos.agentbuilder.models.manage`          | Register a model deployment                    |
 | GET    | `/api/v1/models`                        | `talentos.agentbuilder.agents.read`            | List active models (this org only)             |
 | GET    | `/api/v1/models/{id}`                   | `talentos.agentbuilder.agents.read`            | Fetch a model (this org only)                  |
+| PATCH  | `/api/v1/models/{id}`                   | `talentos.agentbuilder.models.manage`          | Rename and/or re-enter credentials in place     |
 | DELETE | `/api/v1/models/{id}`                   | `talentos.agentbuilder.models.manage`          | Deactivate a model                             |
 | POST   | `/api/v1/agents`                        | `talentos.agentbuilder.agents.write`           | Create a draft agent                           |
-| GET    | `/api/v1/agents`                        | `talentos.agentbuilder.agents.read`            | List agents (this org only)                    |
+| GET    | `/api/v1/agents`                        | `talentos.agentbuilder.agents.read`            | List agents (this org only, `?include_archived=true` to include archived) |
 | GET    | `/api/v1/agents/{id}`                   | `talentos.agentbuilder.agents.read`            | Fetch an agent (incl. prompt, limits, model)   |
 | PATCH  | `/api/v1/agents/{id}`                   | `talentos.agentbuilder.agents.write`           | Edit a draft (re-derives input_variables)      |
 | POST   | `/api/v1/agents/{id}/publish`           | `talentos.agentbuilder.agents.publish`         | Publish - mints an invoke credential once      |
+| DELETE | `/api/v1/agents/{id}`                   | `talentos.agentbuilder.agents.publish`         | Archive (soft-delete) - revokes its invoke credential immediately |
 | POST   | `/api/v1/agents/{id}/keys/regenerate`   | `talentos.agentbuilder.agents.manage_keys`     | Rotate the credential (old one stops working)  |
 | GET    | `/api/v1/agents/{id}/keys`              | `talentos.agentbuilder.agents.manage_keys`     | List credential previews (never the secret)    |
 | GET    | `/api/v1/agents/{id}/usage`             | `talentos.agentbuilder.agents.read`            | Last 100 invocation log entries                |
 | POST   | `/api/v1/invoke`                        | *(resource-scope check, not a permission)*     | Run a published agent with a set of variables  |
 
-Every mutation (create/update/publish/rotate/delete on models and agents) posts an audit event
-to iam-service's `POST /audit/events`, attributed to the caller whose bearer token made the
-request.
+Permission mapping rationale: `agents.write` covers routine draft edits (create/PATCH);
+`agents.publish` covers agent *lifecycle* transitions that mint or revoke the invoke credential
+(publish and archive alike - archive is publish's mirror image); `agents.manage_keys` is
+reserved for credential-only operations (rotate/list) that don't otherwise change the agent's
+lifecycle state; `models.manage` covers every model mutation (create/PATCH/deactivate), since
+model credentials are always more sensitive than agent metadata.
+
+Every mutation (create/update/publish/archive/rotate/delete on models and agents) posts an
+audit event to iam-service's `POST /audit/events`, attributed to the caller whose bearer token
+made the request.
 
 ### Calling `/invoke` (for `talentos-app` or any other consumer)
 

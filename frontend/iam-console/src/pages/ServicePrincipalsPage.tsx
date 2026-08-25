@@ -1,6 +1,12 @@
-import { type FormEvent, useEffect, useState } from "react";
+import { type FormEvent, useEffect, useMemo, useState } from "react";
 import { extractErrorMessage } from "../api/client";
-import { createServicePrincipal, listServicePrincipals, revokeServicePrincipal, rotateServicePrincipalSecret } from "../api/iam";
+import {
+  createServicePrincipal,
+  listServicePrincipals,
+  renameServicePrincipal,
+  revokeServicePrincipal,
+  rotateServicePrincipalSecret,
+} from "../api/iam";
 import { useAuth } from "../components/auth/AuthContext";
 import SecretRevealModal from "../components/SecretRevealModal";
 import Badge from "../components/ui/Badge";
@@ -8,14 +14,19 @@ import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import ConfirmDialog from "../components/ui/ConfirmDialog";
 import EmptyState from "../components/ui/EmptyState";
+import FilterBar, { FilterBarField } from "../components/ui/FilterBar";
 import Modal from "../components/ui/Modal";
 import PageHeader from "../components/ui/PageHeader";
+import SearchInput from "../components/ui/SearchInput";
 import { SkeletonRows } from "../components/ui/Skeleton";
-import Table, { type Column } from "../components/ui/Table";
-import { KeyIcon, PlusIcon, RefreshIcon, TrashIcon } from "../components/ui/icons";
+import Table, { type Column, type SortDirection } from "../components/ui/Table";
+import { EditIcon, KeyIcon, PlusIcon, RefreshIcon, TrashIcon } from "../components/ui/icons";
 import { PERMISSIONS, hasPermission } from "../lib/permissions";
 import { toneForRevocation } from "../lib/tone";
 import type { ServicePrincipal, ServicePrincipalWithSecret } from "../types";
+
+type StatusFilter = "" | "active" | "revoked";
+type SortKey = "name" | "created_at";
 
 export default function ServicePrincipalsPage() {
   const { claims } = useAuth();
@@ -36,6 +47,15 @@ export default function ServicePrincipalsPage() {
   const [rotateLoading, setRotateLoading] = useState(false);
   const [revoking, setRevoking] = useState<ServicePrincipal | null>(null);
   const [revokeLoading, setRevokeLoading] = useState(false);
+  const [renaming, setRenaming] = useState<ServicePrincipal | null>(null);
+  const [renameValue, setRenameValue] = useState("");
+  const [renameSaving, setRenameSaving] = useState(false);
+  const [renameError, setRenameError] = useState<string | null>(null);
+
+  const [query, setQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>("");
+  const [sortKey, setSortKey] = useState<SortKey>("created_at");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
 
   function load() {
     if (!orgId) return;
@@ -105,8 +125,58 @@ export default function ServicePrincipalsPage() {
     }
   }
 
+  function openRename(sp: ServicePrincipal) {
+    setRenaming(sp);
+    setRenameValue(sp.name);
+    setRenameError(null);
+  }
+
+  async function confirmRename(e: FormEvent) {
+    e.preventDefault();
+    if (!renaming) return;
+    setRenameSaving(true);
+    setRenameError(null);
+    try {
+      await renameServicePrincipal(renaming.id, { name: renameValue });
+      setRenaming(null);
+      load();
+    } catch (err) {
+      setRenameError(extractErrorMessage(err));
+    } finally {
+      setRenameSaving(false);
+    }
+  }
+
+  function toggleSort(key: string) {
+    if (key !== "name" && key !== "created_at") return;
+    if (sortKey === key) {
+      setSortDirection((d) => (d === "asc" ? "desc" : "asc"));
+    } else {
+      setSortKey(key);
+      setSortDirection(key === "created_at" ? "desc" : "asc");
+    }
+  }
+
+  // Client-side search/filter/sort over the already-fetched list - service principals are an
+  // admin-configured credential list, not application-scale data. Revisit with server-side
+  // pagination only if an org's count ever grows large enough to matter.
+  const visiblePrincipals = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    let list = (principals || []).filter((sp) => {
+      if (statusFilter === "active" && sp.revoked_at) return false;
+      if (statusFilter === "revoked" && !sp.revoked_at) return false;
+      if (q && !sp.name.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    list = [...list].sort((a, b) => {
+      const diff = sortKey === "name" ? a.name.localeCompare(b.name) : new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+      return sortDirection === "asc" ? diff : -diff;
+    });
+    return list;
+  }, [principals, query, statusFilter, sortKey, sortDirection]);
+
   const columns: Column<ServicePrincipal>[] = [
-    { key: "name", header: "Name", render: (sp) => sp.name },
+    { key: "name", header: "Name", sortable: true, render: (sp) => sp.name },
     { key: "client_id", header: "Client ID", render: (sp) => <code>{sp.client_id}</code> },
     {
       key: "binding",
@@ -118,6 +188,7 @@ export default function ServicePrincipalsPage() {
       header: "Status",
       render: (sp) => <Badge tone={toneForRevocation(sp.revoked_at)}>{sp.revoked_at ? "Revoked" : "Active"}</Badge>,
     },
+    { key: "created_at", header: "Created", sortable: true, render: (sp) => new Date(sp.created_at).toLocaleDateString() },
     ...(canManage
       ? [
           {
@@ -128,6 +199,9 @@ export default function ServicePrincipalsPage() {
               <div className="data-table__actions">
                 {!sp.revoked_at && (
                   <>
+                    <Button variant="secondary" size="sm" icon={<EditIcon width={14} height={14} />} onClick={() => openRename(sp)}>
+                      Rename
+                    </Button>
                     <Button variant="secondary" size="sm" icon={<RefreshIcon width={14} height={14} />} onClick={() => setRotating(sp)}>
                       Rotate
                     </Button>
@@ -161,17 +235,39 @@ export default function ServicePrincipalsPage() {
       {error && <p className="error-text">{error}</p>}
 
       <Card>
+        <FilterBar>
+          <FilterBarField label="Search" htmlFor="sp-search">
+            <SearchInput value={query} onChange={setQuery} placeholder="Search by name..." />
+          </FilterBarField>
+          <FilterBarField label="Status" htmlFor="sp-status">
+            <select id="sp-status" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as StatusFilter)}>
+              <option value="">All</option>
+              <option value="active">Active</option>
+              <option value="revoked">Revoked</option>
+            </select>
+          </FilterBarField>
+        </FilterBar>
+      </Card>
+
+      <Card>
         {principals === null ? (
           <SkeletonRows rows={5} columns={4} />
-        ) : principals.length === 0 ? (
+        ) : visiblePrincipals.length === 0 ? (
           <EmptyState
             icon={<KeyIcon width={26} height={26} />}
-            title="No service principals yet"
-            description="Create one for a backend service or a specific resource's invoke credential."
-            action={canManage ? <Button onClick={openCreate}>New service principal</Button> : undefined}
+            title={principals.length === 0 ? "No service principals yet" : "No service principals match your filters"}
+            description={principals.length === 0 ? "Create one for a backend service or a specific resource's invoke credential." : undefined}
+            action={principals.length === 0 && canManage ? <Button onClick={openCreate}>New service principal</Button> : undefined}
           />
         ) : (
-          <Table columns={columns} rows={principals} getRowKey={(sp) => sp.id} />
+          <Table
+            columns={columns}
+            rows={visiblePrincipals}
+            getRowKey={(sp) => sp.id}
+            sortKey={sortKey}
+            sortDirection={sortDirection}
+            onSort={toggleSort}
+          />
         )}
       </Card>
 
@@ -205,6 +301,26 @@ export default function ServicePrincipalsPage() {
               </Button>
               <Button type="submit" loading={saving}>
                 Create
+              </Button>
+            </div>
+          </form>
+        </Modal>
+      )}
+
+      {renaming && (
+        <Modal title={`Rename "${renaming.name}"`} onClose={() => setRenaming(null)}>
+          <form className="form" onSubmit={confirmRename}>
+            {renameError && <p className="error-text">{renameError}</p>}
+            <label>
+              Name
+              <input type="text" value={renameValue} onChange={(e) => setRenameValue(e.target.value)} required autoFocus />
+            </label>
+            <div className="form__actions">
+              <Button type="button" variant="secondary" onClick={() => setRenaming(null)} disabled={renameSaving}>
+                Cancel
+              </Button>
+              <Button type="submit" loading={renameSaving}>
+                Save
               </Button>
             </div>
           </form>

@@ -59,3 +59,12 @@ def revoke_service_principal(db: Session, service_principal_id: uuid.UUID) -> No
     sp = _get_or_404(db, service_principal_id)
     sp.revoked_at = datetime.now(timezone.utc)
     db.commit()
+
+
+def rename_service_principal(db: Session, service_principal_id: uuid.UUID, *, name: str) -> ServicePrincipal:
+    """Rename only - never touches client_id/secret_hash/revoked_at."""
+    sp = _get_or_404(db, service_principal_id)
+    sp.name = name
+    db.commit()
+    db.refresh(sp)
+    return sp

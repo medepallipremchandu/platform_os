@@ -1,0 +1,32 @@
+# --- Web (provider-configuration API; the Celery worker does not need these but they share
+# the same virtualenv, so one requirements file covers both entry points) ---
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+httpx==0.28.1
+
+# --- Persistence ---
+SQLAlchemy==2.0.36
+psycopg2-binary==2.9.10
+alembic==1.14.0
+
+# --- Config ---
+pydantic==2.10.4
+pydantic[email]==2.10.4
+pydantic-settings==2.7.1
+python-dotenv==1.0.1
+
+# --- Queue ---
+# kombu[sqlalchemy] pulls nothing extra (SQLAlchemy is already pinned above) but documents the
+# intent: the platform-default broker is Postgres via Kombu's SQLAlchemy transport.
+celery==5.4.0
+kombu==5.6.2
+# Optional transports an organization can select for its OWN queue provider (see
+# app/providers/queue/). Installed unconditionally so a tenant can enable them without a
+# redeploy; unused imports cost nothing until a config selects them.
+redis==5.2.1
+
+# --- Security ---
+# cryptography: Fernet envelope for provider secrets at rest (SMTP passwords, API keys,
+# broker DSNs). PyJWT: RS256 validation of iam-service access tokens on the config API.
+cryptography==44.0.0
+PyJWT==2.10.1

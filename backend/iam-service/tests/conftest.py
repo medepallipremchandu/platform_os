@@ -29,6 +29,11 @@ os.environ.setdefault("LOGIN_LOCKOUT_THRESHOLD", "3")
 os.environ.setdefault("LOGIN_LOCKOUT_WINDOW_MINUTES", "15")
 os.environ.setdefault("LOGIN_LOCKOUT_DURATION_MINUTES", "15")
 os.environ.setdefault("PASSWORD_MIN_LENGTH", "12")
+os.environ.setdefault("PORTAL_URL", "http://localhost:5175")
+# Tests must not talk to a broker: notification_client degrades every publish to a log line when
+# this is off, which is exactly the behaviour the invite/reset tests assert on (they read the
+# emitted set-password link out of the log rather than out of a queue).
+os.environ.setdefault("NOTIFICATIONS_ENABLED", "false")
 
 
 def _ensure_test_database() -> None:

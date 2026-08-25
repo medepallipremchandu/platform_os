@@ -18,6 +18,7 @@ from app.core.constants import ActorType, AuditResult
 from app.core.exceptions import ConflictError, ForbiddenError, LockedError, UnauthorizedError
 from app.core.password import hash_password, verify_password
 from app.core.secrets import generate_client_id, generate_client_secret, hash_secret
+from app.models.organization import Organization
 from app.models.organization_membership import OrganizationMembership
 from app.models.refresh_token import RefreshToken
 from app.models.service_principal import ServicePrincipal
@@ -32,9 +33,17 @@ def _generate_refresh_token_plain() -> str:
 
 
 def _active_memberships(db: Session, user_id: uuid.UUID) -> list[OrganizationMembership]:
-    stmt = select(OrganizationMembership).where(
-        OrganizationMembership.user_id == user_id,
-        OrganizationMembership.status == "active",
+    # Joined against Organization.is_active so a deactivated organization's users can no longer
+    # authenticate into it - membership status alone isn't enough, since the membership row
+    # itself is untouched when the *organization* (not the member) is deactivated.
+    stmt = (
+        select(OrganizationMembership)
+        .join(Organization, Organization.id == OrganizationMembership.organization_id)
+        .where(
+            OrganizationMembership.user_id == user_id,
+            OrganizationMembership.status == "active",
+            Organization.is_active.is_(True),
+        )
     )
     return list(db.execute(stmt).scalars().all())
 
@@ -55,16 +64,24 @@ def _create_refresh_token_row(
     return row, plain
 
 
-def _issue_pair_for_user(db: Session, *, user: User, organization_id: uuid.UUID, settings: Settings) -> dict:
+def _issue_pair_for_user(db: Session, *, user: User, organization_id: uuid.UUID | None, settings: Settings) -> dict:
+    """`organization_id` is None only for a platform superadmin with no organization membership.
+    That session carries org_id=null and permissions=[] - a superadmin's authority comes from
+    the is_superadmin claim, not from org-scoped permissions it could not possibly have."""
     from app.services.permission_service import resolve_permissions
 
-    permissions = resolve_permissions(db, principal_type="user", principal_id=user.id, organization_id=organization_id)
+    permissions = (
+        resolve_permissions(db, principal_type="user", principal_id=user.id, organization_id=organization_id)
+        if organization_id is not None
+        else []
+    )
     access_token, _claims = issue_access_token(
         sub=user.id,
         principal_type="user",
         org_id=organization_id,
         permissions=permissions,
         email=user.email,
+        is_superadmin=user.is_superadmin,
     )
     family_id = uuid.uuid4()
     _row, refresh_plain = _create_refresh_token_row(
@@ -133,6 +150,13 @@ def login(
 
     memberships = _active_memberships(db, user.id)
     if not memberships:
+        # A platform superadmin legitimately belongs to no organization - that IS the tier. Any
+        # other user with no active membership has nothing to log into, so the existing refusal
+        # stands for them.
+        if user.is_superadmin:
+            result = _issue_pair_for_user(db, user=user, organization_id=None, settings=settings)
+            audit(None, AuditResult.SUCCESS.value)
+            return result
         audit(None, AuditResult.DENIED.value)
         raise ForbiddenError("User has no active organization membership")
 
@@ -250,8 +274,10 @@ def refresh_token_rotate(db: Session, settings: Settings, *, refresh_token_plain
 
     from app.services.permission_service import resolve_permissions
 
-    permissions = resolve_permissions(
-        db, principal_type="user", principal_id=user.id, organization_id=row.organization_id
+    permissions = (
+        resolve_permissions(db, principal_type="user", principal_id=user.id, organization_id=row.organization_id)
+        if row.organization_id is not None
+        else []
     )
     access_token, _claims = issue_access_token(
         sub=user.id,
@@ -259,6 +285,7 @@ def refresh_token_rotate(db: Session, settings: Settings, *, refresh_token_plain
         org_id=row.organization_id,
         permissions=permissions,
         email=user.email,
+        is_superadmin=user.is_superadmin,
     )
     _new_row, new_refresh_plain = _create_refresh_token_row(
         db, user_id=user.id, organization_id=row.organization_id, family_id=row.family_id, settings=settings
@@ -283,17 +310,34 @@ def refresh_token_rotate(db: Session, settings: Settings, *, refresh_token_plain
 
 
 def switch_org(db: Session, settings: Settings, *, user_id: uuid.UUID, organization_id: uuid.UUID) -> dict:
+    user = db.get(User, user_id)
+    if user is None:
+        raise UnauthorizedError("Account is disabled")
+
     membership = db.execute(
-        select(OrganizationMembership).where(
+        select(OrganizationMembership)
+        .join(Organization, Organization.id == OrganizationMembership.organization_id)
+        .where(
             OrganizationMembership.user_id == user_id,
             OrganizationMembership.organization_id == organization_id,
             OrganizationMembership.status == "active",
+            Organization.is_active.is_(True),
         )
     ).scalar_one_or_none()
     if membership is None:
-        raise ForbiddenError("User is not an active member of the requested organization")
+        # A platform superadmin may scope a session to any ACTIVE organization without holding a
+        # membership - overseeing every tenant is the tier's purpose, and GET /organizations
+        # already shows them all, so a switcher listing organizations they cannot enter would be
+        # a dead end.
+        #
+        # This grants scope, not authority: permissions still come only from role assignments
+        # they actually hold in that organization (usually none), so the resulting token carries
+        # an empty permission list plus is_superadmin. Superadmin-gated endpoints work; org-scoped
+        # ones stay closed unless someone deliberately assigned them a role there.
+        organization = db.get(Organization, organization_id)
+        if not (user.is_superadmin and organization is not None and organization.is_active):
+            raise ForbiddenError("User is not an active member of the requested organization")
 
-    user = db.get(User, user_id)
     result = _issue_pair_for_user(db, user=user, organization_id=organization_id, settings=settings)
     record_audit_event(
         db,

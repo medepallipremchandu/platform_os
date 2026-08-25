@@ -14,7 +14,9 @@ class TokenResponse(BaseModel):
     refresh_token: str
     token_type: str = "bearer"
     expires_in: int
-    organization_id: uuid.UUID
+    # None for a platform superadmin with no organization membership - their session genuinely
+    # belongs to no organization. Every other login still carries a real organization id.
+    organization_id: uuid.UUID | None = None
 
 
 class MembershipChoice(BaseModel):

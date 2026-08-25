@@ -3,7 +3,7 @@ import { clearTokens, getAccessToken, getRefreshToken, isAccessTokenExpired, red
 import type { ApiErrorBody, TokenPair } from "../types";
 
 const INTAKE_API_BASE_URL = import.meta.env.VITE_INTAKE_API_BASE_URL || "http://localhost:8000/api/v1";
-const IAM_SERVICE_URL = import.meta.env.VITE_IAM_SERVICE_URL || "http://localhost:8003";
+const IAM_SERVICE_URL = import.meta.env.VITE_IAM_SERVICE_URL || "http://localhost:8113";
 
 /** The backend is an IAM relying party: every request needs `Authorization: Bearer
  * <access_token>`, refreshed proactively before it expires and reactively on a 401, obtained by
@@ -37,7 +37,10 @@ export async function ensureFreshSession(): Promise<void> {
   }
 }
 
-function attachAuth(client: ReturnType<typeof axios.create>) {
+/** Attaches the same Bearer-token-refresh interceptor pattern to any axios instance - exported
+ * so a second, dedicated client (e.g. src/api/voiceAgentDirect.ts, which talks directly to
+ * voice-agent-service for one read-only call) can reuse it instead of re-implementing it. */
+export function attachAuth(client: ReturnType<typeof axios.create>) {
   client.interceptors.request.use(async (config) => {
     await ensureFreshSession();
     const token = getAccessToken();

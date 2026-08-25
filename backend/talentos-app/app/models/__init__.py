@@ -5,6 +5,7 @@ from app.models.submission import MatchAnalysis, Submission
 from app.models.interview_session import InterviewSession
 from app.models.question import Question, QuestionRubricMap, QuestionTestCase
 from app.models.evaluation import Evaluation, EvaluationRubricScore, EvaluationTestCaseResult
+from app.models.voice_call import JDCallAgentConfig, SubmissionCall
 
 __all__ = [
     "AuditLog",
@@ -21,4 +22,6 @@ __all__ = [
     "Evaluation",
     "EvaluationRubricScore",
     "EvaluationTestCaseResult",
+    "JDCallAgentConfig",
+    "SubmissionCall",
 ]

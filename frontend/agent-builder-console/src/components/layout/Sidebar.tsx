@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { NAV_ITEMS } from "../../lib/navigation";
-import { clearTokens, currentPrincipalLabel, redirectToLogin } from "../../lib/auth";
+import { visibleNavItems } from "../../lib/navigation";
+import { currentPrincipalLabel, redirectToLogout } from "../../lib/auth";
 import { initials } from "../../lib/format";
 import { CloseIcon, LogoutIcon, SparkleIcon } from "../ui/icons";
 
@@ -11,10 +11,13 @@ interface Props {
 
 export default function Sidebar({ open, onClose }: Props) {
   const principal = currentPrincipalLabel();
+  const items = visibleNavItems();
 
   function handleLogout() {
-    clearTokens();
-    redirectToLogin();
+    // redirectToLogout, not clearTokens + redirectToLogin: clearing only this app's storage
+    // leaves portal's session intact, and it hands the same one straight back through the
+    // return_to handoff - which looks like a reload, not a sign-out.
+    redirectToLogout();
   }
 
   return (
@@ -34,9 +37,9 @@ export default function Sidebar({ open, onClose }: Props) {
         </div>
 
         <nav className="sidebar__nav">
-          {NAV_ITEMS.map((item, i) => (
+          {items.map((item, i) => (
             <div key={item.path}>
-              {item.section && item.section !== NAV_ITEMS[i - 1]?.section && (
+              {item.section && item.section !== items[i - 1]?.section && (
                 <div className="sidebar__section-label">{item.section}</div>
               )}
               <NavLink

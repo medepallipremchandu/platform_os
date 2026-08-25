@@ -31,6 +31,15 @@ PERMISSIONS: list[tuple[str, str]] = [
     ("talentos.iam.role_assignments.manage", "Assign and revoke roles at a scope"),
     ("talentos.iam.service_principals.manage", "Create, rotate and revoke service principals"),
     ("talentos.iam.audit.read", "Read the platform-wide audit log"),
+    (
+        "talentos.notifications.providers.read",
+        "Read the organization's email and queue provider configurations (never their secrets)",
+    ),
+    (
+        "talentos.notifications.providers.manage",
+        "Add, configure, test, enable and disable the organization's own email and queue providers",
+    ),
+    ("talentos.notifications.logs.read", "Read the organization's outbound email delivery log"),
     ("talentos.intake.requirements.read", "Read job requirements"),
     ("talentos.intake.requirements.write", "Create/edit job requirements"),
     ("talentos.intake.requirements.delete", "Delete job requirements"),
@@ -47,13 +56,21 @@ PERMISSIONS: list[tuple[str, str]] = [
     ("talentos.agentbuilder.agents.write", "Create/edit agents"),
     ("talentos.agentbuilder.agents.publish", "Publish agents"),
     ("talentos.agentbuilder.agents.manage_keys", "Rotate/revoke agent invoke credentials"),
+    ("talentos.voiceagent.providers.manage", "Register/manage telephony provider credentials"),
+    ("talentos.voiceagent.providers.read", "Read telephony provider configs (name/type, never credentials)"),
+    ("talentos.voiceagent.callagents.read", "Read call agent configs (script, retry policy, provider)"),
+    ("talentos.voiceagent.callagents.write", "Create/edit call agent configs"),
+    ("talentos.voiceagent.calls.read", "Read calls, transcripts, summaries"),
+    ("talentos.voiceagent.calls.write", "Place and cancel calls"),
 ]
 
 ALL_CODES = [code for code, _ in PERMISSIONS]
 ALL_EXCEPT_ORG_MANAGE = [c for c in ALL_CODES if c != "talentos.iam.organizations.manage"]
+NOTIFICATIONS_ALL = [c for c in ALL_CODES if c.startswith("talentos.notifications.")]
 INTAKE_ALL = [c for c in ALL_CODES if c.startswith("talentos.intake.")]
 INTAKE_READ_WRITE = [c for c in INTAKE_ALL if not c.endswith(".delete")]
 AGENTBUILDER_ALL = [c for c in ALL_CODES if c.startswith("talentos.agentbuilder.")]
+VOICEAGENT_ALL = [c for c in ALL_CODES if c.startswith("talentos.voiceagent.")]
 
 # --- Exact built-in roles to seed. ---
 BUILTIN_ROLES: list[dict] = [
@@ -88,6 +105,22 @@ BUILTIN_ROLES: list[dict] = [
         "permission_codes": ["talentos.agentbuilder.agents.read", "talentos.agentbuilder.agents.write"],
     },
     {
+        "name": "Voice Agent Admin",
+        "description": "Manage telephony provider credentials and call agent configs, place/cancel calls.",
+        "permission_codes": VOICEAGENT_ALL,
+    },
+    {
+        "name": "Voice Agent Contributor",
+        "description": "Create/edit call agent configs and place/cancel calls; cannot manage provider credentials.",
+        "permission_codes": [
+            "talentos.voiceagent.providers.read",
+            "talentos.voiceagent.callagents.read",
+            "talentos.voiceagent.callagents.write",
+            "talentos.voiceagent.calls.read",
+            "talentos.voiceagent.calls.write",
+        ],
+    },
+    {
         "name": "Viewer",
         "description": "Read-only, org-wide.",
         "permission_codes": [
@@ -96,7 +129,14 @@ BUILTIN_ROLES: list[dict] = [
             "talentos.intake.submissions.read",
             "talentos.intake.interviews.read",
             "talentos.agentbuilder.agents.read",
+            "talentos.voiceagent.callagents.read",
+            "talentos.voiceagent.calls.read",
         ],
+    },
+    {
+        "name": "Notification Admin",
+        "description": "Configure the organization's own email and queue providers, and read its delivery log.",
+        "permission_codes": NOTIFICATIONS_ALL,
     },
 ]
 

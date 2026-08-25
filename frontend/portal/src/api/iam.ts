@@ -31,3 +31,16 @@ export async function login(payload: LoginRequest): Promise<LoginResult> {
 export async function logout(): Promise<void> {
   await iamClient.post("/auth/logout");
 }
+
+/** POST /auth/password-reset/request. Answers 202 whether or not the address exists - callers
+ * must not render anything that would reveal which. */
+export async function requestPasswordReset(email: string): Promise<void> {
+  await iamClient.post("/auth/password-reset/request", { email });
+}
+
+/** POST /auth/password-reset/confirm - the single endpoint behind BOTH the invite/first-login
+ * flow and forgot-password. iam-service uses one token type for both, and also flips a
+ * status="invited" user to "active" here, so there is no separate activation call to make. */
+export async function confirmPasswordReset(token: string, newPassword: string): Promise<void> {
+  await iamClient.post("/auth/password-reset/confirm", { token, new_password: newPassword });
+}

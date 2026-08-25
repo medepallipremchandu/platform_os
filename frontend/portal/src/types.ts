@@ -17,14 +17,16 @@ export interface TokenPair {
   refresh_token: string;
   token_type: string;
   expires_in: number;
-  organization_id: string;
+  /** Null for a platform superadmin, who belongs to no organization. */
+  organization_id: string | null;
 }
 
 /** Shape of the decoded access-token JWT payload (RS256, unencrypted - safe to read client-side). */
 export interface AccessTokenClaims {
   sub: string;
   principal_type: "user" | "service_principal";
-  org_id: string;
+  /** Null for a platform superadmin, who belongs to no organization. */
+  org_id: string | null;
   permissions: string[];
   resource_scope?: { type: string; id: string };
   iat: number;
@@ -32,6 +34,9 @@ export interface AccessTokenClaims {
   jti: string;
   email?: string;
   name?: string;
+  /** The platform tier above organizations - a separate axis from `permissions`, which is
+   * empty for a superadmin precisely because they hold no org-scoped roles. */
+  is_superadmin?: boolean;
 }
 
 export interface LoginRequest {

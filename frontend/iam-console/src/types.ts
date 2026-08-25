@@ -22,7 +22,9 @@ export interface TokenPair {
 export interface AccessTokenClaims {
   sub: string;
   principal_type: "user" | "service_principal";
-  org_id: string;
+  /** Null for a platform superadmin, who belongs to no organization. Every org-scoped fetch in
+   * this app must therefore guard on it rather than assuming a UUID - see `useOrgId()`. */
+  org_id: string | null;
   permissions: string[];
   resource_scope?: { type: string; id: string };
   iat: number;
@@ -30,6 +32,10 @@ export interface AccessTokenClaims {
   jti: string;
   email?: string;
   name?: string;
+  /** The platform tier above organizations. A separate axis from `permissions` on purpose: an
+   * organization owner holding every talentos.iam.* permission is still not a superadmin. Gate
+   * on `isSuperAdmin()`, never on a permission code. */
+  is_superadmin?: boolean;
 }
 
 // --- Organizations ---
@@ -37,7 +43,39 @@ export interface AccessTokenClaims {
 export interface Organization {
   id: string;
   name: string;
+  is_active: boolean;
+  /** The permission ceiling: codes this organization is allowed to grant at all. `null` means
+   * unrestricted, NOT "none allowed" - iam-service intersects with it only when it is non-empty. */
+  allowed_permissions: string[] | null;
   created_at: string;
+}
+
+export interface UpdateOrganizationRequest {
+  name: string;
+}
+
+/** Superadmin-only tenant provisioning: organization, ceiling and first admin in one call. */
+export interface CreateOrganizationRequest {
+  name: string;
+  admin_email: string;
+  admin_display_name?: string;
+  allowed_permission_codes: string[];
+}
+
+export interface OrganizationAdmin {
+  id: string;
+  email: string;
+  display_name: string | null;
+  status: UserStatus;
+}
+
+export interface OrganizationWithAdmin {
+  organization: Organization;
+  admin: OrganizationAdmin;
+}
+
+export interface UpdateEntitlementsRequest {
+  allowed_permission_codes: string[];
 }
 
 // --- Users ---
@@ -63,8 +101,10 @@ export interface InviteUserRequest {
   display_name: string;
 }
 
-export interface UpdateUserStatusRequest {
-  status: UserStatus;
+/** Both fields optional (send only what changed) - at least one is required by the server. */
+export interface UpdateUserMembershipRequest {
+  status?: UserStatus;
+  display_name?: string;
 }
 
 // --- Roles & permissions ---
@@ -74,7 +114,12 @@ export interface RoleDefinition {
   name: string;
   organization_id: string | null;
   is_builtin: boolean;
-  permissions: string[];
+  archived_at: string | null;
+  created_at: string;
+  // The API returns the full permission catalog rows (id/code/description) attached to this
+  // role, not bare codes - see `permissionCodesOf()` in lib/permissions.ts for the one place
+  // that flattens this down to the string[] a create/update payload actually needs.
+  permissions: Permission[];
 }
 
 export interface CreateRoleDefinitionRequest {
@@ -92,7 +137,7 @@ export interface UpdateRoleDefinitionRequest {
 
 export type PrincipalType = "user" | "service_principal";
 export type ScopeType = "organization" | "service";
-export const KNOWN_SERVICES = ["talentos-app", "agent-builder", "iam"] as const;
+export const KNOWN_SERVICES = ["talentos-app", "agent-builder", "voice-agent", "iam"] as const;
 export type ServiceName = (typeof KNOWN_SERVICES)[number];
 
 /** iam-service doesn't resolve a display label for the principal - callers cross-reference
@@ -103,10 +148,11 @@ export interface RoleAssignment {
   principal_type: PrincipalType;
   principal_id: string;
   role_definition_id: string;
-  role_name: string;
+  role_definition_name: string | null;
   organization_id: string;
   scope_type: ScopeType;
   scope_id: string;
+  revoked_at: string | null;
   created_at: string;
 }
 
@@ -114,6 +160,7 @@ export interface CreateRoleAssignmentRequest {
   principal_type: PrincipalType;
   principal_id: string;
   role_definition_id: string;
+  organization_id: string;
   scope_type: ScopeType;
   service_name?: ServiceName;
 }
@@ -127,6 +174,7 @@ export interface ServicePrincipal {
   resource_type: string | null;
   resource_id: string | null;
   revoked_at: string | null;
+  created_at: string;
 }
 
 export interface CreateServicePrincipalRequest {
@@ -134,6 +182,10 @@ export interface CreateServicePrincipalRequest {
   organization_id: string;
   resource_type?: string;
   resource_id?: string;
+}
+
+export interface UpdateServicePrincipalRequest {
+  name: string;
 }
 
 /** Only ever returned once, from create or rotate - never persisted or re-fetchable. `create`
@@ -147,6 +199,7 @@ export interface ServicePrincipalWithSecret extends ServicePrincipal {
 // --- Permissions ---
 
 export interface Permission {
+  id: string;
   code: string;
   description: string | null;
 }
@@ -183,6 +236,100 @@ export interface AuditLogFilters {
 
 export interface AuditLogPageResponse {
   items: AuditLogEntry[];
+  total: number;
+  limit: number;
+  offset: number;
+}
+
+// --- Notification providers (notification-service, not iam-service) ---
+
+export type ProviderKind = "email" | "queue";
+
+/** One configurable field of a provider, as declared by the provider class itself. The console
+ * renders forms from this rather than hardcoding a form per vendor, which is why adding a
+ * provider on the backend needs no change here. */
+export interface ProviderFieldSpec {
+  name: string;
+  label: string;
+  type: "string" | "int" | "bool" | "email" | "text";
+  required: boolean;
+  secret: boolean;
+  default: unknown;
+  help: string | null;
+  placeholder: string | null;
+}
+
+export interface ProviderSpec {
+  kind: ProviderKind;
+  key: string;
+  label: string;
+  description: string;
+  fields: ProviderFieldSpec[];
+}
+
+/** Note what is absent: any secret value. Secrets are write-only - `secrets_set` names which
+ * secret fields have a stored value so the form can show "set" without ever receiving it. */
+export interface NotificationProviderConfig {
+  id: string;
+  organization_id: string;
+  kind: ProviderKind;
+  provider: string;
+  name: string;
+  config: Record<string, unknown>;
+  is_enabled: boolean;
+  secrets_set: string[];
+  last_test_at: string | null;
+  last_test_ok: boolean | null;
+  last_test_message: string | null;
+  created_at: string;
+  updated_at: string | null;
+  archived_at: string | null;
+}
+
+export interface CreateProviderConfigRequest {
+  kind: ProviderKind;
+  provider: string;
+  name: string;
+  config: Record<string, unknown>;
+  is_enabled: boolean;
+}
+
+export interface UpdateProviderConfigRequest {
+  name?: string;
+  config?: Record<string, unknown>;
+  is_enabled?: boolean;
+}
+
+export interface ProviderTestResult {
+  ok: boolean;
+  message: string;
+}
+
+/** What this organization's notifications will ACTUALLY use right now, after the
+ * organization-config-or-platform-default fallback. Shown so nobody has to infer effective
+ * behaviour from a list of rows. */
+export interface ResolvedProviders {
+  email_provider: string;
+  email_scope: "organization" | "platform";
+  queue_provider: string;
+  queue_scope: "organization" | "platform";
+}
+
+export interface EmailLogEntry {
+  id: string;
+  organization_id: string | null;
+  to_email: string;
+  template: string;
+  status: string;
+  provider: string | null;
+  provider_scope: string | null;
+  error_message: string | null;
+  created_at: string;
+  sent_at: string | null;
+}
+
+export interface EmailLogPage {
+  items: EmailLogEntry[];
   total: number;
   limit: number;
   offset: number;

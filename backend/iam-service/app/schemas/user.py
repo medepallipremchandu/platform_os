@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 
-from pydantic import BaseModel, ConfigDict, EmailStr, Field
+from pydantic import BaseModel, ConfigDict, EmailStr, Field, model_validator
 
 
 class UserInviteRequest(BaseModel):
@@ -32,4 +32,15 @@ class OrganizationMemberOut(BaseModel):
 
 
 class MembershipUpdateRequest(BaseModel):
-    status: str = Field(pattern="^(active|disabled)$")
+    """`status` toggles the membership (active/disabled); `display_name` edits the underlying
+    user record. Both optional so a caller can update either independently, but at least one
+    must be given."""
+
+    status: str | None = Field(default=None, pattern="^(active|disabled)$")
+    display_name: str | None = Field(default=None, min_length=1, max_length=255)
+
+    @model_validator(mode="after")
+    def _require_at_least_one_field(self):
+        if self.status is None and self.display_name is None:
+            raise ValueError("At least one of status or display_name must be provided")
+        return self

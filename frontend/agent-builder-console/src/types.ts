@@ -29,9 +29,18 @@ export interface ModelCreateRequest {
   api_version?: string;
 }
 
+/** `provider`/`model_id` are intentionally not part of this type - the backend rejects changing
+ * either via PATCH (that's a different model deployment; create a new one instead). */
+export interface ModelUpdateRequest {
+  name?: string;
+  api_key?: string;
+  endpoint?: string;
+  api_version?: string;
+}
+
 // --- Agents ---
 
-export type AgentStatus = "draft" | "published";
+export type AgentStatus = "draft" | "published" | "archived";
 
 export interface Agent {
   id: string;
@@ -52,6 +61,7 @@ export interface Agent {
   created_at: string;
   updated_at: string | null;
   published_at: string | null;
+  archived_at: string | null;
 }
 
 export interface AgentSummary {
@@ -62,6 +72,7 @@ export interface AgentSummary {
   primary_model: Model;
   created_by: string | null;
   created_at: string;
+  archived_at: string | null;
 }
 
 export interface AgentCreateRequest {

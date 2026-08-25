@@ -6,6 +6,7 @@ from fastapi.responses import JSONResponse
 
 from app.api.health import router as health_router
 from app.api.v1.router import router as api_v1_router
+from app.api.webhooks import router as webhooks_router
 from app.config import get_settings
 from app.core.exceptions import AppException
 from app.core.middleware import RequestContextLogMiddleware
@@ -42,6 +43,10 @@ def create_app() -> FastAPI:
 
     app.include_router(health_router)
     app.include_router(api_v1_router, prefix="/api/v1")
+    # Deliberately NOT under api_v1_router: it's called by voice-agent-service, not an
+    # interactive user, and authenticates via a query-param secret instead of an IAM bearer
+    # token - see app/api/webhooks.py.
+    app.include_router(webhooks_router)
 
     logger.info("%s started in %s mode", settings.APP_NAME, settings.ENV)
     return app

@@ -22,6 +22,14 @@ class User(Base):
     display_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
     status: Mapped[str] = mapped_column(String(20), nullable=False, default="invited")
 
+    # The platform tier above organizations: creates organizations and their first admin, and
+    # sets each organization's permission ceiling. Deliberately a flag on the user rather than a
+    # role or permission - a superadmin has no organization membership, so there is no org scope
+    # for a RoleAssignment to hang off, and holding every talentos.iam.* permission INSIDE some
+    # organization must never add up to being a platform superadmin. See
+    # app/api/deps.py::require_superadmin.
+    is_superadmin: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+
     # MFA - schema support only, per design doc §1 non-goals. No enrollment/verification flow
     # is implemented in this build.
     mfa_enabled: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)

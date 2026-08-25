@@ -4,7 +4,7 @@ import type { ApiErrorBody, TokenPair } from "../types";
 
 const AGENT_BUILDER_API_BASE_URL =
   import.meta.env.VITE_AGENT_BUILDER_API_BASE_URL || "http://localhost:8002/api/v1";
-const IAM_SERVICE_URL = import.meta.env.VITE_IAM_SERVICE_URL || "http://localhost:8003";
+const IAM_SERVICE_URL = import.meta.env.VITE_IAM_SERVICE_URL || "http://localhost:8113";
 
 /** agent-builder-service is an IAM relying party: every request needs `Authorization: Bearer
  * <access_token>`, refreshed proactively before it expires and reactively on a 401, obtained by

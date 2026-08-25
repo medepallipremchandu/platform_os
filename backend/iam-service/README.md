@@ -12,8 +12,23 @@ See `docs/superpowers/specs/2026-08-24-iam-service-design.md` (repo root) for th
 
 ## Concepts
 
+- **Superadmin**: the platform tier *above* organizations, and the one account seeded with
+  complete platform access (`admin@talentos-platform.com`). A `User` with
+  `is_superadmin = True` and **no organization membership at all** - that absence is what the
+  tier means, so login has an explicit branch for it (`org_id: null`, `permissions: []`,
+  `is_superadmin: true`).
+
+  The relationship with permissions is **one-way**: a superadmin satisfies every
+  `require_permission` check, and no set of permissions ever satisfies `require_superadmin`.
+  The first half is what makes the tier usable rather than a trapdoor - creating a tenant and
+  its first admin is no good if you cannot appoint a replacement when that admin leaves. The
+  second half is the security boundary: a user holding every `talentos.iam.*` permission inside
+  some organization is an extremely powerful org admin, and still cannot create organizations or
+  set another tenant's entitlement ceiling. See `app/api/deps.py`.
 - **Organization**: top-level tenant boundary. Every resource platform-wide belongs to
-  exactly one org.
+  exactly one org. `allowed_permissions` (JSONB, nullable) is its **entitlement ceiling** - the
+  permission codes it may grant at all. `NULL` or empty means unrestricted, which is what keeps
+  the feature additive for organizations that predate it.
 - **User**: a human identity, globally unique by email. A user can belong to several orgs via
   **OrganizationMembership**; an access token is always scoped to exactly one active org at a
   time (switch with `POST /auth/token/switch-org`).
@@ -42,6 +57,14 @@ An access token's `permissions` claim is the union of:
    at **organization** scope for the token's active org, and
 2. permissions from every `RoleAssignment` at **service** scope whose `scope_id` is
    `"<org_id>:<service_name>"`, across all known platform services.
+
+...and is then **intersected with the organization's entitlement ceiling**, if it has one.
+
+That intersection happens in `permission_service.resolve_permissions`, which is the single
+enforcement point, and it is sufficient precisely because that function runs on *every* token
+issuance: a role granting a permission outside the ceiling never appears on any token, however
+that role was authored or assigned, and lowering a ceiling takes effect on the very next token
+without rewriting a single role.
 
 Because permissions are embedded in the token, a role change takes effect on that principal's
 next token refresh (at most `ACCESS_TOKEN_EXPIRE_MINUTES`, 15 by default) - the same trade-off
@@ -116,8 +139,13 @@ talentos.iam.users.manage                 talentos.intake.submissions.read/write
 talentos.iam.roles.manage                 talentos.intake.interviews.read/write
 talentos.iam.role_assignments.manage      talentos.agentbuilder.models.manage
 talentos.iam.service_principals.manage    talentos.agentbuilder.agents.read/write/publish/manage_keys
-talentos.iam.audit.read
+talentos.iam.audit.read                   talentos.voiceagent.*
+talentos.notifications.providers.read     talentos.notifications.providers.manage
+talentos.notifications.logs.read
 ```
+
+The `talentos.notifications.*` codes are enforced by **notification-service**, not here; this
+service only seeds them and puts them on tokens.
 
 ### Built-in roles
 
@@ -125,7 +153,8 @@ Organization Owner (everything) - Organization Admin (everything except
 `talentos.iam.organizations.manage`) - Requirements Manager (full `talentos.intake.*` CRUD) -
 Recruiter (`talentos.intake.*` read/write, no delete) - Agent Builder Admin (all
 `talentos.agentbuilder.*`) - Agent Builder Contributor (`agents.read`/`agents.write` only) -
-Viewer (read-only across intake + agent-builder).
+Viewer (read-only across intake + agent-builder) - Voice Agent Admin / Contributor -
+Notification Admin (configure the organization's own email and queue providers).
 
 ## Security notes
 
@@ -163,3 +192,56 @@ Tests spin up a separate `talentos_iam_test` database on the same local Postgres
 refresh-token rotation and reuse detection, the client-credentials grant, permission
 resolution across organization and service scope, the JWKS endpoint shape, and a full
 RBAC denial-then-grant flow.
+
+## Organization provisioning and email
+
+`POST /organizations` is **superadmin-only** and provisions a whole tenant in one transaction:
+the organization, its permission ceiling, its first admin (created as a `status="invited"` user
+with no usable password), that admin's built-in **Organization Admin** assignment, and the invite
+email. At least one permission code is required - an organization with an empty ceiling could
+grant nothing to anyone, and silently creating one is worse than refusing.
+
+`PATCH /organizations/{id}/entitlements` (also superadmin-only) raises or lowers the ceiling
+afterwards.
+
+### One token type for invites and forgot-password
+
+There is deliberately **no** separate activation token or `/auth/activate` endpoint. An invited
+user setting their first password and an existing user resetting a forgotten one are the same
+operation - prove possession of an emailed single-use token, then set a password - so both go
+through `POST /auth/password-reset/confirm`, which also flips a `status="invited"` user to
+`"active"`. Building a parallel activation system would have doubled the security-sensitive
+surface to express a distinction that does not exist.
+
+Both flows land on `portal`'s `/set-password` page (`PORTAL_URL` in `.env`).
+
+### Outbound email
+
+This service is a **producer only**. `app/services/notification_client.py` publishes
+`notifications.send_email` onto `NOTIFICATIONS_BROKER_URL`; **notification-service** owns the
+consumer, the per-organization provider configuration, and the delivery audit trail. The two
+share a broker URL and a task name and nothing else - no shared code, no shared models.
+
+A queue-publish failure **never** breaks the business operation it accompanies: it is caught,
+logged, and execution continues. An invite that creates the user but fails to send the email is
+recoverable; one that 500s after the user row was written is not. The set-password link is also
+logged locally at INFO, so the flow is completable with no worker running at all.
+
+> **Never name a setting `CELERY_BROKER_URL`.** Celery's `Settings.broker_url` is a property that
+> reads that environment variable ahead of anything the application configures. See
+> `notification-service/README.md` for the incident this caused.
+
+## Bootstrap
+
+`scripts/bootstrap.py` seeds exactly **one** account - the platform administrator - from
+`BOOTSTRAP_ADMIN_EMAIL` / `BOOTSTRAP_ADMIN_PASSWORD`. `is_superadmin = True`, `status = active`,
+and no organization membership. Idempotent: an existing user with that email is promoted rather
+than duplicated.
+
+Nothing else is seeded. There is no starter organization, because creating organizations (and
+appointing their admins) is precisely what this account exists to do, from iam-console. An
+earlier version also created a first organization with an Organization Owner; that predates the
+superadmin tier and is exactly what the tier replaced.
+
+Run `scripts/seed_permissions_and_roles.py` first - the permission catalog and built-in roles
+must exist before an organization can be given an entitlement ceiling.

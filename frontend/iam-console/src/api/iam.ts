@@ -2,20 +2,25 @@ import { iamClient } from "./client";
 import type {
   AuditLogFilters,
   AuditLogPageResponse,
+  CreateOrganizationRequest,
   CreateRoleAssignmentRequest,
   CreateRoleDefinitionRequest,
   CreateServicePrincipalRequest,
   InviteUserRequest,
   OrgUser,
   Organization,
+  OrganizationWithAdmin,
   Permission,
   RoleAssignment,
   RoleDefinition,
   ServicePrincipal,
   ServicePrincipalWithSecret,
   TokenPair,
+  UpdateEntitlementsRequest,
+  UpdateOrganizationRequest,
   UpdateRoleDefinitionRequest,
-  UpdateUserStatusRequest,
+  UpdateServicePrincipalRequest,
+  UpdateUserMembershipRequest,
 } from "../types";
 
 // --- Auth ---
@@ -38,13 +43,43 @@ export async function logout(): Promise<void> {
 
 // --- Organizations ---
 
+/** Scoped server-side to what the caller can see: every organization for a superadmin, only
+ * their own memberships for anyone else. There is no separate "list all" endpoint. */
 export async function listOrganizations(): Promise<Organization[]> {
   const { data } = await iamClient.get<Organization[]>("/organizations");
   return data;
 }
 
-export async function createOrganization(name: string): Promise<Organization> {
-  const { data } = await iamClient.post<Organization>("/organizations", { name });
+/** Superadmin-only. Provisions the organization, its permission ceiling, its first admin, that
+ * admin's Organization Admin role assignment and the invite email in one call - so the response
+ * carries both the organization and the admin that was created. */
+export async function createOrganization(payload: CreateOrganizationRequest): Promise<OrganizationWithAdmin> {
+  const { data } = await iamClient.post<OrganizationWithAdmin>("/organizations", payload);
+  return data;
+}
+
+/** Superadmin-only. Replaces the whole ceiling; an empty list clears it back to unrestricted.
+ * Takes effect on the next token issued to any member - nothing else needs re-synchronizing. */
+export async function updateOrganizationEntitlements(
+  id: string,
+  payload: UpdateEntitlementsRequest,
+): Promise<Organization> {
+  const { data } = await iamClient.patch<Organization>(`/organizations/${id}/entitlements`, payload);
+  return data;
+}
+
+export async function renameOrganization(id: string, payload: UpdateOrganizationRequest): Promise<Organization> {
+  const { data } = await iamClient.patch<Organization>(`/organizations/${id}`, payload);
+  return data;
+}
+
+export async function deactivateOrganization(id: string): Promise<Organization> {
+  const { data } = await iamClient.post<Organization>(`/organizations/${id}/deactivate`);
+  return data;
+}
+
+export async function reactivateOrganization(id: string): Promise<Organization> {
+  const { data } = await iamClient.post<Organization>(`/organizations/${id}/reactivate`);
   return data;
 }
 
@@ -60,10 +95,10 @@ export async function inviteUser(organizationId: string, payload: InviteUserRequ
   return data;
 }
 
-export async function updateUserStatus(
+export async function updateOrgUser(
   organizationId: string,
   userId: string,
-  payload: UpdateUserStatusRequest,
+  payload: UpdateUserMembershipRequest,
 ): Promise<OrgUser> {
   const { data } = await iamClient.patch<OrgUser>(`/organizations/${organizationId}/users/${userId}`, payload);
   return data;
@@ -71,9 +106,9 @@ export async function updateUserStatus(
 
 // --- Role definitions ---
 
-export async function listRoleDefinitions(organizationId: string): Promise<RoleDefinition[]> {
+export async function listRoleDefinitions(organizationId: string, includeArchived = false): Promise<RoleDefinition[]> {
   const { data } = await iamClient.get<RoleDefinition[]>("/role-definitions", {
-    params: { organization_id: organizationId },
+    params: { organization_id: organizationId, include_archived: includeArchived || undefined },
   });
   return data;
 }
@@ -88,15 +123,18 @@ export async function updateRoleDefinition(id: string, payload: UpdateRoleDefini
   return data;
 }
 
-export async function deleteRoleDefinition(id: string): Promise<void> {
+/** Soft delete: iam-service archives the role (`archived_at`) rather than removing it - see
+ * the DELETE /role-definitions/{id} handler. Named `archiveRoleDefinition` here so call sites
+ * read honestly instead of implying a hard delete. */
+export async function archiveRoleDefinition(id: string): Promise<void> {
   await iamClient.delete(`/role-definitions/${id}`);
 }
 
 // --- Role assignments ---
 
-export async function listRoleAssignments(organizationId: string): Promise<RoleAssignment[]> {
+export async function listRoleAssignments(organizationId: string, includeRevoked = false): Promise<RoleAssignment[]> {
   const { data } = await iamClient.get<RoleAssignment[]>("/role-assignments", {
-    params: { organization_id: organizationId },
+    params: { organization_id: organizationId, include_revoked: includeRevoked || undefined },
   });
   return data;
 }
@@ -106,7 +144,8 @@ export async function createRoleAssignment(payload: CreateRoleAssignmentRequest)
   return data;
 }
 
-export async function deleteRoleAssignment(id: string): Promise<void> {
+/** Soft delete: iam-service revokes the assignment (`revoked_at`) rather than removing it. */
+export async function revokeRoleAssignment(id: string): Promise<void> {
   await iamClient.delete(`/role-assignments/${id}`);
 }
 
@@ -116,6 +155,11 @@ export async function listServicePrincipals(organizationId: string): Promise<Ser
   const { data } = await iamClient.get<ServicePrincipal[]>("/service-principals", {
     params: { organization_id: organizationId },
   });
+  return data;
+}
+
+export async function renameServicePrincipal(id: string, payload: UpdateServicePrincipalRequest): Promise<ServicePrincipal> {
+  const { data } = await iamClient.patch<ServicePrincipal>(`/service-principals/${id}`, payload);
   return data;
 }
 

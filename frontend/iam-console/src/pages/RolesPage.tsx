@@ -1,6 +1,6 @@
-import { type FormEvent, useEffect, useState } from "react";
+import { type FormEvent, useEffect, useMemo, useState } from "react";
 import { extractErrorMessage } from "../api/client";
-import { createRoleDefinition, deleteRoleDefinition, listPermissions, listRoleDefinitions, updateRoleDefinition } from "../api/iam";
+import { archiveRoleDefinition, createRoleDefinition, listPermissions, listRoleDefinitions, updateRoleDefinition } from "../api/iam";
 import { useAuth } from "../components/auth/AuthContext";
 import PermissionPicker from "../components/PermissionPicker";
 import Badge from "../components/ui/Badge";
@@ -10,13 +10,21 @@ import ConfirmDialog from "../components/ui/ConfirmDialog";
 import EmptyState from "../components/ui/EmptyState";
 import Modal from "../components/ui/Modal";
 import PageHeader from "../components/ui/PageHeader";
+import SearchInput from "../components/ui/SearchInput";
 import { SkeletonCard } from "../components/ui/Skeleton";
-import { EditIcon, PlusIcon, ShieldIcon, TrashIcon } from "../components/ui/icons";
-import { PERMISSIONS, hasPermission } from "../lib/permissions";
+import { EditIcon, PlusIcon, ShieldIcon } from "../components/ui/icons";
+import { PERMISSIONS, hasPermission, permissionCodesOf } from "../lib/permissions";
 import { toneForRoleKind } from "../lib/tone";
 import type { Permission, RoleDefinition } from "../types";
 
 type EditorState = { mode: "create" } | { mode: "edit"; role: RoleDefinition } | null;
+
+// Custom-role list is admin-configured (dozens at most, not application-scale data), so
+// client-side search over the already-fetched list is the right call here - see the task notes
+// on RolesPage for why this doesn't need server-side pagination.
+function matches(role: RoleDefinition, query: string): boolean {
+  return role.name.toLowerCase().includes(query.trim().toLowerCase());
+}
 
 export default function RolesPage() {
   const { claims } = useAuth();
@@ -31,8 +39,10 @@ export default function RolesPage() {
   const [permissionCodes, setPermissionCodes] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
-  const [deleting, setDeleting] = useState<RoleDefinition | null>(null);
-  const [deleteLoading, setDeleteLoading] = useState(false);
+  const [archiving, setArchiving] = useState<RoleDefinition | null>(null);
+  const [archiveLoading, setArchiveLoading] = useState(false);
+  const [builtinQuery, setBuiltinQuery] = useState("");
+  const [customQuery, setCustomQuery] = useState("");
 
   function load() {
     if (!orgId) return;
@@ -47,8 +57,14 @@ export default function RolesPage() {
   useEffect(load, [orgId]);
 
   const catalogCodes = catalog.map((p) => p.code);
-  const builtinRoles = (roles || []).filter((r) => r.is_builtin);
-  const customRoles = (roles || []).filter((r) => !r.is_builtin);
+  const builtinRoles = useMemo(
+    () => (roles || []).filter((r) => r.is_builtin && matches(r, builtinQuery)),
+    [roles, builtinQuery],
+  );
+  const customRoles = useMemo(
+    () => (roles || []).filter((r) => !r.is_builtin && matches(r, customQuery)),
+    [roles, customQuery],
+  );
 
   function openCreate() {
     setName("");
@@ -59,7 +75,7 @@ export default function RolesPage() {
 
   function openEdit(role: RoleDefinition) {
     setName(role.name);
-    setPermissionCodes(role.permissions);
+    setPermissionCodes(permissionCodesOf(role));
     setSaveError(null);
     setEditor({ mode: "edit", role });
   }
@@ -84,17 +100,17 @@ export default function RolesPage() {
     }
   }
 
-  async function confirmDelete() {
-    if (!deleting) return;
-    setDeleteLoading(true);
+  async function confirmArchive() {
+    if (!archiving) return;
+    setArchiveLoading(true);
     try {
-      await deleteRoleDefinition(deleting.id);
-      setDeleting(null);
+      await archiveRoleDefinition(archiving.id);
+      setArchiving(null);
       load();
     } catch (err) {
       setError(extractErrorMessage(err));
     } finally {
-      setDeleteLoading(false);
+      setArchiveLoading(false);
     }
   }
 
@@ -115,7 +131,14 @@ export default function RolesPage() {
 
       {error && <p className="error-text">{error}</p>}
 
-      <Card title="Built-in roles">
+      <Card
+        title="Built-in roles"
+        actions={
+          roles && roles.some((r) => r.is_builtin) ? (
+            <SearchInput value={builtinQuery} onChange={setBuiltinQuery} placeholder="Search built-in roles..." />
+          ) : undefined
+        }
+      >
         {roles === null ? (
           <div className="role-grid">
             <SkeletonCard />
@@ -123,7 +146,10 @@ export default function RolesPage() {
             <SkeletonCard />
           </div>
         ) : builtinRoles.length === 0 ? (
-          <EmptyState icon={<ShieldIcon width={26} height={26} />} title="No built-in roles found" />
+          <EmptyState
+            icon={<ShieldIcon width={26} height={26} />}
+            title={builtinQuery ? "No built-in roles match your search" : "No built-in roles found"}
+          />
         ) : (
           <div className="role-grid">
             {builtinRoles.map((role) => (
@@ -133,18 +159,25 @@ export default function RolesPage() {
         )}
       </Card>
 
-      <Card title="Custom roles">
+      <Card
+        title="Custom roles"
+        actions={
+          roles && roles.some((r) => !r.is_builtin) ? (
+            <SearchInput value={customQuery} onChange={setCustomQuery} placeholder="Search custom roles..." />
+          ) : undefined
+        }
+      >
         {roles === null ? null : customRoles.length === 0 ? (
           <EmptyState
             icon={<ShieldIcon width={26} height={26} />}
-            title="No custom roles yet"
-            description="Combine permissions from any service into a role scoped to this organization."
-            action={canManage ? <Button onClick={openCreate}>New role</Button> : undefined}
+            title={customQuery ? "No custom roles match your search" : "No custom roles yet"}
+            description={customQuery ? undefined : "Combine permissions from any service into a role scoped to this organization."}
+            action={!customQuery && canManage ? <Button onClick={openCreate}>New role</Button> : undefined}
           />
         ) : (
           <div className="role-grid">
             {customRoles.map((role) => (
-              <RoleCard key={role.id} role={role} canManage={canManage} onEdit={openEdit} onDelete={setDeleting} />
+              <RoleCard key={role.id} role={role} canManage={canManage} onEdit={openEdit} onArchive={setArchiving} />
             ))}
           </div>
         )}
@@ -174,14 +207,14 @@ export default function RolesPage() {
         </Modal>
       )}
 
-      {deleting && (
+      {archiving && (
         <ConfirmDialog
-          title="Delete role"
-          message={`Delete the "${deleting.name}" role? Any role assignments using it will need to be reassigned.`}
-          confirmLabel="Delete"
-          loading={deleteLoading}
-          onConfirm={confirmDelete}
-          onCancel={() => setDeleting(null)}
+          title="Archive role"
+          message={`Archive the "${archiving.name}" role? This is a soft action: existing role assignments using it are unaffected, but it can no longer be assigned to anyone new, and it drops off this list.`}
+          confirmLabel="Archive"
+          loading={archiveLoading}
+          onConfirm={confirmArchive}
+          onCancel={() => setArchiving(null)}
         />
       )}
     </div>
@@ -192,12 +225,12 @@ function RoleCard({
   role,
   canManage,
   onEdit,
-  onDelete,
+  onArchive,
 }: {
   role: RoleDefinition;
   canManage: boolean;
   onEdit?: (role: RoleDefinition) => void;
-  onDelete?: (role: RoleDefinition) => void;
+  onArchive?: (role: RoleDefinition) => void;
 }) {
   return (
     <div className="role-card">
@@ -216,8 +249,8 @@ function RoleCard({
             <Button variant="secondary" size="sm" icon={<EditIcon width={14} height={14} />} onClick={() => onEdit?.(role)}>
               Edit
             </Button>
-            <Button variant="danger" size="sm" icon={<TrashIcon width={14} height={14} />} onClick={() => onDelete?.(role)}>
-              Delete
+            <Button variant="danger" size="sm" onClick={() => onArchive?.(role)}>
+              Archive
             </Button>
           </div>
         )

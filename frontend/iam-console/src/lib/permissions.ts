@@ -1,4 +1,4 @@
-import type { OrgUser, PrincipalType, ServicePrincipal } from "../types";
+import type { OrgUser, PrincipalType, RoleDefinition, ServicePrincipal } from "../types";
 import { getClaims } from "./auth";
 
 const PERMISSION_PREFIX = "talentos.";
@@ -11,6 +11,8 @@ const NAMESPACE_LABELS: Record<string, string> = {
   iam: "Identity & Access (IAM)",
   intake: "Intake & Matching",
   agentbuilder: "Agent Builder",
+  voiceagent: "Voice Agent",
+  notifications: "Notifications",
 };
 
 export function namespaceForPermission(code: string): string {
@@ -58,6 +60,13 @@ export function principalLabelFor(
   return sp ? sp.name : principalId;
 }
 
+/** RoleDefinition.permissions is the full catalog rows (id/code/description) attached to that
+ * role - this is the one place that flattens it down to the bare code strings a create/update
+ * payload (and the PermissionPicker's `selected` prop) actually need. */
+export function permissionCodesOf(role: RoleDefinition): string[] {
+  return role.permissions.map((p) => p.code);
+}
+
 export function hasPermission(code: string): boolean {
   const claims = getClaims();
   return !!claims?.permissions?.includes(code);
@@ -65,6 +74,16 @@ export function hasPermission(code: string): boolean {
 
 export function hasAnyPermission(codes: string[]): boolean {
   return codes.some((code) => hasPermission(code));
+}
+
+/** The platform tier above organizations - a flag on the token, deliberately NOT a permission.
+ *
+ * Kept distinct from `hasPermission` because the two answer different questions: an organization
+ * owner holds every `talentos.iam.*` permission there is and is still not a superadmin.
+ * iam-service enforces the same separation server-side (`require_superadmin`), so this is UI
+ * gating over a real boundary, not a substitute for one. */
+export function isSuperAdmin(): boolean {
+  return getClaims()?.is_superadmin === true;
 }
 
 /**
@@ -82,4 +101,7 @@ export const PERMISSIONS = {
   ROLE_ASSIGNMENTS_MANAGE: "talentos.iam.role_assignments.manage",
   SERVICE_PRINCIPALS_MANAGE: "talentos.iam.service_principals.manage",
   AUDIT_READ: "talentos.iam.audit.read",
+  NOTIFICATION_PROVIDERS_READ: "talentos.notifications.providers.read",
+  NOTIFICATION_PROVIDERS_MANAGE: "talentos.notifications.providers.manage",
+  NOTIFICATION_LOGS_READ: "talentos.notifications.logs.read",
 } as const;

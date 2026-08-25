@@ -43,8 +43,26 @@ class Settings(BaseSettings):
     # --- Password reset token lifetime ---
     PASSWORD_RESET_TOKEN_EXPIRE_MINUTES: int = 30
 
+    # --- Outbound notifications (producer only - notification-service owns the consumer) ---
+    # iam-service publishes "notifications.send_email" onto this broker and never reads from it.
+    # Must match notification-service's NOTIFICATIONS_BROKER_URL. Note the "sqla+" scheme: Kombu's
+    # SQLAlchemy transport parses it itself, and it is NOT the same form SQLAlchemy's own
+    # create_engine() takes.
+    NOTIFICATIONS_BROKER_URL: str = "sqla+postgresql://postgres:postgres@localhost:5432/talentos_notifications"
+    NOTIFICATIONS_QUEUE_NAME: str = "notifications"
+    # Kill switch. False makes every send a log line instead of a publish - useful for tests and
+    # for a deployment where no worker exists yet.
+    NOTIFICATIONS_ENABLED: bool = True
+
+    # Base URL of `portal`, the platform's single login page. Invite and password-reset emails
+    # link to its /set-password page, which is the one landing spot for both flows.
+    PORTAL_URL: str = "http://localhost:5175"
+
     # --- Bootstrap (scripts/bootstrap.py only - not read by the running app) ---
-    BOOTSTRAP_ORG_NAME: str = "TalentOS"
+    # The ONE seeded account: the platform administrator. is_superadmin=True and no organization
+    # membership, because the tier sits above organizations - it creates them (and their first
+    # admins) through the console. Nothing else is seeded; there is no starter organization,
+    # because creating one is exactly what this account exists to do.
     BOOTSTRAP_ADMIN_EMAIL: str = "admin@talentos-platform.com"
     BOOTSTRAP_ADMIN_PASSWORD: str = "change-me-local-dev-password"
 

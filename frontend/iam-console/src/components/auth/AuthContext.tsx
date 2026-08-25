@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { ensureFreshSession, setSessionExpiredHandler } from "../../api/client";
 import { listOrganizations, logout as apiLogout } from "../../api/iam";
-import { clearTokens, getClaims, hasValidSession } from "../../lib/auth";
+import { clearTokens, getClaims, hasValidSession, redirectToLogout } from "../../lib/auth";
 import type { AccessTokenClaims, Organization } from "../../types";
 
 interface AuthContextValue {
@@ -48,11 +48,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       await apiLogout();
     } catch {
-      // Best-effort - clear local session state regardless of whether the server call succeeded.
+      // Best-effort - the session is cleared regardless of whether the server call succeeded.
     } finally {
       clearTokens();
       setClaims(null);
       setOrganizations([]);
+      // Then leave for portal's /logout, which clears the session THIS app was handed from.
+      // Without that last hop, RequireAuth bounces to portal, portal still has a valid session
+      // of its own, and it hands the same one straight back through the return_to handoff - so
+      // the app appears to reload and stay signed in.
+      redirectToLogout();
     }
   }, []);
 

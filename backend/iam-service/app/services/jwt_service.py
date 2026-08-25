@@ -7,6 +7,10 @@ Claims (see design doc §5, and the "identity claim" follow-up from the platform
     principal_type  "user" | "service_principal"
     org_id          the active organization for this token (str(UUID))
     permissions     resolved effective permission strings at issue time (flat list)
+    is_superadmin   true only for a platform superadmin (principal_type == "user"). A separate
+                    axis from `permissions` on purpose: relying parties must gate
+                    platform-tier actions on this boolean, never on "holds every iam
+                    permission", which any sufficiently privileged org admin could satisfy.
     resource_scope  {"type": ..., "id": ...} - only for a resource-bound ServicePrincipal
     email           user's email - only for principal_type == "user"
     name            service principal's name - only for principal_type == "service_principal"
@@ -38,6 +42,7 @@ def issue_access_token(
     resource_scope: dict | None = None,
     email: str | None = None,
     name: str | None = None,
+    is_superadmin: bool = False,
 ) -> tuple[str, dict]:
     settings = get_settings()
     now = datetime.now(timezone.utc)
@@ -55,8 +60,12 @@ def issue_access_token(
     }
     if resource_scope is not None:
         claims["resource_scope"] = resource_scope
-    if principal_type == "user" and email is not None:
-        claims["email"] = email
+    if principal_type == "user":
+        # Always present (not only when true) so a consumer can tell "not a superadmin" apart
+        # from "issued by a version of iam-service that predates the claim".
+        claims["is_superadmin"] = bool(is_superadmin)
+        if email is not None:
+            claims["email"] = email
     if principal_type == "service_principal" and name is not None:
         claims["name"] = name
 

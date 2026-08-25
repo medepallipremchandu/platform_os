@@ -33,5 +33,6 @@ class RoleDefinitionOut(BaseModel):
     name: str
     description: str | None
     is_builtin: bool
+    archived_at: datetime | None
     created_at: datetime
     permissions: list[PermissionOut]

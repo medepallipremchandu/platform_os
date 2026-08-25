@@ -11,6 +11,12 @@ class ServicePrincipalCreateRequest(BaseModel):
     resource_id: str | None = None
 
 
+class ServicePrincipalUpdateRequest(BaseModel):
+    """Rename only - the secret is never touched here (see /secret/rotate for that)."""
+
+    name: str = Field(min_length=1, max_length=255)
+
+
 class ServicePrincipalOut(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 

@@ -83,6 +83,16 @@ export function hasPermissionPrefix(prefix: string): boolean {
   return !!claims?.permissions?.some((code) => code.startsWith(prefix));
 }
 
+/** The platform tier above organizations.
+ *
+ * Load-bearing for the launcher: a superadmin belongs to no organization and therefore holds NO
+ * org-scoped permissions at all, so `hasPermissionPrefix` is false for every tile. Gating purely
+ * on permissions would hand them an empty launcher with no way into the one console they exist
+ * to use. */
+export function isSuperAdmin(): boolean {
+  return getClaims()?.is_superadmin === true;
+}
+
 const ALLOWED_RETURN_ORIGINS = APP_DESTINATIONS.map((destination) => {
   try {
     return new URL(destination.url).origin;
@@ -107,11 +117,13 @@ export function isAllowedReturnTarget(url: string): boolean {
  * string, so they aren't sent to the receiving server or captured in access logs - the receiving
  * app reads `location.hash` once on load and immediately clears it via `history.replaceState`
  * (see talentos-app's `consumeHandoffFragment`). */
-export function buildHandoffUrl(returnTo: string, tokens: TokenPair, organizationId: string): string {
+export function buildHandoffUrl(returnTo: string, tokens: TokenPair, organizationId: string | null): string {
   const fragment = new URLSearchParams({
     access_token: tokens.access_token,
     refresh_token: tokens.refresh_token,
-    organization_id: organizationId,
   });
+  // Omitted rather than sent as the string "null" for a superadmin session, which the receiving
+  // app would happily store and then use in an `organization_id=null` request.
+  if (organizationId) fragment.set("organization_id", organizationId);
   return `${returnTo}#${fragment.toString()}`;
 }

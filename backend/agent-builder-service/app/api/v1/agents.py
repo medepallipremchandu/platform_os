@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, Header
+from fastapi import APIRouter, Depends, Header, Query
 from sqlalchemy.orm import Session, selectinload
 
 from app.api.deps import CurrentActor, get_db, require_permission
@@ -20,7 +20,7 @@ from app.schemas.agent import (
     RegenerateKeyResponse,
 )
 from app.schemas.invoke import InvocationLogOut
-from app.services.agent_service import create_agent, publish_agent, regenerate_key, update_agent
+from app.services.agent_service import archive_agent, create_agent, publish_agent, regenerate_key, update_agent
 
 router = APIRouter(prefix="/agents", tags=["agents"])
 
@@ -65,16 +65,14 @@ def create_agent_endpoint(
 
 @router.get("", response_model=list[AgentSummary])
 def list_agents(
+    include_archived: bool = Query(default=False, description="Include archived agents in the results"),
     db: Session = Depends(get_db),
     actor: CurrentActor = Depends(require_permission(permissions.AGENTS_READ)),
 ):
-    return (
-        db.query(Agent)
-        .options(selectinload(Agent.primary_model))
-        .filter(Agent.organization_id == actor.org_id)
-        .order_by(Agent.created_at.desc())
-        .all()
-    )
+    query = db.query(Agent).options(selectinload(Agent.primary_model)).filter(Agent.organization_id == actor.org_id)
+    if not include_archived:
+        query = query.filter(Agent.status != "archived")
+    return query.order_by(Agent.created_at.desc()).all()
 
 
 @router.get("/{agent_id}", response_model=AgentOut)
@@ -97,6 +95,23 @@ def patch_agent(
     agent = _get_agent_or_404(db, agent_id, actor.org_id)
     update_agent(db, agent, payload.model_dump(exclude_unset=True))
     post_audit_event(authorization, action="agent.updated", target_type="agent", target_id=agent.id)
+    return _get_agent_or_404(db, agent_id, actor.org_id)
+
+
+@router.delete("/{agent_id}", response_model=AgentOut)
+def archive_agent_endpoint(
+    agent_id: UUID,
+    db: Session = Depends(get_db),
+    actor: CurrentActor = Depends(require_permission(permissions.AGENTS_PUBLISH)),
+    authorization: str | None = Header(default=None),
+):
+    """Soft-deletes the agent (status -> 'archived') and revokes its active invoke credential.
+    Gated on `agents.publish` rather than `agents.write`: archiving is a lifecycle/security
+    transition with the same blast radius as publishing (it mints/revokes the invoke
+    credential), not a routine content edit."""
+    agent = _get_agent_or_404(db, agent_id, actor.org_id)
+    agent = archive_agent(db, agent, actor.email_or_name)
+    post_audit_event(authorization, action="agent.archived", target_type="agent", target_id=agent.id)
     return _get_agent_or_404(db, agent_id, actor.org_id)
 
 

@@ -12,6 +12,7 @@ class ServiceName(str, Enum):
     IAM = "iam"
     TALENTOS_APP = "talentos-app"
     AGENT_BUILDER = "agent-builder"
+    VOICE_AGENT = "voice-agent"
 
 
 class PrincipalType(str, Enum):

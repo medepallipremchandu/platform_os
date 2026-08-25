@@ -63,6 +63,8 @@ _PRIVATE_KEY = rsa.generate_private_key(public_exponent=65537, key_size=2048)
 _PUBLIC_KEY = _PRIVATE_KEY.public_key()
 
 _DATA_TABLES = [
+    "submission_calls",
+    "jd_call_agent_configs",
     "evaluation_test_case_results",
     "evaluation_rubric_scores",
     "evaluations",

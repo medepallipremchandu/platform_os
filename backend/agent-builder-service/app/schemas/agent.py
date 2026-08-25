@@ -51,6 +51,7 @@ class AgentOut(BaseModel):
     created_at: datetime
     updated_at: datetime | None
     published_at: datetime | None
+    archived_at: datetime | None
 
 
 class AgentSummary(BaseModel):
@@ -63,6 +64,7 @@ class AgentSummary(BaseModel):
     primary_model: ModelOut
     created_by: str | None
     created_at: datetime
+    archived_at: datetime | None
 
 
 class PublishResponse(BaseModel):

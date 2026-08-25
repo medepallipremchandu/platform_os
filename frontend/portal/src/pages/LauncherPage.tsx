@@ -1,17 +1,15 @@
-import { useNavigate } from "react-router-dom";
-import { logout } from "../api/iam";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import EmptyState from "../components/ui/EmptyState";
 import { KeyIcon, LogOutIcon, ShieldIcon } from "../components/ui/icons";
 import {
   buildHandoffUrl,
-  clearTokens,
   currentPrincipalLabel,
   getAccessToken,
   getClaims,
   getRefreshToken,
   hasPermissionPrefix,
+  isSuperAdmin,
 } from "../lib/auth";
 import { APP_DESTINATIONS, type AppDestination } from "../lib/destinations";
 import type { TokenPair } from "../types";
@@ -21,9 +19,11 @@ import type { TokenPair } from "../types";
  * iam-console's login page uses today and navigates there directly - `portal` never renders any
  * of those apps itself. */
 export default function LauncherPage() {
-  const navigate = useNavigate();
   const claims = getClaims();
-  const visibleDestinations = APP_DESTINATIONS.filter((destination) => hasPermissionPrefix(destination.permissionPrefix));
+  const superAdmin = isSuperAdmin();
+  const visibleDestinations = APP_DESTINATIONS.filter(
+    (destination) => hasPermissionPrefix(destination.permissionPrefix) || (superAdmin && destination.showForSuperAdmin),
+  );
 
   function openDestination(destination: AppDestination) {
     const accessToken = getAccessToken();
@@ -39,15 +39,10 @@ export default function LauncherPage() {
     window.location.href = buildHandoffUrl(destination.url, tokens, claims.org_id);
   }
 
-  async function handleSignOut() {
-    try {
-      await logout();
-    } catch {
-      // Best-effort - clear local session state regardless of whether the server call succeeded.
-    } finally {
-      clearTokens();
-      navigate("/login", { replace: true });
-    }
+  function handleSignOut() {
+    // Routed through /logout rather than clearing inline, so every sign-out on the platform -
+    // from here or from any relying-party app - runs the exact same code path.
+    window.location.replace("/logout");
   }
 
   return (
@@ -78,7 +73,11 @@ export default function LauncherPage() {
             <EmptyState
               icon={<KeyIcon width={28} height={28} />}
               title="No applications available"
-              description="You don't have access to any application yet - contact your organization admin."
+              description={
+                superAdmin
+                  ? "Your superadmin session has no organization, so the business apps have nothing to show. Open IAM Console to manage organizations."
+                  : "You don't have access to any application yet - contact your organization admin."
+              }
             />
           </Card>
         ) : (

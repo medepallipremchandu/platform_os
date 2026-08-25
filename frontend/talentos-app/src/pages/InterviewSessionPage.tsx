@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getInterviewSession, getQuestionsForSkill, submitBatchEvaluation } from "../api/intake";
 import { extractErrorMessage } from "../api/client";
 import { formatDateTime } from "../lib/format";
+import { hasPermission, PERMISSIONS } from "../lib/permissions";
 import AnswerReview from "../components/AnswerReview";
 import QuestionCard from "../components/QuestionCard";
 import QuestionConfigPanel from "../components/QuestionConfigPanel";
@@ -14,7 +15,7 @@ import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import EmptyState from "../components/ui/EmptyState";
 import { SkeletonCard } from "../components/ui/Skeleton";
-import { CheckCircleIcon, DocumentIcon } from "../components/ui/icons";
+import { CheckCircleIcon, DocumentIcon, LockIcon } from "../components/ui/icons";
 import type {
   AnswerValue,
   BatchEvaluationResponse,
@@ -34,6 +35,8 @@ type TabKey = "overview" | "skills" | "questions" | "score";
 
 export default function InterviewSessionPage() {
   const { id } = useParams<{ id: string }>();
+  const canRead = hasPermission(PERMISSIONS.INTERVIEWS_READ);
+  const canWrite = hasPermission(PERMISSIONS.INTERVIEWS_WRITE);
 
   const [activeTab, setActiveTab] = useState<TabKey>("overview");
   const [session, setSession] = useState<InterviewSession | null>(null);
@@ -47,7 +50,7 @@ export default function InterviewSessionPage() {
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!id) return;
+    if (!id || !canRead) return;
     setLoading(true);
     setError(null);
     getInterviewSession(id)
@@ -60,7 +63,7 @@ export default function InterviewSessionPage() {
       })
       .catch((err) => setError(extractErrorMessage(err)))
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [id, canRead]);
 
   const allQuestions = Object.values(questionsBySkill).flat();
   const evaluationsByQuestionId = Object.fromEntries(
@@ -95,6 +98,18 @@ export default function InterviewSessionPage() {
     } finally {
       setSubmitting(false);
     }
+  }
+
+  if (!canRead) {
+    return (
+      <Card>
+        <EmptyState
+          icon={<LockIcon width={26} height={26} />}
+          title="Access denied"
+          description="Your account doesn't have permission to view interview sessions (talentos.intake.interviews.read)."
+        />
+      </Card>
+    );
   }
 
   if (loading) return <SkeletonCard />;
@@ -147,9 +162,18 @@ export default function InterviewSessionPage() {
             </div>
           </Card>
 
-          <Card title="Configure & generate questions">
-            <QuestionConfigPanel skills={session.skills} onGenerated={handleGenerated} />
-          </Card>
+          {canWrite ? (
+            <Card title="Configure & generate questions">
+              <QuestionConfigPanel skills={session.skills} onGenerated={handleGenerated} />
+            </Card>
+          ) : (
+            <Card title="Configure & generate questions">
+              <p className="hint-text">
+                Your account doesn't have permission to generate interview questions
+                (talentos.intake.interviews.write).
+              </p>
+            </Card>
+          )}
         </>
       )}
 
@@ -187,19 +211,28 @@ export default function InterviewSessionPage() {
 
           {allQuestions.length > 0 && (
             <Card title="Final submit" className="final-submit-panel">
-              <p className="hint-text">
-                Submits every answered question above ({answeredCount}/{allQuestions.length} answered) using
-                the code/answer currently entered, and produces the candidate's score card.
-              </p>
-              <Button
-                icon={<CheckCircleIcon width={16} height={16} />}
-                onClick={handleFinalSubmit}
-                loading={submitting}
-                disabled={answeredCount === 0}
-              >
-                Final submit
-              </Button>
-              {submitError && <p className="error-text">{submitError}</p>}
+              {canWrite ? (
+                <>
+                  <p className="hint-text">
+                    Submits every answered question above ({answeredCount}/{allQuestions.length} answered) using
+                    the code/answer currently entered, and produces the candidate's score card.
+                  </p>
+                  <Button
+                    icon={<CheckCircleIcon width={16} height={16} />}
+                    onClick={handleFinalSubmit}
+                    loading={submitting}
+                    disabled={answeredCount === 0}
+                  >
+                    Final submit
+                  </Button>
+                  {submitError && <p className="error-text">{submitError}</p>}
+                </>
+              ) : (
+                <p className="hint-text">
+                  Your account doesn't have permission to submit this interview's evaluation
+                  (talentos.intake.interviews.write).
+                </p>
+              )}
             </Card>
           )}
         </>

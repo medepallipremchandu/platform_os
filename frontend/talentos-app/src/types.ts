@@ -50,9 +50,22 @@ export interface JDAnalysisUpdateRequest {
   qualifications?: string[];
 }
 
+export interface SkillUpdateRequest {
+  name?: string;
+  description?: string;
+}
+
+export interface RubricUpdateRequest {
+  description?: string;
+  weight_percentage?: number;
+}
+
 export interface AuditLogEntry {
   id: string;
-  action: "created" | "updated" | "deleted";
+  // "skill_updated"/"rubric_updated" are emitted by the skill/rubric PATCH endpoints - the
+  // `(string & {})` keeps this open to any other action string the backend adds later while still
+  // giving autocomplete for the known ones.
+  action: "created" | "updated" | "deleted" | "skill_updated" | "rubric_updated" | (string & {});
   changed_by: string;
   changes: Record<string, { old: unknown; new: unknown }> | null;
   changed_at: string;
@@ -203,6 +216,14 @@ export interface ResumeAnalysis {
   is_deleted: boolean;
 }
 
+export interface ResumeAnalysisUpdateRequest {
+  candidate_name?: string;
+  candidate_email?: string;
+  candidate_phone?: string;
+  total_experience_years?: number;
+  summary?: string;
+}
+
 export interface ResumeAnalysisSummary {
   id: string;
   resume_code: string;
@@ -297,6 +318,62 @@ export interface TokenPair {
   token_type: string;
   expires_in: number;
   organization_id: string;
+}
+
+// --- Voice agent calling (voice-agent-service, via this app's own backend - see
+// src/api/voiceAgent.ts - except CallAgentConfig, which is read directly from
+// voice-agent-service itself; see src/api/voiceAgentDirect.ts) ---
+
+/** Minimal shape of a call-agent config, read directly from voice-agent-service's own
+ * GET /call-agents (its response has more fields - script, retry policy, provider - which this
+ * app never needs; it only lets a recruiter pick one by name for a JD). */
+export interface CallAgentConfig {
+  id: string;
+  name: string;
+  description: string | null;
+  is_active: boolean;
+}
+
+export interface JDCallAgentConfig {
+  call_agent_config_id: string;
+  enabled: boolean;
+}
+
+export type CallStatus =
+  | "QUEUED"
+  | "DIALING"
+  | "RINGING"
+  | "CONNECTED"
+  | "IN_PROGRESS"
+  | "COMPLETED"
+  | "FAILED"
+  | "NO_ANSWER"
+  | "BUSY"
+  | "VOICEMAIL"
+  | "CANCELLED"
+  | "ERROR"
+  | (string & {});
+
+export interface SubmissionCall {
+  id: string;
+  submission_id: string;
+  voice_agent_call_id: string;
+  status: CallStatus;
+  attempt_number: number;
+  summary_text: string | null;
+  extracted_fields: Record<string, unknown> | null;
+  end_reason: string | null;
+  triggered_by: string | null;
+  created_at: string;
+  updated_at: string | null;
+}
+
+export interface ConversationTurn {
+  id: string | null;
+  turn_index: number;
+  speaker: string;
+  text: string;
+  created_at: string;
 }
 
 /** Shape of the decoded access-token JWT payload (RS256, unencrypted - safe to read client-side). */

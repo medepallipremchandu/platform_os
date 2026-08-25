@@ -699,6 +699,31 @@
   justify-content: flex-end;
 }
 
+.data-table__sortable-header {
+  cursor: pointer;
+  user-select: none;
+}
+
+.data-table__sortable-header:hover {
+  color: var(--color-text);
+}
+
+.data-table__header-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.data-table__sort-icon {
+  opacity: 0.35;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.data-table__sort-icon--active {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
 /* ==========================================================================
    Activity list (dashboard)
    ========================================================================== */
@@ -1125,6 +1150,32 @@
   color: var(--color-text-muted);
 }
 
+/* ==========================================================================
+   Search input (debounced list-page search box)
+   ========================================================================== */
+.search-input {
+  position: relative;
+  min-width: 220px;
+  flex: 1;
+}
+
+.search-input__icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-subtle);
+  pointer-events: none;
+}
+
+.search-input input {
+  padding-left: 34px;
+}
+
+.search-input input::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
 .pagination {
   display: flex;
   align-items: center;
@@ -1285,4 +1336,20 @@
   .form__row {
     flex-direction: column;
   }
+}
+
+/* Inline checkbox row - label text sits beside the box rather than above it, unlike the
+   stacked `label > input` pattern the rest of the forms use for text fields. */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin: 0;
 }

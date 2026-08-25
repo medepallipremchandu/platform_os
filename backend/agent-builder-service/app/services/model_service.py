@@ -49,3 +49,28 @@ def deactivate_model(db: Session, model: Model) -> Model:
     db.commit()
     db.refresh(model)
     return model
+
+
+def update_model(
+    db: Session,
+    model: Model,
+    *,
+    name: str | None = None,
+    api_key: str | None = None,
+    endpoint: str | None = None,
+    api_version: str | None = None,
+) -> Model:
+    """Renames the model and/or re-encrypts a freshly re-entered credential. `provider` and
+    `model_id` are never touched here - see ModelUpdateRequest's docstring."""
+    if name is not None:
+        model.name = name
+    if api_key is not None:
+        model.api_key_encrypted = crypto.encrypt(api_key)
+    if endpoint is not None:
+        model.endpoint = endpoint
+    if api_version is not None:
+        model.api_version = api_version
+    db.commit()
+    db.refresh(model)
+    logger.info("Model %s (%s) updated", model.model_code, model.id)
+    return model

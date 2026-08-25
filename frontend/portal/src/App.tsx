@@ -1,6 +1,9 @@
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import LauncherPage from "./pages/LauncherPage";
 import LoginPage from "./pages/LoginPage";
+import LogoutPage from "./pages/LogoutPage";
+import SetPasswordPage from "./pages/SetPasswordPage";
 import { hasValidSession } from "./lib/auth";
 import "./App.css";
 
@@ -23,6 +26,14 @@ function App() {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
+      {/* Outside RequireSession on purpose: an invited user has no session yet, and someone
+          resetting a forgotten password cannot get one. Guarding these would bounce both flows
+          to /login - the exact page they were emailed a link to get past. */}
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="/set-password" element={<SetPasswordPage />} />
+      {/* Outside RequireSession as well: sign-out has to work whether or not the session here is
+          still valid, and guarding it would redirect to /login without ever clearing anything. */}
+      <Route path="/logout" element={<LogoutPage />} />
       <Route element={<RequireSession />}>
         <Route path="/" element={<LauncherPage />} />
       </Route>

@@ -3,21 +3,37 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { deleteJDAnalysis, getJDAnalysis, getJDAuditLog, updateJDAnalysis } from "../api/intake";
 import { extractErrorMessage } from "../api/client";
 import { formatDateTime } from "../lib/format";
+import { hasAnyPermission, hasPermission, PERMISSIONS } from "../lib/permissions";
 import AuditHistory from "../components/AuditHistory";
+import CallAgentConfigPanel from "../components/CallAgentConfigPanel";
 import JDEditForm from "../components/JDEditForm";
 import SkillCard from "../components/SkillCard";
 import Tabs from "../components/Tabs";
 import Badge from "../components/ui/Badge";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
+import EmptyState from "../components/ui/EmptyState";
 import { SkeletonCard } from "../components/ui/Skeleton";
-import type { AuditLogEntry, JDAnalysis } from "../types";
+import { LockIcon } from "../components/ui/icons";
+import type { AuditLogEntry, JDAnalysis, Skill } from "../types";
 
-type TabKey = "jd" | "skills";
+type TabKey = "jd" | "skills" | "calling";
+
+const ALL_TABS: { key: TabKey; label: string }[] = [
+  { key: "jd", label: "Requirement" },
+  { key: "skills", label: "Skills & rubrics" },
+  { key: "calling", label: "Call screening" },
+];
 
 export default function JDDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+
+  const canRead = hasPermission(PERMISSIONS.REQUIREMENTS_READ);
+  const canWrite = hasPermission(PERMISSIONS.REQUIREMENTS_WRITE);
+  const canDelete = hasPermission(PERMISSIONS.REQUIREMENTS_DELETE);
+  const canSeeCalling = hasAnyPermission([PERMISSIONS.VOICEAGENT_CALLS_READ, PERMISSIONS.VOICEAGENT_CALLS_WRITE]);
+  const tabs = ALL_TABS.filter((tab) => tab.key !== "calling" || canSeeCalling);
 
   const [activeTab, setActiveTab] = useState<TabKey>("jd");
   const [jdAnalysis, setJdAnalysis] = useState<JDAnalysis | null>(null);
@@ -29,7 +45,7 @@ export default function JDDetailPage() {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    if (!id) return;
+    if (!id || !canRead) return;
     setLoading(true);
     setError(null);
     Promise.all([getJDAnalysis(id), getJDAuditLog(id)])
@@ -39,7 +55,27 @@ export default function JDDetailPage() {
       })
       .catch((err) => setError(extractErrorMessage(err)))
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [id, canRead]);
+
+  // If the "calling" tab was active and then disappeared (e.g. permissions changed underneath
+  // us, or this ran once before the permission check above), never leave activeTab pointing at a
+  // tab that's no longer rendered.
+  useEffect(() => {
+    if (activeTab === "calling" && !canSeeCalling) setActiveTab("jd");
+  }, [activeTab, canSeeCalling]);
+
+  async function handleSkillChange(updated: Skill) {
+    if (!id) return;
+    setJdAnalysis((prev) =>
+      prev ? { ...prev, skills: prev.skills.map((s) => (s.id === updated.id ? updated : s)) } : prev,
+    );
+    try {
+      setAuditLog(await getJDAuditLog(id));
+    } catch {
+      // Non-fatal - the skill/rubric edit itself already succeeded; the audit log will just be
+      // stale until the next refresh.
+    }
+  }
 
   async function handleSaveEdit(payload: { job_title: string; role_context: string; job_context_summary: string }) {
     if (!id) return;
@@ -68,20 +104,25 @@ export default function JDDetailPage() {
     }
   }
 
+  if (!canRead) {
+    return (
+      <Card>
+        <EmptyState
+          icon={<LockIcon width={26} height={26} />}
+          title="Access denied"
+          description="Your account doesn't have permission to view requirements (talentos.intake.requirements.read)."
+        />
+      </Card>
+    );
+  }
+
   if (loading) return <SkeletonCard />;
   if (error) return <p className="error-text">{error}</p>;
   if (!jdAnalysis) return null;
 
   return (
     <div className="jd-detail-page">
-      <Tabs
-        active={activeTab}
-        onChange={(key) => setActiveTab(key as TabKey)}
-        tabs={[
-          { key: "jd", label: "Requirement" },
-          { key: "skills", label: "Skills & rubrics" },
-        ]}
-      />
+      <Tabs active={activeTab} onChange={(key) => setActiveTab(key as TabKey)} tabs={tabs} />
 
       {activeTab === "jd" && (
         <Card>
@@ -96,14 +137,16 @@ export default function JDDetailPage() {
               <Link to={`/submissions/new?jdAnalysisId=${jdAnalysis.id}`}>
                 <Button>Submit an applicant</Button>
               </Link>
-              {!editing && (
+              {canWrite && !editing && (
                 <Button variant="secondary" onClick={() => setEditing(true)}>
                   Edit
                 </Button>
               )}
-              <Button variant="danger" onClick={handleDelete} loading={deleting}>
-                Delete
-              </Button>
+              {canDelete && (
+                <Button variant="danger" onClick={handleDelete} loading={deleting}>
+                  Delete
+                </Button>
+              )}
             </div>
           </div>
 
@@ -163,9 +206,21 @@ export default function JDDetailPage() {
         <Card title="Skills & rubrics">
           <div className="skill-list">
             {jdAnalysis.skills.map((skill) => (
-              <SkillCard key={skill.id} skill={skill} />
+              <SkillCard
+                key={skill.id}
+                skill={skill}
+                jdId={jdAnalysis.id}
+                canEdit={canWrite}
+                onSkillChange={handleSkillChange}
+              />
             ))}
           </div>
+        </Card>
+      )}
+
+      {activeTab === "calling" && canSeeCalling && (
+        <Card title="Call agent configuration">
+          <CallAgentConfigPanel jdAnalysisId={jdAnalysis.id} />
         </Card>
       )}
     </div>

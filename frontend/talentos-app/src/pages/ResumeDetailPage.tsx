@@ -1,27 +1,37 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { deleteResumeAnalysis, getResumeAnalysis, getResumeAuditLog } from "../api/intake";
+import { deleteResumeAnalysis, getResumeAnalysis, getResumeAuditLog, updateResumeAnalysis } from "../api/intake";
 import { extractErrorMessage } from "../api/client";
 import { formatDateTime } from "../lib/format";
+import { hasPermission, PERMISSIONS } from "../lib/permissions";
 import AuditHistory from "../components/AuditHistory";
+import ResumeEditForm from "../components/ResumeEditForm";
 import Badge from "../components/ui/Badge";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
+import EmptyState from "../components/ui/EmptyState";
 import { SkeletonCard } from "../components/ui/Skeleton";
-import type { AuditLogEntry, ResumeAnalysis } from "../types";
+import { LockIcon } from "../components/ui/icons";
+import type { AuditLogEntry, ResumeAnalysis, ResumeAnalysisUpdateRequest } from "../types";
 
 export default function ResumeDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
+  const canRead = hasPermission(PERMISSIONS.APPLICANTS_READ);
+  const canWrite = hasPermission(PERMISSIONS.APPLICANTS_WRITE);
+  const canDelete = hasPermission(PERMISSIONS.APPLICANTS_DELETE);
+
   const [resume, setResume] = useState<ResumeAnalysis | null>(null);
   const [auditLog, setAuditLog] = useState<AuditLogEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [editing, setEditing] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    if (!id) return;
+    if (!id || !canRead) return;
     setLoading(true);
     setError(null);
     Promise.all([getResumeAnalysis(id), getResumeAuditLog(id)])
@@ -31,7 +41,22 @@ export default function ResumeDetailPage() {
       })
       .catch((err) => setError(extractErrorMessage(err)))
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [id, canRead]);
+
+  async function handleSaveEdit(payload: ResumeAnalysisUpdateRequest) {
+    if (!id) return;
+    setSaving(true);
+    try {
+      const updated = await updateResumeAnalysis(id, payload);
+      setResume(updated);
+      setAuditLog(await getResumeAuditLog(id));
+      setEditing(false);
+    } catch (err) {
+      setError(extractErrorMessage(err));
+    } finally {
+      setSaving(false);
+    }
+  }
 
   async function handleDelete() {
     if (!id || !window.confirm("Delete this applicant? It will be hidden from the list but not permanently removed.")) return;
@@ -43,6 +68,18 @@ export default function ResumeDetailPage() {
       setError(extractErrorMessage(err));
       setDeleting(false);
     }
+  }
+
+  if (!canRead) {
+    return (
+      <Card>
+        <EmptyState
+          icon={<LockIcon width={26} height={26} />}
+          title="Access denied"
+          description="Your account doesn't have permission to view applicants (talentos.intake.applicants.read)."
+        />
+      </Card>
+    );
   }
 
   if (loading) return <SkeletonCard />;
@@ -63,9 +100,16 @@ export default function ResumeDetailPage() {
             <Link to={`/submissions/new?resumeAnalysisId=${resume.id}`}>
               <Button>Submit against a requirement</Button>
             </Link>
-            <Button variant="danger" onClick={handleDelete} loading={deleting}>
-              Delete
-            </Button>
+            {canWrite && !editing && (
+              <Button variant="secondary" onClick={() => setEditing(true)}>
+                Edit
+              </Button>
+            )}
+            {canDelete && (
+              <Button variant="danger" onClick={handleDelete} loading={deleting}>
+                Delete
+              </Button>
+            )}
           </div>
         </div>
 
@@ -82,12 +126,20 @@ export default function ResumeDetailPage() {
         </div>
         <AuditHistory entries={auditLog} />
 
-        <p className="hint-text">
-          {resume.original_filename} ({resume.file_type}) - {resume.candidate_email || "no email"} -{" "}
-          {resume.candidate_phone || "no phone"} -{" "}
-          {resume.total_experience_years != null ? `${resume.total_experience_years} years experience` : "experience unknown"}
-        </p>
-        {resume.summary && <p>{resume.summary}</p>}
+        {editing ? (
+          <ResumeEditForm resume={resume} saving={saving} onSave={handleSaveEdit} onCancel={() => setEditing(false)} />
+        ) : (
+          <>
+            <p className="hint-text">
+              {resume.original_filename} ({resume.file_type}) - {resume.candidate_email || "no email"} -{" "}
+              {resume.candidate_phone || "no phone"} -{" "}
+              {resume.total_experience_years != null
+                ? `${resume.total_experience_years} years experience`
+                : "experience unknown"}
+            </p>
+            {resume.summary && <p>{resume.summary}</p>}
+          </>
+        )}
       </Card>
 
       <Card title="Skills">

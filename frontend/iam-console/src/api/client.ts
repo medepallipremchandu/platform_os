@@ -2,7 +2,7 @@ import axios, { type AxiosError, type InternalAxiosRequestConfig } from "axios";
 import type { ApiErrorBody, TokenPair } from "../types";
 import { clearTokens, getAccessToken, getRefreshToken, isAccessTokenExpired, storeTokens } from "../lib/auth";
 
-const IAM_SERVICE_URL = import.meta.env.VITE_IAM_SERVICE_URL || "http://localhost:8003";
+const IAM_SERVICE_URL = import.meta.env.VITE_IAM_SERVICE_URL || "http://localhost:8113";
 
 /** Registered by AuthProvider on mount and called whenever a refresh attempt itself fails, so
  * the app can clear session state and route back to /login. Kept out of this module (rather than

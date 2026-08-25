@@ -41,3 +41,15 @@ export function toneForRoleKind(isBuiltin: boolean): BadgeTone {
 export function toneForRevocation(revokedAt: string | null): BadgeTone {
   return revokedAt ? "neutral" : "success";
 }
+
+/** Same semantics as toneForRevocation (soft-deleted -> neutral, still-live -> success) but
+ * named for the two other soft-delete flavors in this console (archived role, revoked role
+ * assignment) so call sites read as what they are rather than reusing a service-principal
+ * -specific name. */
+export function toneForArchival(archivedAt: string | null): BadgeTone {
+  return archivedAt ? "neutral" : "success";
+}
+
+export function toneForOrgActive(isActive: boolean): BadgeTone {
+  return isActive ? "success" : "danger";
+}

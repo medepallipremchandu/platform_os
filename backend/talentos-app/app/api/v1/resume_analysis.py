@@ -12,9 +12,9 @@ from app.core.exceptions import InvalidStateError, NotFoundError
 from app.core.iam_client import post_audit_event
 from app.models.resume_analysis import ResumeAnalysis
 from app.schemas.common import AuditLogEntryOut
-from app.schemas.resume_analysis import ResumeAnalysisResponse, ResumeAnalysisSummary
+from app.schemas.resume_analysis import ResumeAnalysisResponse, ResumeAnalysisSummary, ResumeAnalysisUpdateRequest
 from app.services.audit_service import get_audit_log
-from app.services.resume_analysis_service import analyze_resume, soft_delete_resume_analysis
+from app.services.resume_analysis_service import analyze_resume, soft_delete_resume_analysis, update_resume_analysis
 
 router = APIRouter(prefix="/resume-analysis", tags=["resume-analysis"])
 
@@ -79,6 +79,28 @@ def get_resume_analysis(
     resume_analysis_id: UUID, db: Session = Depends(get_db), actor: CurrentActor = Depends(current_actor)
 ):
     return _get_resume_or_404(db, resume_analysis_id, uuid.UUID(actor.org_id))
+
+
+@router.patch(
+    "/{resume_analysis_id}",
+    response_model=ResumeAnalysisResponse,
+    dependencies=[Depends(require_permission(permissions.APPLICANTS_WRITE))],
+)
+async def patch_resume_analysis(
+    resume_analysis_id: UUID,
+    payload: ResumeAnalysisUpdateRequest,
+    db: Session = Depends(get_db),
+    actor: CurrentActor = Depends(current_actor),
+):
+    resume_analysis = _get_resume_or_404(db, resume_analysis_id, uuid.UUID(actor.org_id))
+    resume_analysis = update_resume_analysis(db, resume_analysis, payload, actor.email_or_name)
+    await post_audit_event(
+        actor.token,
+        action="resume_analysis.updated",
+        target_type="resume_analysis",
+        target_id=str(resume_analysis.id),
+    )
+    return resume_analysis
 
 
 @router.delete(

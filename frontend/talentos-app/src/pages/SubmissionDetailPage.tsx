@@ -3,18 +3,28 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { createOrGetInterviewSession, deleteSubmission, getJDAnalysis, getResumeAnalysis, getSubmission } from "../api/intake";
 import { extractErrorMessage } from "../api/client";
 import { formatDateTime } from "../lib/format";
+import { hasAnyPermission, hasPermission, PERMISSIONS } from "../lib/permissions";
+import CandidateCallsPanel from "../components/CandidateCallsPanel";
 import MatchAnalysisCard from "../components/MatchAnalysisCard";
 import Badge from "../components/ui/Badge";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import EmptyState from "../components/ui/EmptyState";
 import { SkeletonCard } from "../components/ui/Skeleton";
-import { SubmissionIcon, TargetIcon } from "../components/ui/icons";
+import { LockIcon, SubmissionIcon, TargetIcon } from "../components/ui/icons";
 import type { JDAnalysis, ResumeAnalysis, Submission } from "../types";
 
 export default function SubmissionDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+
+  // Note: this page also fetches the underlying requirement and applicant records, which are
+  // separately gated server-side on REQUIREMENTS_READ/APPLICANTS_READ - a session with
+  // SUBMISSIONS_READ but neither of those (an unusual grant combination) would pass this gate
+  // but could still see a fetch error for the nested JD/resume detail. Not handled here.
+  const canRead = hasPermission(PERMISSIONS.SUBMISSIONS_READ);
+  const canDelete = hasPermission(PERMISSIONS.SUBMISSIONS_DELETE);
+  const canSeeCalls = hasAnyPermission([PERMISSIONS.VOICEAGENT_CALLS_READ, PERMISSIONS.VOICEAGENT_CALLS_WRITE]);
 
   const [submission, setSubmission] = useState<Submission | null>(null);
   const [jd, setJd] = useState<JDAnalysis | null>(null);
@@ -25,7 +35,7 @@ export default function SubmissionDetailPage() {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    if (!id) return;
+    if (!id || !canRead) return;
     setLoading(true);
     setError(null);
     getSubmission(id)
@@ -40,7 +50,7 @@ export default function SubmissionDetailPage() {
       })
       .catch((err) => setError(extractErrorMessage(err)))
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [id, canRead]);
 
   async function handleStartAssessment() {
     if (!id) return;
@@ -67,6 +77,18 @@ export default function SubmissionDetailPage() {
     }
   }
 
+  if (!canRead) {
+    return (
+      <Card>
+        <EmptyState
+          icon={<LockIcon width={26} height={26} />}
+          title="Access denied"
+          description="Your account doesn't have permission to view submissions (talentos.intake.submissions.read)."
+        />
+      </Card>
+    );
+  }
+
   if (loading) return <SkeletonCard />;
   if (error) return <p className="error-text">{error}</p>;
   if (!submission || !jd || !resume) return null;
@@ -87,9 +109,11 @@ export default function SubmissionDetailPage() {
             <Button icon={<TargetIcon width={16} height={16} />} onClick={handleStartAssessment} loading={startingAssessment}>
               Start assessment
             </Button>
-            <Button variant="danger" onClick={handleDelete} loading={deleting}>
-              Delete
-            </Button>
+            {canDelete && (
+              <Button variant="danger" onClick={handleDelete} loading={deleting}>
+                Delete
+              </Button>
+            )}
           </div>
         </div>
         <div className="audit-summary">
@@ -111,6 +135,12 @@ export default function SubmissionDetailPage() {
           <EmptyState icon={<SubmissionIcon width={26} height={26} />} title="No match analysis available" />
         )}
       </Card>
+
+      {canSeeCalls && (
+        <Card title="Candidate calls">
+          <CandidateCallsPanel submissionId={submission.id} jdAnalysisId={jd.id} candidatePhone={resume.candidate_phone} />
+        </Card>
+      )}
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function Sidebar({ open, onClose }: Props) {
   const { organizations, claims } = useAuth();
   const label = currentPrincipalLabel();
   const currentOrg = organizations.find((org) => org.id === claims?.org_id);
-  const navItems = visibleNavItems();
+  const navItems = visibleNavItems(claims?.org_id);
 
   return (
     <>

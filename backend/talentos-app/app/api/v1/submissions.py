@@ -14,6 +14,8 @@ from app.models.resume_analysis import ResumeAnalysis
 from app.models.submission import Submission
 from app.schemas.common import AuditLogEntryOut
 from app.schemas.submission import SubmissionCreateRequest, SubmissionResponse, SubmissionSummary
+from app.schemas.voice_call import ConversationTurnResponse, SubmissionCallResponse
+from app.services import voice_agent_client, voice_call_service
 from app.services.audit_service import get_audit_log
 from app.services.submission_service import create_submission, soft_delete_submission
 
@@ -141,3 +143,60 @@ def get_submission_audit_log(
 ):
     _get_submission_or_404(db, submission_id, uuid.UUID(actor.org_id))
     return get_audit_log(db, "submission", submission_id)
+
+
+def _get_submission_call_or_404(db: Session, submission_id: UUID, call_id: UUID):
+    from app.models.voice_call import SubmissionCall
+
+    call = db.get(SubmissionCall, call_id)
+    if call is None or call.submission_id != submission_id:
+        raise NotFoundError(f"Call {call_id} not found on submission {submission_id}")
+    return call
+
+
+@router.post(
+    "/{submission_id}/calls",
+    response_model=SubmissionCallResponse,
+    status_code=202,
+    dependencies=[Depends(require_permission(permissions.SUBMISSIONS_WRITE))],
+)
+async def trigger_submission_call(
+    submission_id: UUID, db: Session = Depends(get_db), actor: CurrentActor = Depends(current_actor)
+):
+    submission = _get_submission_or_404(db, submission_id, uuid.UUID(actor.org_id))
+    call = await voice_call_service.trigger_submission_call(db, submission, actor.email_or_name)
+    await post_audit_event(
+        actor.token,
+        action="submission_call.triggered",
+        target_type="submission",
+        target_id=str(submission_id),
+        changes={"submission_call_id": {"old": None, "new": str(call.id)}},
+    )
+    return call
+
+
+@router.get(
+    "/{submission_id}/calls",
+    response_model=list[SubmissionCallResponse],
+    dependencies=[Depends(require_permission(permissions.SUBMISSIONS_READ))],
+)
+async def list_submission_calls(
+    submission_id: UUID, db: Session = Depends(get_db), actor: CurrentActor = Depends(current_actor)
+):
+    _get_submission_or_404(db, submission_id, uuid.UUID(actor.org_id))
+    calls = voice_call_service.list_submission_calls(db, submission_id)
+    return await voice_call_service.refresh_non_terminal_calls(db, calls)
+
+
+@router.get(
+    "/{submission_id}/calls/{call_id}/conversation",
+    response_model=list[ConversationTurnResponse],
+    dependencies=[Depends(require_permission(permissions.SUBMISSIONS_READ))],
+)
+async def get_submission_call_conversation(
+    submission_id: UUID, call_id: UUID, db: Session = Depends(get_db), actor: CurrentActor = Depends(current_actor)
+):
+    _get_submission_or_404(db, submission_id, uuid.UUID(actor.org_id))
+    call = _get_submission_call_or_404(db, submission_id, call_id)
+    # Live-proxied, never cached locally - always reflects voice-agent-service's own transcript.
+    return await voice_agent_client.get_conversation(call.voice_agent_call_id)

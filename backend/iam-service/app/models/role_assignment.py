@@ -21,7 +21,11 @@ class RoleAssignment(Base):
         in that org).
     scope_type="service"      -> scope_id = "<organization_id>:<service_name>" (grants the
         role only within that one platform service - see app.core.constants.ServiceName).
-    """
+
+    Revocation is a soft delete (`revoked_at`), never a row removal, matching
+    `ServicePrincipal.revoked_at` - see permission_service.resolve_permissions, which is the
+    one place that MUST filter `revoked_at IS NULL` (a revoked assignment must stop granting
+    its permissions on the very next token issuance, not just disappear from list views)."""
 
     __tablename__ = "role_assignments"
 
@@ -36,6 +40,11 @@ class RoleAssignment(Base):
     )
     scope_type: Mapped[str] = mapped_column(String(20), nullable=False)
     scope_id: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
+    revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
     role_definition: Mapped["RoleDefinition"] = relationship()  # noqa: F821
+
+    @property
+    def is_revoked(self) -> bool:
+        return self.revoked_at is not None

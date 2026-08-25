@@ -21,6 +21,7 @@ class CurrentActor:
     id: uuid.UUID
     org_id: uuid.UUID | None
     permissions: list[str]
+    is_superadmin: bool = False
     resource_scope: dict | None = None
     email: str | None = None
     name: str | None = None
@@ -53,6 +54,7 @@ def current_actor(
         id=uuid.UUID(claims["sub"]),
         org_id=org_id,
         permissions=claims.get("permissions", []),
+        is_superadmin=bool(claims.get("is_superadmin")),
         resource_scope=claims.get("resource_scope"),
         email=claims.get("email"),
         name=claims.get("name"),
@@ -61,10 +63,23 @@ def current_actor(
 
 
 def require_permission(permission_code: str):
+    """Gate an endpoint on one permission code.
+
+    A platform superadmin satisfies every check here. That is the definition of the tier, not a
+    shortcut: they hold no organization membership and therefore no org-scoped permissions at
+    all, so without this they could create a tenant and its first admin and then be locked out
+    of that tenant forever - unable to appoint a replacement admin if the first one left. The
+    endpoints this guards all take their organization from the path or body rather than from the
+    caller's token, so the bypass grants reach without smuggling in any ambient scope.
+
+    `require_superadmin` remains the separate, exclusive gate for platform-tier actions."""
+
     def _dependency(
         actor: CurrentActor = Depends(current_actor),
         db: Session = Depends(get_db),
     ) -> CurrentActor:
+        if actor.is_superadmin:
+            return actor
         if permission_code not in actor.permissions:
             from app.core.constants import ActorType, AuditResult
             from app.services.audit_service import record_audit_event
@@ -85,4 +100,39 @@ def require_permission(permission_code: str):
     return _dependency
 
 
-__all__ = ["get_db", "current_actor", "require_permission", "CurrentActor"]
+def require_superadmin(
+    actor: CurrentActor = Depends(current_actor),
+    db: Session = Depends(get_db),
+) -> CurrentActor:
+    """The platform tier, checked as its own axis - NOT as a permission.
+
+    The relationship with require_permission is deliberately ONE-WAY: a superadmin satisfies
+    every permission check, but no set of permissions ever satisfies this one. A user holding
+    every talentos.iam.* permission inside some organization is an extremely powerful
+    organization admin, and still must not be able to create organizations, set another tenant's
+    entitlement ceiling, or reach across tenants. Only the is_superadmin claim - set from
+    User.is_superadmin, and granted only by scripts/bootstrap.py - opens that door.
+
+    Denials are audited like any other failed authorization check on iam-service's own surface.
+    """
+    if not actor.is_superadmin:
+        from app.core.constants import AuditResult
+        from app.services.audit_service import record_audit_event
+
+        record_audit_event(
+            db,
+            organization_id=actor.org_id,
+            actor_type=actor.principal_type,
+            actor_id=actor.id,
+            action="superadmin_check",
+            target_type="platform",
+            target_id=None,
+            result=AuditResult.DENIED.value,
+        )
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN, detail="This action requires platform superadmin privileges"
+        )
+    return actor
+
+
+__all__ = ["get_db", "current_actor", "require_permission", "require_superadmin", "CurrentActor"]

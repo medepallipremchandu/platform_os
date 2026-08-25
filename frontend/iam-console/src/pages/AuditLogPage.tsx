@@ -6,6 +6,7 @@ import Badge from "../components/ui/Badge";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import EmptyState from "../components/ui/EmptyState";
+import FilterBar, { FilterBarField } from "../components/ui/FilterBar";
 import Modal from "../components/ui/Modal";
 import PageHeader from "../components/ui/PageHeader";
 import { SkeletonRows } from "../components/ui/Skeleton";
@@ -121,9 +122,19 @@ export default function AuditLogPage() {
       {error && <p className="error-text">{error}</p>}
 
       <Card>
-        <div className="filter-bar">
-          <div className="filter-bar__field">
-            <label htmlFor="audit-actor">Actor ID</label>
+        <FilterBar
+          trailing={
+            <Button
+              variant="secondary"
+              size="sm"
+              icon={<ChevronDownIcon width={14} height={14} style={{ transform: sortDirection === "asc" ? "rotate(180deg)" : undefined }} />}
+              onClick={() => setSortDirection((d) => (d === "desc" ? "asc" : "desc"))}
+            >
+              {sortDirection === "desc" ? "Newest first" : "Oldest first"}
+            </Button>
+          }
+        >
+          <FilterBarField label="Actor ID" htmlFor="audit-actor">
             <input
               id="audit-actor"
               type="text"
@@ -131,9 +142,8 @@ export default function AuditLogPage() {
               value={actorId}
               onChange={(e) => applyFilters(() => setActorId(e.target.value))}
             />
-          </div>
-          <div className="filter-bar__field">
-            <label htmlFor="audit-action">Action</label>
+          </FilterBarField>
+          <FilterBarField label="Action" htmlFor="audit-action">
             <input
               id="audit-action"
               type="text"
@@ -141,9 +151,8 @@ export default function AuditLogPage() {
               value={action}
               onChange={(e) => applyFilters(() => setAction(e.target.value))}
             />
-          </div>
-          <div className="filter-bar__field">
-            <label htmlFor="audit-result">Result</label>
+          </FilterBarField>
+          <FilterBarField label="Result" htmlFor="audit-result">
             <select
               id="audit-result"
               value={resultFilter}
@@ -154,24 +163,14 @@ export default function AuditLogPage() {
               <option value="denied">Denied</option>
               <option value="error">Error</option>
             </select>
-          </div>
-          <div className="filter-bar__field">
-            <label htmlFor="audit-from">From</label>
+          </FilterBarField>
+          <FilterBarField label="From" htmlFor="audit-from">
             <input id="audit-from" type="date" value={dateFrom} onChange={(e) => applyFilters(() => setDateFrom(e.target.value))} />
-          </div>
-          <div className="filter-bar__field">
-            <label htmlFor="audit-to">To</label>
+          </FilterBarField>
+          <FilterBarField label="To" htmlFor="audit-to">
             <input id="audit-to" type="date" value={dateTo} onChange={(e) => applyFilters(() => setDateTo(e.target.value))} />
-          </div>
-          <Button
-            variant="secondary"
-            size="sm"
-            icon={<ChevronDownIcon width={14} height={14} style={{ transform: sortDirection === "asc" ? "rotate(180deg)" : undefined }} />}
-            onClick={() => setSortDirection((d) => (d === "desc" ? "asc" : "desc"))}
-          >
-            {sortDirection === "desc" ? "Newest first" : "Oldest first"}
-          </Button>
-        </div>
+          </FilterBarField>
+        </FilterBar>
       </Card>
 
       <Card>

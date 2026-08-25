@@ -30,4 +30,5 @@ class RoleAssignmentOut(BaseModel):
     organization_id: uuid.UUID
     scope_type: str
     scope_id: str
+    revoked_at: datetime | None = None
     created_at: datetime

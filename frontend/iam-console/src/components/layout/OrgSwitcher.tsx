@@ -5,9 +5,13 @@ import { storeTokens } from "../../lib/auth";
 import { useAuth } from "../auth/AuthContext";
 import { BuildingIcon, ChevronDownIcon, CheckCircleIcon } from "../ui/icons";
 
-/** Lets a user who belongs to more than one organization mint a new, differently-scoped token
- * via POST /auth/token/switch-org without a full re-login - only rendered once there's more than
- * one membership to switch between. */
+/** Mints a new, differently-scoped token via POST /auth/token/switch-org without a full
+ * re-login.
+ *
+ * `organizations` is whatever GET /organizations returned for this session - the caller's
+ * memberships normally, but EVERY organization for a platform superadmin, who may scope into any
+ * active one without holding a membership. So this renders for a superadmin too, and the list it
+ * offers is exactly the list the server will accept. */
 export default function OrgSwitcher() {
   const { claims, organizations, onSessionChanged } = useAuth();
   const [open, setOpen] = useState(false);
@@ -24,7 +28,10 @@ export default function OrgSwitcher() {
     return () => document.removeEventListener("mousedown", onClickAway);
   }, [open]);
 
-  if (organizations.length < 2) return null;
+  // Hidden only when there is genuinely nothing to choose. "Fewer than two" alone is not the
+  // test: a superadmin session carries no org_id, so even a single organization is a real choice
+  // for them - it is how they scope into it at all.
+  if (organizations.length === 0 || (organizations.length < 2 && claims?.org_id)) return null;
 
   const currentOrg = organizations.find((org) => org.id === claims?.org_id);
 
