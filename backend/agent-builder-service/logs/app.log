@@ -1,0 +1,239 @@
+2026-08-24 20:55:03,856 | INFO     | - | app | TalentOS Agent Builder Service started in local mode
+2026-08-24 20:55:03,861 | INFO     | 7f744c24-4667-4239-bea8-771b00781be4 | app.request | --> GET /health
+2026-08-24 20:55:03,864 | INFO     | 7f744c24-4667-4239-bea8-771b00781be4 | app.request | <-- GET /health 200 (2.4ms)
+2026-08-24 20:55:03,868 | INFO     | 54c50b73-4572-483f-8e03-83b2783bb1cb | app.request | --> GET /api/v1/agents
+2026-08-24 20:55:03,870 | INFO     | 54c50b73-4572-483f-8e03-83b2783bb1cb | app.request | <-- GET /api/v1/agents 422 (1.8ms)
+2026-08-24 20:55:03,873 | INFO     | d6f76aea-1cb2-4bd5-a142-edc1b10bb406 | app.request | --> POST /api/v1/invoke
+2026-08-24 20:55:03,875 | INFO     | d6f76aea-1cb2-4bd5-a142-edc1b10bb406 | app.request | <-- POST /api/v1/invoke 422 (2.1ms)
+2026-08-24 20:57:42,250 | INFO     | - | app | TalentOS Agent Builder Service started in local mode
+2026-08-24 20:57:42,250 | INFO     | - | uvicorn.error | Started server process [28772]
+2026-08-24 20:57:42,250 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-24 20:57:42,251 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-24 20:57:53,897 | INFO     | cedd6c5e-4945-4def-a9e6-cd5b85d3cebc | app.request | --> GET /health
+2026-08-24 20:57:53,898 | INFO     | cedd6c5e-4945-4def-a9e6-cd5b85d3cebc | app.request | <-- GET /health 200 (1.5ms)
+2026-08-24 20:58:05,603 | INFO     | 04762c92-bffa-4e21-9913-d6806243f246 | app.request | --> POST /api/v1/invoke
+2026-08-24 20:58:27,997 | INFO     | 04762c92-bffa-4e21-9913-d6806243f246 | app.services.invoke | Agent AGT01 invoked via claude in 21710ms
+2026-08-24 20:58:27,998 | INFO     | 04762c92-bffa-4e21-9913-d6806243f246 | app.request | <-- POST /api/v1/invoke 200 (22394.4ms)
+2026-08-24 20:58:38,139 | INFO     | 28e1c38b-ab24-4564-93fd-094fc25b3ca7 | app.request | --> GET /api/v1/agents
+2026-08-24 20:58:38,151 | INFO     | 28e1c38b-ab24-4564-93fd-094fc25b3ca7 | app.request | <-- GET /api/v1/agents 200 (12.1ms)
+2026-08-24 20:58:38,439 | INFO     | 3e86fed8-9a24-46e7-8a82-f208250198a8 | app.request | --> GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/usage
+2026-08-24 20:58:38,452 | INFO     | 3e86fed8-9a24-46e7-8a82-f208250198a8 | app.request | <-- GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/usage 200 (13.9ms)
+2026-08-24 21:09:37,876 | INFO     | bb22bdbe-908c-4d8e-8aec-6b9c0206202d | app.request | --> GET /health
+2026-08-24 21:09:37,878 | INFO     | bb22bdbe-908c-4d8e-8aec-6b9c0206202d | app.request | <-- GET /health 200 (2.3ms)
+2026-08-24 21:10:48,517 | INFO     | 605b1887-5550-4585-a78b-91a4bb41ed36 | app.request | --> POST /api/v1/invoke
+2026-08-24 21:11:05,030 | INFO     | 605b1887-5550-4585-a78b-91a4bb41ed36 | app.services.invoke | Agent AGT05 invoked via claude in 14876ms
+2026-08-24 21:11:05,033 | INFO     | 605b1887-5550-4585-a78b-91a4bb41ed36 | app.request | <-- POST /api/v1/invoke 200 (16515.9ms)
+2026-08-24 22:55:18,995 | INFO     | ca714157-5b32-4a8d-b310-286c0087fc46 | app.request | --> GET /api/v1/agents
+2026-08-24 22:55:19,006 | INFO     | ca714157-5b32-4a8d-b310-286c0087fc46 | app.request | <-- GET /api/v1/agents 200 (11.2ms)
+2026-08-24 22:55:19,377 | INFO     | fd781059-b6b1-48c8-a64f-dccf9d14c1ad | app.request | --> GET /api/v1/agents/cfe864e8-b0a3-4536-8564-a28b3437bc1f
+2026-08-24 22:55:19,401 | INFO     | fd781059-b6b1-48c8-a64f-dccf9d14c1ad | app.request | <-- GET /api/v1/agents/cfe864e8-b0a3-4536-8564-a28b3437bc1f 200 (24.3ms)
+2026-08-24 22:56:53,762 | INFO     | 5402c222-f187-458e-99d4-32032cfa0765 | app.request | --> POST /api/v1/invoke
+2026-08-24 22:57:09,409 | INFO     | 5402c222-f187-458e-99d4-32032cfa0765 | app.services.invoke | Agent AGT05 invoked via claude in 14838ms
+2026-08-24 22:57:09,410 | INFO     | 5402c222-f187-458e-99d4-32032cfa0765 | app.request | <-- POST /api/v1/invoke 200 (15647.9ms)
+2026-08-24 22:57:25,274 | INFO     | db4a8fa4-ab02-4305-a438-d3aad68b8154 | app.request | --> POST /api/v1/invoke
+2026-08-24 22:58:25,872 | WARNING  | db4a8fa4-ab02-4305-a438-d3aad68b8154 | app.llm | claude attempt 1 timed out: 
+2026-08-24 22:58:40,513 | INFO     | 40476ead-1c11-4fab-8d1a-94003674d462 | app.request | --> POST /api/v1/invoke
+2026-08-24 22:59:21,914 | INFO     | db4a8fa4-ab02-4305-a438-d3aad68b8154 | app.services.invoke | Agent AGT06 invoked via claude in 116030ms
+2026-08-24 22:59:21,916 | INFO     | db4a8fa4-ab02-4305-a438-d3aad68b8154 | app.request | <-- POST /api/v1/invoke 200 (116641.9ms)
+2026-08-24 22:59:36,434 | INFO     | 40476ead-1c11-4fab-8d1a-94003674d462 | app.services.invoke | Agent AGT06 invoked via claude in 55256ms
+2026-08-24 22:59:36,436 | INFO     | 40476ead-1c11-4fab-8d1a-94003674d462 | app.request | <-- POST /api/v1/invoke 200 (55923.2ms)
+2026-08-24 23:07:46,072 | INFO     | 0c60759a-f565-4159-9e69-e30d7bd6f186 | app.request | --> GET /health
+2026-08-24 23:07:46,075 | INFO     | 0c60759a-f565-4159-9e69-e30d7bd6f186 | app.request | <-- GET /health 200 (3.1ms)
+2026-08-24 23:08:35,939 | INFO     | bdb47917-329f-4e0a-97ca-ceaab166b672 | app.request | --> GET /api/v1/agents
+2026-08-24 23:08:35,953 | INFO     | bdb47917-329f-4e0a-97ca-ceaab166b672 | app.request | <-- GET /api/v1/agents 200 (13.8ms)
+2026-08-24 23:08:56,174 | INFO     | - | app | TalentOS Agent Builder Service started in local mode
+2026-08-24 23:08:56,188 | INFO     | ec9df084-77c2-452e-a3ec-6d03b99c2f3a | app.request | --> GET /health
+2026-08-24 23:08:56,194 | INFO     | ec9df084-77c2-452e-a3ec-6d03b99c2f3a | app.request | <-- GET /health 200 (5.7ms)
+2026-08-24 23:08:56,208 | INFO     | 52ad6a24-29d7-4956-8b65-4d89d5cc7e7d | app.request | --> GET /api/v1/agents
+2026-08-24 23:08:56,213 | INFO     | 52ad6a24-29d7-4956-8b65-4d89d5cc7e7d | app.request | <-- GET /api/v1/agents 422 (4.9ms)
+2026-08-24 23:08:56,226 | INFO     | a50f8ddf-57d8-4e9e-babe-05fe1b02dcc6 | app.request | --> POST /api/v1/invoke
+2026-08-24 23:08:56,234 | INFO     | a50f8ddf-57d8-4e9e-babe-05fe1b02dcc6 | app.request | <-- POST /api/v1/invoke 422 (7.7ms)
+2026-08-24 23:11:23,064 | INFO     | 9091d558-b6d1-4a84-a3b1-d6ce317c2e7c | app.request | --> GET /health
+2026-08-24 23:11:23,066 | INFO     | 9091d558-b6d1-4a84-a3b1-d6ce317c2e7c | app.request | <-- GET /health 200 (1.9ms)
+2026-08-24 23:12:05,503 | INFO     | 9a2ce6f6-9604-480b-9ddc-4d0e7c9be2d6 | app.request | --> GET /api/v1/agents
+2026-08-24 23:12:05,516 | INFO     | 9a2ce6f6-9604-480b-9ddc-4d0e7c9be2d6 | app.request | <-- GET /api/v1/agents 200 (12.5ms)
+2026-08-24 23:12:05,518 | INFO     | b57b857a-ccb0-489d-8976-f9f551dfb42f | app.request | --> GET /api/v1/agents
+2026-08-24 23:12:05,530 | INFO     | b57b857a-ccb0-489d-8976-f9f551dfb42f | app.request | <-- GET /api/v1/agents 200 (12.0ms)
+2026-08-24 23:12:12,349 | INFO     | de7c32d8-b22d-4a0e-b79f-28bd439fbe02 | app.request | --> GET /api/v1/models
+2026-08-24 23:12:12,363 | INFO     | de7c32d8-b22d-4a0e-b79f-28bd439fbe02 | app.request | <-- GET /api/v1/models 200 (13.6ms)
+2026-08-24 23:12:12,366 | INFO     | 00b46d0f-3254-48f5-bdd9-26ee3e15b732 | app.request | --> GET /api/v1/models
+2026-08-24 23:12:12,376 | INFO     | 00b46d0f-3254-48f5-bdd9-26ee3e15b732 | app.request | <-- GET /api/v1/models 200 (9.7ms)
+2026-08-24 23:12:31,938 | INFO     | 7ddfffbc-c27c-41f4-ba6e-514adccb0877 | app.request | --> GET /api/v1/agents
+2026-08-24 23:12:31,949 | INFO     | 7ddfffbc-c27c-41f4-ba6e-514adccb0877 | app.request | <-- GET /api/v1/agents 200 (11.5ms)
+2026-08-24 23:12:31,952 | INFO     | 9f11cc47-fc11-4ea5-815a-4c4770a89aee | app.request | --> GET /api/v1/agents
+2026-08-24 23:12:31,985 | INFO     | 9f11cc47-fc11-4ea5-815a-4c4770a89aee | app.request | <-- GET /api/v1/agents 200 (33.4ms)
+2026-08-24 23:12:34,279 | INFO     | f871c2de-a66d-4d3a-978d-a869b8687940 | app.request | --> GET /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c
+2026-08-24 23:12:34,282 | INFO     | c285b5d5-6b18-43d9-bef5-3d6c28c1d357 | app.request | --> GET /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c/usage
+2026-08-24 23:12:34,312 | INFO     | f871c2de-a66d-4d3a-978d-a869b8687940 | app.request | <-- GET /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c 200 (33.3ms)
+2026-08-24 23:12:34,315 | INFO     | c285b5d5-6b18-43d9-bef5-3d6c28c1d357 | app.request | <-- GET /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c/usage 200 (33.0ms)
+2026-08-24 23:12:34,317 | INFO     | cc5de215-1ede-4117-afcd-634c4de3e0c7 | app.request | --> GET /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c
+2026-08-24 23:12:34,319 | INFO     | 54b5459e-e137-4572-8f0e-5fdf2ccb521e | app.request | --> GET /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c/usage
+2026-08-24 23:12:34,345 | INFO     | cc5de215-1ede-4117-afcd-634c4de3e0c7 | app.request | <-- GET /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c 200 (28.5ms)
+2026-08-24 23:12:34,346 | INFO     | 54b5459e-e137-4572-8f0e-5fdf2ccb521e | app.request | <-- GET /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c/usage 200 (27.8ms)
+2026-08-24 23:13:02,617 | INFO     | c5bde0d3-6bab-444d-b188-dc832d587e92 | app.request | --> GET /api/v1/agents
+2026-08-24 23:13:02,631 | INFO     | c5bde0d3-6bab-444d-b188-dc832d587e92 | app.request | <-- GET /api/v1/agents 200 (14.3ms)
+2026-08-24 23:13:02,634 | INFO     | 8ec9dd7b-0c16-4f83-bc15-3e3a199dc5df | app.request | --> GET /api/v1/agents
+2026-08-24 23:13:02,651 | INFO     | 8ec9dd7b-0c16-4f83-bc15-3e3a199dc5df | app.request | <-- GET /api/v1/agents 200 (16.9ms)
+2026-08-24 23:13:05,883 | INFO     | ae6f93ca-3518-4bb4-a1d2-e44d72a1614f | app.request | --> GET /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7
+2026-08-24 23:13:05,886 | INFO     | be4d52cf-3de3-4411-bb14-fabfcdeb0116 | app.request | --> GET /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7/usage
+2026-08-24 23:13:05,916 | INFO     | ae6f93ca-3518-4bb4-a1d2-e44d72a1614f | app.request | <-- GET /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7 200 (32.7ms)
+2026-08-24 23:13:05,917 | INFO     | be4d52cf-3de3-4411-bb14-fabfcdeb0116 | app.request | <-- GET /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7/usage 200 (32.0ms)
+2026-08-24 23:13:05,920 | INFO     | 3e11e986-9488-49e8-907b-81fd1ade863d | app.request | --> GET /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7
+2026-08-24 23:13:05,922 | INFO     | 5e275897-4990-4653-88b0-be1b4198b057 | app.request | --> GET /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7/usage
+2026-08-24 23:13:05,953 | INFO     | 3e11e986-9488-49e8-907b-81fd1ade863d | app.request | <-- GET /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7 200 (33.7ms)
+2026-08-24 23:13:05,958 | INFO     | 5e275897-4990-4653-88b0-be1b4198b057 | app.request | <-- GET /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7/usage 200 (35.6ms)
+2026-08-25 00:26:52,640 | INFO     | - | app | TalentOS Agent Builder Service started in local mode
+2026-08-25 00:26:52,646 | INFO     | a67c70e5-49b9-4710-b897-63b904820277 | app.request | --> GET /health
+2026-08-25 00:26:52,647 | INFO     | a67c70e5-49b9-4710-b897-63b904820277 | app.request | <-- GET /health 200 (1.1ms)
+2026-08-25 00:26:52,651 | INFO     | 662f2e28-755f-41fc-9078-15819d8e849b | app.request | --> GET /api/v1/agents
+2026-08-25 00:26:52,652 | INFO     | 662f2e28-755f-41fc-9078-15819d8e849b | app.request | <-- GET /api/v1/agents 401 (1.2ms)
+2026-08-25 00:26:52,655 | INFO     | aaa98365-e419-4e1f-aa84-023f06bbc69b | app.request | --> GET /api/v1/agents
+2026-08-25 00:26:52,656 | INFO     | aaa98365-e419-4e1f-aa84-023f06bbc69b | app.request | <-- GET /api/v1/agents 401 (1.0ms)
+2026-08-25 00:26:52,660 | INFO     | 730cb57a-c6a6-4691-8533-4dd92cf8397c | app.request | --> GET /api/v1/agents
+2026-08-25 00:26:52,663 | INFO     | 730cb57a-c6a6-4691-8533-4dd92cf8397c | app.request | <-- GET /api/v1/agents 403 (2.7ms)
+2026-08-25 00:26:52,666 | INFO     | e18f3f89-0b97-4fbc-b33d-c5a3484e93bb | app.request | --> GET /api/v1/agents
+2026-08-25 00:26:52,740 | INFO     | e18f3f89-0b97-4fbc-b33d-c5a3484e93bb | app.request | <-- GET /api/v1/agents 200 (73.3ms)
+2026-08-25 00:26:52,744 | INFO     | ff8098b7-e6eb-484b-ba7c-0feaea35acac | app.request | --> POST /api/v1/invoke
+2026-08-25 00:26:52,746 | INFO     | ff8098b7-e6eb-484b-ba7c-0feaea35acac | app.request | <-- POST /api/v1/invoke 401 (2.4ms)
+2026-08-25 00:26:52,749 | INFO     | b00f4747-041f-48db-b8bd-39fcd50f7240 | app.request | --> POST /api/v1/invoke
+2026-08-25 00:26:52,751 | INFO     | b00f4747-041f-48db-b8bd-39fcd50f7240 | app.request | <-- POST /api/v1/invoke 401 (1.4ms)
+2026-08-25 00:27:01,569 | INFO     | - | app | TalentOS Agent Builder Service started in local mode
+2026-08-25 00:27:01,569 | INFO     | - | uvicorn.error | Started server process [53352]
+2026-08-25 00:27:01,569 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-25 00:27:01,570 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-25 00:27:02,732 | INFO     | 6e385bd9-3d9a-4af9-b8a0-076678782191 | app.request | --> GET /health
+2026-08-25 00:27:02,733 | INFO     | 6e385bd9-3d9a-4af9-b8a0-076678782191 | app.request | <-- GET /health 200 (1.3ms)
+2026-08-25 00:27:17,434 | INFO     | 35e0e99b-d55c-4599-8a05-855a5b94a93a | app.request | --> GET /health
+2026-08-25 00:27:17,436 | INFO     | 35e0e99b-d55c-4599-8a05-855a5b94a93a | app.request | <-- GET /health 200 (2.0ms)
+2026-08-25 00:27:27,532 | INFO     | 273e621b-95b5-4b8c-be3c-dd77d6a7e7ac | app.request | --> GET /api/v1/agents
+2026-08-25 00:27:27,534 | INFO     | 273e621b-95b5-4b8c-be3c-dd77d6a7e7ac | app.request | <-- GET /api/v1/agents 401 (2.1ms)
+2026-08-25 00:27:27,810 | INFO     | e4409eda-8254-406b-80db-5f0f1de487e5 | app.request | --> GET /api/v1/agents
+2026-08-25 00:27:30,253 | INFO     | e4409eda-8254-406b-80db-5f0f1de487e5 | app.request | <-- GET /api/v1/agents 200 (2442.9ms)
+2026-08-25 00:27:30,524 | INFO     | 48b66787-f06d-4a44-9763-16e237ee0193 | app.request | --> GET /api/v1/models
+2026-08-25 00:27:30,533 | INFO     | 48b66787-f06d-4a44-9763-16e237ee0193 | app.request | <-- GET /api/v1/models 200 (9.2ms)
+2026-08-25 00:27:47,637 | INFO     | b2751ac5-bfd4-4668-9852-8a42334b6c0b | app.request | --> GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9
+2026-08-25 00:27:47,660 | INFO     | b2751ac5-bfd4-4668-9852-8a42334b6c0b | app.request | <-- GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9 200 (23.0ms)
+2026-08-25 00:27:47,944 | INFO     | 2f1a9695-d07f-4093-86e3-c158f6135402 | app.request | --> GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys
+2026-08-25 00:27:47,956 | INFO     | 2f1a9695-d07f-4093-86e3-c158f6135402 | app.request | <-- GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys 200 (12.1ms)
+2026-08-25 00:27:48,217 | INFO     | d1436b40-f012-4815-bc92-52ad724fedda | app.request | --> POST /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/publish
+2026-08-25 00:27:52,739 | INFO     | d1436b40-f012-4815-bc92-52ad724fedda | app.services.agent | Agent AGT01 published by admin@talentos-platform.com
+2026-08-25 00:27:54,995 | INFO     | d1436b40-f012-4815-bc92-52ad724fedda | app.request | <-- POST /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/publish 200 (6778.3ms)
+2026-08-25 00:28:08,615 | INFO     | d3cfbe38-f048-40cc-b0fa-51119c4b7efd | app.request | --> GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys
+2026-08-25 00:28:08,628 | INFO     | d3cfbe38-f048-40cc-b0fa-51119c4b7efd | app.request | <-- GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys 200 (13.5ms)
+2026-08-25 00:28:09,047 | INFO     | 636de905-bcab-4239-a440-c1a62e0d154e | app.request | --> GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys
+2026-08-25 00:28:09,058 | INFO     | 636de905-bcab-4239-a440-c1a62e0d154e | app.request | <-- GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys 200 (11.3ms)
+2026-08-25 00:28:23,216 | INFO     | 0dc090b1-2451-4309-bd3e-e150138dbf6e | app.request | --> GET /health
+2026-08-25 00:28:23,217 | INFO     | 0dc090b1-2451-4309-bd3e-e150138dbf6e | app.request | <-- GET /health 200 (1.9ms)
+2026-08-25 00:28:24,268 | INFO     | 42881215-541e-4cee-900c-ab320f4f5758 | app.request | --> POST /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys/regenerate
+2026-08-25 00:28:28,805 | INFO     | 42881215-541e-4cee-900c-ab320f4f5758 | app.request | <-- POST /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys/regenerate 200 (4536.9ms)
+2026-08-25 00:28:38,549 | INFO     | 62c99236-4679-4458-8cc4-ed8ded4b39ff | app.request | --> GET /api/v1/agents
+2026-08-25 00:28:38,551 | INFO     | 62c99236-4679-4458-8cc4-ed8ded4b39ff | app.request | <-- GET /api/v1/agents 401 (1.2ms)
+2026-08-25 00:28:39,961 | INFO     | 172a636c-9e25-44c7-8020-cd4ec4170d55 | app.request | --> POST /api/v1/invoke
+2026-08-25 00:28:50,784 | INFO     | c6ca57a5-20a0-48ab-a68c-c5b52553178b | app.request | --> GET /api/v1/agents
+2026-08-25 00:28:50,834 | INFO     | c6ca57a5-20a0-48ab-a68c-c5b52553178b | app.request | <-- GET /api/v1/agents 200 (49.8ms)
+2026-08-25 00:29:04,174 | INFO     | 172a636c-9e25-44c7-8020-cd4ec4170d55 | app.services.invoke | Agent AGT01 invoked via claude in 23792ms
+2026-08-25 00:29:04,175 | INFO     | 172a636c-9e25-44c7-8020-cd4ec4170d55 | app.request | <-- POST /api/v1/invoke 200 (24213.3ms)
+2026-08-25 00:29:18,487 | INFO     | 0a8e1747-1f83-4d0d-97bd-3582b4f25a28 | app.request | --> POST /api/v1/invoke
+2026-08-25 00:29:18,491 | INFO     | 0a8e1747-1f83-4d0d-97bd-3582b4f25a28 | app.request | <-- POST /api/v1/invoke 403 (3.8ms)
+2026-08-25 00:29:18,765 | INFO     | 2c0eaedc-5fde-492e-a339-e99f633e5824 | app.request | --> POST /api/v1/invoke
+2026-08-25 00:29:18,770 | INFO     | 2c0eaedc-5fde-492e-a339-e99f633e5824 | app.request | <-- POST /api/v1/invoke 401 (5.0ms)
+2026-08-25 00:29:19,051 | INFO     | 90c92bc3-1b55-4909-826a-855efb88dfa6 | app.request | --> GET /api/v1/models
+2026-08-25 00:29:19,051 | INFO     | 90c92bc3-1b55-4909-826a-855efb88dfa6 | app.request | <-- GET /api/v1/models 401 (0.8ms)
+2026-08-25 00:29:19,680 | INFO     | 4d85dad4-d652-48c6-b865-01792758635a | app.request | --> GET /api/v1/agents
+2026-08-25 00:29:19,694 | INFO     | 4d85dad4-d652-48c6-b865-01792758635a | app.request | <-- GET /api/v1/agents 200 (13.9ms)
+2026-08-25 00:30:21,388 | INFO     | c63719b8-ac5a-4a7f-8456-b57523e2c965 | app.request | --> POST /api/v1/models
+2026-08-25 00:30:21,403 | INFO     | c63719b8-ac5a-4a7f-8456-b57523e2c965 | app.services.model | Model MDL03 (707a3563-4cc4-4a48-a392-accd0aba8b98) registered: claude/claude-sonnet-5
+2026-08-25 00:30:23,676 | INFO     | c63719b8-ac5a-4a7f-8456-b57523e2c965 | app.request | <-- POST /api/v1/models 201 (2287.9ms)
+2026-08-25 00:30:24,185 | INFO     | 031058e3-ed21-41d5-b9eb-bf9528a28c9e | app.request | --> DELETE /api/v1/models/707a3563-4cc4-4a48-a392-accd0aba8b98
+2026-08-25 00:30:26,444 | INFO     | 031058e3-ed21-41d5-b9eb-bf9528a28c9e | app.request | <-- DELETE /api/v1/models/707a3563-4cc4-4a48-a392-accd0aba8b98 200 (2258.9ms)
+2026-08-25 00:30:36,562 | INFO     | - | app | TalentOS Agent Builder Service started in local mode
+2026-08-25 00:30:36,568 | INFO     | 75169ece-8d4a-4ea9-b8af-83bac9e0bd01 | app.request | --> GET /health
+2026-08-25 00:30:36,569 | INFO     | 75169ece-8d4a-4ea9-b8af-83bac9e0bd01 | app.request | <-- GET /health 200 (1.1ms)
+2026-08-25 00:30:36,573 | INFO     | 34c92cb9-a211-4831-ab93-fb7593f35e84 | app.request | --> GET /api/v1/agents
+2026-08-25 00:30:36,575 | INFO     | 34c92cb9-a211-4831-ab93-fb7593f35e84 | app.request | <-- GET /api/v1/agents 401 (1.2ms)
+2026-08-25 00:30:36,578 | INFO     | ccc5e165-fa4b-458a-a79b-e9b78c9b3e2d | app.request | --> GET /api/v1/agents
+2026-08-25 00:30:36,579 | INFO     | ccc5e165-fa4b-458a-a79b-e9b78c9b3e2d | app.request | <-- GET /api/v1/agents 401 (1.0ms)
+2026-08-25 00:30:36,584 | INFO     | 8e46ba6f-4281-43ca-ab20-5a1354605d88 | app.request | --> GET /api/v1/agents
+2026-08-25 00:30:36,587 | INFO     | 8e46ba6f-4281-43ca-ab20-5a1354605d88 | app.request | <-- GET /api/v1/agents 403 (2.7ms)
+2026-08-25 00:30:36,591 | INFO     | 17de28dd-92b9-4b8d-9128-6d641b3b0613 | app.request | --> GET /api/v1/agents
+2026-08-25 00:30:36,661 | INFO     | 17de28dd-92b9-4b8d-9128-6d641b3b0613 | app.request | <-- GET /api/v1/agents 200 (70.0ms)
+2026-08-25 00:30:36,664 | INFO     | 7f68b20b-9126-49c0-8a97-b75af5c3f943 | app.request | --> POST /api/v1/invoke
+2026-08-25 00:30:36,666 | INFO     | 7f68b20b-9126-49c0-8a97-b75af5c3f943 | app.request | <-- POST /api/v1/invoke 401 (1.9ms)
+2026-08-25 00:30:36,671 | INFO     | a2f1da60-b9f6-44f8-8704-039cd26c8770 | app.request | --> POST /api/v1/invoke
+2026-08-25 00:30:36,672 | INFO     | a2f1da60-b9f6-44f8-8704-039cd26c8770 | app.request | <-- POST /api/v1/invoke 401 (1.4ms)
+2026-08-25 00:31:04,890 | INFO     | 8b86c6b4-9d0f-40a0-86de-0ab319239cbf | app.request | --> GET /health
+2026-08-25 00:31:04,892 | INFO     | 8b86c6b4-9d0f-40a0-86de-0ab319239cbf | app.request | <-- GET /health 200 (1.9ms)
+2026-08-25 00:32:20,827 | INFO     | 6e3fa19f-88e1-405e-9fa9-5c23551be65e | app.request | --> GET /health
+2026-08-25 00:32:20,829 | INFO     | 6e3fa19f-88e1-405e-9fa9-5c23551be65e | app.request | <-- GET /health 200 (1.9ms)
+2026-08-25 00:32:29,093 | INFO     | 2226c568-75c4-4897-9485-04e0823519b2 | app.request | --> GET /api/v1/agents
+2026-08-25 00:32:29,104 | INFO     | 2226c568-75c4-4897-9485-04e0823519b2 | app.request | <-- GET /api/v1/agents 200 (11.6ms)
+2026-08-25 00:32:46,960 | INFO     | d51cf2eb-49f0-486c-9699-74baf1c84700 | app.request | --> POST /api/v1/agents/0fe0f942-0c91-4839-9efe-cf5bf05778b9/publish
+2026-08-25 00:32:51,483 | INFO     | d51cf2eb-49f0-486c-9699-74baf1c84700 | app.services.agent | Agent AGT03 published by admin@talentos-platform.com
+2026-08-25 00:32:53,742 | INFO     | d51cf2eb-49f0-486c-9699-74baf1c84700 | app.request | <-- POST /api/v1/agents/0fe0f942-0c91-4839-9efe-cf5bf05778b9/publish 200 (6782.2ms)
+2026-08-25 00:32:54,011 | INFO     | abc0824c-ec3b-47f7-9af5-77b001340f1b | app.request | --> POST /api/v1/agents/0f83c176-397c-48d0-ace9-4173012c04a9/publish
+2026-08-25 00:32:56,288 | INFO     | abc0824c-ec3b-47f7-9af5-77b001340f1b | app.services.agent | Agent AGT02 published by admin@talentos-platform.com
+2026-08-25 00:32:58,540 | INFO     | abc0824c-ec3b-47f7-9af5-77b001340f1b | app.request | <-- POST /api/v1/agents/0f83c176-397c-48d0-ace9-4173012c04a9/publish 200 (4528.8ms)
+2026-08-25 00:32:58,810 | INFO     | 8b345104-09af-4a0d-831f-a0eac5588599 | app.request | --> POST /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys/regenerate
+2026-08-25 00:33:03,324 | INFO     | 8b345104-09af-4a0d-831f-a0eac5588599 | app.request | <-- POST /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys/regenerate 200 (4513.4ms)
+2026-08-25 00:33:03,596 | INFO     | f87bef50-7fc3-422d-b31f-914ad5a81e29 | app.request | --> POST /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c/publish
+2026-08-25 00:33:05,881 | INFO     | f87bef50-7fc3-422d-b31f-914ad5a81e29 | app.services.agent | Agent AGT07 published by admin@talentos-platform.com
+2026-08-25 00:33:08,158 | INFO     | f87bef50-7fc3-422d-b31f-914ad5a81e29 | app.request | <-- POST /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c/publish 200 (4561.3ms)
+2026-08-25 00:33:08,429 | INFO     | 215e7e72-9501-4252-8bff-081548410623 | app.request | --> POST /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7/publish
+2026-08-25 00:33:10,693 | INFO     | 215e7e72-9501-4252-8bff-081548410623 | app.services.agent | Agent AGT06 published by admin@talentos-platform.com
+2026-08-25 00:33:12,952 | INFO     | 215e7e72-9501-4252-8bff-081548410623 | app.request | <-- POST /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7/publish 200 (4522.7ms)
+2026-08-25 00:33:13,214 | INFO     | 2731f779-d550-46f7-afd4-53a0ca4efb05 | app.request | --> POST /api/v1/agents/cfe864e8-b0a3-4536-8564-a28b3437bc1f/publish
+2026-08-25 00:33:15,481 | INFO     | 2731f779-d550-46f7-afd4-53a0ca4efb05 | app.services.agent | Agent AGT05 published by admin@talentos-platform.com
+2026-08-25 00:33:17,755 | INFO     | 2731f779-d550-46f7-afd4-53a0ca4efb05 | app.request | <-- POST /api/v1/agents/cfe864e8-b0a3-4536-8564-a28b3437bc1f/publish 200 (4541.7ms)
+2026-08-25 00:33:18,029 | INFO     | 4a637852-58dc-40d1-8cd6-b92bdde72372 | app.request | --> POST /api/v1/agents/8a1871b9-c2e3-4f8c-b887-eb802eefd815/publish
+2026-08-25 00:33:20,369 | INFO     | 4a637852-58dc-40d1-8cd6-b92bdde72372 | app.services.agent | Agent AGT04 published by admin@talentos-platform.com
+2026-08-25 00:33:22,623 | INFO     | 4a637852-58dc-40d1-8cd6-b92bdde72372 | app.request | <-- POST /api/v1/agents/8a1871b9-c2e3-4f8c-b887-eb802eefd815/publish 200 (4594.1ms)
+2026-08-25 00:33:40,448 | INFO     | 9d33ac5e-0fb6-4127-b9ba-5eb48001e7d0 | app.request | --> GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys
+2026-08-25 00:33:40,463 | INFO     | 9d33ac5e-0fb6-4127-b9ba-5eb48001e7d0 | app.request | <-- GET /api/v1/agents/d03e21e4-9104-4a92-8473-596cfb49dfa9/keys 200 (15.2ms)
+2026-08-25 00:33:40,764 | INFO     | d5372869-fe7c-4aac-bd30-2f84f8717dce | app.request | --> GET /api/v1/agents/0f83c176-397c-48d0-ace9-4173012c04a9/keys
+2026-08-25 00:33:40,778 | INFO     | d5372869-fe7c-4aac-bd30-2f84f8717dce | app.request | <-- GET /api/v1/agents/0f83c176-397c-48d0-ace9-4173012c04a9/keys 200 (14.2ms)
+2026-08-25 00:33:41,081 | INFO     | a49c400c-2ddd-48f3-94d9-051f24cecb7d | app.request | --> GET /api/v1/agents/0fe0f942-0c91-4839-9efe-cf5bf05778b9/keys
+2026-08-25 00:33:41,095 | INFO     | a49c400c-2ddd-48f3-94d9-051f24cecb7d | app.request | <-- GET /api/v1/agents/0fe0f942-0c91-4839-9efe-cf5bf05778b9/keys 200 (13.9ms)
+2026-08-25 00:33:41,381 | INFO     | 874b48ae-c82b-4544-a749-b34bfc9dfa43 | app.request | --> GET /api/v1/agents/8a1871b9-c2e3-4f8c-b887-eb802eefd815/keys
+2026-08-25 00:33:41,400 | INFO     | 874b48ae-c82b-4544-a749-b34bfc9dfa43 | app.request | <-- GET /api/v1/agents/8a1871b9-c2e3-4f8c-b887-eb802eefd815/keys 200 (19.1ms)
+2026-08-25 00:33:41,696 | INFO     | 6db30b21-7bbb-4347-8b0a-fee001f07d21 | app.request | --> GET /api/v1/agents/cfe864e8-b0a3-4536-8564-a28b3437bc1f/keys
+2026-08-25 00:33:41,701 | INFO     | 6db30b21-7bbb-4347-8b0a-fee001f07d21 | app.request | <-- GET /api/v1/agents/cfe864e8-b0a3-4536-8564-a28b3437bc1f/keys 200 (5.8ms)
+2026-08-25 00:33:42,013 | INFO     | 480463e1-c0b7-4df9-bda5-342521a5dcbb | app.request | --> GET /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7/keys
+2026-08-25 00:33:42,026 | INFO     | 480463e1-c0b7-4df9-bda5-342521a5dcbb | app.request | <-- GET /api/v1/agents/24809e8e-628f-4df2-b17c-476532bac1b7/keys 200 (12.9ms)
+2026-08-25 00:33:42,331 | INFO     | 8068775b-bb0b-45fa-9450-5ddc21ce6edb | app.request | --> GET /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c/keys
+2026-08-25 00:33:42,345 | INFO     | 8068775b-bb0b-45fa-9450-5ddc21ce6edb | app.request | <-- GET /api/v1/agents/dc2d9d63-b573-49ad-b1ad-4d3a41f5db1c/keys 200 (14.9ms)
+2026-08-25 00:35:43,501 | INFO     | eec631bd-8927-4b62-a1c1-d3407b385a3e | app.request | --> POST /api/v1/invoke
+2026-08-25 00:36:10,175 | INFO     | eec631bd-8927-4b62-a1c1-d3407b385a3e | app.services.invoke | Agent AGT01 invoked via claude in 26258ms
+2026-08-25 00:36:10,176 | INFO     | eec631bd-8927-4b62-a1c1-d3407b385a3e | app.request | <-- POST /api/v1/invoke 200 (26675.2ms)
+2026-08-25 00:42:03,443 | INFO     | 7c96dacb-20b4-4cb6-9f23-e8daa344b78c | app.request | --> GET /health
+2026-08-25 00:42:03,445 | INFO     | 7c96dacb-20b4-4cb6-9f23-e8daa344b78c | app.request | <-- GET /health 200 (2.2ms)
+2026-08-25 00:42:56,525 | INFO     | - | app | TalentOS Agent Builder Service started in local mode
+2026-08-25 00:42:56,531 | INFO     | ea7216fe-6537-4900-b0f1-df154ad344e1 | app.request | --> GET /health
+2026-08-25 00:42:56,532 | INFO     | ea7216fe-6537-4900-b0f1-df154ad344e1 | app.request | <-- GET /health 200 (1.2ms)
+2026-08-25 00:42:56,536 | INFO     | 1a3ab205-7205-4110-9ec1-3facec2b747c | app.request | --> GET /api/v1/agents
+2026-08-25 00:42:56,537 | INFO     | 1a3ab205-7205-4110-9ec1-3facec2b747c | app.request | <-- GET /api/v1/agents 401 (1.1ms)
+2026-08-25 00:42:56,540 | INFO     | 78d5a5e3-fc99-40ee-b486-76fc4bf2ed7b | app.request | --> GET /api/v1/agents
+2026-08-25 00:42:56,542 | INFO     | 78d5a5e3-fc99-40ee-b486-76fc4bf2ed7b | app.request | <-- GET /api/v1/agents 401 (1.5ms)
+2026-08-25 00:42:56,545 | INFO     | 12b127c4-51be-4ea0-83d4-1903f6d77a32 | app.request | --> GET /api/v1/agents
+2026-08-25 00:42:56,547 | INFO     | 12b127c4-51be-4ea0-83d4-1903f6d77a32 | app.request | <-- GET /api/v1/agents 403 (2.1ms)
+2026-08-25 00:42:56,551 | INFO     | ce24e163-3295-4505-abde-68c21dec45b4 | app.request | --> GET /api/v1/agents
+2026-08-25 00:42:56,623 | INFO     | ce24e163-3295-4505-abde-68c21dec45b4 | app.request | <-- GET /api/v1/agents 200 (72.1ms)
+2026-08-25 00:42:56,627 | INFO     | 4a2aa364-b3ab-4891-afe3-58de5379d703 | app.request | --> POST /api/v1/invoke
+2026-08-25 00:42:56,629 | INFO     | 4a2aa364-b3ab-4891-afe3-58de5379d703 | app.request | <-- POST /api/v1/invoke 401 (1.8ms)
+2026-08-25 00:42:56,632 | INFO     | 89358e4e-65e8-43e5-9a81-4cc3944a1083 | app.request | --> POST /api/v1/invoke
+2026-08-25 00:42:56,634 | INFO     | 89358e4e-65e8-43e5-9a81-4cc3944a1083 | app.request | <-- POST /api/v1/invoke 401 (1.4ms)
+2026-08-25 05:03:19,807 | INFO     | e4877f36-e582-4205-901a-818159c215cd | app.request | --> GET /health
+2026-08-25 05:03:19,810 | INFO     | e4877f36-e582-4205-901a-818159c215cd | app.request | <-- GET /health 200 (2.8ms)
+2026-08-25 05:19:42,937 | INFO     | - | app | TalentOS Agent Builder Service started in local mode
+2026-08-25 05:19:42,938 | INFO     | - | uvicorn.error | Started server process [44140]
+2026-08-25 05:19:42,938 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-25 05:19:42,938 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-25 05:19:44,171 | INFO     | ef4249d8-d2f2-42ed-b713-6aa889f5bb1e | app.request | --> GET /health
+2026-08-25 05:19:44,173 | INFO     | ef4249d8-d2f2-42ed-b713-6aa889f5bb1e | app.request | <-- GET /health 200 (2.3ms)
+2026-08-25 05:19:49,158 | INFO     | 1d058785-6ce1-481e-b3cc-bd1d1b09799f | app.request | --> GET /health
+2026-08-25 05:19:49,160 | INFO     | 1d058785-6ce1-481e-b3cc-bd1d1b09799f | app.request | <-- GET /health 200 (1.9ms)
+2026-08-25 05:21:15,811 | INFO     | 8b51269d-58af-4950-8844-b9afcb27379e | app.request | --> GET /
+2026-08-25 05:21:15,812 | INFO     | 8b51269d-58af-4950-8844-b9afcb27379e | app.request | <-- GET / 404 (1.1ms)
+2026-08-25 05:21:28,543 | INFO     | b19bca51-8a35-4def-8d41-38a57fe5af90 | app.request | --> GET /health
+2026-08-25 05:21:28,545 | INFO     | b19bca51-8a35-4def-8d41-38a57fe5af90 | app.request | <-- GET /health 200 (1.3ms)
+2026-08-25 05:22:05,412 | INFO     | 65bb1ec1-63a4-4d5b-9187-145daa7f6241 | app.request | --> GET /api/v1/agents
+2026-08-25 05:22:07,798 | INFO     | 65bb1ec1-63a4-4d5b-9187-145daa7f6241 | app.request | <-- GET /api/v1/agents 200 (2386.0ms)

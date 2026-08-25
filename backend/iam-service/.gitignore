@@ -1,0 +1,2 @@
+# RS256 signing keypair - never commit these (generate locally with scripts/generate_signing_key.py)
+keys/

@@ -1,0 +1,58 @@
+import uuid
+
+from sqlalchemy import select
+from sqlalchemy.orm import Session, selectinload
+
+from app.core.constants import ServiceName, build_service_scope_id
+from app.core.exceptions import InvalidStateError, NotFoundError
+from app.models.role_assignment import RoleAssignment
+
+
+def create_role_assignment(
+    db: Session,
+    *,
+    principal_type: str,
+    principal_id: uuid.UUID,
+    role_definition_id: uuid.UUID,
+    organization_id: uuid.UUID,
+    scope_type: str,
+    service_name: str | None,
+) -> RoleAssignment:
+    if scope_type == "organization":
+        scope_id = str(organization_id)
+    else:
+        valid_names = {s.value for s in ServiceName}
+        if service_name not in valid_names:
+            raise InvalidStateError(f"service_name must be one of {sorted(valid_names)}")
+        scope_id = build_service_scope_id(organization_id, service_name)
+
+    assignment = RoleAssignment(
+        principal_type=principal_type,
+        principal_id=principal_id,
+        role_definition_id=role_definition_id,
+        organization_id=organization_id,
+        scope_type=scope_type,
+        scope_id=scope_id,
+    )
+    db.add(assignment)
+    db.commit()
+    db.refresh(assignment)
+    return assignment
+
+
+def list_role_assignments(db: Session, organization_id: uuid.UUID) -> list[RoleAssignment]:
+    stmt = (
+        select(RoleAssignment)
+        .options(selectinload(RoleAssignment.role_definition))
+        .where(RoleAssignment.organization_id == organization_id)
+        .order_by(RoleAssignment.created_at.desc())
+    )
+    return list(db.execute(stmt).scalars().all())
+
+
+def delete_role_assignment(db: Session, role_assignment_id: uuid.UUID) -> None:
+    assignment = db.get(RoleAssignment, role_assignment_id)
+    if assignment is None:
+        raise NotFoundError("Role assignment not found")
+    db.delete(assignment)
+    db.commit()

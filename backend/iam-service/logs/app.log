@@ -1,0 +1,618 @@
+2026-08-24 23:54:29,043 | INFO     | - | app | TalentOS IAM Service started in local mode
+2026-08-24 23:54:29,387 | INFO     | 40d78dc1-3dc7-4682-baac-4bec2309803a | app.request | --> POST /auth/token
+2026-08-24 23:54:29,487 | INFO     | 40d78dc1-3dc7-4682-baac-4bec2309803a | app.request | <-- POST /auth/token 200 (99.7ms)
+2026-08-24 23:54:29,595 | INFO     | 0a536348-7c46-47a3-849f-0617b283f2e1 | app.request | --> POST /auth/token
+2026-08-24 23:54:29,601 | INFO     | 0a536348-7c46-47a3-849f-0617b283f2e1 | app.request | <-- POST /auth/token 401 (6.1ms)
+2026-08-24 23:54:29,709 | INFO     | 1cc7394b-ba00-404c-a002-c82875fd4053 | app.request | --> POST /auth/token
+2026-08-24 23:54:29,715 | INFO     | 1cc7394b-ba00-404c-a002-c82875fd4053 | app.request | <-- POST /auth/token 401 (5.9ms)
+2026-08-24 23:54:29,813 | INFO     | c083b111-5472-48ad-b5c4-06f5a4fedf43 | app.request | --> POST /auth/token
+2026-08-24 23:54:29,823 | INFO     | c083b111-5472-48ad-b5c4-06f5a4fedf43 | app.request | <-- POST /auth/token 200 (9.9ms)
+2026-08-24 23:54:30,257 | INFO     | f94adac7-770a-48a8-85c0-a511052f31bf | app.request | --> POST /auth/login
+2026-08-24 23:54:30,324 | INFO     | f94adac7-770a-48a8-85c0-a511052f31bf | app.request | <-- POST /auth/login 401 (66.9ms)
+2026-08-24 23:54:30,419 | INFO     | 4a7ee558-a247-4286-98a2-8f00442011fa | app.request | --> POST /auth/login
+2026-08-24 23:54:30,428 | INFO     | 4a7ee558-a247-4286-98a2-8f00442011fa | app.request | <-- POST /auth/login 401 (9.5ms)
+2026-08-24 23:54:30,584 | INFO     | 737a6c0b-33e7-483d-a8fa-700395ec5f9b | app.request | --> POST /auth/login
+2026-08-24 23:54:30,647 | INFO     | 737a6c0b-33e7-483d-a8fa-700395ec5f9b | app.request | <-- POST /auth/login 401 (63.5ms)
+2026-08-24 23:54:30,650 | INFO     | 0dca1f54-24a3-4da7-b085-3b70949a32ed | app.request | --> POST /auth/login
+2026-08-24 23:54:30,707 | INFO     | 0dca1f54-24a3-4da7-b085-3b70949a32ed | app.request | <-- POST /auth/login 401 (57.4ms)
+2026-08-24 23:54:30,710 | INFO     | 4fc90a3d-183f-4db0-9a58-aba85eea62ce | app.request | --> POST /auth/login
+2026-08-24 23:54:30,766 | INFO     | 4fc90a3d-183f-4db0-9a58-aba85eea62ce | app.request | <-- POST /auth/login 423 (56.4ms)
+2026-08-24 23:54:30,769 | INFO     | 68a2bba0-4316-49a0-b2e6-2268b735fe61 | app.request | --> POST /auth/login
+2026-08-24 23:54:30,774 | INFO     | 68a2bba0-4316-49a0-b2e6-2268b735fe61 | app.request | <-- POST /auth/login 423 (5.1ms)
+2026-08-24 23:54:30,929 | INFO     | 5bf016db-d034-4b68-88cd-f751f8a3bd8f | app.request | --> POST /auth/login
+2026-08-24 23:54:30,990 | INFO     | 5bf016db-d034-4b68-88cd-f751f8a3bd8f | app.request | <-- POST /auth/login 409 (61.0ms)
+2026-08-24 23:54:30,994 | INFO     | d44fdafd-ee64-419c-964e-6026ada5ee4a | app.request | --> POST /auth/login
+2026-08-24 23:54:31,064 | INFO     | d44fdafd-ee64-419c-964e-6026ada5ee4a | app.request | <-- POST /auth/login 200 (69.5ms)
+2026-08-24 23:54:31,228 | INFO     | 2338471a-fb6b-4f25-8c9e-13d949611372 | app.request | --> POST /auth/login
+2026-08-24 23:54:31,294 | INFO     | 2338471a-fb6b-4f25-8c9e-13d949611372 | app.request | <-- POST /auth/login 200 (66.4ms)
+2026-08-24 23:54:31,297 | INFO     | 3a40d35f-f7fc-442b-abd8-cc0a08f3a33c | app.request | --> POST /auth/token/refresh
+2026-08-24 23:54:31,310 | INFO     | 3a40d35f-f7fc-442b-abd8-cc0a08f3a33c | app.request | <-- POST /auth/token/refresh 200 (13.6ms)
+2026-08-24 23:54:31,465 | INFO     | 018c909e-8496-4044-92eb-525e6453f50c | app.request | --> POST /auth/login
+2026-08-24 23:54:31,549 | INFO     | 018c909e-8496-4044-92eb-525e6453f50c | app.request | <-- POST /auth/login 200 (84.1ms)
+2026-08-24 23:54:31,552 | INFO     | 9c141ad1-744d-48df-aeed-34d0fa31a811 | app.request | --> POST /auth/token/refresh
+2026-08-24 23:54:31,565 | INFO     | 9c141ad1-744d-48df-aeed-34d0fa31a811 | app.request | <-- POST /auth/token/refresh 200 (13.4ms)
+2026-08-24 23:54:31,569 | INFO     | 10971c56-ccd5-4b25-89bd-78491e416cfa | app.request | --> POST /auth/token/refresh
+2026-08-24 23:54:31,580 | INFO     | 10971c56-ccd5-4b25-89bd-78491e416cfa | app.request | <-- POST /auth/token/refresh 401 (10.9ms)
+2026-08-24 23:54:31,583 | INFO     | 4c9defd3-4dd3-4e2b-823b-a3d4dadc393f | app.request | --> POST /auth/token/refresh
+2026-08-24 23:54:31,591 | INFO     | 4c9defd3-4dd3-4e2b-823b-a3d4dadc393f | app.request | <-- POST /auth/token/refresh 401 (7.9ms)
+2026-08-24 23:54:31,711 | INFO     | 9357b3b4-266e-4120-bc51-cc196e3c9790 | app.request | --> POST /auth/token/refresh
+2026-08-24 23:54:31,725 | INFO     | 9357b3b4-266e-4120-bc51-cc196e3c9790 | app.request | <-- POST /auth/token/refresh 401 (14.2ms)
+2026-08-24 23:54:31,810 | INFO     | f9497802-68e6-4ea2-bfa3-eed44f732291 | app.request | --> GET /health
+2026-08-24 23:54:31,812 | INFO     | f9497802-68e6-4ea2-bfa3-eed44f732291 | app.request | <-- GET /health 200 (1.6ms)
+2026-08-24 23:54:31,900 | INFO     | 90d95c26-1158-4779-83b5-41065cc1ec8c | app.request | --> GET /.well-known/jwks.json
+2026-08-24 23:54:31,902 | INFO     | 90d95c26-1158-4779-83b5-41065cc1ec8c | app.request | <-- GET /.well-known/jwks.json 200 (1.7ms)
+2026-08-24 23:54:31,989 | INFO     | 1a0149b5-67e8-4af6-8c99-84f4c9792057 | app.request | --> GET /.well-known/jwks.json
+2026-08-24 23:54:31,990 | INFO     | 1a0149b5-67e8-4af6-8c99-84f4c9792057 | app.request | <-- GET /.well-known/jwks.json 200 (1.4ms)
+2026-08-24 23:54:32,923 | INFO     | ac9ad446-475f-48e1-86c3-263e34483280 | app.request | --> POST /auth/login
+2026-08-24 23:54:32,992 | INFO     | ac9ad446-475f-48e1-86c3-263e34483280 | app.request | <-- POST /auth/login 200 (69.2ms)
+2026-08-24 23:54:32,995 | INFO     | 457d5b5c-ac56-4f99-bb99-5bb0035d9e0e | app.request | --> POST /role-definitions
+2026-08-24 23:54:33,002 | INFO     | 457d5b5c-ac56-4f99-bb99-5bb0035d9e0e | app.request | <-- POST /role-definitions 403 (6.6ms)
+2026-08-24 23:54:33,335 | INFO     | 5c79a31c-2bbf-421d-ba75-4cceb7d5b6b5 | app.request | --> GET /role-definitions
+2026-08-24 23:54:33,341 | INFO     | 5c79a31c-2bbf-421d-ba75-4cceb7d5b6b5 | app.request | <-- GET /role-definitions 200 (5.9ms)
+2026-08-24 23:54:33,344 | INFO     | 9ff15bb2-819a-47bd-9b05-368e76a3c868 | app.request | --> POST /role-definitions
+2026-08-24 23:54:33,346 | INFO     | 9ff15bb2-819a-47bd-9b05-368e76a3c868 | app.request | <-- POST /role-definitions 401 (2.0ms)
+2026-08-24 23:55:02,548 | INFO     | - | app | TalentOS IAM Service started in local mode
+2026-08-24 23:55:02,728 | INFO     | dd676261-1524-48ae-935a-468443c9b32a | app.request | --> POST /auth/token
+2026-08-24 23:55:02,827 | INFO     | dd676261-1524-48ae-935a-468443c9b32a | app.request | <-- POST /auth/token 200 (99.3ms)
+2026-08-24 23:55:02,967 | INFO     | 2093449b-f7ee-4f42-94f2-ca356b57974a | app.request | --> POST /auth/token
+2026-08-24 23:55:02,973 | INFO     | 2093449b-f7ee-4f42-94f2-ca356b57974a | app.request | <-- POST /auth/token 401 (5.9ms)
+2026-08-24 23:55:03,117 | INFO     | b6e481fa-f86b-49ff-b2cd-7ccfd78c98cb | app.request | --> POST /auth/token
+2026-08-24 23:55:03,123 | INFO     | b6e481fa-f86b-49ff-b2cd-7ccfd78c98cb | app.request | <-- POST /auth/token 401 (6.2ms)
+2026-08-24 23:55:03,261 | INFO     | 42701f55-cc1a-4b12-b25b-baecc30f95a1 | app.request | --> POST /auth/token
+2026-08-24 23:55:03,271 | INFO     | 42701f55-cc1a-4b12-b25b-baecc30f95a1 | app.request | <-- POST /auth/token 200 (9.6ms)
+2026-08-24 23:55:03,480 | INFO     | c76d1e42-da0a-4422-8441-6a083d566c90 | app.request | --> POST /auth/login
+2026-08-24 23:55:03,555 | INFO     | c76d1e42-da0a-4422-8441-6a083d566c90 | app.request | <-- POST /auth/login 200 (74.6ms)
+2026-08-24 23:55:03,806 | INFO     | 89630f15-5178-4b7f-91d1-6914cf128f54 | app.request | --> POST /auth/login
+2026-08-24 23:55:03,883 | INFO     | 89630f15-5178-4b7f-91d1-6914cf128f54 | app.request | <-- POST /auth/login 401 (77.1ms)
+2026-08-24 23:55:04,007 | INFO     | 18c23b23-b2bf-4582-a17c-223af041f8a5 | app.request | --> POST /auth/login
+2026-08-24 23:55:04,016 | INFO     | 18c23b23-b2bf-4582-a17c-223af041f8a5 | app.request | <-- POST /auth/login 401 (9.6ms)
+2026-08-24 23:55:04,212 | INFO     | 7a4c8c96-6fd0-4d7f-ac82-c9af0c25e0bf | app.request | --> POST /auth/login
+2026-08-24 23:55:04,281 | INFO     | 7a4c8c96-6fd0-4d7f-ac82-c9af0c25e0bf | app.request | <-- POST /auth/login 401 (69.6ms)
+2026-08-24 23:55:04,284 | INFO     | 64082811-8feb-46e0-a487-6d4e7e8753b5 | app.request | --> POST /auth/login
+2026-08-24 23:55:04,354 | INFO     | 64082811-8feb-46e0-a487-6d4e7e8753b5 | app.request | <-- POST /auth/login 401 (70.6ms)
+2026-08-24 23:55:04,357 | INFO     | ea97ec36-5793-41ac-96e0-faa163845f89 | app.request | --> POST /auth/login
+2026-08-24 23:55:04,427 | INFO     | ea97ec36-5793-41ac-96e0-faa163845f89 | app.request | <-- POST /auth/login 423 (69.6ms)
+2026-08-24 23:55:04,430 | INFO     | c0235e78-41c7-469c-86c2-fb0d27138643 | app.request | --> POST /auth/login
+2026-08-24 23:55:04,435 | INFO     | c0235e78-41c7-469c-86c2-fb0d27138643 | app.request | <-- POST /auth/login 423 (4.8ms)
+2026-08-24 23:55:04,632 | INFO     | 0dda0b8e-27ae-41c1-8fc2-5c873ec4b550 | app.request | --> POST /auth/login
+2026-08-24 23:55:04,701 | INFO     | 0dda0b8e-27ae-41c1-8fc2-5c873ec4b550 | app.request | <-- POST /auth/login 409 (68.3ms)
+2026-08-24 23:55:04,704 | INFO     | 86f00172-b638-421f-9846-51f9d584ec7f | app.request | --> POST /auth/login
+2026-08-24 23:55:04,777 | INFO     | 86f00172-b638-421f-9846-51f9d584ec7f | app.request | <-- POST /auth/login 200 (72.9ms)
+2026-08-24 23:55:04,971 | INFO     | 02116c65-1093-45bc-b932-0c7d804e494d | app.request | --> POST /auth/login
+2026-08-24 23:55:05,060 | INFO     | 02116c65-1093-45bc-b932-0c7d804e494d | app.request | <-- POST /auth/login 200 (88.1ms)
+2026-08-24 23:55:05,064 | INFO     | c5bccaf3-0178-40de-bc2c-1ebaf26568af | app.request | --> POST /auth/token/refresh
+2026-08-24 23:55:05,079 | INFO     | c5bccaf3-0178-40de-bc2c-1ebaf26568af | app.request | <-- POST /auth/token/refresh 200 (15.3ms)
+2026-08-24 23:55:05,311 | INFO     | 7e80fb84-bcd4-48f7-bc12-027f5125b3b8 | app.request | --> POST /auth/login
+2026-08-24 23:55:05,390 | INFO     | 7e80fb84-bcd4-48f7-bc12-027f5125b3b8 | app.request | <-- POST /auth/login 200 (79.0ms)
+2026-08-24 23:55:05,392 | INFO     | 8cb3661a-360b-4057-9794-a98ad0fac647 | app.request | --> POST /auth/token/refresh
+2026-08-24 23:55:05,402 | INFO     | 8cb3661a-360b-4057-9794-a98ad0fac647 | app.request | <-- POST /auth/token/refresh 200 (9.1ms)
+2026-08-24 23:55:05,405 | INFO     | d87c8d6e-19d2-4c02-8c40-8f04ce45c7c7 | app.request | --> POST /auth/token/refresh
+2026-08-24 23:55:05,415 | INFO     | d87c8d6e-19d2-4c02-8c40-8f04ce45c7c7 | app.request | <-- POST /auth/token/refresh 401 (9.9ms)
+2026-08-24 23:55:05,418 | INFO     | 71c398c3-7d04-48d1-9c8d-9654ff7ddb17 | app.request | --> POST /auth/token/refresh
+2026-08-24 23:55:05,427 | INFO     | 71c398c3-7d04-48d1-9c8d-9654ff7ddb17 | app.request | <-- POST /auth/token/refresh 401 (8.5ms)
+2026-08-24 23:55:05,546 | INFO     | e8dc1723-9d98-4b0d-8718-738c688cbf78 | app.request | --> POST /auth/token/refresh
+2026-08-24 23:55:05,555 | INFO     | e8dc1723-9d98-4b0d-8718-738c688cbf78 | app.request | <-- POST /auth/token/refresh 401 (8.8ms)
+2026-08-24 23:55:05,674 | INFO     | 10a64daf-0877-4ec6-90c8-e53fee6ab97a | app.request | --> GET /health
+2026-08-24 23:55:05,676 | INFO     | 10a64daf-0877-4ec6-90c8-e53fee6ab97a | app.request | <-- GET /health 200 (1.2ms)
+2026-08-24 23:55:05,796 | INFO     | 25ece76f-47a7-4b6a-8687-a7f4775511e2 | app.request | --> GET /.well-known/jwks.json
+2026-08-24 23:55:05,798 | INFO     | 25ece76f-47a7-4b6a-8687-a7f4775511e2 | app.request | <-- GET /.well-known/jwks.json 200 (1.6ms)
+2026-08-24 23:55:05,920 | INFO     | 36fc6610-92d7-4300-bd2f-13ba978a4472 | app.request | --> GET /.well-known/jwks.json
+2026-08-24 23:55:05,921 | INFO     | 36fc6610-92d7-4300-bd2f-13ba978a4472 | app.request | <-- GET /.well-known/jwks.json 200 (1.1ms)
+2026-08-24 23:55:06,756 | INFO     | 76625f08-5919-4ab6-8770-305e944ae911 | app.request | --> POST /auth/login
+2026-08-24 23:55:06,827 | INFO     | 76625f08-5919-4ab6-8770-305e944ae911 | app.request | <-- POST /auth/login 200 (70.5ms)
+2026-08-24 23:55:07,046 | INFO     | 8044d1a8-f342-4273-9627-01952768d82b | app.request | --> POST /auth/login
+2026-08-24 23:55:07,117 | INFO     | 8044d1a8-f342-4273-9627-01952768d82b | app.request | <-- POST /auth/login 200 (70.8ms)
+2026-08-24 23:55:07,121 | INFO     | a0934af0-c3ef-4979-9166-28e2f8b2519f | app.request | --> POST /role-definitions
+2026-08-24 23:55:07,128 | INFO     | a0934af0-c3ef-4979-9166-28e2f8b2519f | app.request | <-- POST /role-definitions 403 (7.3ms)
+2026-08-24 23:55:07,137 | INFO     | 7d8365e7-7238-4bec-8b7b-2d7d3e3bebea | app.request | --> POST /auth/login
+2026-08-24 23:55:07,205 | INFO     | 7d8365e7-7238-4bec-8b7b-2d7d3e3bebea | app.request | <-- POST /auth/login 200 (68.3ms)
+2026-08-24 23:55:07,208 | INFO     | ca99d7c9-df0d-49ce-aa46-fcfab851a60a | app.request | --> POST /role-definitions
+2026-08-24 23:55:07,221 | INFO     | ca99d7c9-df0d-49ce-aa46-fcfab851a60a | app.request | <-- POST /role-definitions 201 (13.3ms)
+2026-08-24 23:55:07,451 | INFO     | 7387fbb3-6485-4382-a36b-97e0ef962c2f | app.request | --> POST /auth/login
+2026-08-24 23:55:07,525 | INFO     | 7387fbb3-6485-4382-a36b-97e0ef962c2f | app.request | <-- POST /auth/login 200 (74.5ms)
+2026-08-24 23:55:07,531 | INFO     | 33a9397a-d2db-4a28-bc28-201df3448e0d | app.request | --> PATCH /role-definitions/2efdb4d7-47e2-4ccf-b70f-ba2093b356ee
+2026-08-24 23:55:07,538 | INFO     | 33a9397a-d2db-4a28-bc28-201df3448e0d | app.request | <-- PATCH /role-definitions/2efdb4d7-47e2-4ccf-b70f-ba2093b356ee 403 (6.7ms)
+2026-08-24 23:55:07,540 | INFO     | 64bf4000-4b7d-4338-876d-52314e08fe6e | app.request | --> DELETE /role-definitions/2efdb4d7-47e2-4ccf-b70f-ba2093b356ee
+2026-08-24 23:55:07,544 | INFO     | 64bf4000-4b7d-4338-876d-52314e08fe6e | app.request | <-- DELETE /role-definitions/2efdb4d7-47e2-4ccf-b70f-ba2093b356ee 403 (3.8ms)
+2026-08-24 23:55:07,677 | INFO     | 76cfc4a3-c38c-4403-a3d2-f73f1367f2b2 | app.request | --> GET /role-definitions
+2026-08-24 23:55:07,690 | INFO     | 76cfc4a3-c38c-4403-a3d2-f73f1367f2b2 | app.request | <-- GET /role-definitions 200 (13.1ms)
+2026-08-24 23:55:07,692 | INFO     | 788e9be7-09c6-468d-8372-54885f30eb53 | app.request | --> POST /role-definitions
+2026-08-24 23:55:07,694 | INFO     | 788e9be7-09c6-468d-8372-54885f30eb53 | app.request | <-- POST /role-definitions 401 (1.6ms)
+2026-08-24 23:55:16,689 | INFO     | - | app | TalentOS IAM Service started in local mode
+2026-08-24 23:55:16,690 | INFO     | - | uvicorn.error | Started server process [73432]
+2026-08-24 23:55:16,690 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-24 23:55:16,690 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-24 23:55:23,860 | INFO     | 4a0e2b44-514a-426e-8622-0fa0a7bd7266 | app.request | --> GET /health
+2026-08-24 23:55:23,861 | INFO     | 4a0e2b44-514a-426e-8622-0fa0a7bd7266 | app.request | <-- GET /health 200 (1.3ms)
+2026-08-24 23:55:33,413 | INFO     | 9542bd0f-c225-4d34-ae0c-922644cfa4cb | app.request | --> GET /.well-known/jwks.json
+2026-08-24 23:55:33,437 | INFO     | 9542bd0f-c225-4d34-ae0c-922644cfa4cb | app.request | <-- GET /.well-known/jwks.json 200 (24.4ms)
+2026-08-24 23:55:33,695 | INFO     | a3572a5d-9706-4b99-84ec-cdf499efa6a5 | app.request | --> POST /auth/login
+2026-08-24 23:55:33,704 | INFO     | a3572a5d-9706-4b99-84ec-cdf499efa6a5 | app.request | <-- POST /auth/login 422 (9.6ms)
+2026-08-24 23:57:08,724 | INFO     | - | app | TalentOS IAM Service started in local mode
+2026-08-24 23:57:08,725 | INFO     | - | uvicorn.error | Started server process [35764]
+2026-08-24 23:57:08,725 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-24 23:57:08,725 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-24 23:57:22,348 | INFO     | 7fa7224e-bfed-48c4-9fca-009eed2f8e60 | app.request | --> GET /health
+2026-08-24 23:57:22,349 | INFO     | 7fa7224e-bfed-48c4-9fca-009eed2f8e60 | app.request | <-- GET /health 200 (1.3ms)
+2026-08-24 23:57:22,625 | INFO     | 17178696-90ef-4215-81df-586831cfce04 | app.request | --> GET /.well-known/jwks.json
+2026-08-24 23:57:22,629 | INFO     | 17178696-90ef-4215-81df-586831cfce04 | app.request | <-- GET /.well-known/jwks.json 200 (3.5ms)
+2026-08-24 23:57:22,882 | INFO     | 67856d19-4540-4b29-8240-f59c1878c18e | app.request | --> POST /auth/login
+2026-08-24 23:57:23,211 | INFO     | 67856d19-4540-4b29-8240-f59c1878c18e | app.request | <-- POST /auth/login 200 (329.0ms)
+2026-08-24 23:57:33,628 | INFO     | 7d65d14b-30a8-40c4-8922-cd521dc2eae4 | app.request | --> GET /role-definitions
+2026-08-24 23:57:33,632 | INFO     | 7d65d14b-30a8-40c4-8922-cd521dc2eae4 | app.request | <-- GET /role-definitions 422 (4.1ms)
+2026-08-24 23:57:33,899 | INFO     | 55cb87e7-5759-4758-b937-3ff78fce0605 | app.request | --> GET /role-definitions
+2026-08-24 23:57:33,900 | INFO     | 55cb87e7-5759-4758-b937-3ff78fce0605 | app.request | <-- GET /role-definitions 422 (1.1ms)
+2026-08-24 23:57:45,381 | INFO     | 986550f2-cf93-4d2c-83c3-62902e36e8bb | app.request | --> GET /role-definitions
+2026-08-24 23:57:45,384 | INFO     | 986550f2-cf93-4d2c-83c3-62902e36e8bb | app.request | <-- GET /role-definitions 422 (3.1ms)
+2026-08-24 23:57:45,668 | INFO     | 26b723c9-fe0a-4b7f-8260-efd55286d217 | app.request | --> GET /role-definitions
+2026-08-24 23:57:45,671 | INFO     | 26b723c9-fe0a-4b7f-8260-efd55286d217 | app.request | <-- GET /role-definitions 422 (3.0ms)
+2026-08-24 23:57:57,288 | INFO     | c5482054-9d84-4410-aa32-aec3f1fe55e9 | app.request | --> POST /auth/login
+2026-08-24 23:57:57,364 | INFO     | c5482054-9d84-4410-aa32-aec3f1fe55e9 | app.request | <-- POST /auth/login 200 (76.0ms)
+2026-08-24 23:57:57,843 | INFO     | 24c6daf8-0fde-4e33-a9ec-7dd236e3c7a8 | app.request | --> GET /role-definitions
+2026-08-24 23:57:57,863 | INFO     | 24c6daf8-0fde-4e33-a9ec-7dd236e3c7a8 | app.request | <-- GET /role-definitions 200 (20.6ms)
+2026-08-24 23:57:58,115 | INFO     | 6a1c138f-99d0-4d4b-86bc-03dd69594bed | app.request | --> GET /role-definitions
+2026-08-24 23:57:58,127 | INFO     | 6a1c138f-99d0-4d4b-86bc-03dd69594bed | app.request | <-- GET /role-definitions 200 (11.7ms)
+2026-08-24 23:59:07,298 | INFO     | - | app | TalentOS IAM Service started in local mode
+2026-08-24 23:59:07,468 | INFO     | 13a595a9-9a7e-415f-9e3c-16e77515b47a | app.request | --> POST /auth/token
+2026-08-24 23:59:07,567 | INFO     | 13a595a9-9a7e-415f-9e3c-16e77515b47a | app.request | <-- POST /auth/token 200 (99.2ms)
+2026-08-24 23:59:07,711 | INFO     | 3752cc44-025b-46f7-86fc-392efad263c8 | app.request | --> POST /auth/token
+2026-08-24 23:59:07,718 | INFO     | 3752cc44-025b-46f7-86fc-392efad263c8 | app.request | <-- POST /auth/token 401 (6.8ms)
+2026-08-24 23:59:07,854 | INFO     | f3e52ad1-ecc7-4acd-9b51-2ac27b8912ef | app.request | --> POST /auth/token
+2026-08-24 23:59:07,860 | INFO     | f3e52ad1-ecc7-4acd-9b51-2ac27b8912ef | app.request | <-- POST /auth/token 401 (5.9ms)
+2026-08-24 23:59:07,989 | INFO     | a836ea15-189b-4f9c-9850-c5bfbb7b7065 | app.request | --> POST /auth/token
+2026-08-24 23:59:07,998 | INFO     | a836ea15-189b-4f9c-9850-c5bfbb7b7065 | app.request | <-- POST /auth/token 200 (9.4ms)
+2026-08-24 23:59:08,202 | INFO     | 1f5d9b69-4726-49d8-8ca1-1e92abfd9026 | app.request | --> POST /auth/login
+2026-08-24 23:59:08,277 | INFO     | 1f5d9b69-4726-49d8-8ca1-1e92abfd9026 | app.request | <-- POST /auth/login 200 (75.2ms)
+2026-08-24 23:59:08,471 | INFO     | cf60683d-aa7b-46e3-9ba0-38d85545edf7 | app.request | --> POST /auth/login
+2026-08-24 23:59:08,537 | INFO     | cf60683d-aa7b-46e3-9ba0-38d85545edf7 | app.request | <-- POST /auth/login 401 (65.8ms)
+2026-08-24 23:59:08,684 | INFO     | e8f7d90a-dbbb-4e92-a884-2053b9f60327 | app.request | --> POST /auth/login
+2026-08-24 23:59:08,695 | INFO     | e8f7d90a-dbbb-4e92-a884-2053b9f60327 | app.request | <-- POST /auth/login 401 (11.6ms)
+2026-08-24 23:59:08,912 | INFO     | 54df4908-6c78-40f9-8fd9-1149c19e0198 | app.request | --> POST /auth/login
+2026-08-24 23:59:08,980 | INFO     | 54df4908-6c78-40f9-8fd9-1149c19e0198 | app.request | <-- POST /auth/login 401 (68.6ms)
+2026-08-24 23:59:08,983 | INFO     | 4712e4f9-671c-4b30-be1b-22e928cb2b1d | app.request | --> POST /auth/login
+2026-08-24 23:59:09,048 | INFO     | 4712e4f9-671c-4b30-be1b-22e928cb2b1d | app.request | <-- POST /auth/login 401 (64.1ms)
+2026-08-24 23:59:09,051 | INFO     | ebbe3290-1d6b-40ae-bfe2-c2634f1042f2 | app.request | --> POST /auth/login
+2026-08-24 23:59:09,115 | INFO     | ebbe3290-1d6b-40ae-bfe2-c2634f1042f2 | app.request | <-- POST /auth/login 423 (63.9ms)
+2026-08-24 23:59:09,118 | INFO     | 1c39e414-9dd2-4bd3-a18a-c77275082bbd | app.request | --> POST /auth/login
+2026-08-24 23:59:09,123 | INFO     | 1c39e414-9dd2-4bd3-a18a-c77275082bbd | app.request | <-- POST /auth/login 423 (5.5ms)
+2026-08-24 23:59:09,336 | INFO     | cb73e6c8-6a91-45eb-bd88-1fd255b9c312 | app.request | --> POST /auth/login
+2026-08-24 23:59:09,405 | INFO     | cb73e6c8-6a91-45eb-bd88-1fd255b9c312 | app.request | <-- POST /auth/login 409 (69.7ms)
+2026-08-24 23:59:09,409 | INFO     | ed7bebf7-0c4e-4dae-a789-8a742ef08f63 | app.request | --> POST /auth/login
+2026-08-24 23:59:09,482 | INFO     | ed7bebf7-0c4e-4dae-a789-8a742ef08f63 | app.request | <-- POST /auth/login 200 (72.9ms)
+2026-08-24 23:59:09,686 | INFO     | f5b92d78-0ac0-443a-938c-11675395be76 | app.request | --> POST /auth/login
+2026-08-24 23:59:09,758 | INFO     | f5b92d78-0ac0-443a-938c-11675395be76 | app.request | <-- POST /auth/login 200 (71.8ms)
+2026-08-24 23:59:09,760 | INFO     | f74e09d7-eef7-4e99-9c3f-a088cadcf220 | app.request | --> POST /auth/token/refresh
+2026-08-24 23:59:09,772 | INFO     | f74e09d7-eef7-4e99-9c3f-a088cadcf220 | app.request | <-- POST /auth/token/refresh 200 (11.6ms)
+2026-08-24 23:59:09,967 | INFO     | c6316e1f-03fd-4bc9-aac8-34b5ea8ef641 | app.request | --> POST /auth/login
+2026-08-24 23:59:10,040 | INFO     | c6316e1f-03fd-4bc9-aac8-34b5ea8ef641 | app.request | <-- POST /auth/login 200 (72.8ms)
+2026-08-24 23:59:10,043 | INFO     | 300c5ec8-9ab2-4a97-a17b-b2b434fab0a6 | app.request | --> POST /auth/token/refresh
+2026-08-24 23:59:10,052 | INFO     | 300c5ec8-9ab2-4a97-a17b-b2b434fab0a6 | app.request | <-- POST /auth/token/refresh 200 (9.4ms)
+2026-08-24 23:59:10,055 | INFO     | 5ceec9a0-e89c-4b0a-9a85-4bf8cca90513 | app.request | --> POST /auth/token/refresh
+2026-08-24 23:59:10,062 | INFO     | 5ceec9a0-e89c-4b0a-9a85-4bf8cca90513 | app.request | <-- POST /auth/token/refresh 401 (7.3ms)
+2026-08-24 23:59:10,064 | INFO     | 0c6494b9-15e5-4831-8e67-836919d579b8 | app.request | --> POST /auth/token/refresh
+2026-08-24 23:59:10,071 | INFO     | 0c6494b9-15e5-4831-8e67-836919d579b8 | app.request | <-- POST /auth/token/refresh 401 (6.6ms)
+2026-08-24 23:59:10,189 | INFO     | a5863768-e6c8-437e-accc-c00bd4816a18 | app.request | --> POST /auth/token/refresh
+2026-08-24 23:59:10,197 | INFO     | a5863768-e6c8-437e-accc-c00bd4816a18 | app.request | <-- POST /auth/token/refresh 401 (8.6ms)
+2026-08-24 23:59:10,307 | INFO     | c438bfdf-6459-4450-867d-f25622e10d2c | app.request | --> GET /health
+2026-08-24 23:59:10,308 | INFO     | c438bfdf-6459-4450-867d-f25622e10d2c | app.request | <-- GET /health 200 (1.1ms)
+2026-08-24 23:59:10,423 | INFO     | 74befca9-63ec-482c-89c6-a5a6f9feb2a6 | app.request | --> GET /.well-known/jwks.json
+2026-08-24 23:59:10,425 | INFO     | 74befca9-63ec-482c-89c6-a5a6f9feb2a6 | app.request | <-- GET /.well-known/jwks.json 200 (1.7ms)
+2026-08-24 23:59:10,540 | INFO     | 7ab89b14-cb1c-46b5-b06d-f026ff51f223 | app.request | --> GET /.well-known/jwks.json
+2026-08-24 23:59:10,541 | INFO     | 7ab89b14-cb1c-46b5-b06d-f026ff51f223 | app.request | <-- GET /.well-known/jwks.json 200 (1.2ms)
+2026-08-24 23:59:11,350 | INFO     | ad45517d-508a-4027-b5ac-8b05dd6b931f | app.request | --> POST /auth/login
+2026-08-24 23:59:11,423 | INFO     | ad45517d-508a-4027-b5ac-8b05dd6b931f | app.request | <-- POST /auth/login 200 (72.3ms)
+2026-08-24 23:59:11,636 | INFO     | 30920638-09e8-478d-8faf-333ab1a7e62b | app.request | --> POST /auth/login
+2026-08-24 23:59:11,712 | INFO     | 30920638-09e8-478d-8faf-333ab1a7e62b | app.request | <-- POST /auth/login 200 (76.2ms)
+2026-08-24 23:59:11,715 | INFO     | b76dff91-efe2-4ac8-a4b0-21b5586f7130 | app.request | --> POST /role-definitions
+2026-08-24 23:59:11,722 | INFO     | b76dff91-efe2-4ac8-a4b0-21b5586f7130 | app.request | <-- POST /role-definitions 403 (6.9ms)
+2026-08-24 23:59:11,730 | INFO     | 5476dd09-a290-4435-8f15-805c8a9930c8 | app.request | --> POST /auth/login
+2026-08-24 23:59:11,805 | INFO     | 5476dd09-a290-4435-8f15-805c8a9930c8 | app.request | <-- POST /auth/login 200 (74.4ms)
+2026-08-24 23:59:11,807 | INFO     | 2e9263e4-d538-4b76-a0d5-28477a6d73d8 | app.request | --> POST /role-definitions
+2026-08-24 23:59:11,819 | INFO     | 2e9263e4-d538-4b76-a0d5-28477a6d73d8 | app.request | <-- POST /role-definitions 201 (12.3ms)
+2026-08-24 23:59:12,032 | INFO     | 49a6766e-758d-46da-b291-f71343de204b | app.request | --> POST /auth/login
+2026-08-24 23:59:12,106 | INFO     | 49a6766e-758d-46da-b291-f71343de204b | app.request | <-- POST /auth/login 200 (74.2ms)
+2026-08-24 23:59:12,111 | INFO     | 78a58f53-ce55-48a9-9832-71f2f8c70d44 | app.request | --> PATCH /role-definitions/bb623a91-8d8f-4f67-9937-53e07e04fe3a
+2026-08-24 23:59:12,118 | INFO     | 78a58f53-ce55-48a9-9832-71f2f8c70d44 | app.request | <-- PATCH /role-definitions/bb623a91-8d8f-4f67-9937-53e07e04fe3a 403 (6.8ms)
+2026-08-24 23:59:12,120 | INFO     | 0a9cbaa0-9e40-4847-8f58-ae5fe661bd58 | app.request | --> DELETE /role-definitions/bb623a91-8d8f-4f67-9937-53e07e04fe3a
+2026-08-24 23:59:12,124 | INFO     | 0a9cbaa0-9e40-4847-8f58-ae5fe661bd58 | app.request | <-- DELETE /role-definitions/bb623a91-8d8f-4f67-9937-53e07e04fe3a 403 (3.5ms)
+2026-08-24 23:59:12,245 | INFO     | d1c783aa-54cc-457f-8acc-40e900a733a1 | app.request | --> GET /role-definitions
+2026-08-24 23:59:12,246 | INFO     | d1c783aa-54cc-457f-8acc-40e900a733a1 | app.request | <-- GET /role-definitions 401 (1.4ms)
+2026-08-24 23:59:12,249 | INFO     | afd0beca-016c-4130-b0e5-d76defa15767 | app.request | --> POST /role-definitions
+2026-08-24 23:59:12,251 | INFO     | afd0beca-016c-4130-b0e5-d76defa15767 | app.request | <-- POST /role-definitions 401 (2.0ms)
+2026-08-24 23:59:23,235 | INFO     | - | app | TalentOS IAM Service started in local mode
+2026-08-24 23:59:23,235 | INFO     | - | uvicorn.error | Started server process [30824]
+2026-08-24 23:59:23,235 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-24 23:59:23,235 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-24 23:59:42,094 | INFO     | ff6da2ae-fb60-42de-b7f4-fe00711c13e6 | app.request | --> GET /health
+2026-08-24 23:59:42,095 | INFO     | ff6da2ae-fb60-42de-b7f4-fe00711c13e6 | app.request | <-- GET /health 200 (1.3ms)
+2026-08-24 23:59:42,374 | INFO     | 5b098dd5-3309-4cf7-8b21-9d42bd2009e7 | app.request | --> GET /.well-known/jwks.json
+2026-08-24 23:59:42,378 | INFO     | 5b098dd5-3309-4cf7-8b21-9d42bd2009e7 | app.request | <-- GET /.well-known/jwks.json 200 (4.8ms)
+2026-08-24 23:59:42,663 | INFO     | bccad718-ef2f-4a0f-ba13-f0c26503055c | app.request | --> POST /auth/login
+2026-08-24 23:59:42,858 | INFO     | bccad718-ef2f-4a0f-ba13-f0c26503055c | app.request | <-- POST /auth/login 200 (195.4ms)
+2026-08-24 23:59:43,332 | INFO     | e6f02abf-4bb0-45c4-9249-13ecde2cea61 | app.request | --> GET /role-definitions
+2026-08-24 23:59:43,335 | INFO     | e6f02abf-4bb0-45c4-9249-13ecde2cea61 | app.request | <-- GET /role-definitions 401 (4.0ms)
+2026-08-24 23:59:43,619 | INFO     | a847dabf-f5c5-45ad-8bb3-2eaa205ea5a7 | app.request | --> GET /role-definitions
+2026-08-24 23:59:43,642 | INFO     | a847dabf-f5c5-45ad-8bb3-2eaa205ea5a7 | app.request | <-- GET /role-definitions 200 (23.5ms)
+2026-08-24 23:59:43,922 | INFO     | 586ee7b3-143a-4679-a07f-9ba8864394f0 | app.request | --> GET /service-principals
+2026-08-24 23:59:43,925 | INFO     | 586ee7b3-143a-4679-a07f-9ba8864394f0 | app.request | <-- GET /service-principals 401 (3.2ms)
+2026-08-24 23:59:44,180 | INFO     | 99830d66-fc14-46a1-9bf5-a68694c8af02 | app.request | --> GET /role-assignments
+2026-08-24 23:59:44,183 | INFO     | 99830d66-fc14-46a1-9bf5-a68694c8af02 | app.request | <-- GET /role-assignments 401 (3.3ms)
+2026-08-24 23:59:56,506 | INFO     | f4fde90f-2cc7-40d4-86ee-52f0f55113ae | app.request | --> POST /auth/login
+2026-08-24 23:59:56,577 | INFO     | f4fde90f-2cc7-40d4-86ee-52f0f55113ae | app.request | <-- POST /auth/login 200 (70.8ms)
+2026-08-24 23:59:57,049 | INFO     | 02ea9177-ff4a-40c9-8979-4e2878033ace | app.request | --> POST /organizations
+2026-08-24 23:59:57,067 | INFO     | 02ea9177-ff4a-40c9-8979-4e2878033ace | app.request | <-- POST /organizations 201 (17.3ms)
+2026-08-24 23:59:57,337 | INFO     | a6c461cc-9568-4fbb-b8ce-7a1fd69eb5fb | app.request | --> GET /audit/events
+2026-08-24 23:59:57,346 | INFO     | a6c461cc-9568-4fbb-b8ce-7a1fd69eb5fb | app.request | <-- GET /audit/events 200 (9.1ms)
+2026-08-25 00:00:30,570 | INFO     | 15f38f36-4c9c-473a-847c-e12726d6e90d | app.request | --> GET /health
+2026-08-25 00:00:30,571 | INFO     | 15f38f36-4c9c-473a-847c-e12726d6e90d | app.request | <-- GET /health 200 (1.0ms)
+2026-08-25 00:00:30,818 | INFO     | e9a7dc51-2903-469a-91a0-c8de53549622 | app.request | --> GET /.well-known/jwks.json
+2026-08-25 00:00:30,820 | INFO     | e9a7dc51-2903-469a-91a0-c8de53549622 | app.request | <-- GET /.well-known/jwks.json 200 (1.4ms)
+2026-08-25 00:00:38,353 | INFO     | 5106958c-3227-4b50-8040-416dbc078684 | app.request | --> POST /auth/login
+2026-08-25 00:00:38,438 | INFO     | 5106958c-3227-4b50-8040-416dbc078684 | app.request | <-- POST /auth/login 200 (84.8ms)
+2026-08-25 00:00:38,737 | INFO     | c0a13650-d95f-45b2-a64a-3d1ad1957798 | app.request | --> POST /auth/login
+2026-08-25 00:00:38,816 | INFO     | c0a13650-d95f-45b2-a64a-3d1ad1957798 | app.request | <-- POST /auth/login 200 (79.3ms)
+2026-08-25 00:04:21,072 | INFO     | - | app | TalentOS IAM Service started in local mode
+2026-08-25 00:04:21,072 | INFO     | - | uvicorn.error | Started server process [45016]
+2026-08-25 00:04:21,072 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-25 00:04:21,074 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-25 00:04:22,768 | INFO     | 84a7e6ff-459e-4eac-8d71-789dabf1b19b | app.request | --> GET /health
+2026-08-25 00:04:22,770 | INFO     | 84a7e6ff-459e-4eac-8d71-789dabf1b19b | app.request | <-- GET /health 200 (1.4ms)
+2026-08-25 00:04:31,880 | INFO     | c11bec5e-1356-4d49-bc3e-5ae02e85dbe7 | app.request | --> GET /health
+2026-08-25 00:04:31,881 | INFO     | c11bec5e-1356-4d49-bc3e-5ae02e85dbe7 | app.request | <-- GET /health 200 (1.1ms)
+2026-08-25 00:04:32,148 | INFO     | 32e100d2-e600-4a3d-a02a-19d055e49b44 | app.request | --> POST /auth/login
+2026-08-25 00:04:32,218 | INFO     | 32e100d2-e600-4a3d-a02a-19d055e49b44 | app.request | <-- POST /auth/login 200 (70.4ms)
+2026-08-25 00:04:40,716 | INFO     | dd268f92-4854-4eec-b56d-91255e6251c0 | app.request | --> POST /auth/login
+2026-08-25 00:04:40,787 | INFO     | dd268f92-4854-4eec-b56d-91255e6251c0 | app.request | <-- POST /auth/login 200 (71.8ms)
+2026-08-25 00:04:41,066 | INFO     | 15e0182d-b326-4843-9d03-d1f7c30db72c | app.request | --> GET /permissions
+2026-08-25 00:04:41,067 | INFO     | 15e0182d-b326-4843-9d03-d1f7c30db72c | app.request | <-- GET /permissions 404 (1.2ms)
+2026-08-25 00:04:41,350 | INFO     | f3ba55d5-9e58-447a-abd9-6e4d6166bc11 | app.request | --> GET /audit/events
+2026-08-25 00:04:41,358 | INFO     | f3ba55d5-9e58-447a-abd9-6e4d6166bc11 | app.request | <-- GET /audit/events 200 (7.1ms)
+2026-08-25 00:05:42,824 | INFO     | - | app | TalentOS IAM Service started in local mode
+2026-08-25 00:05:42,826 | INFO     | - | uvicorn.error | Started server process [37744]
+2026-08-25 00:05:42,826 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-25 00:05:42,827 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-25 00:05:44,609 | INFO     | 80247cb0-45e3-439e-a0f9-e349d2c3750f | app.request | --> GET /health
+2026-08-25 00:05:44,610 | INFO     | 80247cb0-45e3-439e-a0f9-e349d2c3750f | app.request | <-- GET /health 200 (1.3ms)
+2026-08-25 00:05:51,132 | INFO     | 63eeef8c-2c28-4b6d-9a37-e416b9586440 | app.request | --> POST /auth/login
+2026-08-25 00:05:51,345 | INFO     | 63eeef8c-2c28-4b6d-9a37-e416b9586440 | app.request | <-- POST /auth/login 200 (213.3ms)
+2026-08-25 00:05:51,618 | INFO     | 2dd9cb21-759a-4a14-a615-96809304a6ee | app.request | --> GET /permissions
+2026-08-25 00:05:51,626 | INFO     | 2dd9cb21-759a-4a14-a615-96809304a6ee | app.request | <-- GET /permissions 200 (7.9ms)
+2026-08-25 00:10:54,396 | INFO     | 9731e8d2-b29e-4e69-98e2-61985ffcd2d2 | app.request | --> POST /auth/login
+2026-08-25 00:10:54,468 | INFO     | 9731e8d2-b29e-4e69-98e2-61985ffcd2d2 | app.request | <-- POST /auth/login 200 (72.4ms)
+2026-08-25 00:10:54,729 | INFO     | fb2e92bb-7576-4c71-a354-900515ce0c04 | app.request | --> POST /service-principals
+2026-08-25 00:10:54,748 | INFO     | fb2e92bb-7576-4c71-a354-900515ce0c04 | app.request | <-- POST /service-principals 201 (18.5ms)
+2026-08-25 00:10:55,278 | INFO     | 886110dd-a4db-46f9-8020-f2947843241e | app.request | --> POST /auth/token
+2026-08-25 00:10:55,293 | INFO     | 886110dd-a4db-46f9-8020-f2947843241e | app.request | <-- POST /auth/token 200 (14.6ms)
+2026-08-25 00:11:06,511 | INFO     | 18d0a64a-98b6-421a-83c8-51de753d0827 | app.request | --> POST /auth/login
+2026-08-25 00:11:06,582 | INFO     | 18d0a64a-98b6-421a-83c8-51de753d0827 | app.request | <-- POST /auth/login 200 (70.3ms)
+2026-08-25 00:11:06,863 | INFO     | 2d492d91-82ef-492d-ad35-039fabccc57c | app.request | --> DELETE /service-principals/ccc908de-2e2b-4348-9347-19ec04cf8483
+2026-08-25 00:11:06,872 | INFO     | 2d492d91-82ef-492d-ad35-039fabccc57c | app.request | <-- DELETE /service-principals/ccc908de-2e2b-4348-9347-19ec04cf8483 204 (9.9ms)
+2026-08-25 00:13:40,252 | INFO     | 242ff7ed-094b-4fe7-a964-d803250770a0 | app.request | --> GET /health
+2026-08-25 00:13:40,254 | INFO     | 242ff7ed-094b-4fe7-a964-d803250770a0 | app.request | <-- GET /health 200 (1.9ms)
+2026-08-25 00:15:04,187 | INFO     | 95460822-fe5f-4398-9492-b040263f4a1c | app.request | --> POST /auth/login
+2026-08-25 00:15:04,257 | INFO     | 95460822-fe5f-4398-9492-b040263f4a1c | app.request | <-- POST /auth/login 200 (70.4ms)
+2026-08-25 00:15:11,214 | INFO     | 28a267b6-e6aa-4d31-a1af-6f84cc228b84 | app.request | --> POST /auth/login
+2026-08-25 00:15:11,280 | INFO     | 28a267b6-e6aa-4d31-a1af-6f84cc228b84 | app.request | <-- POST /auth/login 200 (66.7ms)
+2026-08-25 00:15:11,564 | INFO     | 77cb823d-303f-4e9b-9502-b1de7d2a372c | app.request | --> GET /role-definitions
+2026-08-25 00:15:11,588 | INFO     | 77cb823d-303f-4e9b-9502-b1de7d2a372c | app.request | <-- GET /role-definitions 200 (23.5ms)
+2026-08-25 00:15:15,574 | INFO     | 037eb8b5-e5fc-4dcc-b647-baff1b80bf24 | app.request | --> GET /health
+2026-08-25 00:15:15,576 | INFO     | 037eb8b5-e5fc-4dcc-b647-baff1b80bf24 | app.request | <-- GET /health 200 (1.9ms)
+2026-08-25 00:15:15,837 | INFO     | 42a823c0-26d2-49ae-b60f-f5e1a7253408 | app.request | --> GET /.well-known/jwks.json
+2026-08-25 00:15:15,840 | INFO     | 42a823c0-26d2-49ae-b60f-f5e1a7253408 | app.request | <-- GET /.well-known/jwks.json 200 (2.6ms)
+2026-08-25 00:15:22,316 | INFO     | ee4e97a1-698b-4e99-af35-05888c6f9050 | app.request | --> POST /auth/login
+2026-08-25 00:15:22,379 | INFO     | ee4e97a1-698b-4e99-af35-05888c6f9050 | app.request | <-- POST /auth/login 200 (62.7ms)
+2026-08-25 00:23:58,067 | INFO     | 5b12e18a-8002-4895-aea4-cea5dc98cde5 | app.request | --> POST /auth/login
+2026-08-25 00:23:58,140 | INFO     | 5b12e18a-8002-4895-aea4-cea5dc98cde5 | app.request | <-- POST /auth/login 200 (72.8ms)
+2026-08-25 00:23:58,142 | INFO     | e94b39a0-fb80-4803-845b-5c47da4ba168 | app.request | --> POST /service-principals
+2026-08-25 00:23:58,147 | INFO     | e94b39a0-fb80-4803-845b-5c47da4ba168 | app.request | <-- POST /service-principals 201 (5.6ms)
+2026-08-25 00:23:58,149 | INFO     | e5631c33-9b6b-4b1a-bb7e-8035732c113a | app.request | --> GET /role-definitions
+2026-08-25 00:23:58,154 | INFO     | e5631c33-9b6b-4b1a-bb7e-8035732c113a | app.request | <-- GET /role-definitions 200 (5.6ms)
+2026-08-25 00:23:58,156 | INFO     | 18ffb44a-3870-40d0-9bd4-1ae8fb77635f | app.request | --> POST /role-assignments
+2026-08-25 00:23:58,165 | INFO     | 18ffb44a-3870-40d0-9bd4-1ae8fb77635f | app.request | <-- POST /role-assignments 201 (9.0ms)
+2026-08-25 00:27:27,180 | INFO     | 272b738e-8a38-454d-87eb-864a278dcabc | app.request | --> POST /auth/login
+2026-08-25 00:27:27,258 | INFO     | 272b738e-8a38-454d-87eb-864a278dcabc | app.request | <-- POST /auth/login 200 (78.2ms)
+2026-08-25 00:27:30,170 | INFO     | 089267d2-7cb6-4a0d-824f-f51633f75247 | app.request | --> GET /.well-known/jwks.json
+2026-08-25 00:27:30,172 | INFO     | 089267d2-7cb6-4a0d-824f-f51633f75247 | app.request | <-- GET /.well-known/jwks.json 200 (2.3ms)
+2026-08-25 00:27:34,385 | INFO     | cb2194f6-f51b-4a07-bfa6-880c5b1da586 | app.request | --> POST /auth/login
+2026-08-25 00:27:34,459 | INFO     | cb2194f6-f51b-4a07-bfa6-880c5b1da586 | app.request | <-- POST /auth/login 200 (74.1ms)
+2026-08-25 00:27:37,315 | INFO     | 8db8d733-ed86-4ddb-911c-b5a14e250d50 | app.request | --> GET /.well-known/jwks.json
+2026-08-25 00:27:37,318 | INFO     | 8db8d733-ed86-4ddb-911c-b5a14e250d50 | app.request | <-- GET /.well-known/jwks.json 200 (2.7ms)
+2026-08-25 00:27:47,293 | INFO     | 98e6f2ae-f8db-4668-acc0-7c62b9d60e3e | app.request | --> POST /auth/login
+2026-08-25 00:27:47,361 | INFO     | 98e6f2ae-f8db-4668-acc0-7c62b9d60e3e | app.request | <-- POST /auth/login 200 (68.2ms)
+2026-08-25 00:27:48,965 | INFO     | 5dc4126c-d959-470c-babb-4f2fa8256be7 | app.request | --> POST /auth/login
+2026-08-25 00:27:49,035 | INFO     | 5dc4126c-d959-470c-babb-4f2fa8256be7 | app.request | <-- POST /auth/login 200 (69.9ms)
+2026-08-25 00:27:49,316 | INFO     | 13394014-316b-4776-847c-7a97e44ac5c1 | app.request | --> POST /service-principals
+2026-08-25 00:27:49,330 | INFO     | 13394014-316b-4776-847c-7a97e44ac5c1 | app.request | <-- POST /service-principals 201 (14.5ms)
+2026-08-25 00:27:49,897 | INFO     | 6916559d-76a2-4841-bb99-d99e90d6a66c | app.request | --> POST /auth/token
+2026-08-25 00:27:49,914 | INFO     | 6916559d-76a2-4841-bb99-d99e90d6a66c | app.request | <-- POST /auth/token 200 (16.1ms)
+2026-08-25 00:27:50,474 | INFO     | df6676a6-813a-49ad-85a1-450649d18fbf | app.request | --> POST /auth/token
+2026-08-25 00:27:50,484 | INFO     | df6676a6-813a-49ad-85a1-450649d18fbf | app.request | <-- POST /auth/token 200 (9.3ms)
+2026-08-25 00:27:52,714 | INFO     | 626e0eca-da46-43e2-b815-3204db934fc1 | app.request | --> POST /service-principals
+2026-08-25 00:27:52,726 | INFO     | 626e0eca-da46-43e2-b815-3204db934fc1 | app.request | <-- POST /service-principals 201 (12.9ms)
+2026-08-25 00:27:54,974 | INFO     | e915eb16-e30e-4af4-979a-1b047499d4be | app.request | --> POST /audit/events
+2026-08-25 00:27:54,990 | INFO     | e915eb16-e30e-4af4-979a-1b047499d4be | app.request | <-- POST /audit/events 201 (15.8ms)
+2026-08-25 00:28:00,148 | INFO     | 1d00f888-0180-43ea-afd8-26f4b4081b26 | app.request | --> POST /auth/login
+2026-08-25 00:28:00,215 | INFO     | 1d00f888-0180-43ea-afd8-26f4b4081b26 | app.request | <-- POST /auth/login 200 (66.4ms)
+2026-08-25 00:28:00,989 | INFO     | 9d3c3e47-b7b0-4d44-b9cd-5272b5a0d565 | app.request | --> POST /audit/events
+2026-08-25 00:28:01,001 | INFO     | 9d3c3e47-b7b0-4d44-b9cd-5272b5a0d565 | app.request | <-- POST /audit/events 201 (12.4ms)
+2026-08-25 00:28:01,275 | INFO     | 05189da7-fb93-4f0d-ab12-8ab55788e312 | app.request | --> GET /audit/events
+2026-08-25 00:28:01,288 | INFO     | 05189da7-fb93-4f0d-ab12-8ab55788e312 | app.request | <-- GET /audit/events 200 (13.4ms)
+2026-08-25 00:28:08,241 | INFO     | 6269c622-fa71-4dc0-a871-bb7fc429b582 | app.request | --> POST /auth/login
+2026-08-25 00:28:08,312 | INFO     | 6269c622-fa71-4dc0-a871-bb7fc429b582 | app.request | <-- POST /auth/login 200 (71.2ms)
+2026-08-25 00:28:09,347 | INFO     | 29eee30c-5dcc-462f-8ff0-553ae92ea77c | app.request | --> POST /auth/token
+2026-08-25 00:28:09,353 | INFO     | 29eee30c-5dcc-462f-8ff0-553ae92ea77c | app.request | <-- POST /auth/token 401 (6.5ms)
+2026-08-25 00:28:12,128 | INFO     | 5ba0592c-ba5f-444b-8b4b-685141f86fe2 | app.request | --> POST /auth/login
+2026-08-25 00:28:12,189 | INFO     | 5ba0592c-ba5f-444b-8b4b-685141f86fe2 | app.request | <-- POST /auth/login 200 (60.8ms)
+2026-08-25 00:28:12,475 | INFO     | 26d93669-6a51-4a28-a0b7-31f275cab301 | app.request | --> DELETE /service-principals/0db1226d-f4f3-4653-bf00-6928288c8691
+2026-08-25 00:28:12,488 | INFO     | 26d93669-6a51-4a28-a0b7-31f275cab301 | app.request | <-- DELETE /service-principals/0db1226d-f4f3-4653-bf00-6928288c8691 204 (13.1ms)
+2026-08-25 00:28:23,933 | INFO     | c5dfad76-dd98-4487-8aa3-02f9afb6e525 | app.request | --> POST /auth/login
+2026-08-25 00:28:24,000 | INFO     | c5dfad76-dd98-4487-8aa3-02f9afb6e525 | app.request | <-- POST /auth/login 200 (66.5ms)
+2026-08-25 00:28:26,513 | INFO     | 32d6b43f-9d97-4ce9-8136-5bbc5901162c | app.request | --> POST /service-principals/8190031f-70f0-4bec-9d5c-5463d69a29d4/secret/rotate
+2026-08-25 00:28:26,519 | INFO     | 32d6b43f-9d97-4ce9-8136-5bbc5901162c | app.request | <-- POST /service-principals/8190031f-70f0-4bec-9d5c-5463d69a29d4/secret/rotate 200 (6.2ms)
+2026-08-25 00:28:28,796 | INFO     | aabfa466-602a-44c5-a4a0-53a19b99738e | app.request | --> POST /audit/events
+2026-08-25 00:28:28,803 | INFO     | aabfa466-602a-44c5-a4a0-53a19b99738e | app.request | <-- POST /audit/events 201 (7.0ms)
+2026-08-25 00:28:29,160 | INFO     | 940eb2cc-ee42-4705-a21c-feb28e0c7b41 | app.request | --> POST /auth/token
+2026-08-25 00:28:29,169 | INFO     | 940eb2cc-ee42-4705-a21c-feb28e0c7b41 | app.request | <-- POST /auth/token 200 (8.8ms)
+2026-08-25 00:28:50,435 | INFO     | 274ba6b0-8457-4ace-9fd1-c37434a7c320 | app.request | --> POST /auth/login
+2026-08-25 00:28:50,516 | INFO     | 274ba6b0-8457-4ace-9fd1-c37434a7c320 | app.request | <-- POST /auth/login 200 (80.8ms)
+2026-08-25 00:29:18,152 | INFO     | b232f34b-7c16-4e58-8acf-609f2cd196a3 | app.request | --> POST /auth/login
+2026-08-25 00:29:18,223 | INFO     | b232f34b-7c16-4e58-8acf-609f2cd196a3 | app.request | <-- POST /auth/login 200 (71.6ms)
+2026-08-25 00:29:19,371 | INFO     | ca120973-21d1-4bd9-9ce2-b20a334e4030 | app.request | --> POST /auth/token
+2026-08-25 00:29:19,389 | INFO     | ca120973-21d1-4bd9-9ce2-b20a334e4030 | app.request | <-- POST /auth/token 200 (18.3ms)
+2026-08-25 00:29:30,348 | INFO     | 4f929f30-a92e-4897-8cf4-c301a4bc1bed | app.request | --> POST /auth/login
+2026-08-25 00:29:30,418 | INFO     | 4f929f30-a92e-4897-8cf4-c301a4bc1bed | app.request | <-- POST /auth/login 200 (70.0ms)
+2026-08-25 00:29:30,683 | INFO     | 1285db25-d298-44ea-9833-1d44140e22e2 | app.request | --> GET /audit/events
+2026-08-25 00:29:30,690 | INFO     | 1285db25-d298-44ea-9833-1d44140e22e2 | app.request | <-- GET /audit/events 200 (7.0ms)
+2026-08-25 00:29:39,486 | INFO     | 4bca28a9-5a32-48fd-8c00-d51db59d531b | app.request | --> POST /auth/login
+2026-08-25 00:29:39,559 | INFO     | 4bca28a9-5a32-48fd-8c00-d51db59d531b | app.request | <-- POST /auth/login 200 (72.7ms)
+2026-08-25 00:29:39,846 | INFO     | a5805833-09fa-4cd2-a294-4aef6b7687bb | app.request | --> GET /audit/events
+2026-08-25 00:29:39,852 | INFO     | a5805833-09fa-4cd2-a294-4aef6b7687bb | app.request | <-- GET /audit/events 200 (6.4ms)
+2026-08-25 00:29:50,335 | INFO     | eaf29d16-6cce-4ece-a189-a8cc032ca823 | app.request | --> POST /auth/login
+2026-08-25 00:29:50,408 | INFO     | eaf29d16-6cce-4ece-a189-a8cc032ca823 | app.request | <-- POST /auth/login 200 (72.8ms)
+2026-08-25 00:29:50,683 | INFO     | 54b1f884-943e-46da-94d7-b1a0a00867cf | app.request | --> POST /organizations/ea30b4e1-ea6a-4081-a816-755347c2bd6c/users
+2026-08-25 00:29:50,700 | INFO     | 54b1f884-943e-46da-94d7-b1a0a00867cf | app.password_reset | Password reset link for contributor-test@talentos-platform.com: /auth/password-reset/confirm?token=prt_xr9-_hodTOWUPnYQk36iMrjCoTMHCKNXaqxF4szZQRo
+2026-08-25 00:29:50,703 | INFO     | 54b1f884-943e-46da-94d7-b1a0a00867cf | app.request | <-- POST /organizations/ea30b4e1-ea6a-4081-a816-755347c2bd6c/users 201 (19.5ms)
+2026-08-25 00:30:00,234 | INFO     | 0c32b84d-3383-4ad7-ac79-f9cb0ff239ab | app.request | --> POST /auth/login
+2026-08-25 00:30:00,242 | INFO     | 0c32b84d-3383-4ad7-ac79-f9cb0ff239ab | app.request | <-- POST /auth/login 401 (8.4ms)
+2026-08-25 00:30:21,037 | INFO     | d04c1827-4f00-422d-889b-723482c7ce3c | app.request | --> POST /auth/login
+2026-08-25 00:30:21,112 | INFO     | d04c1827-4f00-422d-889b-723482c7ce3c | app.request | <-- POST /auth/login 200 (74.4ms)
+2026-08-25 00:30:23,662 | INFO     | 312e41a6-a255-4b5f-a9b0-dfebdb990e09 | app.request | --> POST /audit/events
+2026-08-25 00:30:23,674 | INFO     | 312e41a6-a255-4b5f-a9b0-dfebdb990e09 | app.request | <-- POST /audit/events 201 (11.8ms)
+2026-08-25 00:30:26,316 | INFO     | 8828db37-5268-42e8-b951-71e3f6c441fc | app.request | --> POST /auth/login
+2026-08-25 00:30:26,385 | INFO     | 8828db37-5268-42e8-b951-71e3f6c441fc | app.request | <-- POST /auth/login 200 (68.7ms)
+2026-08-25 00:30:26,433 | INFO     | ca93e590-2b61-44d6-811a-6fbbb6220622 | app.request | --> POST /audit/events
+2026-08-25 00:30:26,441 | INFO     | ca93e590-2b61-44d6-811a-6fbbb6220622 | app.request | <-- POST /audit/events 201 (8.1ms)
+2026-08-25 00:30:26,725 | INFO     | 72bb1311-523a-426f-ac8e-378decd2caa1 | app.request | --> GET /audit/events
+2026-08-25 00:30:26,732 | INFO     | 72bb1311-523a-426f-ac8e-378decd2caa1 | app.request | <-- GET /audit/events 200 (7.5ms)
+2026-08-25 00:30:27,017 | INFO     | e26d512b-cd8a-47d5-9f01-87487a9f4d4d | app.request | --> GET /audit/events
+2026-08-25 00:30:27,029 | INFO     | e26d512b-cd8a-47d5-9f01-87487a9f4d4d | app.request | <-- GET /audit/events 200 (12.1ms)
+2026-08-25 00:30:34,746 | INFO     | 33d21107-816d-4dcd-b14b-cc0149a46ec7 | app.request | --> POST /auth/login
+2026-08-25 00:30:34,823 | INFO     | 33d21107-816d-4dcd-b14b-cc0149a46ec7 | app.request | <-- POST /auth/login 200 (77.1ms)
+2026-08-25 00:32:28,741 | INFO     | e39bd724-7218-47b3-a076-5f387f164338 | app.request | --> POST /auth/login
+2026-08-25 00:32:28,807 | INFO     | e39bd724-7218-47b3-a076-5f387f164338 | app.request | <-- POST /auth/login 200 (65.8ms)
+2026-08-25 00:32:46,610 | INFO     | 39c90c04-9dec-4fc9-9336-11282beb4a16 | app.request | --> POST /auth/login
+2026-08-25 00:32:46,685 | INFO     | 39c90c04-9dec-4fc9-9336-11282beb4a16 | app.request | <-- POST /auth/login 200 (74.9ms)
+2026-08-25 00:32:49,210 | INFO     | bfcbac1c-2c18-4689-a1f3-9e4d50b51814 | app.request | --> GET /.well-known/jwks.json
+2026-08-25 00:32:49,212 | INFO     | bfcbac1c-2c18-4689-a1f3-9e4d50b51814 | app.request | <-- GET /.well-known/jwks.json 200 (1.5ms)
+2026-08-25 00:32:51,461 | INFO     | 87cbcdbc-9f7d-4a7d-a10b-aee12dda4813 | app.request | --> POST /service-principals
+2026-08-25 00:32:51,472 | INFO     | 87cbcdbc-9f7d-4a7d-a10b-aee12dda4813 | app.request | <-- POST /service-principals 201 (11.5ms)
+2026-08-25 00:32:53,728 | INFO     | a449479b-8736-45c5-8229-a2f8f7fed5e8 | app.request | --> POST /audit/events
+2026-08-25 00:32:53,736 | INFO     | a449479b-8736-45c5-8229-a2f8f7fed5e8 | app.request | <-- POST /audit/events 201 (8.5ms)
+2026-08-25 00:32:56,260 | INFO     | f1c329cd-980e-4ea2-ba8c-061e55150fd9 | app.request | --> POST /service-principals
+2026-08-25 00:32:56,273 | INFO     | f1c329cd-980e-4ea2-ba8c-061e55150fd9 | app.request | <-- POST /service-principals 201 (12.5ms)
+2026-08-25 00:32:58,527 | INFO     | 95b22c20-ecbe-4e9b-99ab-284f440691a0 | app.request | --> POST /audit/events
+2026-08-25 00:32:58,535 | INFO     | 95b22c20-ecbe-4e9b-99ab-284f440691a0 | app.request | <-- POST /audit/events 201 (7.3ms)
+2026-08-25 00:33:01,061 | INFO     | 6406574f-c2de-43a5-8e19-cd2d1bb24715 | app.request | --> POST /service-principals/8190031f-70f0-4bec-9d5c-5463d69a29d4/secret/rotate
+2026-08-25 00:33:01,070 | INFO     | 6406574f-c2de-43a5-8e19-cd2d1bb24715 | app.request | <-- POST /service-principals/8190031f-70f0-4bec-9d5c-5463d69a29d4/secret/rotate 200 (9.2ms)
+2026-08-25 00:33:03,311 | INFO     | c03a1fb5-c6f1-45f4-bd50-06e29987fcc9 | app.request | --> POST /audit/events
+2026-08-25 00:33:03,322 | INFO     | c03a1fb5-c6f1-45f4-bd50-06e29987fcc9 | app.request | <-- POST /audit/events 201 (10.5ms)
+2026-08-25 00:33:05,862 | INFO     | a2f57619-d0b5-430e-a4dd-7b39b6b3bfcf | app.request | --> POST /service-principals
+2026-08-25 00:33:05,873 | INFO     | a2f57619-d0b5-430e-a4dd-7b39b6b3bfcf | app.request | <-- POST /service-principals 201 (10.8ms)
+2026-08-25 00:33:08,144 | INFO     | 9bbd89f1-3581-410f-bbab-7094c373a260 | app.request | --> POST /audit/events
+2026-08-25 00:33:08,152 | INFO     | 9bbd89f1-3581-410f-bbab-7094c373a260 | app.request | <-- POST /audit/events 201 (8.5ms)
+2026-08-25 00:33:10,662 | INFO     | 54bb0a5b-063c-4e3e-8d29-5f97e1e6686d | app.request | --> POST /service-principals
+2026-08-25 00:33:10,680 | INFO     | 54bb0a5b-063c-4e3e-8d29-5f97e1e6686d | app.request | <-- POST /service-principals 201 (17.8ms)
+2026-08-25 00:33:12,928 | INFO     | 78f84519-402f-42c4-b90a-33e233e904e5 | app.request | --> POST /audit/events
+2026-08-25 00:33:12,943 | INFO     | 78f84519-402f-42c4-b90a-33e233e904e5 | app.request | <-- POST /audit/events 201 (15.6ms)
+2026-08-25 00:33:15,463 | INFO     | e88602e3-8ae8-4bf8-853e-10f468ff615e | app.request | --> POST /service-principals
+2026-08-25 00:33:15,473 | INFO     | e88602e3-8ae8-4bf8-853e-10f468ff615e | app.request | <-- POST /service-principals 201 (10.2ms)
+2026-08-25 00:33:17,741 | INFO     | 7fd67d8e-ac98-4739-9894-386aad8bdc18 | app.request | --> POST /audit/events
+2026-08-25 00:33:17,750 | INFO     | 7fd67d8e-ac98-4739-9894-386aad8bdc18 | app.request | <-- POST /audit/events 201 (9.0ms)
+2026-08-25 00:33:20,344 | INFO     | 1911ac64-0a09-4c50-9af0-ad329b2c9b6e | app.request | --> POST /service-principals
+2026-08-25 00:33:20,358 | INFO     | 1911ac64-0a09-4c50-9af0-ad329b2c9b6e | app.request | <-- POST /service-principals 201 (13.9ms)
+2026-08-25 00:33:22,596 | INFO     | 3e57e10d-f9a4-4abd-8063-b53a51124ed8 | app.request | --> POST /audit/events
+2026-08-25 00:33:22,613 | INFO     | 3e57e10d-f9a4-4abd-8063-b53a51124ed8 | app.request | <-- POST /audit/events 201 (17.5ms)
+2026-08-25 00:33:40,096 | INFO     | 87e00d9e-4b58-4e66-8a91-98f507200970 | app.request | --> POST /auth/login
+2026-08-25 00:33:40,163 | INFO     | 87e00d9e-4b58-4e66-8a91-98f507200970 | app.request | <-- POST /auth/login 200 (67.2ms)
+2026-08-25 00:35:39,885 | INFO     | d2c7f30e-04fb-44ed-a154-ec46afb196cc | app.request | --> POST /auth/login
+2026-08-25 00:35:39,969 | INFO     | d2c7f30e-04fb-44ed-a154-ec46afb196cc | app.request | <-- POST /auth/login 200 (83.7ms)
+2026-08-25 00:35:42,550 | INFO     | bcb73740-838c-4392-b70d-f321df6de931 | app.request | --> GET /.well-known/jwks.json
+2026-08-25 00:35:42,552 | INFO     | bcb73740-838c-4392-b70d-f321df6de931 | app.request | <-- GET /.well-known/jwks.json 200 (2.1ms)
+2026-08-25 00:35:43,019 | INFO     | cc27b237-f83d-4a3e-aa8c-1611719abf61 | app.request | --> POST /auth/token
+2026-08-25 00:35:43,031 | INFO     | cc27b237-f83d-4a3e-aa8c-1611719abf61 | app.request | <-- POST /auth/token 200 (12.1ms)
+2026-08-25 00:36:10,847 | INFO     | 8d717ac5-aaaf-45de-a09b-f072c4ad1c07 | app.request | --> POST /audit/events
+2026-08-25 00:36:10,854 | INFO     | 8d717ac5-aaaf-45de-a09b-f072c4ad1c07 | app.request | <-- POST /audit/events 201 (6.6ms)
+2026-08-25 00:36:23,762 | INFO     | f1e3718a-f0fd-44b7-9516-a4fbbe385f03 | app.request | --> POST /auth/login
+2026-08-25 00:36:23,847 | INFO     | f1e3718a-f0fd-44b7-9516-a4fbbe385f03 | app.request | <-- POST /auth/login 200 (85.0ms)
+2026-08-25 00:36:24,144 | INFO     | 15f9aaac-e372-4b9c-bf69-3cd003078ce4 | app.request | --> GET /audit/events
+2026-08-25 00:36:24,158 | INFO     | 15f9aaac-e372-4b9c-bf69-3cd003078ce4 | app.request | <-- GET /audit/events 200 (13.4ms)
+2026-08-25 00:36:32,830 | INFO     | 9b8d44a1-7a99-4d0d-b4eb-2cc5c4827f8e | app.request | --> POST /auth/login
+2026-08-25 00:36:32,902 | INFO     | 9b8d44a1-7a99-4d0d-b4eb-2cc5c4827f8e | app.request | <-- POST /auth/login 200 (72.2ms)
+2026-08-25 00:42:03,176 | INFO     | 63abd78d-b6bd-412e-8c3e-94fea2272043 | app.request | --> GET /health
+2026-08-25 00:42:03,177 | INFO     | 63abd78d-b6bd-412e-8c3e-94fea2272043 | app.request | <-- GET /health 200 (2.0ms)
+2026-08-25 00:42:43,294 | INFO     | - | app | TalentOS IAM Service started in local mode
+2026-08-25 00:42:43,562 | INFO     | 28170a94-60a4-4c1c-9c3a-1341789fa77c | app.request | --> POST /auth/token
+2026-08-25 00:42:43,774 | INFO     | 28170a94-60a4-4c1c-9c3a-1341789fa77c | app.request | <-- POST /auth/token 200 (212.1ms)
+2026-08-25 00:42:43,936 | INFO     | 9bc80d19-9bdc-44fb-93a6-4f81502fb2bf | app.request | --> POST /auth/token
+2026-08-25 00:42:43,944 | INFO     | 9bc80d19-9bdc-44fb-93a6-4f81502fb2bf | app.request | <-- POST /auth/token 401 (7.5ms)
+2026-08-25 00:42:44,084 | INFO     | 101f2ac1-5c39-40fc-9518-4efe7298a7d2 | app.request | --> POST /auth/token
+2026-08-25 00:42:44,091 | INFO     | 101f2ac1-5c39-40fc-9518-4efe7298a7d2 | app.request | <-- POST /auth/token 401 (7.1ms)
+2026-08-25 00:42:44,230 | INFO     | 599a10f2-4c3c-4f15-a854-5dc4e133fdbe | app.request | --> POST /auth/token
+2026-08-25 00:42:44,240 | INFO     | 599a10f2-4c3c-4f15-a854-5dc4e133fdbe | app.request | <-- POST /auth/token 200 (10.0ms)
+2026-08-25 00:42:44,450 | INFO     | fd77d4d6-14bf-412b-bfc7-bdf260dc5926 | app.request | --> POST /auth/login
+2026-08-25 00:42:44,531 | INFO     | fd77d4d6-14bf-412b-bfc7-bdf260dc5926 | app.request | <-- POST /auth/login 200 (80.6ms)
+2026-08-25 00:42:44,735 | INFO     | cc60e527-5a69-4882-89a7-417e3a574965 | app.request | --> POST /auth/login
+2026-08-25 00:42:44,802 | INFO     | cc60e527-5a69-4882-89a7-417e3a574965 | app.request | <-- POST /auth/login 401 (67.6ms)
+2026-08-25 00:42:44,933 | INFO     | 397871b5-7810-48a0-a761-5a5ec0029f31 | app.request | --> POST /auth/login
+2026-08-25 00:42:44,943 | INFO     | 397871b5-7810-48a0-a761-5a5ec0029f31 | app.request | <-- POST /auth/login 401 (9.8ms)
+2026-08-25 00:42:45,138 | INFO     | f4961f7e-68e2-4c10-bf14-f9d0d2e4ccde | app.request | --> POST /auth/login
+2026-08-25 00:42:45,200 | INFO     | f4961f7e-68e2-4c10-bf14-f9d0d2e4ccde | app.request | <-- POST /auth/login 401 (61.7ms)
+2026-08-25 00:42:45,203 | INFO     | d9f99580-0d6b-44c4-88ae-9475c83b05a5 | app.request | --> POST /auth/login
+2026-08-25 00:42:45,263 | INFO     | d9f99580-0d6b-44c4-88ae-9475c83b05a5 | app.request | <-- POST /auth/login 401 (60.4ms)
+2026-08-25 00:42:45,266 | INFO     | f45c5522-522c-44b7-841f-d91ce887a089 | app.request | --> POST /auth/login
+2026-08-25 00:42:45,329 | INFO     | f45c5522-522c-44b7-841f-d91ce887a089 | app.request | <-- POST /auth/login 423 (62.7ms)
+2026-08-25 00:42:45,332 | INFO     | 0004595f-ec2a-43a8-95d1-b199cbc21acb | app.request | --> POST /auth/login
+2026-08-25 00:42:45,337 | INFO     | 0004595f-ec2a-43a8-95d1-b199cbc21acb | app.request | <-- POST /auth/login 423 (5.0ms)
+2026-08-25 00:42:45,561 | INFO     | 23e734bf-5cce-4d27-8112-bca5762a27c5 | app.request | --> POST /auth/login
+2026-08-25 00:42:45,626 | INFO     | 23e734bf-5cce-4d27-8112-bca5762a27c5 | app.request | <-- POST /auth/login 409 (64.9ms)
+2026-08-25 00:42:45,631 | INFO     | d95b5df0-5e9a-49a5-bebc-a2bf9feb9243 | app.request | --> POST /auth/login
+2026-08-25 00:42:45,699 | INFO     | d95b5df0-5e9a-49a5-bebc-a2bf9feb9243 | app.request | <-- POST /auth/login 200 (68.4ms)
+2026-08-25 00:42:45,903 | INFO     | d98814f6-235e-443e-8250-14c8da8cda6d | app.request | --> POST /auth/login
+2026-08-25 00:42:45,975 | INFO     | d98814f6-235e-443e-8250-14c8da8cda6d | app.request | <-- POST /auth/login 200 (72.9ms)
+2026-08-25 00:42:45,979 | INFO     | 4c8544d0-ffcd-4176-90dc-8c4fe416695c | app.request | --> POST /auth/token/refresh
+2026-08-25 00:42:45,991 | INFO     | 4c8544d0-ffcd-4176-90dc-8c4fe416695c | app.request | <-- POST /auth/token/refresh 200 (12.3ms)
+2026-08-25 00:42:46,186 | INFO     | e29846bb-48aa-4ffa-b6e4-9c2e1a782b4b | app.request | --> POST /auth/login
+2026-08-25 00:42:46,255 | INFO     | e29846bb-48aa-4ffa-b6e4-9c2e1a782b4b | app.request | <-- POST /auth/login 200 (69.3ms)
+2026-08-25 00:42:46,259 | INFO     | 2824b488-b359-4a23-b0fe-c2f977d56abc | app.request | --> POST /auth/token/refresh
+2026-08-25 00:42:46,269 | INFO     | 2824b488-b359-4a23-b0fe-c2f977d56abc | app.request | <-- POST /auth/token/refresh 200 (9.2ms)
+2026-08-25 00:42:46,271 | INFO     | a949d1ff-e17e-4b05-9f10-36969360bd14 | app.request | --> POST /auth/token/refresh
+2026-08-25 00:42:46,279 | INFO     | a949d1ff-e17e-4b05-9f10-36969360bd14 | app.request | <-- POST /auth/token/refresh 401 (7.9ms)
+2026-08-25 00:42:46,282 | INFO     | 0e0d82f4-fa3f-4693-85cd-13e271268eca | app.request | --> POST /auth/token/refresh
+2026-08-25 00:42:46,288 | INFO     | 0e0d82f4-fa3f-4693-85cd-13e271268eca | app.request | <-- POST /auth/token/refresh 401 (6.7ms)
+2026-08-25 00:42:46,421 | INFO     | b54818e7-c280-4a09-b2aa-afba78d18f12 | app.request | --> POST /auth/token/refresh
+2026-08-25 00:42:46,430 | INFO     | b54818e7-c280-4a09-b2aa-afba78d18f12 | app.request | <-- POST /auth/token/refresh 401 (9.4ms)
+2026-08-25 00:42:46,554 | INFO     | f910d60d-4ba8-4e4e-8d11-88eba4242a90 | app.request | --> GET /health
+2026-08-25 00:42:46,555 | INFO     | f910d60d-4ba8-4e4e-8d11-88eba4242a90 | app.request | <-- GET /health 200 (1.0ms)
+2026-08-25 00:42:46,676 | INFO     | fa134dbc-73e9-469c-ae6d-3a3bd1b0587a | app.request | --> GET /.well-known/jwks.json
+2026-08-25 00:42:46,678 | INFO     | fa134dbc-73e9-469c-ae6d-3a3bd1b0587a | app.request | <-- GET /.well-known/jwks.json 200 (1.5ms)
+2026-08-25 00:42:46,818 | INFO     | 24864faf-c6d2-4471-bcfa-5cfd588193c0 | app.request | --> GET /.well-known/jwks.json
+2026-08-25 00:42:46,820 | INFO     | 24864faf-c6d2-4471-bcfa-5cfd588193c0 | app.request | <-- GET /.well-known/jwks.json 200 (1.6ms)
+2026-08-25 00:42:47,681 | INFO     | 75c8dfbd-f5af-4720-b31c-10f327d20948 | app.request | --> POST /auth/login
+2026-08-25 00:42:47,749 | INFO     | 75c8dfbd-f5af-4720-b31c-10f327d20948 | app.request | <-- POST /auth/login 200 (68.0ms)
+2026-08-25 00:42:47,963 | INFO     | a1d83f27-bd5e-4b5f-938a-6de443e037da | app.request | --> POST /auth/login
+2026-08-25 00:42:48,036 | INFO     | a1d83f27-bd5e-4b5f-938a-6de443e037da | app.request | <-- POST /auth/login 200 (73.0ms)
+2026-08-25 00:42:48,040 | INFO     | 379951cb-6f19-4ed2-8486-c56661f6cf90 | app.request | --> POST /role-definitions
+2026-08-25 00:42:48,047 | INFO     | 379951cb-6f19-4ed2-8486-c56661f6cf90 | app.request | <-- POST /role-definitions 403 (7.2ms)
+2026-08-25 00:42:48,056 | INFO     | 4251afaf-0cfd-43f1-a691-2e9afd059154 | app.request | --> POST /auth/login
+2026-08-25 00:42:48,127 | INFO     | 4251afaf-0cfd-43f1-a691-2e9afd059154 | app.request | <-- POST /auth/login 200 (71.4ms)
+2026-08-25 00:42:48,130 | INFO     | e2a9f3a2-736c-437a-8805-6e7cd32a7588 | app.request | --> POST /role-definitions
+2026-08-25 00:42:48,143 | INFO     | e2a9f3a2-736c-437a-8805-6e7cd32a7588 | app.request | <-- POST /role-definitions 201 (13.0ms)
+2026-08-25 00:42:48,365 | INFO     | 36f22e2a-48b4-4116-8da8-747b4e10e29a | app.request | --> POST /auth/login
+2026-08-25 00:42:48,439 | INFO     | 36f22e2a-48b4-4116-8da8-747b4e10e29a | app.request | <-- POST /auth/login 200 (73.9ms)
+2026-08-25 00:42:48,445 | INFO     | 967f8c28-47f2-4e18-bc6a-a9ddc21bc3cc | app.request | --> PATCH /role-definitions/9dac6540-1749-4e76-b572-9447a8ff384e
+2026-08-25 00:42:48,451 | INFO     | 967f8c28-47f2-4e18-bc6a-a9ddc21bc3cc | app.request | <-- PATCH /role-definitions/9dac6540-1749-4e76-b572-9447a8ff384e 403 (6.0ms)
+2026-08-25 00:42:48,454 | INFO     | 0c389e72-cb22-4ab0-a8fa-81bff3b8ebbe | app.request | --> DELETE /role-definitions/9dac6540-1749-4e76-b572-9447a8ff384e
+2026-08-25 00:42:48,458 | INFO     | 0c389e72-cb22-4ab0-a8fa-81bff3b8ebbe | app.request | <-- DELETE /role-definitions/9dac6540-1749-4e76-b572-9447a8ff384e 403 (4.0ms)
+2026-08-25 00:42:48,599 | INFO     | 6ae3b4c4-fee9-4f00-a6ad-c78ab0fce8ac | app.request | --> GET /role-definitions
+2026-08-25 00:42:48,600 | INFO     | 6ae3b4c4-fee9-4f00-a6ad-c78ab0fce8ac | app.request | <-- GET /role-definitions 401 (1.5ms)
+2026-08-25 00:42:48,602 | INFO     | ff8d485d-65a3-4e9b-b706-c82879096304 | app.request | --> POST /role-definitions
+2026-08-25 00:42:48,604 | INFO     | ff8d485d-65a3-4e9b-b706-c82879096304 | app.request | <-- POST /role-definitions 401 (1.5ms)
+2026-08-25 05:01:35,076 | INFO     | 47c30670-d333-46ee-80ac-1fcba8032308 | app.request | --> GET /health
+2026-08-25 05:01:35,079 | INFO     | 47c30670-d333-46ee-80ac-1fcba8032308 | app.request | <-- GET /health 200 (3.0ms)
+2026-08-25 05:01:39,770 | INFO     | db47d7cc-34e6-4dfa-9b2b-5e2d6fa32bba | app.request | --> POST /auth/login
+2026-08-25 05:01:39,852 | INFO     | db47d7cc-34e6-4dfa-9b2b-5e2d6fa32bba | app.request | <-- POST /auth/login 200 (81.9ms)
+2026-08-25 05:03:20,092 | INFO     | 49d075e7-2eeb-4eae-91b1-ebabedf69fae | app.request | --> GET /health
+2026-08-25 05:03:20,094 | INFO     | 49d075e7-2eeb-4eae-91b1-ebabedf69fae | app.request | <-- GET /health 200 (1.9ms)
+2026-08-25 05:04:33,795 | INFO     | 024ed1c3-5709-4b86-a0c6-3a22a7f5949a | app.request | --> POST /auth/login
+2026-08-25 05:04:33,865 | INFO     | 024ed1c3-5709-4b86-a0c6-3a22a7f5949a | app.request | <-- POST /auth/login 200 (70.5ms)
+2026-08-25 05:05:10,826 | INFO     | b8af0049-7d4b-42f4-8e24-299ad7c074a9 | app.request | --> POST /auth/login
+2026-08-25 05:05:10,898 | INFO     | b8af0049-7d4b-42f4-8e24-299ad7c074a9 | app.request | <-- POST /auth/login 200 (71.5ms)
+2026-08-25 05:06:34,340 | INFO     | 41af9581-182c-405b-a841-044101cb23e7 | app.request | --> POST /auth/login
+2026-08-25 05:06:34,410 | INFO     | 41af9581-182c-405b-a841-044101cb23e7 | app.request | <-- POST /auth/login 200 (70.3ms)
+2026-08-25 05:09:17,415 | INFO     | fcca1e07-cfc8-4215-bdb5-5c6a00668468 | app.request | --> POST /auth/login
+2026-08-25 05:09:17,485 | INFO     | fcca1e07-cfc8-4215-bdb5-5c6a00668468 | app.request | <-- POST /auth/login 200 (69.2ms)
+2026-08-25 05:10:59,212 | INFO     | 8c0bc38e-791b-470e-84ce-4c7f5d517986 | app.request | --> POST /auth/login
+2026-08-25 05:10:59,281 | INFO     | 8c0bc38e-791b-470e-84ce-4c7f5d517986 | app.request | <-- POST /auth/login 200 (68.2ms)
+2026-08-25 05:12:35,753 | INFO     | ec925aa9-a082-44e9-bdeb-f9e179e94a44 | app.request | --> POST /auth/login
+2026-08-25 05:12:35,824 | INFO     | ec925aa9-a082-44e9-bdeb-f9e179e94a44 | app.request | <-- POST /auth/login 200 (71.0ms)
+2026-08-25 05:15:54,833 | INFO     | f05c8000-623e-4799-8dc2-063115f76869 | app.request | --> POST /auth/login
+2026-08-25 05:15:54,898 | INFO     | f05c8000-623e-4799-8dc2-063115f76869 | app.request | <-- POST /auth/login 200 (64.9ms)
+2026-08-25 05:16:57,318 | INFO     | a62a2a27-baf9-4992-ad71-3faf93720960 | app.request | --> POST /auth/login
+2026-08-25 05:16:57,393 | INFO     | a62a2a27-baf9-4992-ad71-3faf93720960 | app.request | <-- POST /auth/login 200 (75.0ms)
+2026-08-25 05:19:42,536 | INFO     | - | app | TalentOS IAM Service started in local mode
+2026-08-25 05:19:42,538 | INFO     | - | uvicorn.error | Started server process [19032]
+2026-08-25 05:19:42,539 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-25 05:19:42,539 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-25 05:19:43,848 | INFO     | fce7a405-e226-43a5-963a-936666c51653 | app.request | --> GET /health
+2026-08-25 05:19:43,851 | INFO     | fce7a405-e226-43a5-963a-936666c51653 | app.request | <-- GET /health 200 (3.2ms)
+2026-08-25 05:19:48,891 | INFO     | 6290e770-4e28-46f1-b915-b1942159cd2b | app.request | --> GET /health
+2026-08-25 05:19:48,893 | INFO     | 6290e770-4e28-46f1-b915-b1942159cd2b | app.request | <-- GET /health 200 (2.3ms)
+2026-08-25 05:21:04,277 | INFO     | - | app | TalentOS IAM Service started in local mode
+2026-08-25 05:21:04,466 | INFO     | 7873285d-9478-439a-ae27-0417e48e6e5b | app.request | --> POST /auth/token
+2026-08-25 05:21:04,570 | INFO     | 7873285d-9478-439a-ae27-0417e48e6e5b | app.request | <-- POST /auth/token 200 (103.5ms)
+2026-08-25 05:21:04,741 | INFO     | 4baeba4e-47cb-4ee9-90e4-5ba31916d716 | app.request | --> POST /auth/token
+2026-08-25 05:21:04,748 | INFO     | 4baeba4e-47cb-4ee9-90e4-5ba31916d716 | app.request | <-- POST /auth/token 401 (7.3ms)
+2026-08-25 05:21:04,889 | INFO     | 0a414bae-dff4-49cb-81e0-de5e1e78682f | app.request | --> POST /auth/token
+2026-08-25 05:21:04,896 | INFO     | 0a414bae-dff4-49cb-81e0-de5e1e78682f | app.request | <-- POST /auth/token 401 (7.3ms)
+2026-08-25 05:21:05,037 | INFO     | 1cdf31c4-1586-4273-ab7e-b023bb79d14d | app.request | --> POST /auth/token
+2026-08-25 05:21:05,048 | INFO     | 1cdf31c4-1586-4273-ab7e-b023bb79d14d | app.request | <-- POST /auth/token 200 (11.6ms)
+2026-08-25 05:21:05,268 | INFO     | c66c2931-492e-46ed-8f87-8f3fd2eb86a6 | app.request | --> POST /auth/login
+2026-08-25 05:21:05,349 | INFO     | c66c2931-492e-46ed-8f87-8f3fd2eb86a6 | app.request | <-- POST /auth/login 200 (81.0ms)
+2026-08-25 05:21:05,551 | INFO     | e37c34fb-87e4-434a-a183-082b258af118 | app.request | --> POST /auth/login
+2026-08-25 05:21:05,620 | INFO     | e37c34fb-87e4-434a-a183-082b258af118 | app.request | <-- POST /auth/login 401 (68.6ms)
+2026-08-25 05:21:05,744 | INFO     | 2edac67c-ff32-4c3b-afe1-d4de93c88b17 | app.request | --> POST /auth/login
+2026-08-25 05:21:05,753 | INFO     | 2edac67c-ff32-4c3b-afe1-d4de93c88b17 | app.request | <-- POST /auth/login 401 (8.4ms)
+2026-08-25 05:21:05,948 | INFO     | 52e09a7c-80ef-41ee-902f-83152913a5d6 | app.request | --> POST /auth/login
+2026-08-25 05:21:06,015 | INFO     | 52e09a7c-80ef-41ee-902f-83152913a5d6 | app.request | <-- POST /auth/login 401 (67.3ms)
+2026-08-25 05:21:06,018 | INFO     | a460e16e-8762-4778-91ec-639bf3106d54 | app.request | --> POST /auth/login
+2026-08-25 05:21:06,087 | INFO     | a460e16e-8762-4778-91ec-639bf3106d54 | app.request | <-- POST /auth/login 401 (68.4ms)
+2026-08-25 05:21:06,090 | INFO     | c33d7136-d630-498f-80e3-235e069efb19 | app.request | --> POST /auth/login
+2026-08-25 05:21:06,160 | INFO     | c33d7136-d630-498f-80e3-235e069efb19 | app.request | <-- POST /auth/login 423 (69.9ms)
+2026-08-25 05:21:06,163 | INFO     | 79f1d39e-bbd4-407c-9bb3-b9f65d71b79b | app.request | --> POST /auth/login
+2026-08-25 05:21:06,168 | INFO     | 79f1d39e-bbd4-407c-9bb3-b9f65d71b79b | app.request | <-- POST /auth/login 423 (4.7ms)
+2026-08-25 05:21:06,382 | INFO     | fe53ee97-588b-4fe8-bb54-b972ff045256 | app.request | --> POST /auth/login
+2026-08-25 05:21:06,451 | INFO     | fe53ee97-588b-4fe8-bb54-b972ff045256 | app.request | <-- POST /auth/login 409 (68.3ms)
+2026-08-25 05:21:06,454 | INFO     | 55395fa4-3b6f-4ef9-9eb9-08243ac656f2 | app.request | --> POST /auth/login
+2026-08-25 05:21:06,538 | INFO     | 55395fa4-3b6f-4ef9-9eb9-08243ac656f2 | app.request | <-- POST /auth/login 200 (83.5ms)
+2026-08-25 05:21:06,758 | INFO     | ecaabc89-c109-4f02-bfb0-e7db21f8966c | app.request | --> POST /auth/login
+2026-08-25 05:21:06,836 | INFO     | ecaabc89-c109-4f02-bfb0-e7db21f8966c | app.request | <-- POST /auth/login 200 (78.4ms)
+2026-08-25 05:21:06,839 | INFO     | 30a6b80d-86a3-466b-ac37-b9bd31bbf774 | app.request | --> POST /auth/token/refresh
+2026-08-25 05:21:06,852 | INFO     | 30a6b80d-86a3-466b-ac37-b9bd31bbf774 | app.request | <-- POST /auth/token/refresh 200 (13.1ms)
+2026-08-25 05:21:07,059 | INFO     | 125afc88-5acd-4ad5-b723-af6cf3b29cb2 | app.request | --> POST /auth/login
+2026-08-25 05:21:07,140 | INFO     | 125afc88-5acd-4ad5-b723-af6cf3b29cb2 | app.request | <-- POST /auth/login 200 (80.9ms)
+2026-08-25 05:21:07,144 | INFO     | 2aa6a77a-aa0a-4849-bac8-1587ec212791 | app.request | --> POST /auth/token/refresh
+2026-08-25 05:21:07,154 | INFO     | 2aa6a77a-aa0a-4849-bac8-1587ec212791 | app.request | <-- POST /auth/token/refresh 200 (10.9ms)
+2026-08-25 05:21:07,158 | INFO     | 44631ff7-516b-4930-9199-57b6e3d56e32 | app.request | --> POST /auth/token/refresh
+2026-08-25 05:21:07,167 | INFO     | 44631ff7-516b-4930-9199-57b6e3d56e32 | app.request | <-- POST /auth/token/refresh 401 (8.7ms)
+2026-08-25 05:21:07,170 | INFO     | 8de04082-8c02-4df8-8649-fa6cf3857192 | app.request | --> POST /auth/token/refresh
+2026-08-25 05:21:07,177 | INFO     | 8de04082-8c02-4df8-8649-fa6cf3857192 | app.request | <-- POST /auth/token/refresh 401 (7.9ms)
+2026-08-25 05:21:07,302 | INFO     | 7091f092-61cd-40f5-afe7-b4e9a97c6655 | app.request | --> POST /auth/token/refresh
+2026-08-25 05:21:07,313 | INFO     | 7091f092-61cd-40f5-afe7-b4e9a97c6655 | app.request | <-- POST /auth/token/refresh 401 (10.4ms)
+2026-08-25 05:21:07,438 | INFO     | af09058a-ef54-43cb-ac11-c9a9180c7b40 | app.request | --> GET /health
+2026-08-25 05:21:07,439 | INFO     | af09058a-ef54-43cb-ac11-c9a9180c7b40 | app.request | <-- GET /health 200 (0.9ms)
+2026-08-25 05:21:07,575 | INFO     | 791e71af-eb39-4888-b25f-03dc831cf6bf | app.request | --> GET /.well-known/jwks.json
+2026-08-25 05:21:07,578 | INFO     | 791e71af-eb39-4888-b25f-03dc831cf6bf | app.request | <-- GET /.well-known/jwks.json 200 (2.6ms)
+2026-08-25 05:21:07,710 | INFO     | 1b925bd6-3b7c-4e12-b26c-bafe610debe4 | app.request | --> GET /.well-known/jwks.json
+2026-08-25 05:21:07,711 | INFO     | 1b925bd6-3b7c-4e12-b26c-bafe610debe4 | app.request | <-- GET /.well-known/jwks.json 200 (1.2ms)
+2026-08-25 05:21:08,618 | INFO     | 738e394e-1d70-4d07-80ea-268d722c1c85 | app.request | --> POST /auth/login
+2026-08-25 05:21:08,693 | INFO     | 738e394e-1d70-4d07-80ea-268d722c1c85 | app.request | <-- POST /auth/login 200 (75.6ms)
+2026-08-25 05:21:08,934 | INFO     | da958ebb-f77c-4ff8-9424-becd0ab63e8b | app.request | --> POST /auth/login
+2026-08-25 05:21:09,014 | INFO     | da958ebb-f77c-4ff8-9424-becd0ab63e8b | app.request | <-- POST /auth/login 200 (79.6ms)
+2026-08-25 05:21:09,017 | INFO     | 5f889079-1110-4204-a9fb-73eea6093a2d | app.request | --> POST /role-definitions
+2026-08-25 05:21:09,024 | INFO     | 5f889079-1110-4204-a9fb-73eea6093a2d | app.request | <-- POST /role-definitions 403 (6.5ms)
+2026-08-25 05:21:09,033 | INFO     | d7050170-d8c2-4060-89e4-aa3bbe025997 | app.request | --> POST /auth/login
+2026-08-25 05:21:09,108 | INFO     | d7050170-d8c2-4060-89e4-aa3bbe025997 | app.request | <-- POST /auth/login 200 (75.3ms)
+2026-08-25 05:21:09,112 | INFO     | de1f82c2-dc1c-4e22-8036-9c768902bb7a | app.request | --> POST /role-definitions
+2026-08-25 05:21:09,124 | INFO     | de1f82c2-dc1c-4e22-8036-9c768902bb7a | app.request | <-- POST /role-definitions 201 (12.2ms)
+2026-08-25 05:21:09,344 | INFO     | 5f0c9e2d-40c8-4899-9d5d-22d63836a5b8 | app.request | --> POST /auth/login
+2026-08-25 05:21:09,421 | INFO     | 5f0c9e2d-40c8-4899-9d5d-22d63836a5b8 | app.request | <-- POST /auth/login 200 (77.0ms)
+2026-08-25 05:21:09,428 | INFO     | fd9676fb-ed5b-4422-8c29-d2ec07338b1f | app.request | --> PATCH /role-definitions/f8f98749-6f5c-41ea-8d40-903edeaff6e9
+2026-08-25 05:21:09,434 | INFO     | fd9676fb-ed5b-4422-8c29-d2ec07338b1f | app.request | <-- PATCH /role-definitions/f8f98749-6f5c-41ea-8d40-903edeaff6e9 403 (6.2ms)
+2026-08-25 05:21:09,437 | INFO     | 29f2a416-bfe7-4d9d-99ec-68e6c04e5404 | app.request | --> DELETE /role-definitions/f8f98749-6f5c-41ea-8d40-903edeaff6e9
+2026-08-25 05:21:09,440 | INFO     | 29f2a416-bfe7-4d9d-99ec-68e6c04e5404 | app.request | <-- DELETE /role-definitions/f8f98749-6f5c-41ea-8d40-903edeaff6e9 403 (3.7ms)
+2026-08-25 05:21:09,582 | INFO     | ac22adbd-60af-4b5e-bf93-7bc02a907a27 | app.request | --> GET /role-definitions
+2026-08-25 05:21:09,583 | INFO     | ac22adbd-60af-4b5e-bf93-7bc02a907a27 | app.request | <-- GET /role-definitions 401 (1.4ms)
+2026-08-25 05:21:09,586 | INFO     | 163713ad-896c-46aa-9fea-c83f61c73ad7 | app.request | --> POST /role-definitions
+2026-08-25 05:21:09,587 | INFO     | 163713ad-896c-46aa-9fea-c83f61c73ad7 | app.request | <-- POST /role-definitions 401 (1.5ms)
+2026-08-25 05:21:15,528 | INFO     | ecdc562e-8e7c-4e41-83e3-917197d9be48 | app.request | --> GET /
+2026-08-25 05:21:15,529 | INFO     | ecdc562e-8e7c-4e41-83e3-917197d9be48 | app.request | <-- GET / 404 (1.2ms)
+2026-08-25 05:21:28,263 | INFO     | e9378dcc-6037-49e8-8870-30efbce22d4e | app.request | --> GET /health
+2026-08-25 05:21:28,264 | INFO     | e9378dcc-6037-49e8-8870-30efbce22d4e | app.request | <-- GET /health 200 (1.6ms)
+2026-08-25 05:22:04,912 | INFO     | 40714d96-153a-4db8-b723-4edd95048e77 | app.request | --> POST /auth/login
+2026-08-25 05:22:05,136 | INFO     | 40714d96-153a-4db8-b723-4edd95048e77 | app.request | <-- POST /auth/login 200 (223.8ms)
+2026-08-25 05:22:07,712 | INFO     | 5ce0f06c-3222-41f7-a504-8aa1e6918f59 | app.request | --> GET /.well-known/jwks.json
+2026-08-25 05:22:07,715 | INFO     | 5ce0f06c-3222-41f7-a504-8aa1e6918f59 | app.request | <-- GET /.well-known/jwks.json 200 (3.2ms)
+2026-08-25 05:22:10,346 | INFO     | d692377d-9648-4974-94ff-e72fb5bc390d | app.request | --> GET /.well-known/jwks.json
+2026-08-25 05:22:10,349 | INFO     | d692377d-9648-4974-94ff-e72fb5bc390d | app.request | <-- GET /.well-known/jwks.json 200 (3.1ms)
+2026-08-25 05:22:10,696 | INFO     | f7ae90ac-b4a8-4f4f-b427-595eaec5bee7 | app.request | --> GET /role-definitions
+2026-08-25 05:22:10,715 | INFO     | f7ae90ac-b4a8-4f4f-b427-595eaec5bee7 | app.request | <-- GET /role-definitions 200 (18.8ms)

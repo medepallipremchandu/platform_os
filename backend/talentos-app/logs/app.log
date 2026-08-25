@@ -1,0 +1,1267 @@
+2026-08-24 19:19:18,021 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-24 19:19:18,036 | INFO     | 3ab9815f-e729-4f06-a5d0-7894fe5740e6 | app.request | --> GET /health
+2026-08-24 19:19:18,040 | INFO     | 3ab9815f-e729-4f06-a5d0-7894fe5740e6 | app.request | <-- GET /health 200 (3.7ms)
+2026-08-24 19:19:18,055 | INFO     | 4bd6ad76-f004-45b1-947f-bfe128e6de77 | app.request | --> POST /api/v1/jd-analysis
+2026-08-24 19:19:19,804 | INFO     | 4bd6ad76-f004-45b1-947f-bfe128e6de77 | app.request | <-- POST /api/v1/jd-analysis 422 (1749.1ms)
+2026-08-24 19:19:54,080 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-24 19:19:54,082 | INFO     | - | uvicorn.error | Started server process [26172]
+2026-08-24 19:19:54,083 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-24 19:19:54,084 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-24 19:20:08,882 | INFO     | f36bde4c-60af-4409-8e6a-929f1cab2c63 | app.request | --> GET /health
+2026-08-24 19:20:08,887 | INFO     | f36bde4c-60af-4409-8e6a-929f1cab2c63 | app.request | <-- GET /health 200 (4.8ms)
+2026-08-24 19:20:19,650 | INFO     | 0493d983-8704-4a7a-ae5b-70e652b13312 | app.request | --> POST /api/v1/jd-analysis
+2026-08-24 19:20:43,960 | INFO     | 0493d983-8704-4a7a-ae5b-70e652b13312 | app.services.jd_analysis | JD analysis TOS01 (e1045884-f91a-42e2-ab52-b0f8f0cda78b) created with 5 skills
+2026-08-24 19:20:43,967 | INFO     | 0493d983-8704-4a7a-ae5b-70e652b13312 | app.request | <-- POST /api/v1/jd-analysis 201 (24317.4ms)
+2026-08-24 19:21:20,173 | INFO     | 8c0d9bca-fc41-4621-8c75-eba6e0a95afb | app.request | --> POST /api/v1/resume-analysis
+2026-08-24 19:21:26,350 | INFO     | 8c0d9bca-fc41-4621-8c75-eba6e0a95afb | app.services.resume_analysis | Resume analysis RES01 (7f03a20c-d78f-4ff8-9a29-cfeee2a522cb) created for Jane Doe
+2026-08-24 19:21:26,354 | INFO     | 8c0d9bca-fc41-4621-8c75-eba6e0a95afb | app.request | <-- POST /api/v1/resume-analysis 201 (6180.5ms)
+2026-08-24 19:21:36,684 | INFO     | ebc919b3-7578-4ff9-bf5e-0afddb89c800 | app.request | --> POST /api/v1/submissions
+2026-08-24 19:21:36,702 | INFO     | ebc919b3-7578-4ff9-bf5e-0afddb89c800 | app.request | <-- POST /api/v1/submissions 422 (17.8ms)
+2026-08-24 19:21:52,837 | INFO     | e3d9049b-03b8-4a0f-a734-2d4806decc76 | app.request | --> POST /api/v1/submissions
+2026-08-24 19:21:52,846 | INFO     | e3d9049b-03b8-4a0f-a734-2d4806decc76 | app.request | <-- POST /api/v1/submissions 422 (8.9ms)
+2026-08-24 19:22:13,988 | INFO     | b11395de-cf48-4480-96a2-fe9872e8de56 | app.request | --> POST /api/v1/submissions
+2026-08-24 19:22:29,617 | INFO     | b11395de-cf48-4480-96a2-fe9872e8de56 | app.services.submission | Submission SUB01 created, overall match 69.65%
+2026-08-24 19:22:29,633 | INFO     | b11395de-cf48-4480-96a2-fe9872e8de56 | app.request | <-- POST /api/v1/submissions 201 (15645.7ms)
+2026-08-24 19:22:40,151 | INFO     | f20bb6b2-3f9b-47b2-a828-a89cdbe6d447 | app.request | --> GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001/for-assessment
+2026-08-24 19:22:40,199 | INFO     | f20bb6b2-3f9b-47b2-a828-a89cdbe6d447 | app.request | <-- GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001/for-assessment 200 (47.4ms)
+2026-08-24 19:22:40,557 | INFO     | cae7b7fc-a4c8-4d63-a9cb-3a7574005c1a | app.request | --> GET /api/v1/submissions
+2026-08-24 19:22:40,589 | INFO     | cae7b7fc-a4c8-4d63-a9cb-3a7574005c1a | app.request | <-- GET /api/v1/submissions 200 (32.4ms)
+2026-08-24 19:30:26,379 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-24 19:30:26,380 | INFO     | - | uvicorn.error | Started server process [33508]
+2026-08-24 19:30:26,380 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-24 19:30:26,381 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-24 19:30:27,295 | INFO     | 653a1ab9-0be6-42b2-9e38-ff5dcbaa4c33 | app.request | --> GET /health
+2026-08-24 19:30:27,297 | INFO     | 653a1ab9-0be6-42b2-9e38-ff5dcbaa4c33 | app.request | <-- GET /health 200 (1.8ms)
+2026-08-24 19:35:17,227 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-24 19:35:17,227 | INFO     | - | uvicorn.error | Started server process [32872]
+2026-08-24 19:35:17,228 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-24 19:35:17,228 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-24 19:36:36,360 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-24 19:36:36,361 | INFO     | - | uvicorn.error | Started server process [60020]
+2026-08-24 19:36:36,361 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-24 19:36:36,362 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-24 19:36:54,313 | INFO     | d12b2284-4f94-4551-b263-417596d66c8f | app.request | --> GET /health
+2026-08-24 19:36:54,318 | INFO     | d12b2284-4f94-4551-b263-417596d66c8f | app.request | <-- GET /health 200 (5.1ms)
+2026-08-24 19:37:06,752 | INFO     | eccb53d9-a486-4a61-b921-73ea9c974404 | app.request | --> GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001/for-assessment
+2026-08-24 19:37:06,951 | INFO     | eccb53d9-a486-4a61-b921-73ea9c974404 | app.request | <-- GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001/for-assessment 200 (199.4ms)
+2026-08-24 19:44:42,608 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-24 19:44:42,608 | INFO     | - | uvicorn.error | Started server process [59004]
+2026-08-24 19:44:42,608 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-24 19:44:42,609 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-24 19:45:07,601 | INFO     | 6f9db300-3643-4289-bb4b-48ec21a8302e | app.request | --> GET /health
+2026-08-24 19:45:07,602 | INFO     | 6f9db300-3643-4289-bb4b-48ec21a8302e | app.request | <-- GET /health 200 (1.7ms)
+2026-08-24 19:45:40,048 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-24 19:45:40,054 | INFO     | 89c84f5e-33c8-4125-9bd9-b3f965c67e77 | app.request | --> GET /health
+2026-08-24 19:45:40,056 | INFO     | 89c84f5e-33c8-4125-9bd9-b3f965c67e77 | app.request | <-- GET /health 200 (2.1ms)
+2026-08-24 19:45:40,063 | INFO     | d4d4b29b-e361-49f2-9a5c-0c0576a8982b | app.request | --> POST /api/v1/jd-analysis
+2026-08-24 19:45:40,687 | INFO     | d4d4b29b-e361-49f2-9a5c-0c0576a8982b | app.request | <-- POST /api/v1/jd-analysis 422 (624.2ms)
+2026-08-24 19:47:04,730 | INFO     | 7540a684-8e20-4c1c-ad19-2c8d98842123 | app.request | --> GET /health
+2026-08-24 19:47:04,733 | INFO     | 7540a684-8e20-4c1c-ad19-2c8d98842123 | app.request | <-- GET /health 200 (3.0ms)
+2026-08-24 19:48:59,386 | INFO     | ea06c48f-7cd2-44a8-92ab-40f3cd1fd381 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 19:48:59,726 | INFO     | ea06c48f-7cd2-44a8-92ab-40f3cd1fd381 | app.request | <-- GET /api/v1/jd-analysis 200 (340.4ms)
+2026-08-24 19:48:59,729 | INFO     | adf1cbf8-e48f-46a3-bd61-38005ca60032 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 19:48:59,744 | INFO     | adf1cbf8-e48f-46a3-bd61-38005ca60032 | app.request | <-- GET /api/v1/jd-analysis 200 (14.9ms)
+2026-08-24 19:49:02,020 | INFO     | 05a532cc-1ca7-484c-a4f6-05620623a7de | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 19:49:02,042 | INFO     | 05a532cc-1ca7-484c-a4f6-05620623a7de | app.request | <-- GET /api/v1/resume-analysis 200 (22.1ms)
+2026-08-24 19:49:02,045 | INFO     | 64b8285d-5e8c-4983-a61a-9ef74d7e3999 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 19:49:02,055 | INFO     | 64b8285d-5e8c-4983-a61a-9ef74d7e3999 | app.request | <-- GET /api/v1/resume-analysis 200 (10.7ms)
+2026-08-24 19:49:03,528 | INFO     | 1226a37e-5b0c-48e7-b9d8-0c895b547f76 | app.request | --> GET /api/v1/submissions
+2026-08-24 19:49:03,579 | INFO     | 1226a37e-5b0c-48e7-b9d8-0c895b547f76 | app.request | <-- GET /api/v1/submissions 200 (51.9ms)
+2026-08-24 19:49:03,582 | INFO     | f13e29df-df39-4abe-88cb-da9d7c7fdc69 | app.request | --> GET /api/v1/submissions
+2026-08-24 19:49:03,601 | INFO     | f13e29df-df39-4abe-88cb-da9d7c7fdc69 | app.request | <-- GET /api/v1/submissions 200 (19.2ms)
+2026-08-24 19:49:05,977 | INFO     | d4c9b91d-760a-4d57-b61c-17d429dfabb9 | app.request | --> GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001
+2026-08-24 19:49:05,997 | INFO     | d4c9b91d-760a-4d57-b61c-17d429dfabb9 | app.request | <-- GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001 200 (19.9ms)
+2026-08-24 19:49:06,000 | INFO     | 5cc111bf-06c1-4847-ac9c-d0e68b61ae92 | app.request | --> GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001
+2026-08-24 19:49:06,011 | INFO     | aecf6747-e3cb-4004-90b8-5a8786e7ec84 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 19:49:06,014 | INFO     | 7fc0e9cf-641b-406a-a12e-4eb86d529d37 | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb
+2026-08-24 19:49:06,024 | INFO     | 5cc111bf-06c1-4847-ac9c-d0e68b61ae92 | app.request | <-- GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001 200 (24.3ms)
+2026-08-24 19:49:06,035 | INFO     | 7fc0e9cf-641b-406a-a12e-4eb86d529d37 | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb 200 (21.3ms)
+2026-08-24 19:49:06,061 | INFO     | 3e15796f-b594-4e99-a3e0-8696c5859805 | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb
+2026-08-24 19:49:06,071 | INFO     | 3e15796f-b594-4e99-a3e0-8696c5859805 | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb 200 (10.6ms)
+2026-08-24 19:49:06,138 | INFO     | aecf6747-e3cb-4004-90b8-5a8786e7ec84 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (127.2ms)
+2026-08-24 19:49:06,140 | INFO     | 073ba25f-8cb3-4d42-9b5c-a7f602711987 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 19:49:06,180 | INFO     | 073ba25f-8cb3-4d42-9b5c-a7f602711987 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (39.5ms)
+2026-08-24 19:49:23,241 | INFO     | 15a26be6-b5f0-40b9-a504-f2dec172d663 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 19:49:23,250 | INFO     | 15a26be6-b5f0-40b9-a504-f2dec172d663 | app.request | <-- GET /api/v1/jd-analysis 200 (9.5ms)
+2026-08-24 19:49:23,253 | INFO     | f1c6472f-0467-4cf7-9c39-5ebfe65cdf1c | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 19:49:23,263 | INFO     | f1c6472f-0467-4cf7-9c39-5ebfe65cdf1c | app.request | <-- GET /api/v1/jd-analysis 200 (9.7ms)
+2026-08-24 19:49:25,003 | INFO     | 3d3b0c61-d604-4573-b5d1-25275678938a | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 19:49:25,016 | INFO     | 3d3b0c61-d604-4573-b5d1-25275678938a | app.request | <-- GET /api/v1/resume-analysis 200 (13.1ms)
+2026-08-24 19:49:25,019 | INFO     | caa54688-f9c9-455d-a684-1b33dc28e905 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 19:49:25,028 | INFO     | caa54688-f9c9-455d-a684-1b33dc28e905 | app.request | <-- GET /api/v1/resume-analysis 200 (9.1ms)
+2026-08-24 19:56:16,191 | INFO     | 00cbd062-4df6-469d-bdc4-817188e6426d | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 19:56:16,201 | INFO     | 00cbd062-4df6-469d-bdc4-817188e6426d | app.request | <-- GET /api/v1/resume-analysis 200 (10.4ms)
+2026-08-24 19:56:16,205 | INFO     | 2250515a-169a-464f-acd6-ab338ab6d436 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 19:56:16,217 | INFO     | 2250515a-169a-464f-acd6-ab338ab6d436 | app.request | <-- GET /api/v1/resume-analysis 200 (11.3ms)
+2026-08-24 19:58:39,910 | INFO     | 9fea7482-658a-4f00-bd71-c4c27d6ee680 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 19:58:39,912 | INFO     | 23dcb861-69b5-444d-8545-10e98162131b | app.request | --> GET /api/v1/submissions
+2026-08-24 19:58:39,913 | INFO     | d34b01c2-d5dc-4a95-bffd-cacdd167b3c3 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 19:58:39,935 | INFO     | d34b01c2-d5dc-4a95-bffd-cacdd167b3c3 | app.request | <-- GET /api/v1/resume-analysis 200 (21.9ms)
+2026-08-24 19:58:39,938 | INFO     | 23dcb861-69b5-444d-8545-10e98162131b | app.request | <-- GET /api/v1/submissions 200 (26.6ms)
+2026-08-24 19:58:39,940 | INFO     | 6e4c559f-d161-4774-9ae7-e1a9f3b234de | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 19:58:39,942 | INFO     | b0a969b8-66a7-44aa-88ea-238a496e4fd3 | app.request | --> GET /api/v1/submissions
+2026-08-24 19:58:39,956 | INFO     | 6e4c559f-d161-4774-9ae7-e1a9f3b234de | app.request | <-- GET /api/v1/resume-analysis 200 (16.4ms)
+2026-08-24 19:58:39,961 | INFO     | b0a969b8-66a7-44aa-88ea-238a496e4fd3 | app.request | <-- GET /api/v1/submissions 200 (19.0ms)
+2026-08-24 19:58:40,142 | INFO     | 9fea7482-658a-4f00-bd71-c4c27d6ee680 | app.request | <-- GET /api/v1/jd-analysis 200 (232.0ms)
+2026-08-24 19:58:40,326 | INFO     | c6ed76ab-0ad4-4d6b-a677-5ff85c3a82a9 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 19:58:40,329 | INFO     | 1fcb4762-b1e4-4f18-83ed-66bc13b47f5c | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 19:58:40,331 | INFO     | 6c00eb30-df62-4cd4-9367-010f010c42a3 | app.request | --> GET /api/v1/submissions
+2026-08-24 19:58:40,352 | INFO     | 1fcb4762-b1e4-4f18-83ed-66bc13b47f5c | app.request | <-- GET /api/v1/resume-analysis 200 (23.3ms)
+2026-08-24 19:58:40,354 | INFO     | c6ed76ab-0ad4-4d6b-a677-5ff85c3a82a9 | app.request | <-- GET /api/v1/jd-analysis 200 (27.5ms)
+2026-08-24 19:58:40,355 | INFO     | 3a879b72-aa72-4665-b10e-94b1f3d14ff4 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 19:58:40,358 | INFO     | 4ebb9337-53da-4363-9e7a-3470ad374e76 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 19:58:40,379 | INFO     | 3a879b72-aa72-4665-b10e-94b1f3d14ff4 | app.request | <-- GET /api/v1/resume-analysis 200 (23.8ms)
+2026-08-24 19:58:40,382 | INFO     | 4ebb9337-53da-4363-9e7a-3470ad374e76 | app.request | <-- GET /api/v1/jd-analysis 200 (23.5ms)
+2026-08-24 19:58:40,385 | INFO     | 6c00eb30-df62-4cd4-9367-010f010c42a3 | app.request | <-- GET /api/v1/submissions 200 (53.3ms)
+2026-08-24 19:58:40,387 | INFO     | 3442cf0d-de67-42b5-889a-367394be1e6d | app.request | --> GET /api/v1/submissions
+2026-08-24 19:58:40,414 | INFO     | 3442cf0d-de67-42b5-889a-367394be1e6d | app.request | <-- GET /api/v1/submissions 200 (27.2ms)
+2026-08-24 20:03:32,873 | INFO     | f45a9dd8-9d9c-4b7e-a2e1-cbd2e212e942 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:03:32,875 | INFO     | 0cf9970b-b8b1-4be2-a363-177a023dc90d | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:03:32,878 | INFO     | 054c43c0-70a5-4c28-9c5f-5ee2590a21d9 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:03:32,898 | INFO     | 0cf9970b-b8b1-4be2-a363-177a023dc90d | app.request | <-- GET /api/v1/resume-analysis 200 (22.5ms)
+2026-08-24 20:03:32,905 | INFO     | f45a9dd8-9d9c-4b7e-a2e1-cbd2e212e942 | app.request | <-- GET /api/v1/jd-analysis 200 (31.7ms)
+2026-08-24 20:03:32,909 | INFO     | f89f7223-1356-4dc8-b0ce-703ddabe78a6 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:03:32,910 | INFO     | ccb26e74-6f8b-4cff-9b14-602dadd836cf | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:03:32,918 | INFO     | 054c43c0-70a5-4c28-9c5f-5ee2590a21d9 | app.request | <-- GET /api/v1/submissions 200 (39.5ms)
+2026-08-24 20:03:32,922 | INFO     | c10216fb-e6d8-4312-9337-b834d22825ab | app.request | --> GET /api/v1/submissions
+2026-08-24 20:03:32,930 | INFO     | ccb26e74-6f8b-4cff-9b14-602dadd836cf | app.request | <-- GET /api/v1/resume-analysis 200 (20.3ms)
+2026-08-24 20:03:32,934 | INFO     | f89f7223-1356-4dc8-b0ce-703ddabe78a6 | app.request | <-- GET /api/v1/jd-analysis 200 (24.9ms)
+2026-08-24 20:03:32,947 | INFO     | c10216fb-e6d8-4312-9337-b834d22825ab | app.request | <-- GET /api/v1/submissions 200 (25.5ms)
+2026-08-24 20:10:13,608 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-24 20:10:13,608 | INFO     | - | uvicorn.error | Started server process [1108]
+2026-08-24 20:10:13,609 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-24 20:10:13,609 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-24 20:10:29,553 | INFO     | 26eb9faa-d265-4fd1-969b-1167bde7becf | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:10:29,558 | INFO     | 9922e1c8-6b4f-4ffc-8cac-8d9418925271 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:10:29,581 | INFO     | 8e51477c-62d7-49de-8e29-e13f37c27efd | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:10:29,811 | INFO     | 8e51477c-62d7-49de-8e29-e13f37c27efd | app.request | <-- GET /api/v1/resume-analysis 200 (229.7ms)
+2026-08-24 20:10:29,815 | INFO     | d781fa3b-c780-41f1-8ab4-d8be68a4322f | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:10:29,821 | INFO     | 26eb9faa-d265-4fd1-969b-1167bde7becf | app.request | <-- GET /api/v1/jd-analysis 200 (268.9ms)
+2026-08-24 20:10:29,825 | INFO     | 6a13a77b-f297-41f0-9e38-449b90e17e90 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:10:29,832 | INFO     | d781fa3b-c780-41f1-8ab4-d8be68a4322f | app.request | <-- GET /api/v1/resume-analysis 200 (16.8ms)
+2026-08-24 20:10:29,843 | INFO     | 6a13a77b-f297-41f0-9e38-449b90e17e90 | app.request | <-- GET /api/v1/jd-analysis 200 (18.1ms)
+2026-08-24 20:10:29,933 | INFO     | 9922e1c8-6b4f-4ffc-8cac-8d9418925271 | app.request | <-- GET /api/v1/submissions 200 (374.8ms)
+2026-08-24 20:10:29,935 | INFO     | 2aad8688-2352-4b44-a73b-ad1914b00cdf | app.request | --> GET /api/v1/submissions
+2026-08-24 20:10:29,973 | INFO     | 2aad8688-2352-4b44-a73b-ad1914b00cdf | app.request | <-- GET /api/v1/submissions 200 (38.0ms)
+2026-08-24 20:10:41,615 | INFO     | 3682cbb0-4827-46b4-9c7c-06ebe56fbfe0 | app.request | --> GET /health
+2026-08-24 20:10:41,618 | INFO     | 3682cbb0-4827-46b4-9c7c-06ebe56fbfe0 | app.request | <-- GET /health 200 (2.9ms)
+2026-08-24 20:13:03,118 | INFO     | dfd7f177-15d2-4480-9994-bbcf946c5bce | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:13:03,119 | INFO     | 9ef36d93-c79e-4db7-a4f1-7baafd81a2ea | app.request | --> GET /api/v1/submissions
+2026-08-24 20:13:03,120 | INFO     | d63c6d85-cda8-45b5-84ad-00aa180be930 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:13:03,146 | INFO     | d63c6d85-cda8-45b5-84ad-00aa180be930 | app.request | <-- GET /api/v1/resume-analysis 200 (26.1ms)
+2026-08-24 20:13:03,149 | INFO     | dfd7f177-15d2-4480-9994-bbcf946c5bce | app.request | <-- GET /api/v1/jd-analysis 200 (31.1ms)
+2026-08-24 20:13:03,150 | INFO     | 8902ac3b-3048-4954-a32e-3bb77f4c5a69 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:13:03,152 | INFO     | 9ef36d93-c79e-4db7-a4f1-7baafd81a2ea | app.request | <-- GET /api/v1/submissions 200 (33.2ms)
+2026-08-24 20:13:03,154 | INFO     | 46d428ed-19ef-4d7c-a765-fc0012a6e68e | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:13:03,158 | INFO     | 6be4e659-b705-4f33-aaf4-11dc80a86335 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:13:03,169 | INFO     | 8902ac3b-3048-4954-a32e-3bb77f4c5a69 | app.request | <-- GET /api/v1/resume-analysis 200 (18.8ms)
+2026-08-24 20:13:03,186 | INFO     | 46d428ed-19ef-4d7c-a765-fc0012a6e68e | app.request | <-- GET /api/v1/jd-analysis 200 (32.5ms)
+2026-08-24 20:13:03,188 | INFO     | 6be4e659-b705-4f33-aaf4-11dc80a86335 | app.request | <-- GET /api/v1/submissions 200 (30.7ms)
+2026-08-24 20:13:06,131 | INFO     | d24738d7-bcca-49e7-bf6f-5dcb5382f7fa | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:13:06,147 | INFO     | d24738d7-bcca-49e7-bf6f-5dcb5382f7fa | app.request | <-- GET /api/v1/jd-analysis 200 (15.9ms)
+2026-08-24 20:13:06,150 | INFO     | dce06df6-084d-41b1-a0fa-0825447e409c | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:13:06,164 | INFO     | dce06df6-084d-41b1-a0fa-0825447e409c | app.request | <-- GET /api/v1/jd-analysis 200 (13.9ms)
+2026-08-24 20:13:08,545 | INFO     | 64f036a8-5787-4c09-95c2-82ec4ef23192 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:13:08,554 | INFO     | 64f036a8-5787-4c09-95c2-82ec4ef23192 | app.request | <-- GET /api/v1/resume-analysis 200 (9.5ms)
+2026-08-24 20:13:08,557 | INFO     | 93667a33-596f-4db7-9b18-82ff249e4a4d | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:13:08,566 | INFO     | 93667a33-596f-4db7-9b18-82ff249e4a4d | app.request | <-- GET /api/v1/resume-analysis 200 (9.3ms)
+2026-08-24 20:13:10,577 | INFO     | ca40695a-8c06-4fd0-80dc-a84928f949e7 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:13:10,613 | INFO     | ca40695a-8c06-4fd0-80dc-a84928f949e7 | app.request | <-- GET /api/v1/submissions 200 (35.7ms)
+2026-08-24 20:13:10,615 | INFO     | ddeb397d-9da7-49ca-a6df-932849ec7410 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:13:10,629 | INFO     | ddeb397d-9da7-49ca-a6df-932849ec7410 | app.request | <-- GET /api/v1/submissions 200 (13.7ms)
+2026-08-24 20:13:16,600 | INFO     | d5971216-fcdf-4ac7-9a57-3084c73f2fb8 | app.request | --> GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001
+2026-08-24 20:13:16,632 | INFO     | d5971216-fcdf-4ac7-9a57-3084c73f2fb8 | app.request | <-- GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001 200 (31.4ms)
+2026-08-24 20:13:16,634 | INFO     | e882d3fd-a9e7-407b-80d9-f9922e9bfa54 | app.request | --> GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001
+2026-08-24 20:13:16,645 | INFO     | 89ed15d4-1c04-43bb-994a-4336e8c839c7 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:13:16,655 | INFO     | e882d3fd-a9e7-407b-80d9-f9922e9bfa54 | app.request | <-- GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001 200 (20.9ms)
+2026-08-24 20:13:16,659 | INFO     | 345f63f6-39e1-4c43-880b-65dc82938a00 | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb
+2026-08-24 20:13:16,677 | INFO     | 345f63f6-39e1-4c43-880b-65dc82938a00 | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb 200 (18.9ms)
+2026-08-24 20:13:16,685 | INFO     | 0cd957aa-b3d7-449f-8efe-c5c2ca58826d | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb
+2026-08-24 20:13:16,694 | INFO     | 89ed15d4-1c04-43bb-994a-4336e8c839c7 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (48.8ms)
+2026-08-24 20:13:16,697 | INFO     | ac61cf21-d451-4eb9-839c-e53baa23c449 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:13:16,704 | INFO     | 0cd957aa-b3d7-449f-8efe-c5c2ca58826d | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb 200 (18.6ms)
+2026-08-24 20:13:16,726 | INFO     | ac61cf21-d451-4eb9-839c-e53baa23c449 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (28.1ms)
+2026-08-24 20:13:23,818 | INFO     | 854a572e-0c42-44ec-8303-930b2ff2c2d2 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:13:23,825 | INFO     | 854a572e-0c42-44ec-8303-930b2ff2c2d2 | app.request | <-- GET /api/v1/resume-analysis 200 (7.6ms)
+2026-08-24 20:13:23,828 | INFO     | 6aa8b800-937b-48d0-b67a-121696c53f27 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:13:23,834 | INFO     | 6aa8b800-937b-48d0-b67a-121696c53f27 | app.request | <-- GET /api/v1/resume-analysis 200 (6.1ms)
+2026-08-24 20:13:25,201 | INFO     | 18bc8b63-06bb-4e55-a49c-dc50f95f3aa0 | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb
+2026-08-24 20:13:25,209 | INFO     | 1d0135d1-c96e-41ea-9486-82ff1d73ac81 | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb/audit-log
+2026-08-24 20:13:25,216 | INFO     | 18bc8b63-06bb-4e55-a49c-dc50f95f3aa0 | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb 200 (15.6ms)
+2026-08-24 20:13:25,220 | INFO     | 711cdd89-6a6b-4b58-81ff-b57ffd2c8e05 | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb
+2026-08-24 20:13:25,238 | INFO     | 1d0135d1-c96e-41ea-9486-82ff1d73ac81 | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb/audit-log 200 (29.1ms)
+2026-08-24 20:13:25,239 | INFO     | 711cdd89-6a6b-4b58-81ff-b57ffd2c8e05 | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb 200 (19.2ms)
+2026-08-24 20:13:25,241 | INFO     | aaae751a-bedd-45e9-b98d-3200a5153719 | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb/audit-log
+2026-08-24 20:13:25,257 | INFO     | aaae751a-bedd-45e9-b98d-3200a5153719 | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb/audit-log 200 (16.7ms)
+2026-08-24 20:13:29,920 | INFO     | 0f754d56-3579-4b34-8447-c2a8014e07f6 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:13:29,923 | INFO     | b2211cd2-13c6-4ce0-ac2a-c6c6d7f86785 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:13:29,938 | INFO     | b2211cd2-13c6-4ce0-ac2a-c6c6d7f86785 | app.request | <-- GET /api/v1/resume-analysis 200 (15.8ms)
+2026-08-24 20:13:29,939 | INFO     | 0f754d56-3579-4b34-8447-c2a8014e07f6 | app.request | <-- GET /api/v1/jd-analysis 200 (19.0ms)
+2026-08-24 20:13:29,941 | INFO     | e357a7d0-f3bd-4d9f-90e1-da43cfc57b95 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:13:29,943 | INFO     | e36e76b8-f974-45b6-92df-faba6922044f | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:13:29,959 | INFO     | e357a7d0-f3bd-4d9f-90e1-da43cfc57b95 | app.request | <-- GET /api/v1/resume-analysis 200 (18.5ms)
+2026-08-24 20:13:29,962 | INFO     | e36e76b8-f974-45b6-92df-faba6922044f | app.request | <-- GET /api/v1/jd-analysis 200 (19.5ms)
+2026-08-24 20:13:37,815 | INFO     | 4dc6b990-8265-4eb7-899a-d34c44d87371 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:13:37,816 | INFO     | fc5a3c7d-65ea-4555-b785-b227b254c3df | app.request | --> GET /api/v1/submissions
+2026-08-24 20:13:37,817 | INFO     | 304110e9-e115-4ae1-b02f-03f0f2f68ee3 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:13:37,859 | INFO     | 304110e9-e115-4ae1-b02f-03f0f2f68ee3 | app.request | <-- GET /api/v1/resume-analysis 200 (42.2ms)
+2026-08-24 20:13:37,860 | INFO     | 4dc6b990-8265-4eb7-899a-d34c44d87371 | app.request | <-- GET /api/v1/jd-analysis 200 (45.4ms)
+2026-08-24 20:13:37,862 | INFO     | 2b07958a-1bd1-47e8-a6ca-94c0f8dd7e3c | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:13:37,864 | INFO     | d2275766-cecb-4439-957c-1c4e1f44cb91 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:13:37,867 | INFO     | fc5a3c7d-65ea-4555-b785-b227b254c3df | app.request | <-- GET /api/v1/submissions 200 (51.3ms)
+2026-08-24 20:13:37,870 | INFO     | 3402f040-2afe-448a-b058-4706603c4d1f | app.request | --> GET /api/v1/submissions
+2026-08-24 20:13:37,890 | INFO     | d2275766-cecb-4439-957c-1c4e1f44cb91 | app.request | <-- GET /api/v1/jd-analysis 200 (25.8ms)
+2026-08-24 20:13:37,894 | INFO     | 2b07958a-1bd1-47e8-a6ca-94c0f8dd7e3c | app.request | <-- GET /api/v1/resume-analysis 200 (31.1ms)
+2026-08-24 20:13:37,899 | INFO     | 3402f040-2afe-448a-b058-4706603c4d1f | app.request | <-- GET /api/v1/submissions 200 (28.8ms)
+2026-08-24 20:13:57,615 | INFO     | 49d0c275-6334-43f5-9118-e393abbed200 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:13:57,627 | INFO     | 49d0c275-6334-43f5-9118-e393abbed200 | app.request | <-- GET /api/v1/jd-analysis 200 (12.1ms)
+2026-08-24 20:13:57,630 | INFO     | 35986bb2-4eed-491a-8318-086cb124983e | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:13:57,641 | INFO     | 35986bb2-4eed-491a-8318-086cb124983e | app.request | <-- GET /api/v1/jd-analysis 200 (10.9ms)
+2026-08-24 20:14:03,794 | INFO     | 796a1ad6-895e-4598-9ac5-66f5c7e6c2c3 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:14:03,802 | INFO     | 0614fc54-afcc-4737-88d1-d35f76baa98d | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b/audit-log
+2026-08-24 20:14:03,823 | INFO     | 796a1ad6-895e-4598-9ac5-66f5c7e6c2c3 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (29.9ms)
+2026-08-24 20:14:03,826 | INFO     | 0614fc54-afcc-4737-88d1-d35f76baa98d | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b/audit-log 200 (24.4ms)
+2026-08-24 20:14:03,829 | INFO     | 9c8f6897-5d30-405a-b6fd-09fa85662999 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:14:03,830 | INFO     | 464ac2ad-98bb-485b-97e8-de4675f8e27a | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b/audit-log
+2026-08-24 20:14:03,849 | INFO     | 464ac2ad-98bb-485b-97e8-de4675f8e27a | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b/audit-log 200 (18.3ms)
+2026-08-24 20:14:03,862 | INFO     | 9c8f6897-5d30-405a-b6fd-09fa85662999 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (33.6ms)
+2026-08-24 20:14:20,367 | INFO     | 146b63f5-62a3-4a84-b1fd-b775d229bfd1 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:14:20,375 | INFO     | 146b63f5-62a3-4a84-b1fd-b775d229bfd1 | app.request | <-- GET /api/v1/resume-analysis 200 (8.6ms)
+2026-08-24 20:14:20,377 | INFO     | 06e14153-4744-4c35-96da-096c68048379 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:14:20,388 | INFO     | 06e14153-4744-4c35-96da-096c68048379 | app.request | <-- GET /api/v1/resume-analysis 200 (10.6ms)
+2026-08-24 20:14:25,025 | INFO     | 338b20d3-95a4-4c96-9424-813057e5a91d | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb
+2026-08-24 20:14:25,029 | INFO     | 62e8070d-38a7-4052-be90-a42e078ba218 | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb/audit-log
+2026-08-24 20:14:25,042 | INFO     | 338b20d3-95a4-4c96-9424-813057e5a91d | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb 200 (17.4ms)
+2026-08-24 20:14:25,045 | INFO     | e12f7ed9-774d-4e91-a8c5-48f116ba9a1e | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb
+2026-08-24 20:14:25,049 | INFO     | 62e8070d-38a7-4052-be90-a42e078ba218 | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb/audit-log 200 (20.6ms)
+2026-08-24 20:14:25,052 | INFO     | a1cbcca7-dde9-40e2-a89e-635849a9531e | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb/audit-log
+2026-08-24 20:14:25,061 | INFO     | e12f7ed9-774d-4e91-a8c5-48f116ba9a1e | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb 200 (15.5ms)
+2026-08-24 20:14:25,067 | INFO     | a1cbcca7-dde9-40e2-a89e-635849a9531e | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb/audit-log 200 (15.3ms)
+2026-08-24 20:14:44,599 | INFO     | 2c02a2b7-f661-4d80-a2c2-4574549850e1 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:14:44,619 | INFO     | 2c02a2b7-f661-4d80-a2c2-4574549850e1 | app.request | <-- GET /api/v1/submissions 200 (20.3ms)
+2026-08-24 20:14:44,625 | INFO     | dc5bb4f8-bbb8-483b-86ba-aa4a811d35a3 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:14:44,644 | INFO     | dc5bb4f8-bbb8-483b-86ba-aa4a811d35a3 | app.request | <-- GET /api/v1/submissions 200 (18.8ms)
+2026-08-24 20:14:49,133 | INFO     | 36e406a9-ba79-44fd-833f-31e48ddff680 | app.request | --> GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001
+2026-08-24 20:14:49,149 | INFO     | 36e406a9-ba79-44fd-833f-31e48ddff680 | app.request | <-- GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001 200 (16.1ms)
+2026-08-24 20:14:49,152 | INFO     | 71ee19d1-68b4-48d5-b20d-f8134decc308 | app.request | --> GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001
+2026-08-24 20:14:49,159 | INFO     | 57a55a94-333e-43f2-8b87-18a7802df123 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:14:49,169 | INFO     | 71ee19d1-68b4-48d5-b20d-f8134decc308 | app.request | <-- GET /api/v1/submissions/ea6afdfc-d3b7-41f7-b8ff-409940f65001 200 (16.8ms)
+2026-08-24 20:14:49,173 | INFO     | 84e2a093-7a28-4a3e-b058-6f2c0673af6f | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb
+2026-08-24 20:14:49,192 | INFO     | 84e2a093-7a28-4a3e-b058-6f2c0673af6f | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb 200 (18.6ms)
+2026-08-24 20:14:49,194 | INFO     | 57a55a94-333e-43f2-8b87-18a7802df123 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (35.6ms)
+2026-08-24 20:14:49,196 | INFO     | 87851fa1-a8ee-4fc1-aaf0-ec0d638ba246 | app.request | --> GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb
+2026-08-24 20:14:49,198 | INFO     | 61d39be8-72fb-4882-991b-c75a9a0a0c79 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:14:49,212 | INFO     | 87851fa1-a8ee-4fc1-aaf0-ec0d638ba246 | app.request | <-- GET /api/v1/resume-analysis/7f03a20c-d78f-4ff8-9a29-cfeee2a522cb 200 (16.1ms)
+2026-08-24 20:14:49,224 | INFO     | 61d39be8-72fb-4882-991b-c75a9a0a0c79 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (25.2ms)
+2026-08-24 20:14:56,520 | INFO     | d1d42a23-d91f-4686-96cb-0957be2ccf18 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:14:56,532 | INFO     | d1d42a23-d91f-4686-96cb-0957be2ccf18 | app.request | <-- GET /api/v1/resume-analysis 200 (11.5ms)
+2026-08-24 20:14:56,535 | INFO     | cfa10e32-b500-4077-8471-5e0bb9923d0c | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:14:56,546 | INFO     | cfa10e32-b500-4077-8471-5e0bb9923d0c | app.request | <-- GET /api/v1/resume-analysis 200 (11.3ms)
+2026-08-24 20:15:09,642 | INFO     | 816e61fe-a6fe-4788-b04e-538f1440b012 | app.request | --> POST /api/v1/resume-analysis
+2026-08-24 20:15:49,770 | INFO     | 816e61fe-a6fe-4788-b04e-538f1440b012 | app.services.resume_analysis | Resume analysis RES02 (7eb279db-c1a7-48c8-885c-b9de7851d416) created for Jeswin Arul Samuel
+2026-08-24 20:15:49,773 | INFO     | 816e61fe-a6fe-4788-b04e-538f1440b012 | app.request | <-- POST /api/v1/resume-analysis 201 (40130.9ms)
+2026-08-24 20:15:49,849 | INFO     | 1977f94c-7bb6-40b8-a0c6-733ea360d95d | app.request | --> GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416
+2026-08-24 20:15:49,863 | INFO     | 1977f94c-7bb6-40b8-a0c6-733ea360d95d | app.request | <-- GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416 200 (14.1ms)
+2026-08-24 20:15:49,868 | INFO     | 7af98cbd-c110-4021-bc4c-92cf6509cb24 | app.request | --> GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416/audit-log
+2026-08-24 20:15:49,879 | INFO     | 7af98cbd-c110-4021-bc4c-92cf6509cb24 | app.request | <-- GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416/audit-log 200 (11.5ms)
+2026-08-24 20:15:49,883 | INFO     | 98817da7-fc6f-4ac5-affc-1c67aad23d03 | app.request | --> GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416
+2026-08-24 20:15:49,898 | INFO     | 98817da7-fc6f-4ac5-affc-1c67aad23d03 | app.request | <-- GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416 200 (15.9ms)
+2026-08-24 20:15:49,913 | INFO     | 42ba7dd6-9898-4936-9def-3664abad48a8 | app.request | --> GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416/audit-log
+2026-08-24 20:15:49,927 | INFO     | 42ba7dd6-9898-4936-9def-3664abad48a8 | app.request | <-- GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416/audit-log 200 (13.4ms)
+2026-08-24 20:16:37,462 | INFO     | 0cc36b7f-702e-482d-8118-b23ef358345d | app.request | --> GET /api/v1/submissions
+2026-08-24 20:16:37,488 | INFO     | 0cc36b7f-702e-482d-8118-b23ef358345d | app.request | <-- GET /api/v1/submissions 200 (25.7ms)
+2026-08-24 20:16:37,490 | INFO     | 6cea65c7-117f-4e67-9cd2-e0ca4930e94c | app.request | --> GET /api/v1/submissions
+2026-08-24 20:16:37,514 | INFO     | 6cea65c7-117f-4e67-9cd2-e0ca4930e94c | app.request | <-- GET /api/v1/submissions 200 (23.8ms)
+2026-08-24 20:16:39,128 | INFO     | 8a1fb618-8d44-4158-8fd8-ff629b5fd661 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:16:39,130 | INFO     | 27d92225-47bf-4c0c-8cac-21b9d03ae2a6 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:16:39,147 | INFO     | 27d92225-47bf-4c0c-8cac-21b9d03ae2a6 | app.request | <-- GET /api/v1/resume-analysis 200 (16.4ms)
+2026-08-24 20:16:39,148 | INFO     | 8a1fb618-8d44-4158-8fd8-ff629b5fd661 | app.request | <-- GET /api/v1/jd-analysis 200 (20.0ms)
+2026-08-24 20:16:39,149 | INFO     | bb6118a8-af79-44d2-b087-b0d4a6c16c13 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:16:39,151 | INFO     | 474a83ab-b95d-457a-9414-32381cbfbb0a | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:16:39,168 | INFO     | 474a83ab-b95d-457a-9414-32381cbfbb0a | app.request | <-- GET /api/v1/jd-analysis 200 (17.4ms)
+2026-08-24 20:16:39,171 | INFO     | bb6118a8-af79-44d2-b087-b0d4a6c16c13 | app.request | <-- GET /api/v1/resume-analysis 200 (21.4ms)
+2026-08-24 20:16:43,618 | INFO     | 5aa78e50-d4c1-4029-a137-8bfc6ee0a088 | app.request | --> POST /api/v1/submissions
+2026-08-24 20:17:23,230 | INFO     | 5aa78e50-d4c1-4029-a137-8bfc6ee0a088 | app.services.submission | Submission SUB02 created, overall match 24.30%
+2026-08-24 20:17:23,234 | INFO     | 5aa78e50-d4c1-4029-a137-8bfc6ee0a088 | app.request | <-- POST /api/v1/submissions 201 (39615.2ms)
+2026-08-24 20:17:23,301 | INFO     | da4a3ef2-e111-49de-bdbc-71da06ed6e4e | app.request | --> GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12
+2026-08-24 20:17:23,310 | INFO     | da4a3ef2-e111-49de-bdbc-71da06ed6e4e | app.request | <-- GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12 200 (9.2ms)
+2026-08-24 20:17:23,313 | INFO     | 88f75df4-caf8-44d2-97e6-2aca4da9f064 | app.request | --> GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12
+2026-08-24 20:17:23,325 | INFO     | 88f75df4-caf8-44d2-97e6-2aca4da9f064 | app.request | <-- GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12 200 (11.6ms)
+2026-08-24 20:17:23,329 | INFO     | 0015ee99-b917-4f14-8260-e6b08e8f70ea | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:17:23,344 | INFO     | 0015ee99-b917-4f14-8260-e6b08e8f70ea | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (15.4ms)
+2026-08-24 20:17:23,348 | INFO     | 546b3534-0f88-4d22-8397-a033a7060a50 | app.request | --> GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416
+2026-08-24 20:17:23,355 | INFO     | 546b3534-0f88-4d22-8397-a033a7060a50 | app.request | <-- GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416 200 (6.8ms)
+2026-08-24 20:17:23,359 | INFO     | 8402456c-e2be-4522-a5d3-7f8a4cc1f686 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:17:23,377 | INFO     | 8402456c-e2be-4522-a5d3-7f8a4cc1f686 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (17.6ms)
+2026-08-24 20:17:23,380 | INFO     | 0034ae52-832b-4175-b90e-defde0d87ad6 | app.request | --> GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416
+2026-08-24 20:17:23,389 | INFO     | 0034ae52-832b-4175-b90e-defde0d87ad6 | app.request | <-- GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416 200 (8.8ms)
+2026-08-24 20:17:56,280 | INFO     | 74317781-881c-4b5a-9cab-3b41ab4368fe | app.request | --> GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12/for-assessment
+2026-08-24 20:17:56,316 | INFO     | 74317781-881c-4b5a-9cab-3b41ab4368fe | app.request | <-- GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12/for-assessment 200 (36.0ms)
+2026-08-24 20:18:17,356 | INFO     | c3867bf7-c3e6-428c-9570-19a6aed1b85d | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:18:17,358 | INFO     | b2e41222-c1e6-45d3-9e97-e8f1bc2f6309 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:18:17,360 | INFO     | cba1574a-057e-40e1-837c-016d70c1e3f4 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:18:17,388 | INFO     | c3867bf7-c3e6-428c-9570-19a6aed1b85d | app.request | <-- GET /api/v1/jd-analysis 200 (31.8ms)
+2026-08-24 20:18:17,393 | INFO     | 4df3f824-6d1c-4d01-8df9-c2a45ccb88b9 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 20:18:17,395 | INFO     | b2e41222-c1e6-45d3-9e97-e8f1bc2f6309 | app.request | <-- GET /api/v1/resume-analysis 200 (36.4ms)
+2026-08-24 20:18:17,399 | INFO     | be211757-10d4-4725-959a-bbc0974d554a | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 20:18:17,401 | INFO     | cba1574a-057e-40e1-837c-016d70c1e3f4 | app.request | <-- GET /api/v1/submissions 200 (41.0ms)
+2026-08-24 20:18:17,405 | INFO     | f98e5580-5e08-4763-946f-79024fd21062 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:18:17,427 | INFO     | 4df3f824-6d1c-4d01-8df9-c2a45ccb88b9 | app.request | <-- GET /api/v1/jd-analysis 200 (33.7ms)
+2026-08-24 20:18:17,430 | INFO     | be211757-10d4-4725-959a-bbc0974d554a | app.request | <-- GET /api/v1/resume-analysis 200 (31.5ms)
+2026-08-24 20:18:17,434 | INFO     | f98e5580-5e08-4763-946f-79024fd21062 | app.request | <-- GET /api/v1/submissions 200 (29.9ms)
+2026-08-24 20:18:18,236 | INFO     | 1d3f80d4-eaef-4287-b3dc-ee81d1c16bde | app.request | --> GET /api/v1/submissions
+2026-08-24 20:18:18,261 | INFO     | 1d3f80d4-eaef-4287-b3dc-ee81d1c16bde | app.request | <-- GET /api/v1/submissions 200 (25.1ms)
+2026-08-24 20:18:18,264 | INFO     | 6e32b18f-c4f8-4b9f-a133-76b35d210787 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:18:18,287 | INFO     | 6e32b18f-c4f8-4b9f-a133-76b35d210787 | app.request | <-- GET /api/v1/submissions 200 (22.8ms)
+2026-08-24 20:20:45,363 | INFO     | 80048472-38e7-47ec-bfde-7cc7ed46ccbc | app.request | --> GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12
+2026-08-24 20:20:45,379 | INFO     | 80048472-38e7-47ec-bfde-7cc7ed46ccbc | app.request | <-- GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12 200 (16.3ms)
+2026-08-24 20:20:45,383 | INFO     | 26cdbf41-a29b-4567-85da-58f4962e46f2 | app.request | --> GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12
+2026-08-24 20:20:45,397 | INFO     | 26cdbf41-a29b-4567-85da-58f4962e46f2 | app.request | <-- GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12 200 (14.0ms)
+2026-08-24 20:20:45,404 | INFO     | 766b8c9f-546a-45ea-88f9-18fac7b3ee68 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:20:45,428 | INFO     | 766b8c9f-546a-45ea-88f9-18fac7b3ee68 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (23.7ms)
+2026-08-24 20:20:45,431 | INFO     | a5a3c697-a812-4497-9e59-7916ca5e6c5e | app.request | --> GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416
+2026-08-24 20:20:45,442 | INFO     | a5a3c697-a812-4497-9e59-7916ca5e6c5e | app.request | <-- GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416 200 (11.2ms)
+2026-08-24 20:20:45,446 | INFO     | 265da389-52e0-4249-9463-3134d6b57875 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:20:45,468 | INFO     | 265da389-52e0-4249-9463-3134d6b57875 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (22.0ms)
+2026-08-24 20:20:45,471 | INFO     | 60520f5c-7d02-4e9f-a087-2cdb06595341 | app.request | --> GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416
+2026-08-24 20:20:45,482 | INFO     | 60520f5c-7d02-4e9f-a087-2cdb06595341 | app.request | <-- GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416 200 (11.4ms)
+2026-08-24 20:20:52,431 | INFO     | 94c5c4ea-4681-4bb0-b702-4c22c96e46e6 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:20:52,453 | INFO     | 94c5c4ea-4681-4bb0-b702-4c22c96e46e6 | app.request | <-- GET /api/v1/submissions 200 (21.9ms)
+2026-08-24 20:20:52,456 | INFO     | 28ea4b69-8dbc-4b45-a88c-9f7a648f018f | app.request | --> GET /api/v1/submissions
+2026-08-24 20:20:52,482 | INFO     | 28ea4b69-8dbc-4b45-a88c-9f7a648f018f | app.request | <-- GET /api/v1/submissions 200 (26.6ms)
+2026-08-24 20:21:02,313 | INFO     | 16330e90-2f3f-44ea-8c76-e8cd3b981968 | app.request | --> GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12
+2026-08-24 20:21:02,328 | INFO     | 16330e90-2f3f-44ea-8c76-e8cd3b981968 | app.request | <-- GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12 200 (14.8ms)
+2026-08-24 20:21:02,330 | INFO     | 4cddac77-e202-4a93-8959-2788fbae78aa | app.request | --> GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12
+2026-08-24 20:21:02,335 | INFO     | 2e9ccda8-e840-4525-a747-51300903868c | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:21:02,337 | INFO     | c91b1d79-8185-4f9b-9e7a-63e06457ca2f | app.request | --> GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416
+2026-08-24 20:21:02,353 | INFO     | 4cddac77-e202-4a93-8959-2788fbae78aa | app.request | <-- GET /api/v1/submissions/bd7b3498-4566-4505-80fb-d1e29c54ed12 200 (23.2ms)
+2026-08-24 20:21:02,365 | INFO     | c91b1d79-8185-4f9b-9e7a-63e06457ca2f | app.request | <-- GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416 200 (27.4ms)
+2026-08-24 20:21:02,376 | INFO     | 2e9ccda8-e840-4525-a747-51300903868c | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (41.4ms)
+2026-08-24 20:21:02,378 | INFO     | 98b22387-43a8-4e80-8e15-cdf0dfbe369e | app.request | --> GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416
+2026-08-24 20:21:02,380 | INFO     | 6bc01a12-4b58-41fa-90cf-9f95838c73d9 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-24 20:21:02,397 | INFO     | 98b22387-43a8-4e80-8e15-cdf0dfbe369e | app.request | <-- GET /api/v1/resume-analysis/7eb279db-c1a7-48c8-885c-b9de7851d416 200 (18.7ms)
+2026-08-24 20:21:02,410 | INFO     | 6bc01a12-4b58-41fa-90cf-9f95838c73d9 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (30.2ms)
+2026-08-24 20:21:06,766 | INFO     | 2b93893a-705b-4073-9dac-3dce8028e03d | app.request | --> GET /api/v1/submissions
+2026-08-24 20:21:06,790 | INFO     | 2b93893a-705b-4073-9dac-3dce8028e03d | app.request | <-- GET /api/v1/submissions 200 (24.3ms)
+2026-08-24 20:21:06,793 | INFO     | 4b2ff6f3-e26d-45b2-b74b-651329180863 | app.request | --> GET /api/v1/submissions
+2026-08-24 20:21:06,815 | INFO     | 4b2ff6f3-e26d-45b2-b74b-651329180863 | app.request | <-- GET /api/v1/submissions 200 (21.7ms)
+2026-08-24 21:08:59,885 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-24 21:08:59,926 | INFO     | 13d2a1a7-5828-4e68-8e2e-bdea9a0ec7e8 | app.request | --> GET /health
+2026-08-24 21:08:59,929 | INFO     | 13d2a1a7-5828-4e68-8e2e-bdea9a0ec7e8 | app.request | <-- GET /health 200 (2.5ms)
+2026-08-24 21:08:59,935 | INFO     | 95e4ca55-8aff-4668-ae04-bba3d44fb528 | app.request | --> POST /api/v1/jd-analysis
+2026-08-24 21:08:59,939 | INFO     | 95e4ca55-8aff-4668-ae04-bba3d44fb528 | app.request | <-- POST /api/v1/jd-analysis 422 (3.7ms)
+2026-08-24 21:09:50,917 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-24 21:09:50,918 | INFO     | - | uvicorn.error | Started server process [51004]
+2026-08-24 21:09:50,918 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-24 21:09:50,918 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-24 21:10:00,579 | INFO     | 42753891-3dc9-4cb6-b403-a596222e2dd6 | app.request | --> GET /health
+2026-08-24 21:10:00,584 | INFO     | 42753891-3dc9-4cb6-b403-a596222e2dd6 | app.request | <-- GET /health 200 (4.4ms)
+2026-08-24 21:10:20,510 | INFO     | 530aeba1-c22f-4664-a964-84d7d8d8e2e1 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 21:10:20,719 | INFO     | 530aeba1-c22f-4664-a964-84d7d8d8e2e1 | app.request | <-- GET /api/v1/jd-analysis 200 (209.0ms)
+2026-08-24 21:10:21,028 | INFO     | dc94bad3-78af-4a5e-8623-99a511d4ea5a | app.request | --> GET /api/v1/submissions
+2026-08-24 21:10:21,088 | INFO     | dc94bad3-78af-4a5e-8623-99a511d4ea5a | app.request | <-- GET /api/v1/submissions 200 (59.9ms)
+2026-08-24 21:10:33,712 | INFO     | cf225f16-532f-4c81-b970-3b81b3d57f6f | app.request | --> POST /api/v1/interview-sessions
+2026-08-24 21:10:33,780 | INFO     | cf225f16-532f-4c81-b970-3b81b3d57f6f | app.services.interview_session | Interview session 6689a980-2e79-49d0-9965-f4943092127b created for submission SUB01
+2026-08-24 21:10:33,842 | INFO     | cf225f16-532f-4c81-b970-3b81b3d57f6f | app.request | <-- POST /api/v1/interview-sessions 201 (129.4ms)
+2026-08-24 21:10:47,126 | INFO     | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.request | --> POST /api/v1/questions/generate
+2026-08-24 21:11:05,047 | WARNING  | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.services.question | Skipping unmatched rubric name 'SQL Syntax Knowledge' returned for skill 'Java'
+2026-08-24 21:11:05,048 | WARNING  | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.services.question | Skipping unmatched rubric name 'Query Logic Understanding' returned for skill 'Java'
+2026-08-24 21:11:05,048 | WARNING  | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.services.question | Discarding question with no matched rubrics: In SQL, which clause is used to filter groups of rows after a GROUP BY aggregation has been applied, as opposed to filtering individual rows before aggregation?
+2026-08-24 21:11:05,049 | WARNING  | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.services.question | Skipping unmatched rubric name 'SQL Syntax Knowledge' returned for skill 'Java'
+2026-08-24 21:11:05,049 | WARNING  | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.services.question | Skipping unmatched rubric name 'Query Logic Understanding' returned for skill 'Java'
+2026-08-24 21:11:05,049 | WARNING  | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.services.question | Discarding question with no matched rubrics: You need to combine rows from two tables, Orders and Customers, and return all rows from Orders even when there is no matching Customer record. Which JOIN type should you use?
+2026-08-24 21:11:05,050 | WARNING  | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.services.question | Skipping unmatched rubric name 'Query Logic Understanding' returned for skill 'Java'
+2026-08-24 21:11:05,050 | WARNING  | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.services.question | Skipping unmatched rubric name 'SQL Syntax Knowledge' returned for skill 'Java'
+2026-08-24 21:11:05,050 | WARNING  | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.services.question | Discarding question with no matched rubrics: Given a query that must return the top 3 highest-paid employees per department from an Employees table, which SQL feature is most appropriate to use?
+2026-08-24 21:11:05,055 | INFO     | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.services.question | Generated 0 mcq question(s) for skill 2039e9b4-5aac-45d8-b800-e716eb4f358d
+2026-08-24 21:11:05,057 | INFO     | 93bd03f0-50bc-44b5-b91d-210fa942fdcc | app.request | <-- POST /api/v1/questions/generate 201 (17931.8ms)
+2026-08-24 22:56:53,064 | INFO     | be6a1fdc-7e18-4156-8cb8-db3314c3a9b3 | app.request | --> POST /api/v1/questions/generate
+2026-08-24 22:57:09,430 | INFO     | be6a1fdc-7e18-4156-8cb8-db3314c3a9b3 | app.services.question | Generated 1 mcq question(s) for skill 2039e9b4-5aac-45d8-b800-e716eb4f358d
+2026-08-24 22:57:09,440 | INFO     | be6a1fdc-7e18-4156-8cb8-db3314c3a9b3 | app.request | <-- POST /api/v1/questions/generate 201 (16376.5ms)
+2026-08-24 22:57:24,715 | INFO     | 3a4c2d5f-54ef-47d2-a3b7-28d98150a862 | app.request | --> POST /api/v1/questions/generate
+2026-08-24 22:58:39,895 | INFO     | 1831f3b9-18bf-4474-b6fd-c740d4ce7502 | app.request | --> POST /api/v1/questions/generate
+2026-08-24 22:58:55,278 | ERROR    | 3a4c2d5f-54ef-47d2-a3b7-28d98150a862 | app.services.agent_client | Failed to reach agent-builder-service at http://localhost:8002/api/v1/invoke: 
+2026-08-24 22:58:55,279 | INFO     | 3a4c2d5f-54ef-47d2-a3b7-28d98150a862 | app.request | <-- POST /api/v1/questions/generate 502 (90563.8ms)
+2026-08-24 22:59:36,457 | INFO     | 1831f3b9-18bf-4474-b6fd-c740d4ce7502 | app.services.question | Generated 1 coding question(s) for skill 2039e9b4-5aac-45d8-b800-e716eb4f358d
+2026-08-24 22:59:36,463 | INFO     | 1831f3b9-18bf-4474-b6fd-c740d4ce7502 | app.request | <-- POST /api/v1/questions/generate 201 (56567.9ms)
+2026-08-24 23:00:12,533 | INFO     | cb7ebc9f-8a36-4db7-9da9-86ec90a9ee1a | app.request | --> POST /api/v1/evaluations
+2026-08-24 23:00:12,597 | INFO     | cb7ebc9f-8a36-4db7-9da9-86ec90a9ee1a | app.services.evaluation | Evaluation 3d0e00a7-972e-498d-83b6-500a095d1dd3 for mcq question dbc40a47-d28b-48a9-9857-34fd1c0cebbd scored 100.00%
+2026-08-24 23:00:12,610 | INFO     | cb7ebc9f-8a36-4db7-9da9-86ec90a9ee1a | app.request | <-- POST /api/v1/evaluations 201 (77.8ms)
+2026-08-24 23:07:46,424 | INFO     | e5acb86f-eca1-4584-9cd9-f526b5860764 | app.request | --> GET /health
+2026-08-24 23:07:46,426 | INFO     | e5acb86f-eca1-4584-9cd9-f526b5860764 | app.request | <-- GET /health 200 (2.5ms)
+2026-08-24 23:09:03,331 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-24 23:09:03,346 | INFO     | fd6a6b8a-822a-4170-a30f-f17ccf3d81c1 | app.request | --> GET /health
+2026-08-24 23:09:03,350 | INFO     | fd6a6b8a-822a-4170-a30f-f17ccf3d81c1 | app.request | <-- GET /health 200 (4.8ms)
+2026-08-24 23:09:03,364 | INFO     | 702165bc-3e61-40c1-aa60-c918ae9f7896 | app.request | --> POST /api/v1/jd-analysis
+2026-08-24 23:09:03,372 | INFO     | 702165bc-3e61-40c1-aa60-c918ae9f7896 | app.request | <-- POST /api/v1/jd-analysis 422 (7.8ms)
+2026-08-24 23:11:23,414 | INFO     | 2e58bd7a-a21c-4855-849b-02b262cb343c | app.request | --> GET /health
+2026-08-24 23:11:23,416 | INFO     | 2e58bd7a-a21c-4855-849b-02b262cb343c | app.request | <-- GET /health 200 (2.0ms)
+2026-08-24 23:11:54,626 | INFO     | c5a0f105-50d0-452b-987f-59ea0d8efc11 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 23:11:54,629 | INFO     | 0c1a1b1c-132b-4fcb-9433-31668ebb3979 | app.request | --> GET /api/v1/submissions
+2026-08-24 23:11:54,630 | INFO     | 53f2c126-a27d-49b4-8662-266a416dfceb | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 23:11:54,668 | INFO     | 53f2c126-a27d-49b4-8662-266a416dfceb | app.request | <-- GET /api/v1/resume-analysis 200 (37.5ms)
+2026-08-24 23:11:54,670 | INFO     | 0c1a1b1c-132b-4fcb-9433-31668ebb3979 | app.request | <-- GET /api/v1/submissions 200 (41.1ms)
+2026-08-24 23:11:54,672 | INFO     | 2fc68b95-e41b-4b30-b4f2-989805b9c760 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 23:11:54,675 | INFO     | 306892dd-97ec-40d9-9849-cf6548bbe296 | app.request | --> GET /api/v1/submissions
+2026-08-24 23:11:54,698 | INFO     | 2fc68b95-e41b-4b30-b4f2-989805b9c760 | app.request | <-- GET /api/v1/resume-analysis 200 (26.1ms)
+2026-08-24 23:11:54,702 | INFO     | 306892dd-97ec-40d9-9849-cf6548bbe296 | app.request | <-- GET /api/v1/submissions 200 (27.0ms)
+2026-08-24 23:11:54,764 | INFO     | c5a0f105-50d0-452b-987f-59ea0d8efc11 | app.request | <-- GET /api/v1/jd-analysis 200 (137.4ms)
+2026-08-24 23:11:54,767 | INFO     | 105e62c1-111a-4bda-838f-2a8077c8431f | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 23:11:54,783 | INFO     | 105e62c1-111a-4bda-838f-2a8077c8431f | app.request | <-- GET /api/v1/jd-analysis 200 (16.7ms)
+2026-08-24 23:11:59,167 | INFO     | 2041aded-d429-4eac-a784-659b3b05063f | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 23:11:59,180 | INFO     | 2041aded-d429-4eac-a784-659b3b05063f | app.request | <-- GET /api/v1/jd-analysis 200 (12.6ms)
+2026-08-24 23:11:59,183 | INFO     | b5b89d86-571b-425f-9199-80ce0058e49a | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 23:11:59,197 | INFO     | b5b89d86-571b-425f-9199-80ce0058e49a | app.request | <-- GET /api/v1/jd-analysis 200 (14.1ms)
+2026-08-24 23:12:01,580 | INFO     | 148153c0-7524-47f2-b8e3-197328183535 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 23:12:01,592 | INFO     | 148153c0-7524-47f2-b8e3-197328183535 | app.request | <-- GET /api/v1/resume-analysis 200 (12.3ms)
+2026-08-24 23:12:01,594 | INFO     | 02368673-fdd4-4173-b9f1-24cde100a358 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 23:12:01,606 | INFO     | 02368673-fdd4-4173-b9f1-24cde100a358 | app.request | <-- GET /api/v1/resume-analysis 200 (11.6ms)
+2026-08-24 23:12:03,179 | INFO     | d73d207d-38d6-44fb-8071-c141d7d75dd2 | app.request | --> GET /api/v1/submissions
+2026-08-24 23:12:03,212 | INFO     | d73d207d-38d6-44fb-8071-c141d7d75dd2 | app.request | <-- GET /api/v1/submissions 200 (33.1ms)
+2026-08-24 23:12:03,215 | INFO     | 87c6eebc-4b82-4740-9209-3a92310f5cdb | app.request | --> GET /api/v1/submissions
+2026-08-24 23:12:03,249 | INFO     | 87c6eebc-4b82-4740-9209-3a92310f5cdb | app.request | <-- GET /api/v1/submissions 200 (33.6ms)
+2026-08-24 23:13:18,930 | INFO     | aa41f146-b047-423e-8955-db0312e802b8 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 23:13:18,931 | INFO     | e8173252-d8ff-4d6a-8825-c728ba877c9f | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 23:13:18,933 | INFO     | c3cbe30e-e1ee-4653-9b92-5fd307b389a7 | app.request | --> GET /api/v1/submissions
+2026-08-24 23:13:18,958 | INFO     | aa41f146-b047-423e-8955-db0312e802b8 | app.request | <-- GET /api/v1/jd-analysis 200 (28.3ms)
+2026-08-24 23:13:18,960 | INFO     | e8173252-d8ff-4d6a-8825-c728ba877c9f | app.request | <-- GET /api/v1/resume-analysis 200 (28.9ms)
+2026-08-24 23:13:18,961 | INFO     | 9023e780-2025-4ef5-86db-a21fdaf24a16 | app.request | --> GET /api/v1/jd-analysis
+2026-08-24 23:13:18,964 | INFO     | 49ec321f-06cb-4d78-bf6d-43b3decaa316 | app.request | --> GET /api/v1/resume-analysis
+2026-08-24 23:13:18,965 | INFO     | c3cbe30e-e1ee-4653-9b92-5fd307b389a7 | app.request | <-- GET /api/v1/submissions 200 (32.0ms)
+2026-08-24 23:13:18,969 | INFO     | ffc0b582-4778-4d1b-b59f-29136a593633 | app.request | --> GET /api/v1/submissions
+2026-08-24 23:13:18,987 | INFO     | 49ec321f-06cb-4d78-bf6d-43b3decaa316 | app.request | <-- GET /api/v1/resume-analysis 200 (23.3ms)
+2026-08-24 23:13:18,993 | INFO     | 9023e780-2025-4ef5-86db-a21fdaf24a16 | app.request | <-- GET /api/v1/jd-analysis 200 (31.6ms)
+2026-08-24 23:13:18,998 | INFO     | ffc0b582-4778-4d1b-b59f-29136a593633 | app.request | <-- GET /api/v1/submissions 200 (28.8ms)
+2026-08-25 00:25:31,136 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-25 00:25:32,008 | INFO     | e8872fc5-e40d-4dd2-b509-2b625c9f67b5 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:32,010 | INFO     | e8872fc5-e40d-4dd2-b509-2b625c9f67b5 | app.request | <-- GET /api/v1/jd-analysis 401 (1.9ms)
+2026-08-25 00:25:32,019 | INFO     | 6d54258c-d3de-4b8c-ba10-e07aa5b6ac18 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:32,020 | INFO     | 6d54258c-d3de-4b8c-ba10-e07aa5b6ac18 | app.request | <-- GET /api/v1/jd-analysis 401 (1.2ms)
+2026-08-25 00:25:32,031 | INFO     | 72cf65bc-74ab-4f75-96b1-dc2a239b1956 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:32,036 | INFO     | 72cf65bc-74ab-4f75-96b1-dc2a239b1956 | app.request | <-- GET /api/v1/jd-analysis 401 (5.3ms)
+2026-08-25 00:25:32,043 | INFO     | 8d031eba-365d-430b-ab10-9b33c0f5ed09 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:32,264 | ERROR    | 8d031eba-365d-430b-ab10-9b33c0f5ed09 | app.core.iam_client | Failed to fetch JWKS from iam-service: [Errno 11001] getaddrinfo failed
+2026-08-25 00:25:32,265 | INFO     | 8d031eba-365d-430b-ab10-9b33c0f5ed09 | app.request | <-- GET /api/v1/jd-analysis 401 (221.1ms)
+2026-08-25 00:25:32,275 | INFO     | 8f291517-8b41-4ef2-b6d9-ccad91b2e235 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:32,277 | INFO     | 8f291517-8b41-4ef2-b6d9-ccad91b2e235 | app.request | <-- GET /api/v1/jd-analysis 403 (1.7ms)
+2026-08-25 00:25:32,285 | INFO     | 666b4580-dc2a-4111-a23a-6c5bb2d13214 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:32,315 | INFO     | 666b4580-dc2a-4111-a23a-6c5bb2d13214 | app.request | <-- GET /api/v1/jd-analysis 200 (29.6ms)
+2026-08-25 00:25:32,326 | INFO     | 53960d4d-8b9f-483b-9e38-beabe6cb6710 | app.request | --> DELETE /api/v1/jd-analysis/ef6765b6-bbe7-42ad-821b-f074aaaa7d71
+2026-08-25 00:25:32,328 | INFO     | 53960d4d-8b9f-483b-9e38-beabe6cb6710 | app.request | <-- DELETE /api/v1/jd-analysis/ef6765b6-bbe7-42ad-821b-f074aaaa7d71 403 (2.0ms)
+2026-08-25 00:25:32,338 | INFO     | a1a806cb-aa20-4838-a223-3c24816dd7f9 | app.request | --> GET /health
+2026-08-25 00:25:32,339 | INFO     | a1a806cb-aa20-4838-a223-3c24816dd7f9 | app.request | <-- GET /health 200 (1.0ms)
+2026-08-25 00:25:32,348 | INFO     | 642c9cb7-1446-4716-a765-2f6b781ceee4 | app.request | --> GET /health
+2026-08-25 00:25:32,349 | INFO     | 642c9cb7-1446-4716-a765-2f6b781ceee4 | app.request | <-- GET /health 200 (0.9ms)
+2026-08-25 00:25:32,356 | INFO     | cb796fdf-f944-4b4e-aa99-c017c3c02eea | app.request | --> POST /api/v1/jd-analysis
+2026-08-25 00:25:32,358 | INFO     | cb796fdf-f944-4b4e-aa99-c017c3c02eea | app.request | <-- POST /api/v1/jd-analysis 401 (1.5ms)
+2026-08-25 00:25:32,375 | INFO     | af8b995d-f2da-4098-a9b8-de2ef7d5553a | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:32,424 | INFO     | af8b995d-f2da-4098-a9b8-de2ef7d5553a | app.request | <-- GET /api/v1/jd-analysis 200 (49.1ms)
+2026-08-25 00:25:32,450 | INFO     | 6d2f677a-2723-401a-87bc-32b5dd4b91bc | app.request | --> GET /api/v1/jd-analysis/2590e8e9-aea8-43f6-bd2d-9ad1509150ad
+2026-08-25 00:25:32,454 | INFO     | 6d2f677a-2723-401a-87bc-32b5dd4b91bc | app.request | <-- GET /api/v1/jd-analysis/2590e8e9-aea8-43f6-bd2d-9ad1509150ad 404 (4.1ms)
+2026-08-25 00:25:32,464 | INFO     | 013b3b60-6b69-4659-8a67-893177b2507d | app.request | --> POST /api/v1/jd-analysis
+2026-08-25 00:25:32,469 | ERROR    | 013b3b60-6b69-4659-8a67-893177b2507d | app.request | <-- POST /api/v1/jd-analysis failed after 5.0ms
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "jd_code_seq" does not exist
+LINE 1: SELECT nextval('jd_code_seq')
+                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\app\core\middleware.py", line 20, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\middleware\base.py", line 163, in call_next
+    raise app_exc
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\middleware\base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\app\api\v1\jd_analysis.py", line 41, in create_jd_analysis
+    jd_analysis = await analyze_jd(db, payload.jd_text, actor.email_or_name, uuid.UUID(actor.org_id))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\app\services\jd_analysis_service.py", line 42, in analyze_jd
+    jd_code=_next_jd_code(db),
+            ~~~~~~~~~~~~~^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\app\services\jd_analysis_service.py", line 32, in _next_jd_code
+    seq_value = db.execute(text("SELECT nextval('jd_code_seq')")).scalar_one()
+                ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2256, in _execute_internal
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "jd_code_seq" does not exist
+LINE 1: SELECT nextval('jd_code_seq')
+                       ^
+
+[SQL: SELECT nextval('jd_code_seq')]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-08-25 00:25:32,477 | ERROR    | - | app | Unhandled exception on POST /api/v1/jd-analysis
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "jd_code_seq" does not exist
+LINE 1: SELECT nextval('jd_code_seq')
+                       ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\middleware\base.py", line 185, in __call__
+    with collapse_excgroups():
+         ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Premchandu\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\middleware\base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\app\core\middleware.py", line 20, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\middleware\base.py", line 163, in call_next
+    raise app_exc
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\middleware\base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\app\api\v1\jd_analysis.py", line 41, in create_jd_analysis
+    jd_analysis = await analyze_jd(db, payload.jd_text, actor.email_or_name, uuid.UUID(actor.org_id))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\app\services\jd_analysis_service.py", line 42, in analyze_jd
+    jd_code=_next_jd_code(db),
+            ~~~~~~~~~~~~~^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\app\services\jd_analysis_service.py", line 32, in _next_jd_code
+    seq_value = db.execute(text("SELECT nextval('jd_code_seq')")).scalar_one()
+                ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2256, in _execute_internal
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "jd_code_seq" does not exist
+LINE 1: SELECT nextval('jd_code_seq')
+                       ^
+
+[SQL: SELECT nextval('jd_code_seq')]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-08-25 00:25:32,933 | INFO     | 3bdd172c-eef9-4c7b-941a-4f4ad0a445be | app.request | --> POST /api/v1/submissions
+2026-08-25 00:25:32,938 | INFO     | 3bdd172c-eef9-4c7b-941a-4f4ad0a445be | app.request | <-- POST /api/v1/submissions 404 (5.0ms)
+2026-08-25 00:25:49,675 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-25 00:25:50,356 | INFO     | 766aa435-a21f-4f0b-a8d2-a0aac8659e34 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:50,357 | INFO     | 766aa435-a21f-4f0b-a8d2-a0aac8659e34 | app.request | <-- GET /api/v1/jd-analysis 401 (1.2ms)
+2026-08-25 00:25:50,364 | INFO     | 53d2fd16-ab81-4b7f-bae2-58ddec2204d4 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:50,365 | INFO     | 53d2fd16-ab81-4b7f-bae2-58ddec2204d4 | app.request | <-- GET /api/v1/jd-analysis 401 (1.1ms)
+2026-08-25 00:25:50,373 | INFO     | e0bb9c59-a4bc-4361-a265-d81c2233d2b0 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:50,379 | INFO     | e0bb9c59-a4bc-4361-a265-d81c2233d2b0 | app.request | <-- GET /api/v1/jd-analysis 401 (5.5ms)
+2026-08-25 00:25:50,386 | INFO     | 83b75615-a7a5-45fc-b51a-68f9eb65ad6b | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:50,599 | ERROR    | 83b75615-a7a5-45fc-b51a-68f9eb65ad6b | app.core.iam_client | Failed to fetch JWKS from iam-service: [Errno 11001] getaddrinfo failed
+2026-08-25 00:25:50,599 | INFO     | 83b75615-a7a5-45fc-b51a-68f9eb65ad6b | app.request | <-- GET /api/v1/jd-analysis 401 (213.2ms)
+2026-08-25 00:25:50,607 | INFO     | f0849e2a-4930-4f81-afae-8609627ea635 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:50,610 | INFO     | f0849e2a-4930-4f81-afae-8609627ea635 | app.request | <-- GET /api/v1/jd-analysis 403 (2.9ms)
+2026-08-25 00:25:50,618 | INFO     | 7524dce7-08cc-4b74-a2c8-da2b406cbaa6 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:50,642 | INFO     | 7524dce7-08cc-4b74-a2c8-da2b406cbaa6 | app.request | <-- GET /api/v1/jd-analysis 200 (24.3ms)
+2026-08-25 00:25:50,652 | INFO     | 26406365-b34b-46d4-8f39-68822cac81bd | app.request | --> DELETE /api/v1/jd-analysis/6545f07b-40e5-4d51-9ebd-5924f52e7840
+2026-08-25 00:25:50,654 | INFO     | 26406365-b34b-46d4-8f39-68822cac81bd | app.request | <-- DELETE /api/v1/jd-analysis/6545f07b-40e5-4d51-9ebd-5924f52e7840 403 (1.4ms)
+2026-08-25 00:25:50,661 | INFO     | ed4ffd56-766f-4b86-a645-7aa28fb7ebbc | app.request | --> GET /health
+2026-08-25 00:25:50,662 | INFO     | ed4ffd56-766f-4b86-a645-7aa28fb7ebbc | app.request | <-- GET /health 200 (0.8ms)
+2026-08-25 00:25:50,669 | INFO     | d6a1c5a0-e28d-4547-9e0c-bdbada4885ea | app.request | --> GET /health
+2026-08-25 00:25:50,670 | INFO     | d6a1c5a0-e28d-4547-9e0c-bdbada4885ea | app.request | <-- GET /health 200 (0.8ms)
+2026-08-25 00:25:50,677 | INFO     | 6deb6ce3-f70e-4f9c-9150-46ddcf7f5349 | app.request | --> POST /api/v1/jd-analysis
+2026-08-25 00:25:50,679 | INFO     | 6deb6ce3-f70e-4f9c-9150-46ddcf7f5349 | app.request | <-- POST /api/v1/jd-analysis 401 (1.3ms)
+2026-08-25 00:25:50,697 | INFO     | 986aabe5-fcf0-452e-a2f9-77e3a22483c5 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:50,746 | INFO     | 986aabe5-fcf0-452e-a2f9-77e3a22483c5 | app.request | <-- GET /api/v1/jd-analysis 200 (49.0ms)
+2026-08-25 00:25:50,772 | INFO     | ccd36849-e905-4ab8-bac3-c22194377c1e | app.request | --> GET /api/v1/jd-analysis/9e6b7bd1-ae3d-476d-9af2-1ecd02aac318
+2026-08-25 00:25:50,776 | INFO     | ccd36849-e905-4ab8-bac3-c22194377c1e | app.request | <-- GET /api/v1/jd-analysis/9e6b7bd1-ae3d-476d-9af2-1ecd02aac318 404 (3.9ms)
+2026-08-25 00:25:50,784 | INFO     | 393ee948-7c02-49dc-a1f8-e832aa822a52 | app.request | --> POST /api/v1/jd-analysis
+2026-08-25 00:25:50,831 | INFO     | 393ee948-7c02-49dc-a1f8-e832aa822a52 | app.services.jd_analysis | JD analysis TOS01 (7b77572e-dd59-4cba-b0ad-295e3ebfa1eb) created with 0 skills
+2026-08-25 00:25:51,030 | ERROR    | 393ee948-7c02-49dc-a1f8-e832aa822a52 | app.core.iam_client | Failed to post audit event action=jd_analysis.created target_type=jd_analysis to iam-service
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Premchandu\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\app\core\iam_client.py", line 186, in post_audit_event
+    response = await client.post(url, json=payload, headers={"Authorization": f"Bearer {bearer_token}"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1859, in post
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<13 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Premchandu\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-08-25 00:25:51,036 | INFO     | 393ee948-7c02-49dc-a1f8-e832aa822a52 | app.request | <-- POST /api/v1/jd-analysis 201 (252.8ms)
+2026-08-25 00:25:51,040 | INFO     | 8ddfa2b3-27b6-402b-a07b-b96625d2fc33 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:51,045 | INFO     | 8ddfa2b3-27b6-402b-a07b-b96625d2fc33 | app.request | <-- GET /api/v1/jd-analysis 200 (5.0ms)
+2026-08-25 00:25:51,048 | INFO     | 9e250ad3-794c-4412-9964-2fcbb9aa37f6 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:25:51,052 | INFO     | 9e250ad3-794c-4412-9964-2fcbb9aa37f6 | app.request | <-- GET /api/v1/jd-analysis 200 (3.3ms)
+2026-08-25 00:25:51,066 | INFO     | 0e3e0b40-971a-4959-b1bc-91edb08a2016 | app.request | --> POST /api/v1/submissions
+2026-08-25 00:25:51,072 | INFO     | 0e3e0b40-971a-4959-b1bc-91edb08a2016 | app.request | <-- POST /api/v1/submissions 404 (6.1ms)
+2026-08-25 00:26:55,916 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-25 00:26:55,917 | INFO     | - | uvicorn.error | Started server process [75508]
+2026-08-25 00:26:55,917 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-25 00:26:55,917 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-25 00:27:03,925 | INFO     | b61f65a2-c34d-4f96-926c-eeffe577d178 | app.request | --> GET /health
+2026-08-25 00:27:03,927 | INFO     | b61f65a2-c34d-4f96-926c-eeffe577d178 | app.request | <-- GET /health 200 (1.9ms)
+2026-08-25 00:27:34,729 | INFO     | acb54e6c-6e11-4e96-9d44-103f914649f7 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:27:34,731 | INFO     | acb54e6c-6e11-4e96-9d44-103f914649f7 | app.request | <-- GET /api/v1/jd-analysis 401 (2.7ms)
+2026-08-25 00:27:35,016 | INFO     | 243f23b4-d791-4c08-93ee-34d5626dba66 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:27:37,517 | INFO     | 243f23b4-d791-4c08-93ee-34d5626dba66 | app.request | <-- GET /api/v1/jd-analysis 200 (2501.0ms)
+2026-08-25 00:27:50,192 | INFO     | 624b2113-c07f-4027-9793-83d3f09edcea | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:27:50,195 | INFO     | 624b2113-c07f-4027-9793-83d3f09edcea | app.request | <-- GET /api/v1/jd-analysis 403 (3.6ms)
+2026-08-25 00:28:00,499 | INFO     | bb2ce62c-9930-4636-8bf6-97b70c2bf125 | app.request | --> PATCH /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-25 00:28:00,521 | INFO     | bb2ce62c-9930-4636-8bf6-97b70c2bf125 | app.services.jd_analysis | JD analysis TOS01 updated by admin@talentos-platform.com: ['job_title']
+2026-08-25 00:28:01,011 | INFO     | bb2ce62c-9930-4636-8bf6-97b70c2bf125 | app.request | <-- PATCH /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (512.5ms)
+2026-08-25 00:28:12,747 | INFO     | 3c8deff4-9e79-41ab-95c8-c4bd7a73b478 | app.request | --> GET /api/v1/resume-analysis
+2026-08-25 00:28:12,756 | INFO     | 3c8deff4-9e79-41ab-95c8-c4bd7a73b478 | app.request | <-- GET /api/v1/resume-analysis 200 (9.6ms)
+2026-08-25 00:28:13,071 | INFO     | fba421d7-782e-4c10-a451-21907bd57253 | app.request | --> GET /api/v1/submissions
+2026-08-25 00:28:13,101 | INFO     | fba421d7-782e-4c10-a451-21907bd57253 | app.request | <-- GET /api/v1/submissions 200 (29.4ms)
+2026-08-25 00:28:28,153 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-25 00:28:28,790 | INFO     | f4bf43df-f63a-4194-97e0-89cea26a5a43 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:28:28,791 | INFO     | f4bf43df-f63a-4194-97e0-89cea26a5a43 | app.request | <-- GET /api/v1/jd-analysis 401 (1.1ms)
+2026-08-25 00:28:28,800 | INFO     | a396bf5d-f6ef-4d18-a601-0675dc827a04 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:28:28,801 | INFO     | a396bf5d-f6ef-4d18-a601-0675dc827a04 | app.request | <-- GET /api/v1/jd-analysis 401 (1.4ms)
+2026-08-25 00:28:28,813 | INFO     | 9bc86634-4cc3-42b7-9d40-1e0122a33634 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:28:28,819 | INFO     | 9bc86634-4cc3-42b7-9d40-1e0122a33634 | app.request | <-- GET /api/v1/jd-analysis 401 (5.9ms)
+2026-08-25 00:28:28,829 | INFO     | 1b870d5a-8b40-49a4-b54c-9b51c7dce085 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:28:29,059 | ERROR    | 1b870d5a-8b40-49a4-b54c-9b51c7dce085 | app.core.iam_client | Failed to fetch JWKS from iam-service: [Errno 11001] getaddrinfo failed
+2026-08-25 00:28:29,060 | INFO     | 1b870d5a-8b40-49a4-b54c-9b51c7dce085 | app.request | <-- GET /api/v1/jd-analysis 401 (231.4ms)
+2026-08-25 00:28:29,072 | INFO     | a053d0f7-2ba9-47d1-a172-12d2893ba04a | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:28:29,075 | INFO     | a053d0f7-2ba9-47d1-a172-12d2893ba04a | app.request | <-- GET /api/v1/jd-analysis 403 (2.9ms)
+2026-08-25 00:28:29,083 | INFO     | b52cbdcf-5910-47a7-adc7-8c42e2b6bacb | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:28:29,106 | INFO     | b52cbdcf-5910-47a7-adc7-8c42e2b6bacb | app.request | <-- GET /api/v1/jd-analysis 200 (23.1ms)
+2026-08-25 00:28:29,114 | INFO     | d21f7bec-570a-482c-b37f-c6bbcdae560e | app.request | --> DELETE /api/v1/jd-analysis/62e2336a-7dcd-4d1d-987c-6674437e9e64
+2026-08-25 00:28:29,115 | INFO     | d21f7bec-570a-482c-b37f-c6bbcdae560e | app.request | <-- DELETE /api/v1/jd-analysis/62e2336a-7dcd-4d1d-987c-6674437e9e64 403 (1.4ms)
+2026-08-25 00:28:29,122 | INFO     | 79a27d9b-14a5-4e24-9909-154ab7c44830 | app.request | --> GET /health
+2026-08-25 00:28:29,123 | INFO     | 79a27d9b-14a5-4e24-9909-154ab7c44830 | app.request | <-- GET /health 200 (1.0ms)
+2026-08-25 00:28:29,130 | INFO     | a38a5058-e2df-4da2-8359-cbd04fd378d0 | app.request | --> GET /health
+2026-08-25 00:28:29,131 | INFO     | a38a5058-e2df-4da2-8359-cbd04fd378d0 | app.request | <-- GET /health 200 (0.8ms)
+2026-08-25 00:28:29,137 | INFO     | 08763eeb-0196-4c50-aacd-8534ffbfde43 | app.request | --> POST /api/v1/jd-analysis
+2026-08-25 00:28:29,139 | INFO     | 08763eeb-0196-4c50-aacd-8534ffbfde43 | app.request | <-- POST /api/v1/jd-analysis 401 (1.3ms)
+2026-08-25 00:28:29,156 | INFO     | 71556eb7-3650-4853-85a7-c511168de7eb | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:28:29,211 | INFO     | 71556eb7-3650-4853-85a7-c511168de7eb | app.request | <-- GET /api/v1/jd-analysis 200 (55.5ms)
+2026-08-25 00:28:29,245 | INFO     | 8bb1f28a-ef23-43d4-abf2-0946d60333fd | app.request | --> GET /api/v1/jd-analysis/4b53d19d-b3c5-4971-85e1-655dba2b1f6b
+2026-08-25 00:28:29,250 | INFO     | 8bb1f28a-ef23-43d4-abf2-0946d60333fd | app.request | <-- GET /api/v1/jd-analysis/4b53d19d-b3c5-4971-85e1-655dba2b1f6b 404 (4.7ms)
+2026-08-25 00:28:29,260 | INFO     | 353abf39-d44c-4612-9afd-d090c3764305 | app.request | --> POST /api/v1/jd-analysis
+2026-08-25 00:28:29,273 | INFO     | 353abf39-d44c-4612-9afd-d090c3764305 | app.services.jd_analysis | JD analysis TOS02 (eb44c530-9f22-4bfa-bfa1-77568ffc7435) created with 0 skills
+2026-08-25 00:28:29,478 | ERROR    | 353abf39-d44c-4612-9afd-d090c3764305 | app.core.iam_client | Failed to post audit event action=jd_analysis.created target_type=jd_analysis to iam-service
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Premchandu\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\app\core\iam_client.py", line 186, in post_audit_event
+    response = await client.post(url, json=payload, headers={"Authorization": f"Bearer {bearer_token}"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1859, in post
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<13 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Premchandu\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-08-25 00:28:29,484 | INFO     | 353abf39-d44c-4612-9afd-d090c3764305 | app.request | <-- POST /api/v1/jd-analysis 201 (224.7ms)
+2026-08-25 00:28:29,489 | INFO     | 5522d78b-63f9-47a6-b755-eab7624d84a0 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:28:29,493 | INFO     | 5522d78b-63f9-47a6-b755-eab7624d84a0 | app.request | <-- GET /api/v1/jd-analysis 200 (3.9ms)
+2026-08-25 00:28:29,496 | INFO     | 7d88bfd9-268b-4289-80d7-0cafaa4e37b6 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:28:29,500 | INFO     | 7d88bfd9-268b-4289-80d7-0cafaa4e37b6 | app.request | <-- GET /api/v1/jd-analysis 200 (3.5ms)
+2026-08-25 00:28:29,514 | INFO     | c051917f-b8c5-4754-8975-2b3b5f5c2fd9 | app.request | --> POST /api/v1/submissions
+2026-08-25 00:28:29,557 | INFO     | c051917f-b8c5-4754-8975-2b3b5f5c2fd9 | app.request | <-- POST /api/v1/submissions 404 (43.3ms)
+2026-08-25 00:29:29,491 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-25 00:30:26,661 | INFO     | f9ad7e39-54c3-4e42-857a-b6badd39c687 | app.request | --> GET /api/v1/interview-sessions
+2026-08-25 00:30:26,681 | INFO     | f9ad7e39-54c3-4e42-857a-b6badd39c687 | app.request | <-- GET /api/v1/interview-sessions 200 (19.8ms)
+2026-08-25 00:30:27,000 | INFO     | c2daa076-df26-430d-8cd8-b3a563870f68 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:30:27,012 | INFO     | c2daa076-df26-430d-8cd8-b3a563870f68 | app.request | <-- GET /api/v1/jd-analysis 200 (11.8ms)
+2026-08-25 00:30:27,327 | INFO     | e8b62e33-b045-4cf5-a40f-18627d08d5a6 | app.request | --> GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b
+2026-08-25 00:30:27,343 | INFO     | e8b62e33-b045-4cf5-a40f-18627d08d5a6 | app.request | <-- GET /api/v1/jd-analysis/e1045884-f91a-42e2-ab52-b0f8f0cda78b 200 (15.8ms)
+2026-08-25 00:30:35,094 | INFO     | 77541b60-16c9-4e09-9ee7-46314601c23d | app.request | --> GET /api/v1/questions/2039e9b4-5aac-45d8-b800-e716eb4f358d
+2026-08-25 00:30:35,123 | INFO     | 77541b60-16c9-4e09-9ee7-46314601c23d | app.request | <-- GET /api/v1/questions/2039e9b4-5aac-45d8-b800-e716eb4f358d 200 (29.7ms)
+2026-08-25 00:35:21,599 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-25 00:35:21,600 | INFO     | - | uvicorn.error | Started server process [59280]
+2026-08-25 00:35:21,600 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-25 00:35:21,600 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-25 00:35:23,286 | INFO     | 49056e0a-e723-4e46-a63e-4999113358d0 | app.request | --> GET /health
+2026-08-25 00:35:23,288 | INFO     | 49056e0a-e723-4e46-a63e-4999113358d0 | app.request | <-- GET /health 200 (1.7ms)
+2026-08-25 00:35:30,433 | INFO     | 1d5108a5-6733-453f-aeca-fa008d52ed57 | app.request | --> GET /health
+2026-08-25 00:35:30,435 | INFO     | 1d5108a5-6733-453f-aeca-fa008d52ed57 | app.request | <-- GET /health 200 (2.0ms)
+2026-08-25 00:35:40,250 | INFO     | 89e1ad42-0140-4d7b-bbfb-fbb0066ef073 | app.request | --> POST /api/v1/jd-analysis
+2026-08-25 00:36:10,389 | INFO     | 89e1ad42-0140-4d7b-bbfb-fbb0066ef073 | app.services.jd_analysis | JD analysis TOS02 (945e2480-42d2-454d-b8f0-dd6c6eb56776) created with 7 skills
+2026-08-25 00:36:10,864 | INFO     | 89e1ad42-0140-4d7b-bbfb-fbb0066ef073 | app.request | <-- POST /api/v1/jd-analysis 201 (30613.7ms)
+2026-08-25 00:36:33,203 | INFO     | 67e16661-30d4-4cad-bfca-9c3af54a7ddd | app.request | --> GET /api/v1/jd-analysis/945e2480-42d2-454d-b8f0-dd6c6eb56776
+2026-08-25 00:36:33,222 | INFO     | 67e16661-30d4-4cad-bfca-9c3af54a7ddd | app.request | <-- GET /api/v1/jd-analysis/945e2480-42d2-454d-b8f0-dd6c6eb56776 200 (18.8ms)
+2026-08-25 00:36:33,529 | INFO     | 20be96d5-72a4-464d-b973-a3a91793bb36 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:36:33,531 | INFO     | 20be96d5-72a4-464d-b973-a3a91793bb36 | app.request | <-- GET /api/v1/jd-analysis 401 (2.0ms)
+2026-08-25 00:42:03,708 | INFO     | e554eb5c-68fc-46ba-b8b2-43ec622c6b94 | app.request | --> GET /health
+2026-08-25 00:42:03,710 | INFO     | e554eb5c-68fc-46ba-b8b2-43ec622c6b94 | app.request | <-- GET /health 200 (2.3ms)
+2026-08-25 00:43:04,588 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-25 00:43:05,286 | INFO     | b3d45863-7e42-49db-8c9e-0e6e49ce29e6 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:43:05,288 | INFO     | b3d45863-7e42-49db-8c9e-0e6e49ce29e6 | app.request | <-- GET /api/v1/jd-analysis 401 (1.3ms)
+2026-08-25 00:43:05,296 | INFO     | 68489ce8-ae0f-457f-ae9c-b70cd6f1bc20 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:43:05,297 | INFO     | 68489ce8-ae0f-457f-ae9c-b70cd6f1bc20 | app.request | <-- GET /api/v1/jd-analysis 401 (1.0ms)
+2026-08-25 00:43:05,306 | INFO     | b87eb470-f968-4e30-8671-321dccdac95d | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:43:05,312 | INFO     | b87eb470-f968-4e30-8671-321dccdac95d | app.request | <-- GET /api/v1/jd-analysis 401 (5.9ms)
+2026-08-25 00:43:05,319 | INFO     | f60f7a0f-50d8-4b35-94a1-77a60fe6b085 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:43:05,535 | ERROR    | f60f7a0f-50d8-4b35-94a1-77a60fe6b085 | app.core.iam_client | Failed to fetch JWKS from iam-service: [Errno 11001] getaddrinfo failed
+2026-08-25 00:43:05,535 | INFO     | f60f7a0f-50d8-4b35-94a1-77a60fe6b085 | app.request | <-- GET /api/v1/jd-analysis 401 (216.2ms)
+2026-08-25 00:43:05,544 | INFO     | 14fe2705-4463-45f5-82a2-b42fb87e6442 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:43:05,546 | INFO     | 14fe2705-4463-45f5-82a2-b42fb87e6442 | app.request | <-- GET /api/v1/jd-analysis 403 (2.8ms)
+2026-08-25 00:43:05,554 | INFO     | 9c98d631-6770-43cd-a6d1-06cb160b4b58 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:43:05,581 | INFO     | 9c98d631-6770-43cd-a6d1-06cb160b4b58 | app.request | <-- GET /api/v1/jd-analysis 200 (26.6ms)
+2026-08-25 00:43:05,588 | INFO     | 578011f7-a95b-4aac-8211-ce967886094e | app.request | --> DELETE /api/v1/jd-analysis/ca20dee5-6cd1-4abd-9b02-e744a190c203
+2026-08-25 00:43:05,590 | INFO     | 578011f7-a95b-4aac-8211-ce967886094e | app.request | <-- DELETE /api/v1/jd-analysis/ca20dee5-6cd1-4abd-9b02-e744a190c203 403 (1.3ms)
+2026-08-25 00:43:05,597 | INFO     | ae9d6eda-2c57-49bb-807f-e1aea849d181 | app.request | --> GET /health
+2026-08-25 00:43:05,598 | INFO     | ae9d6eda-2c57-49bb-807f-e1aea849d181 | app.request | <-- GET /health 200 (0.9ms)
+2026-08-25 00:43:05,605 | INFO     | 63353682-5d56-4fc3-886c-c7036c259bef | app.request | --> GET /health
+2026-08-25 00:43:05,606 | INFO     | 63353682-5d56-4fc3-886c-c7036c259bef | app.request | <-- GET /health 200 (0.9ms)
+2026-08-25 00:43:05,614 | INFO     | 6a890cea-18fd-44a3-a756-2ebf9e883fcd | app.request | --> POST /api/v1/jd-analysis
+2026-08-25 00:43:05,615 | INFO     | 6a890cea-18fd-44a3-a756-2ebf9e883fcd | app.request | <-- POST /api/v1/jd-analysis 401 (1.2ms)
+2026-08-25 00:43:05,631 | INFO     | cf4174fe-209e-4226-9ebb-4510007a72d9 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:43:05,682 | INFO     | cf4174fe-209e-4226-9ebb-4510007a72d9 | app.request | <-- GET /api/v1/jd-analysis 200 (51.0ms)
+2026-08-25 00:43:05,710 | INFO     | 9c0648d7-3edc-4f51-b753-e3f475d602a0 | app.request | --> GET /api/v1/jd-analysis/5380c2cf-8ff7-455b-9ba4-f5fb25870961
+2026-08-25 00:43:05,714 | INFO     | 9c0648d7-3edc-4f51-b753-e3f475d602a0 | app.request | <-- GET /api/v1/jd-analysis/5380c2cf-8ff7-455b-9ba4-f5fb25870961 404 (4.4ms)
+2026-08-25 00:43:05,723 | INFO     | 5b5896e9-6a39-4ca5-8e5b-c6a78749a3ed | app.request | --> POST /api/v1/jd-analysis
+2026-08-25 00:43:05,736 | INFO     | 5b5896e9-6a39-4ca5-8e5b-c6a78749a3ed | app.services.jd_analysis | JD analysis TOS03 (c9cdf280-911a-4895-bbcf-530de79755b6) created with 0 skills
+2026-08-25 00:43:05,941 | ERROR    | 5b5896e9-6a39-4ca5-8e5b-c6a78749a3ed | app.core.iam_client | Failed to post audit event action=jd_analysis.created target_type=jd_analysis to iam-service
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Premchandu\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\app\core\iam_client.py", line 186, in post_audit_event
+    response = await client.post(url, json=payload, headers={"Authorization": f"Bearer {bearer_token}"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1859, in post
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<13 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Premchandu\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\intake-matching-service\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-08-25 00:43:05,947 | INFO     | 5b5896e9-6a39-4ca5-8e5b-c6a78749a3ed | app.request | <-- POST /api/v1/jd-analysis 201 (224.2ms)
+2026-08-25 00:43:05,951 | INFO     | f1d10fdf-f62a-49e7-a0d3-fd1364122128 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:43:05,955 | INFO     | f1d10fdf-f62a-49e7-a0d3-fd1364122128 | app.request | <-- GET /api/v1/jd-analysis 200 (3.9ms)
+2026-08-25 00:43:05,959 | INFO     | 1d75e13f-02b0-4ee7-b2e7-33e73f4bcdd0 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 00:43:05,962 | INFO     | 1d75e13f-02b0-4ee7-b2e7-33e73f4bcdd0 | app.request | <-- GET /api/v1/jd-analysis 200 (3.7ms)
+2026-08-25 00:43:05,979 | INFO     | 1911630e-4bbf-4a52-8770-62829e8d2930 | app.request | --> POST /api/v1/submissions
+2026-08-25 00:43:06,052 | INFO     | 1911630e-4bbf-4a52-8770-62829e8d2930 | app.request | <-- POST /api/v1/submissions 404 (72.7ms)
+2026-08-25 05:20:38,786 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-25 05:20:39,668 | INFO     | 3d925e0c-c66a-4041-a003-716dac903f44 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 05:20:39,669 | INFO     | 3d925e0c-c66a-4041-a003-716dac903f44 | app.request | <-- GET /api/v1/jd-analysis 401 (1.3ms)
+2026-08-25 05:20:39,678 | INFO     | ee71118d-0941-4b97-b5a2-430537950874 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 05:20:39,680 | INFO     | ee71118d-0941-4b97-b5a2-430537950874 | app.request | <-- GET /api/v1/jd-analysis 401 (2.0ms)
+2026-08-25 05:20:39,693 | INFO     | 0d5461ca-933e-4943-a1b5-9c1e1e7f9950 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 05:20:39,698 | INFO     | 0d5461ca-933e-4943-a1b5-9c1e1e7f9950 | app.request | <-- GET /api/v1/jd-analysis 401 (5.1ms)
+2026-08-25 05:20:39,705 | INFO     | a2bf9faf-7c7b-42d7-af22-72c2a33e62d1 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 05:20:39,933 | ERROR    | a2bf9faf-7c7b-42d7-af22-72c2a33e62d1 | app.core.iam_client | Failed to fetch JWKS from iam-service: [Errno 11001] getaddrinfo failed
+2026-08-25 05:20:39,934 | INFO     | a2bf9faf-7c7b-42d7-af22-72c2a33e62d1 | app.request | <-- GET /api/v1/jd-analysis 401 (228.7ms)
+2026-08-25 05:20:39,942 | INFO     | 49fa4c4e-14f0-4238-866d-1eff58b1d335 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 05:20:39,944 | INFO     | 49fa4c4e-14f0-4238-866d-1eff58b1d335 | app.request | <-- GET /api/v1/jd-analysis 403 (2.0ms)
+2026-08-25 05:20:39,952 | INFO     | 94239901-74c9-4ad2-b85c-cb79f0db6217 | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 05:20:39,978 | INFO     | 94239901-74c9-4ad2-b85c-cb79f0db6217 | app.request | <-- GET /api/v1/jd-analysis 200 (26.3ms)
+2026-08-25 05:20:39,986 | INFO     | 44da060d-957d-4d10-8373-f8a7fbcf9338 | app.request | --> DELETE /api/v1/jd-analysis/7a9caf85-c7bf-4774-b304-a2c601e20c1d
+2026-08-25 05:20:39,988 | INFO     | 44da060d-957d-4d10-8373-f8a7fbcf9338 | app.request | <-- DELETE /api/v1/jd-analysis/7a9caf85-c7bf-4774-b304-a2c601e20c1d 403 (1.5ms)
+2026-08-25 05:20:39,996 | INFO     | cf3767a3-d09b-4431-934d-d519a5f6c0d5 | app.request | --> GET /health
+2026-08-25 05:20:39,997 | INFO     | cf3767a3-d09b-4431-934d-d519a5f6c0d5 | app.request | <-- GET /health 200 (0.9ms)
+2026-08-25 05:20:40,004 | INFO     | f5a3b7e6-86ab-473b-b0a4-a375f7339b13 | app.request | --> GET /health
+2026-08-25 05:20:40,005 | INFO     | f5a3b7e6-86ab-473b-b0a4-a375f7339b13 | app.request | <-- GET /health 200 (0.9ms)
+2026-08-25 05:20:40,013 | INFO     | 71c9b7e7-923a-4978-944f-148dcad75018 | app.request | --> POST /api/v1/jd-analysis
+2026-08-25 05:20:40,017 | INFO     | 71c9b7e7-923a-4978-944f-148dcad75018 | app.request | <-- POST /api/v1/jd-analysis 401 (3.5ms)
+2026-08-25 05:20:40,034 | INFO     | e017cee3-eb63-4b7b-a04c-29f0fb47c4dd | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 05:20:40,083 | INFO     | e017cee3-eb63-4b7b-a04c-29f0fb47c4dd | app.request | <-- GET /api/v1/jd-analysis 200 (49.7ms)
+2026-08-25 05:20:40,113 | INFO     | a84736bf-78bf-4005-a8e9-bf9d91f34e3d | app.request | --> GET /api/v1/jd-analysis/cc8fa0ce-6545-43ad-9365-ce8025fb4431
+2026-08-25 05:20:40,156 | INFO     | a84736bf-78bf-4005-a8e9-bf9d91f34e3d | app.request | <-- GET /api/v1/jd-analysis/cc8fa0ce-6545-43ad-9365-ce8025fb4431 404 (43.9ms)
+2026-08-25 05:20:40,166 | INFO     | 17097834-b206-47ae-a618-a0b294510c30 | app.request | --> POST /api/v1/jd-analysis
+2026-08-25 05:20:40,173 | INFO     | 17097834-b206-47ae-a618-a0b294510c30 | app.services.jd_analysis | JD analysis TOS01 (d1c6b410-e562-4ebf-9c5d-16c687f015e8) created with 0 skills
+2026-08-25 05:20:40,379 | ERROR    | 17097834-b206-47ae-a618-a0b294510c30 | app.core.iam_client | Failed to post audit event action=jd_analysis.created target_type=jd_analysis to iam-service
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Premchandu\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\app\core\iam_client.py", line 186, in post_audit_event
+    response = await client.post(url, json=payload, headers={"Authorization": f"Bearer {bearer_token}"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpx\_client.py", line 1859, in post
+    return await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<13 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Premchandu\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\TalentOS_All_Services\platform_os\backend\talentos-app\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-08-25 05:20:40,387 | INFO     | 17097834-b206-47ae-a618-a0b294510c30 | app.request | <-- POST /api/v1/jd-analysis 201 (220.7ms)
+2026-08-25 05:20:40,391 | INFO     | 0b48e215-fd59-40d7-8da6-0ce3339398ca | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 05:20:40,397 | INFO     | 0b48e215-fd59-40d7-8da6-0ce3339398ca | app.request | <-- GET /api/v1/jd-analysis 200 (6.4ms)
+2026-08-25 05:20:40,400 | INFO     | 913c1ac5-1965-4eb9-89eb-05fe2ba7e02e | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 05:20:40,403 | INFO     | 913c1ac5-1965-4eb9-89eb-05fe2ba7e02e | app.request | <-- GET /api/v1/jd-analysis 200 (3.2ms)
+2026-08-25 05:20:40,421 | INFO     | ce91b362-d4c4-4b12-8199-26dd3870dee2 | app.request | --> POST /api/v1/submissions
+2026-08-25 05:20:40,427 | INFO     | ce91b362-d4c4-4b12-8199-26dd3870dee2 | app.request | <-- POST /api/v1/submissions 404 (6.4ms)
+2026-08-25 05:20:47,801 | INFO     | - | app | TalentOS Intake & Matching Service started in local mode
+2026-08-25 05:20:47,802 | INFO     | - | uvicorn.error | Started server process [67440]
+2026-08-25 05:20:47,802 | INFO     | - | uvicorn.error | Waiting for application startup.
+2026-08-25 05:20:47,802 | INFO     | - | uvicorn.error | Application startup complete.
+2026-08-25 05:20:49,421 | INFO     | ceb588b1-ba78-49ab-ab69-b0575ac7fc06 | app.request | --> GET /health
+2026-08-25 05:20:49,423 | INFO     | ceb588b1-ba78-49ab-ab69-b0575ac7fc06 | app.request | <-- GET /health 200 (2.0ms)
+2026-08-25 05:20:55,153 | INFO     | 8b4b9598-6d38-4266-bf7e-091785c20227 | app.request | --> GET /health
+2026-08-25 05:20:55,155 | INFO     | 8b4b9598-6d38-4266-bf7e-091785c20227 | app.request | <-- GET /health 200 (1.9ms)
+2026-08-25 05:21:16,095 | INFO     | 67f74309-17db-41fb-b0eb-f385a497fe0d | app.request | --> GET /
+2026-08-25 05:21:16,097 | INFO     | 67f74309-17db-41fb-b0eb-f385a497fe0d | app.request | <-- GET / 404 (1.4ms)
+2026-08-25 05:21:28,813 | INFO     | deced597-2542-4ad7-8fd7-16edefc388af | app.request | --> GET /health
+2026-08-25 05:21:28,815 | INFO     | deced597-2542-4ad7-8fd7-16edefc388af | app.request | <-- GET /health 200 (1.4ms)
+2026-08-25 05:22:08,064 | INFO     | 881934c0-1890-4bb4-af20-72f15b710f9d | app.request | --> GET /api/v1/jd-analysis
+2026-08-25 05:22:10,444 | INFO     | 881934c0-1890-4bb4-af20-72f15b710f9d | app.request | <-- GET /api/v1/jd-analysis 200 (2380.4ms)

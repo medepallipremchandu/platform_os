@@ -1,0 +1,406 @@
+/* ==========================================================================
+   Buttons - copied from iam-console/src/App.css, trimmed to what's used here.
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.btn--md {
+  padding: 9px 16px;
+  font-size: var(--text-sm);
+}
+
+.btn--sm {
+  padding: 6px 12px;
+  font-size: var(--text-xs);
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.btn--secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: var(--color-surface-sunken);
+}
+
+.btn--danger {
+  background: var(--color-surface);
+  color: var(--danger-500);
+  border-color: #f3c9c5;
+}
+
+.btn--danger:hover:not(:disabled) {
+  background: var(--danger-50);
+}
+
+.btn--ghost {
+  background: none;
+  color: var(--color-text-muted);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: var(--color-surface-sunken);
+  color: var(--color-text);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.spinner {
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   Card
+   ========================================================================== */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.card__title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Empty state
+   ========================================================================== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-4);
+  color: var(--color-text-muted);
+}
+
+.empty-state__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-sunken);
+  color: var(--color-text-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-2);
+}
+
+.empty-state__title {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.empty-state__description {
+  font-size: var(--text-sm);
+  max-width: 42ch;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.form label {
+  font-weight: 600;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 40px;
+}
+
+.password-field__toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(calc(-50% + 11px));
+  background: none;
+  color: var(--color-text-subtle);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.password-field__toggle:hover {
+  color: var(--color-text-muted);
+  background: var(--color-surface-sunken);
+}
+
+/* ==========================================================================
+   Login page
+   ========================================================================== */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--gray-950), var(--brand-900) 140%);
+  padding: var(--space-6);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.login-card__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.login-card__brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
+  color: white;
+  flex-shrink: 0;
+}
+
+.login-card__title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+}
+
+.login-card__subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  margin-top: 2px;
+}
+
+.org-picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.org-picker__option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  text-align: left;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.org-picker__option:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+/* ==========================================================================
+   Launcher page
+   ========================================================================== */
+.launcher-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.launcher-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-8);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.launcher-header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.launcher-header__brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
+  color: white;
+  flex-shrink: 0;
+}
+
+.launcher-header__brand-name {
+  font-weight: 700;
+  font-size: var(--text-lg);
+  letter-spacing: -0.01em;
+}
+
+.launcher-header__account {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.launcher-header__user {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.launcher-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-10) var(--space-8);
+}
+
+.launcher-intro__title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.launcher-intro__subtitle {
+  color: var(--color-text-muted);
+  margin-top: 6px;
+}
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-5);
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  text-align: left;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.tile:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.tile__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--brand-700);
+}
+
+.tile__name {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.tile__description {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 640px) {
+  .launcher-header {
+    padding: var(--space-4);
+  }
+
+  .launcher-header__user {
+    display: none;
+  }
+
+  .launcher-main {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .tile-grid {
+    grid-template-columns: 1fr;
+  }
+}

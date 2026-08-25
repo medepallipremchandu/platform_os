@@ -1,4 +1,4 @@
-# --- Python services (assessment-service, intake-matching-service) ---
+# --- Python services (backend/*) ---
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -11,8 +11,8 @@ venv/
 *.db
 
 # --- frontend (Node/React) ---
-frontend/node_modules/
-frontend/dist/
-frontend/.env
-frontend/.env.local
-frontend/npm-debug.log*
+frontend/*/node_modules/
+frontend/*/dist/
+frontend/*/.env
+frontend/*/.env.local
+frontend/*/npm-debug.log*
